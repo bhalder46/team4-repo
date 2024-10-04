@@ -1,20 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://pk23w756ofr7"]
+[gd_scene load_steps=4 format=3 uid="uid://pk23w756ofr7"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_eqhqg"]
+[ext_resource type="Texture2D" uid="uid://4b18eawohn3" path="res://Art/WeaponsPack/Sprites/Bullets.png" id="2_op6yk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgm23"]
+size = Vector2(9.09085, 8.33332)
 
 [node name="Bullet" type="Area2D"]
 scale = Vector2(0.440003, 0.480001)
 script = ExtResource("1_eqhqg")
-speed = 300.0
+speed = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.48352e-07)
 shape = SubResource("RectangleShape2D_bgm23")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(0.68076, 0.406383, 0.14442, 1)
+[node name="ColorRect" type="Sprite2D" parent="."]
+texture = ExtResource("2_op6yk")
+region_enabled = true
+region_rect = Rect2(107.599, 10.4681, 10.0109, 11.9696)
