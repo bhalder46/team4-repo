@@ -10,5 +10,5 @@ func set_direction(target_position: Vector2):
 	direction = (target_position).normalized()  # Use the direction set from the player
 
 func _process(delta):
-	position += direction * speed * delta  # Move in the direction set
+	global_position += direction * speed * delta  # Move in the direction set
 	

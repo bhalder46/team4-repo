@@ -7,7 +7,7 @@
 [node name="Bullet" type="Area2D"]
 scale = Vector2(0.440003, 0.480001)
 script = ExtResource("1_eqhqg")
-speed = 200.0
+speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bgm23")
