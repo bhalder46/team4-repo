@@ -210,9 +210,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72lyu"]
 size = Vector2(22, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b2k3a"]
-atlas = ExtResource("7_43jlp")
-region = Rect2(240, 0, 80, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdl0n"]
+atlas = ExtResource("8_ctrkc")
+region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcb7v"]
 atlas = ExtResource("8_ctrkc")
@@ -266,7 +266,7 @@ region = Rect2(240, 0, 80, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b2k3a")
+"texture": SubResource("AtlasTexture_pdl0n")
 }],
 "loop": false,
 "name": &"idle",
@@ -334,11 +334,21 @@ position = Vector2(-1, -13)
 shape = SubResource("RectangleShape2D_72lyu")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
-position = Vector2(10.9119, -11.6039)
-scale = Vector2(0.69919, 0.513751)
+position = Vector2(10, -10.412)
+scale = Vector2(0.658741, 0.48403)
 sprite_frames = SubResource("SpriteFrames_3s17c")
-animation = &"reload"
-offset = Vector2(28.2721, -3.59741)
+animation = &"idle"
+centered = false
+offset = Vector2(-8.47933, -20.1265)
 
 [node name="Muzzle" type="Marker2D" parent="Gun"]
-position = Vector2(32.7796, -1.83675)
+position = Vector2(30.662, -2.41943)
+
+[node name="ColorRect" type="ColorRect" parent="Gun"]
+offset_left = -2.96303
+offset_top = -0.277443
+offset_right = 37.037
+offset_bottom = 39.7226
+scale = Vector2(0.0388445, 0.0388445)
+pivot_offset = Vector2(2.42221, -1.23383)
+color = Color(0.95865, 0.257398, 1, 1)

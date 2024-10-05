@@ -116,12 +116,14 @@ func update_gun_rotation():
 	$Gun.rotation = angle
 
 	# Introduce a clear threshold to decide when to flip (reticle on the left vs right)
+	
 	if mouse_position.x < global_position.x and not is_reticle_on_left:
 		# Reticle crossed to the left side of the player
 		is_reticle_on_left = true
 		$Gun.flip_v = true
 		$Gun.position.x = -10  # Move the gun 10 pixels left
 		animated_sprite.flip_h = true  # Flip character sprite
+		
 	elif mouse_position.x > global_position.x and is_reticle_on_left:
 		# Reticle crossed to the right side of the player
 		is_reticle_on_left = false
