@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bptohhxcaa7dv"
-path="res://.godot/imported/oreo-king-cone-singles-280x330.png-51b4fef53ee16f62cd28910cbb5ae155.ctex"
+uid="uid://c3hlafnjpp5xs"
+path="res://.godot/imported/purple-neon-triangle-free-png.png-46da78ae6bd1e0fad88f61993912624f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/oreo-king-cone-singles-280x330.png"
-dest_files=["res://.godot/imported/oreo-king-cone-singles-280x330.png-51b4fef53ee16f62cd28910cbb5ae155.ctex"]
+source_file="res://Art/Random Assets/purple-neon-triangle-free-png.png"
+dest_files=["res://.godot/imported/purple-neon-triangle-free-png.png-46da78ae6bd1e0fad88f61993912624f.ctex"]
 
 [params]
 

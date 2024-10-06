@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bihqapf43e6gl"
-path="res://.godot/imported/maxresdefault.jpg-f78a3f93ad160a9d38e54ddc32c667b6.ctex"
+uid="uid://b3l502y7aycsx"
+path="res://.godot/imported/animated_SHOOTING_Sniper_rifle_KAR98_V1.00-ezgif.com-gif-to-sprite-converter(1).png-a4034e3b2bf5f0ab7b50df853d5e0a39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/maxresdefault.jpg"
-dest_files=["res://.godot/imported/maxresdefault.jpg-f78a3f93ad160a9d38e54ddc32c667b6.ctex"]
+source_file="res://Art/Random Assets/animated_SHOOTING_Sniper_rifle_KAR98_V1.00-ezgif.com-gif-to-sprite-converter(1).png"
+dest_files=["res://.godot/imported/animated_SHOOTING_Sniper_rifle_KAR98_V1.00-ezgif.com-gif-to-sprite-converter(1).png-a4034e3b2bf5f0ab7b50df853d5e0a39.ctex"]
 
 [params]
 
