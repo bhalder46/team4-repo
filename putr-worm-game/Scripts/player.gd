@@ -7,6 +7,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @export var bullet_scene: PackedScene
 @onready var muzzle = $Gun/Muzzle
+@onready var gun_shoot_sound = $"Gun/Shoot Sound"
+@onready var gun_reload_sound = $"Gun/Reload Sound"
 var can_shoot = true
 var shoot_cooldown = 0.5  # Time in seconds before the player can shoot again
 var reload_time = 1.5  # Time in seconds to reload
@@ -76,6 +78,9 @@ func shoot():
 	# Always play shoot animation before firing
 	$Gun.play("shoot")  # Play shoot animation
 
+	if gun_shoot_sound:
+		gun_shoot_sound.play()
+
 	shot_count += 1  # Increment the shot count
 	can_shoot = false
 	shoot_timer = shoot_cooldown  # Reset the shoot cooldown timer
@@ -103,6 +108,10 @@ func start_reloading():
 
 	# Wait for the shooting animation to finish before playing the reload animation
 	await $Gun.animation_finished  # Use await to wait for the animation to finish
+	
+	if gun_reload_sound:
+		gun_reload_sound.play()
+		
 	$Gun.play("reload")  # Play reload animation (make sure it exists)
 
 func update_gun_rotation():

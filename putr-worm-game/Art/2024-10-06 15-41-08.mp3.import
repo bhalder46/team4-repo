@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddace7yr60c4l"
+path="res://.godot/imported/2024-10-06 15-41-08.mp3-cc0dcd8cb9fe9d2f1b694aacb6433112.mp3str"
+
+[deps]
+
+source_file="res://Art/2024-10-06 15-41-08.mp3"
+dest_files=["res://.godot/imported/2024-10-06 15-41-08.mp3-cc0dcd8cb9fe9d2f1b694aacb6433112.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
