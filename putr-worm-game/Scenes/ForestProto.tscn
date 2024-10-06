@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=4 uid="uid://bkufbmm031vva"]
+[gd_scene load_steps=41 format=4 uid="uid://bkufbmm031vva"]
 
 [ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/forest_envi_package/Sprites/Background/sky.png" id="1_brmsw"]
+[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hfml5"]
 [ext_resource type="Texture2D" uid="uid://b1julc3aa105g" path="res://Art/forest_envi_package/Sprites/Background/cloud.png" id="2_mrfe3"]
 [ext_resource type="Texture2D" uid="uid://dm332ry216lfi" path="res://Art/forest_envi_package/Sprites/Background/mountain.png" id="3_h0d3q"]
 [ext_resource type="Texture2D" uid="uid://fn8gog2l8ph1" path="res://Art/forest_envi_package/Sprites/Background/pine1.png" id="4_f6224"]
@@ -30,6 +31,9 @@
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="28_xw2vl"]
 [ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="29_vnj7t"]
 [ext_resource type="Script" path="res://Scripts/target.gd" id="30_odv6l"]
+[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/ibm5150.png" id="31_w5cu5"]
+[ext_resource type="Script" path="res://Scenes/NextLevel.gd" id="32_8sp3o"]
+[ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Art/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="34_8ql0b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("6_3c03n")
@@ -980,7 +984,11 @@ sources/1 = SubResource("TileSetAtlasSource_10i33")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns730"]
+size = Vector2(49, 59)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_hfml5")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -6
@@ -1245,6 +1253,7 @@ disabled = true
 [node name="Player" parent="." instance=ExtResource("27_nt63h")]
 z_index = 200
 y_sort_enabled = true
+position = Vector2(-151, -1)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
@@ -1261,3 +1270,25 @@ position = Vector2(75, -90)
 scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("29_vnj7t")
 script = ExtResource("30_odv6l")
+
+[node name="Computer (Network Access)" type="Sprite2D" parent="."]
+modulate = Color(0.603121, 0.687351, 0.6366, 1)
+z_index = -1664
+position = Vector2(304, -24)
+scale = Vector2(1.53125, 1.78125)
+texture = ExtResource("31_w5cu5")
+script = ExtResource("32_8sp3o")
+
+[node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
+position = Vector2(-198.531, 15.1579)
+scale = Vector2(0.653061, 0.561404)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
+position = Vector2(305, -29)
+shape = SubResource("RectangleShape2D_ns730")
+
+[node name="ForestMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_8ql0b")
+volume_db = 0.6
+
+[connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]

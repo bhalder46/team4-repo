@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6iommnhxc2qk"
-path="res://.godot/imported/neon-glowing-shape-free-png.png-af5a0725264cbaa7f8a49af36f25583f.ctex"
+uid="uid://1hipmcj3g5xc"
+path="res://.godot/imported/thumb-1920-1001614.jpg-53ba878986ebb92a11e2bc461292db44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/neon-glowing-shape-free-png.png"
-dest_files=["res://.godot/imported/neon-glowing-shape-free-png.png-af5a0725264cbaa7f8a49af36f25583f.ctex"]
+source_file="res://Art/Random Assets/thumb-1920-1001614.jpg"
+dest_files=["res://.godot/imported/thumb-1920-1001614.jpg-53ba878986ebb92a11e2bc461292db44.ctex"]
 
 [params]
 

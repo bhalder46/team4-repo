@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnylc6wbq4g72"
-path="res://.godot/imported/gun.png-bb2ef40db0ce5994639bc9048afd5cfd.ctex"
+uid="uid://c6iommnhxc2qk"
+path="res://.godot/imported/neon-glowing-shape-free-png.png-4fc764272cd0ec79745a6af181c30acc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/gun.png"
-dest_files=["res://.godot/imported/gun.png-bb2ef40db0ce5994639bc9048afd5cfd.ctex"]
+source_file="res://Art/Random Assets/neon-glowing-shape-free-png.png"
+dest_files=["res://.godot/imported/neon-glowing-shape-free-png.png-4fc764272cd0ec79745a6af181c30acc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbnvfl2rxadb7"
-path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-3d0af63b9f80f0931e32125beeb0f071.ctex"
+uid="uid://cnylc6wbq4g72"
+path="res://.godot/imported/gun.png-d542ad7ee03f51604446bd027e2e7c4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2d_lights_and_shadows_neutral_point_light.webp"
-dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-3d0af63b9f80f0931e32125beeb0f071.ctex"]
+source_file="res://Art/Random Assets/gun.png"
+dest_files=["res://.godot/imported/gun.png-d542ad7ee03f51604446bd027e2e7c4f.ctex"]
 
 [params]
 

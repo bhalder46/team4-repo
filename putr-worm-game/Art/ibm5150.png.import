@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2eqanchq757t"
-path="res://.godot/imported/FullyOtherGunsAnimation-1.png.png-c7e642ab621e722681fc4279e206b976.ctex"
+uid="uid://bsb6hpwkpbaam"
+path="res://.godot/imported/ibm5150.png-d1269f80569ce5dd3fe795c40fa42312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/FullyOtherGunsAnimation-1.png.png"
-dest_files=["res://.godot/imported/FullyOtherGunsAnimation-1.png.png-c7e642ab621e722681fc4279e206b976.ctex"]
+source_file="res://Art/ibm5150.png"
+dest_files=["res://.godot/imported/ibm5150.png-d1269f80569ce5dd3fe795c40fa42312.ctex"]
 
 [params]
 
