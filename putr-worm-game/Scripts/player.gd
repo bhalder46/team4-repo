@@ -9,8 +9,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var muzzle = $Gun/Muzzle
 @onready var gun_shoot_sound = $"Gun/Shoot Sound"
 @onready var gun_reload_sound = $"Gun/Reload Sound"
+
+
 var can_shoot = true
-var shoot_cooldown = 0.5  # Time in seconds before the player can shoot again
+var shoot_cooldown = 0.4  # Time in seconds before the player can shoot again
 var reload_time = 1.5  # Time in seconds to reload
 var shoot_timer = 0.0  # Timer to track the shooting cooldown
 var reload_timer = 0.0  # Timer to track the reload time
@@ -107,7 +109,7 @@ func start_reloading():
 	reload_timer = reload_time  # Reset the reload timer
 
 	# Wait for the shooting animation to finish before playing the reload animation
-	await $Gun.animation_finished  # Use await to wait for the animation to finish
+	await $Gun.animation_finished  
 	
 	if gun_reload_sound:
 		gun_reload_sound.play()
@@ -142,4 +144,4 @@ func update_gun_rotation():
 
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
-		$Gun.play("idle")  # Make sure you have an idle animation set up for the gun
+		$Gun.play("idle")  
