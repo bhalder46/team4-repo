@@ -1293,11 +1293,12 @@ shape = SubResource("RectangleShape2D_ns730")
 
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("35_b1jpr")
-volume_db = 0.4
+volume_db = -1.0
+parameters/looping = false
 
 [node name="ForestMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("34_8ql0b")
-volume_db = 0.6
+volume_db = -2.211
 parameters/looping = false
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
