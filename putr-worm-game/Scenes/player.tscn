@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
 [ext_resource type="Texture2D" uid="uid://cow0t1cfel8q6" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Jump (32x32).png" id="4_8ig2p"]
 [ext_resource type="Texture2D" uid="uid://d27pq4b834duo" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Run (32x32).png" id="5_ve5pe"]
-[ext_resource type="Texture2D" uid="uid://br42kw2hk45ko" path="res://Art/WeaponsPack/Animations/OtherGunsAnimations/FullyOtherGunsAnimation.png" id="7_43jlp"]
+[ext_resource type="Texture2D" uid="uid://cwxaiwev0u26v" path="res://Art/FullyOtherGunsAnimation.png" id="8_8tco8"]
 [ext_resource type="Texture2D" uid="uid://8bclvth4kr5l" path="res://Art/WeaponsPack/Animations/OtherGunsAnimations/ReloadingOtherGuns.png" id="8_ctrkc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wosfo"]
@@ -210,9 +210,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72lyu"]
 size = Vector2(22, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdl0n"]
-atlas = ExtResource("8_ctrkc")
-region = Rect2(0, 0, 64, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd3ei"]
+atlas = ExtResource("8_8tco8")
+region = Rect2(240, 0, 80, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcb7v"]
 atlas = ExtResource("8_ctrkc")
@@ -246,27 +246,27 @@ region = Rect2(384, 0, 64, 32)
 atlas = ExtResource("8_ctrkc")
 region = Rect2(448, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nr2hs"]
-atlas = ExtResource("7_43jlp")
-region = Rect2(0, 0, 80, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob8xt"]
+atlas = ExtResource("8_8tco8")
+region = Rect2(0, 0, 80, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_omqvu"]
-atlas = ExtResource("7_43jlp")
-region = Rect2(80, 0, 80, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_33m2i"]
+atlas = ExtResource("8_8tco8")
+region = Rect2(80, 0, 80, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_spuyt"]
-atlas = ExtResource("7_43jlp")
-region = Rect2(160, 0, 80, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d61y"]
+atlas = ExtResource("8_8tco8")
+region = Rect2(160, 0, 80, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6m7p"]
-atlas = ExtResource("7_43jlp")
-region = Rect2(240, 0, 80, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqiys"]
+atlas = ExtResource("8_8tco8")
+region = Rect2(240, 0, 80, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3s17c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pdl0n")
+"texture": SubResource("AtlasTexture_rd3ei")
 }],
 "loop": false,
 "name": &"idle",
@@ -303,16 +303,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nr2hs")
+"texture": SubResource("AtlasTexture_ob8xt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_omqvu")
+"texture": SubResource("AtlasTexture_33m2i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_spuyt")
+"texture": SubResource("AtlasTexture_6d61y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j6m7p")
+"texture": SubResource("AtlasTexture_mqiys")
 }],
 "loop": false,
 "name": &"shoot",
@@ -326,7 +326,7 @@ bullet_scene = ExtResource("2_uoog2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_oiubb")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -334,21 +334,12 @@ position = Vector2(-1, -13)
 shape = SubResource("RectangleShape2D_72lyu")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
-position = Vector2(10, -10.412)
-scale = Vector2(0.658741, 0.48403)
+position = Vector2(6.24103, -9.27239)
+scale = Vector2(0.672383, 0.588203)
 sprite_frames = SubResource("SpriteFrames_3s17c")
 animation = &"idle"
 centered = false
-offset = Vector2(-8.47933, -20.1265)
+offset = Vector2(-12.0424, -20.1594)
 
 [node name="Muzzle" type="Marker2D" parent="Gun"]
-position = Vector2(30.662, -2.41943)
-
-[node name="ColorRect" type="ColorRect" parent="Gun"]
-offset_left = -2.96303
-offset_top = -0.277443
-offset_right = 37.037
-offset_bottom = 39.7226
-scale = Vector2(0.0388445, 0.0388445)
-pivot_offset = Vector2(2.42221, -1.23383)
-color = Color(0.95865, 0.257398, 1, 1)
+position = Vector2(31.6381, -2.14766)
