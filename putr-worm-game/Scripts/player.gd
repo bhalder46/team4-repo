@@ -144,3 +144,4 @@ func update_gun_rotation():
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
 		$Gun.play("idle")  
+#The big test
