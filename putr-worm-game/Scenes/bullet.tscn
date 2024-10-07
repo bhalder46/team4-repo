@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pk23w756ofr7"]
+[gd_scene load_steps=5 format=3 uid="uid://pk23w756ofr7"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_eqhqg"]
 [ext_resource type="Texture2D" uid="uid://4b18eawohn3" path="res://Art/WeaponsPack/Sprites/Bullets.png" id="2_op6yk"]
+[ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_kupj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgm23"]
 size = Vector2(9.09085, 8.33332)
@@ -19,3 +20,10 @@ shape = SubResource("RectangleShape2D_bgm23")
 texture = ExtResource("2_op6yk")
 region_enabled = true
 region_rect = Rect2(107.599, 10.4681, 10.0109, 11.9696)
+
+[node name="Bullet Light" type="PointLight2D" parent="."]
+color = Color(0.935495, 0.620002, 0.353553, 1)
+energy = 0.3
+texture = ExtResource("3_kupj7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
