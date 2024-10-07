@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite.play("run")
 	else:
-		# Check if player is jumping or falling
 		if velocity.y < 0:
 			animated_sprite.play("jump")
 		elif velocity.y > 0:
@@ -77,8 +76,8 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot():
-	# Always play shoot animation before firing
-	$Gun.play("shoot")  # Play shoot animation
+	
+	$Gun.play("shoot")  
 
 	if gun_shoot_sound:
 		gun_shoot_sound.play()
@@ -114,7 +113,7 @@ func start_reloading():
 	if gun_reload_sound:
 		gun_reload_sound.play()
 		
-	$Gun.play("reload")  # Play reload animation (make sure it exists)
+	$Gun.play("reload")  
 
 func update_gun_rotation():
 	var mouse_position = get_global_mouse_position()

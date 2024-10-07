@@ -1,15 +1,15 @@
 [gd_scene load_steps=52 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
-[ext_resource type="Texture2D" uid="uid://ob4jrf6jh6sc" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Idle (32x32).png" id="1_hqkon"]
-[ext_resource type="Texture2D" uid="uid://nlpq6tm21262" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Fall (32x32).png" id="2_helws"]
+[ext_resource type="Texture2D" uid="uid://ob4jrf6jh6sc" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Idle (32x32).png" id="1_hqkon"]
+[ext_resource type="Texture2D" uid="uid://nlpq6tm21262" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Fall (32x32).png" id="2_helws"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
-[ext_resource type="Texture2D" uid="uid://cow0t1cfel8q6" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Jump (32x32).png" id="4_8ig2p"]
-[ext_resource type="Texture2D" uid="uid://d27pq4b834duo" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Run (32x32).png" id="5_ve5pe"]
-[ext_resource type="Texture2D" uid="uid://cwxaiwev0u26v" path="res://Art/FullyOtherGunsAnimation.png" id="8_8tco8"]
+[ext_resource type="Texture2D" uid="uid://cow0t1cfel8q6" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Jump (32x32).png" id="4_8ig2p"]
+[ext_resource type="Texture2D" uid="uid://d27pq4b834duo" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Run (32x32).png" id="5_ve5pe"]
+[ext_resource type="Texture2D" uid="uid://cwxaiwev0u26v" path="res://Art/WeaponsPack/FullyOtherGunsAnimation.png" id="8_8tco8"]
 [ext_resource type="Texture2D" uid="uid://8bclvth4kr5l" path="res://Art/WeaponsPack/Animations/OtherGunsAnimations/ReloadingOtherGuns.png" id="8_ctrkc"]
-[ext_resource type="AudioStream" uid="uid://bdaf4h1uxfvmd" path="res://Gun Reload.mp3" id="9_6lpr5"]
-[ext_resource type="AudioStream" uid="uid://ddace7yr60c4l" path="res://Art/2024-10-06 15-41-08.mp3" id="9_12wdq"]
+[ext_resource type="AudioStream" uid="uid://bdaf4h1uxfvmd" path="res://Audio/Sounds/Gun Reload.mp3" id="9_6lpr5"]
+[ext_resource type="AudioStream" uid="uid://ddace7yr60c4l" path="res://Audio/Sounds/2024-10-06 15-41-08.mp3" id="9_12wdq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wosfo"]
 atlas = ExtResource("2_helws")

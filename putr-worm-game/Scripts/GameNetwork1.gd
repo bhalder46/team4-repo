@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var music_player = $NetworkMusic  # Reference to the AudioStreamPlayer node
+@onready var music_player = $NetworkMusic 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	# Play the music when the scene starts
 	if music_player:

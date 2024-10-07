@@ -5,11 +5,10 @@ extends Camera2D
 # Maximum distance the camera can offset
 @export var max_camera_offset: float = 500.0
 
-# Reference to the player node (drag this from the editor or find dynamically)
 @export var player: Node2D
 
 func _process(delta: float) -> void:
-	# Ensure player reference exists
+	
 	if player == null:
 		print("Player reference is missing")
 		return

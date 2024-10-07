@@ -21,7 +21,7 @@ texture = ExtResource("2_op6yk")
 region_enabled = true
 region_rect = Rect2(107.599, 10.4681, 10.0109, 11.9696)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Bullet Light" type="PointLight2D" parent="."]
 color = Color(0.935495, 0.620002, 0.353553, 1)
 energy = 0.3
 texture = ExtResource("3_kupj7")

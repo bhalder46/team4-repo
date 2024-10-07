@@ -1,24 +1,18 @@
-[gd_scene load_steps=27 format=4 uid="uid://cm0m2ids4ifyj"]
+[gd_scene load_steps=24 format=4 uid="uid://cm0m2ids4ifyj"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_qkyhk"]
-[ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Cave-Tileset/CaveTileset.png" id="5_hunx3"]
-[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="6_7cbbx"]
-[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="7_r7qro"]
-[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="10_6g5oh"]
+[ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="5_hunx3"]
+[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="10_6g5oh"]
 [ext_resource type="Texture2D" uid="uid://c3hlafnjpp5xs" path="res://Art/Random Assets/purple-neon-triangle-free-png.png" id="10_pcgkc"]
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="11_c3h01"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="12_uoqji"]
 [ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="15_dmsm3"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="25_g5mu1"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="26_najly"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="25_g5mu1"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="26_najly"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="27_pld21"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="28_cxd05"]
 [ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="29_uadkj"]
 [ext_resource type="Script" path="res://Scripts/target.gd" id="30_cteyu"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
-shader = ExtResource("6_7cbbx")
-shader_parameter/lod = 0.684
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ydpv"]
 
@@ -1269,18 +1263,6 @@ position = Vector2(-11, 100.5)
 position = Vector2(677, 100.5)
 
 [node name="Node" type="Node" parent="ParallaxBackground"]
-
-[node name="World Blur" type="CanvasLayer" parent="."]
-layer = -5
-visible = false
-follow_viewport_enabled = true
-
-[node name="World blur" type="Sprite2D" parent="World Blur"]
-z_index = -5
-material = SubResource("ShaderMaterial_0cve3")
-position = Vector2(180, -185.714)
-scale = Vector2(20.3232, 2.4426)
-texture = ExtResource("7_r7qro")
 
 [node name="Foreground Decor" type="ParallaxBackground" parent="."]
 layer = 5
