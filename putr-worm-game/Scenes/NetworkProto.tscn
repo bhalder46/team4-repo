@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cm0m2ids4ifyj"]
+[gd_scene load_steps=26 format=4 uid="uid://cm0m2ids4ifyj"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_qkyhk"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="5_hunx3"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c3hlafnjpp5xs" path="res://Art/Random Assets/purple-neon-triangle-free-png.png" id="10_pcgkc"]
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="11_c3h01"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="12_uoqji"]
+[ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="14_acge2"]
 [ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="15_dmsm3"]
+[ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="15_hp76n"]
 [ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="25_g5mu1"]
 [ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="26_najly"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="27_pld21"]
@@ -1271,6 +1273,74 @@ layer = 5
 z_index = 7
 motion_scale = Vector2(1.1, 1)
 
+[node name="Node2D2" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(-14, -6)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
+[node name="Node2D3" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(-775, -477)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
+[node name="Node2D4" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(-804, -420)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
+[node name="Node2D5" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(9, -93)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="Foreground Decor/1"]
 material = SubResource("ShaderMaterial_8ydpv")
 position = Vector2(-72, 0)
@@ -1349,6 +1419,7 @@ position = Vector2(649, -241)
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_dmsm3")
 volume_db = 0.6
+parameters/looping = true
 
 [node name="World Border2" type="StaticBody2D" parent="."]
 position = Vector2(18, -263)
