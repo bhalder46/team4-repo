@@ -1,14 +1,20 @@
 extends CharacterBody2D
 
+signal health_updated(health)
+signal killed()
+
+
 const SPEED = 120.0
 const JUMP_VELOCITY = -250.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var max_health = 3.0  # Define maximum health variable
 
 @onready var animated_sprite = $AnimatedSprite2D
 @export var bullet_scene: PackedScene
 @onready var muzzle = $Gun/Muzzle
 @onready var gun_shoot_sound = $"Gun/Shoot Sound"
 @onready var gun_reload_sound = $"Gun/Reload Sound"
+@onready var health = max_health 
 
 
 var can_shoot = true
@@ -144,3 +150,23 @@ func update_gun_rotation():
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
 		$Gun.play("idle")  
+
+func damage(amount):
+	_set_health(health - amount)
+
+func kill():
+	pass
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
+			kill()
+			emit_signal("killed")
+			
+			
+			
+			
+			
