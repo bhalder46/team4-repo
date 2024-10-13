@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 120.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -131,15 +131,15 @@ func update_gun_rotation():
 		# Reticle crossed to the left side of the player
 		is_reticle_on_left = true
 		$Gun.flip_v = true
-		$Gun.position.x = -10  # Move the gun 10 pixels left
-		animated_sprite.flip_h = true  # Flip character sprite
+		$Gun.position.x = -8  # Move the gun 10 pixels left
+		animated_sprite.flip_h = false  # Flip character sprite
 		
 	elif mouse_position.x > global_position.x and is_reticle_on_left:
 		# Reticle crossed to the right side of the player
 		is_reticle_on_left = false
 		$Gun.flip_v = false
-		$Gun.position.x = 10  # Move the gun 10 pixels right
-		animated_sprite.flip_h = false  # Flip character sprite
+		$Gun.position.x = 2  # Move the gun 10 pixels right
+		animated_sprite.flip_h = true  # Flip character sprite
 
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading

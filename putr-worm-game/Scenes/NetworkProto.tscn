@@ -18,7 +18,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ydpv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwtgq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6vakq"]
 texture = ExtResource("5_hunx3")
 0:0/0 = 0
 1:0/0 = 0
@@ -76,9 +76,9 @@ texture = ExtResource("5_hunx3")
 5:8/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kpla3"]
-sources/0 = SubResource("TileSetAtlasSource_uwtgq")
+sources/0 = SubResource("TileSetAtlasSource_6vakq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvakw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f46dy"]
 texture = ExtResource("25_g5mu1")
 0:0/0 = 0
 1:0/0 = 0
@@ -333,7 +333,7 @@ texture = ExtResource("25_g5mu1")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10i33"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvqfh"]
 texture = ExtResource("26_najly")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1019,7 +1019,7 @@ texture = ExtResource("26_najly")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a5183"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbwiu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yltff"]
 texture = ExtResource("5_hunx3")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a5183")
@@ -1187,9 +1187,9 @@ texture = ExtResource("5_hunx3")
 [sub_resource type="TileSet" id="TileSet_yvhtc"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_cvakw")
-sources/1 = SubResource("TileSetAtlasSource_10i33")
-sources/2 = SubResource("TileSetAtlasSource_wbwiu")
+sources/0 = SubResource("TileSetAtlasSource_f46dy")
+sources/1 = SubResource("TileSetAtlasSource_bvqfh")
+sources/2 = SubResource("TileSetAtlasSource_yltff")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 

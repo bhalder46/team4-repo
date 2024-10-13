@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://1qakxhflcknt"]
+
+[ext_resource type="Texture2D" uid="uid://fedoriwulcg8" path="res://Art/Random Assets/New Piskel-1.png(3).png" id="1_l4y2w"]
+
+[node name="Node2D" type="TextEdit"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_l4y2w")
+region_rect = Rect2(16, 16, 16, 16)
