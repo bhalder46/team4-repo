@@ -1,0 +1,16 @@
+join BitByte left
+if {has_spoken_to_npc} == true:
+	BitByte: go away I was being polite
+	[end_timeline]
+elif {has_spoken_to_npc} == false:
+	[signal arg="dialogue_started"]
+	BitByte: Hello, World!
+	BitByte: Did it work?
+	- Yes
+		yipee!
+	- Nope, delete game
+		BitByte: Fallacy of sunk cost, cant do it.
+	[signal arg="dialogue_finished"]
+	BitByte: Bye
+	set {has_spoken_to_npc} = true
+	[end_timeline]
