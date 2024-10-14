@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dgmjsx575ufb"]
+[gd_scene load_steps=44 format=3 uid="uid://dgmjsx575ufb"]
 
 [ext_resource type="Script" path="res://Scripts/mob_proto_bat.gd" id="1_gr0ck"]
 [ext_resource type="Texture2D" uid="uid://meg8yqm0ceix" path="res://Art/bat_mob-1_proto/Bat_Fly.png" id="2_dv3y3"]
@@ -178,8 +178,11 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g277"]
+size = Vector2(34.5, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1yfn"]
-size = Vector2(34.5, 22.25)
+size = Vector2(34.5, 24.125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35jvv"]
 atlas = ExtResource("4_eqsuq")
@@ -283,15 +286,20 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t533k")
 animation = &"fly"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob_Proto_Bat"]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_6g277")
+
 [node name="Area2D" type="Area2D" parent="Mob_Proto_Bat"]
 position = Vector2(-0.5, 30.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mob_Proto_Bat/Area2D"]
-position = Vector2(0.5, -0.5)
+position = Vector2(0.5, -1.4375)
 shape = SubResource("RectangleShape2D_c1yfn")
 
 [node name="Dummy" type="CharacterBody2D" parent="."]
-position = Vector2(900, 700)
+position = Vector2(900, 350)
+scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dummy"]
 sprite_frames = SubResource("SpriteFrames_30751")

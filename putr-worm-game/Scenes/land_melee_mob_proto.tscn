@@ -296,7 +296,7 @@ position = Vector2(3.5, 2)
 shape = SubResource("RectangleShape2D_li3ul")
 
 [node name="Dummy" type="CharacterBody2D" parent="."]
-position = Vector2(750, 634)
+position = Vector2(650, 634)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dummy"]
 sprite_frames = SubResource("SpriteFrames_v2u5y")
