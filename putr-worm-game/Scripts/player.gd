@@ -23,7 +23,26 @@ var is_reloading = false  # Track if the gun is currently reloading
 # Track the current side of the reticle (left or right)
 var is_reticle_on_left = false
 
+var max_health: int = 3
+var current_health: int = 3
 
+# Signal to notify health changes
+signal health_changed(new_health)
+
+# New Function to Handle Taking Damage
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	current_health = clamp(current_health, 0, max_health)
+	emit_signal("health_changed", current_health)
+	
+	if current_health <= 0:
+		die()
+
+# Function to Handle Player Death
+func die() -> void:
+	# Implement death logic (e.g., respawn, game over screen)
+	print("Player has died!")
+	# Example: QueueFree()  # Removes the player from the scene
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
