@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://7te11wigvu5w"]
+[gd_scene load_steps=37 format=4 uid="uid://dg3d16rppd1aw"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_c2iu7"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_4v8dn"]
@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="15_7w36o"]
 [ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="16_ewrch"]
 [ext_resource type="Script" path="res://Scenes/TrapPlatform.gd" id="16_w3d02"]
-[ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="17_orafw"]
+[ext_resource type="PackedScene" path="res://Scenes/NPCTest.tscn" id="17_orafw"]
 [ext_resource type="Script" path="res://Scripts/LevelCamera.gd" id="18_38o70"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
