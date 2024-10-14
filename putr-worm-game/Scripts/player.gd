@@ -23,6 +23,8 @@ var is_reloading = false  # Track if the gun is currently reloading
 # Track the current side of the reticle (left or right)
 var is_reticle_on_left = false
 
+
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_gun_rotation()
