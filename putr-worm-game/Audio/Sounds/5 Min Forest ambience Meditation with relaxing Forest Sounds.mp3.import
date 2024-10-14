@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwl34gmmbfi21"
+path="res://.godot/imported/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3-f89e07dfa4d87bb62ef0d423ea0197d9.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3"
+dest_files=["res://.godot/imported/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3-f89e07dfa4d87bb62ef0d423ea0197d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

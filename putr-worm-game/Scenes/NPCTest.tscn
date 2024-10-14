@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bivfc3jopmkmx"]
+
+[ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="1_qgm52"]
+[ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="2_subly"]
+[ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="3_pf2b0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fndpc"]
+
+[node name="NpcTest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(1.625, 1.3125)
+texture = ExtResource("1_qgm52")
+script = ExtResource("2_subly")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(0, 18.2857)
+scale = Vector2(0.615385, 0.761905)
+script = ExtResource("3_pf2b0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, -25)
+scale = Vector2(2.57485, 2.57485)
+shape = SubResource("CircleShape2D_fndpc")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_body_exited"]

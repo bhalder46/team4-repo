@@ -1,28 +1,24 @@
 [gd_scene load_steps=27 format=4 uid="uid://cm0m2ids4ifyj"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_qkyhk"]
-[ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Cave-Tileset/CaveTileset.png" id="5_hunx3"]
-[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="6_7cbbx"]
-[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="7_r7qro"]
-[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="10_6g5oh"]
+[ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="5_hunx3"]
+[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="10_6g5oh"]
 [ext_resource type="Texture2D" uid="uid://c3hlafnjpp5xs" path="res://Art/Random Assets/purple-neon-triangle-free-png.png" id="10_pcgkc"]
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="11_c3h01"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="12_uoqji"]
+[ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="14_acge2"]
 [ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="15_dmsm3"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="25_g5mu1"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="26_najly"]
+[ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="15_hp76n"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="25_g5mu1"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="26_najly"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="27_pld21"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="28_cxd05"]
 [ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="29_uadkj"]
 [ext_resource type="Script" path="res://Scripts/target.gd" id="30_cteyu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
-shader = ExtResource("6_7cbbx")
-shader_parameter/lod = 0.684
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ydpv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwtgq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6vakq"]
 texture = ExtResource("5_hunx3")
 0:0/0 = 0
 1:0/0 = 0
@@ -80,9 +76,9 @@ texture = ExtResource("5_hunx3")
 5:8/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kpla3"]
-sources/0 = SubResource("TileSetAtlasSource_uwtgq")
+sources/0 = SubResource("TileSetAtlasSource_6vakq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvakw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f46dy"]
 texture = ExtResource("25_g5mu1")
 0:0/0 = 0
 1:0/0 = 0
@@ -337,7 +333,7 @@ texture = ExtResource("25_g5mu1")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10i33"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvqfh"]
 texture = ExtResource("26_najly")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1023,7 +1019,7 @@ texture = ExtResource("26_najly")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a5183"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbwiu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yltff"]
 texture = ExtResource("5_hunx3")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a5183")
@@ -1191,15 +1187,15 @@ texture = ExtResource("5_hunx3")
 [sub_resource type="TileSet" id="TileSet_yvhtc"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_cvakw")
-sources/1 = SubResource("TileSetAtlasSource_10i33")
-sources/2 = SubResource("TileSetAtlasSource_wbwiu")
+sources/0 = SubResource("TileSetAtlasSource_f46dy")
+sources/1 = SubResource("TileSetAtlasSource_bvqfh")
+sources/2 = SubResource("TileSetAtlasSource_yltff")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u58b2"]
 
-[node name="Game2" type="Node2D"]
+
 script = ExtResource("1_qkyhk")
 
 [node name="Scene Background" type="ColorRect" parent="."]
@@ -1270,17 +1266,6 @@ position = Vector2(677, 100.5)
 
 [node name="Node" type="Node" parent="ParallaxBackground"]
 
-[node name="World Blur" type="CanvasLayer" parent="."]
-layer = -5
-visible = false
-follow_viewport_enabled = true
-
-[node name="World blur" type="Sprite2D" parent="World Blur"]
-z_index = -5
-material = SubResource("ShaderMaterial_0cve3")
-position = Vector2(180, -185.714)
-scale = Vector2(20.3232, 2.4426)
-texture = ExtResource("7_r7qro")
 
 [node name="Foreground Decor" type="ParallaxBackground" parent="."]
 layer = 5
@@ -1288,6 +1273,74 @@ layer = 5
 [node name="1" type="ParallaxLayer" parent="Foreground Decor"]
 z_index = 7
 motion_scale = Vector2(1.1, 1)
+
+[node name="Node2D2" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(-14, -6)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
+[node name="Node2D3" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(-775, -477)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
+[node name="Node2D4" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(-804, -420)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
+
+[node name="Node2D5" type="Node2D" parent="Foreground Decor/1"]
+z_index = -4096
+position = Vector2(9, -93)
+script = ExtResource("15_hp76n")
+
+[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, 49)
+texture = ExtResource("14_acge2")
+
+[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
+modulate = Color(0.872988, 0.287954, 0.599015, 1)
+z_index = 4096
+position = Vector2(320, -596)
+texture = ExtResource("14_acge2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Foreground Decor/1"]
 material = SubResource("ShaderMaterial_8ydpv")
@@ -1367,6 +1420,7 @@ position = Vector2(649, -241)
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_dmsm3")
 volume_db = 0.6
+
 
 [node name="World Border2" type="StaticBody2D" parent="."]
 position = Vector2(18, -263)

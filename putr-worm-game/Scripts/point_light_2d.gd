@@ -12,6 +12,5 @@ func _process(delta: float) -> void:
 	# Update the time passed
 	time_passed += delta * flicker_speed
 
-	# Calculate a new energy value using sine function for smooth flicker
 	var flicker_value = lerp(min_energy, max_energy, (sin(time_passed * 5) + 1) / 2)
 	self.energy = flicker_value

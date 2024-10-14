@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
 const SPEED = 120.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @export var bullet_scene: PackedScene
 @onready var muzzle = $Gun/Muzzle
+@onready var gun_shoot_sound = $"Gun/Shoot Sound"
+@onready var gun_reload_sound = $"Gun/Reload Sound"
+
+
 var can_shoot = true
-var shoot_cooldown = 0.5  # Time in seconds before the player can shoot again
+var shoot_cooldown = 0.4  # Time in seconds before the player can shoot again
 var reload_time = 1.5  # Time in seconds to reload
 var shoot_timer = 0.0  # Timer to track the shooting cooldown
 var reload_timer = 0.0  # Timer to track the reload time
@@ -43,7 +47,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite.play("run")
 	else:
-		# Check if player is jumping or falling
 		if velocity.y < 0:
 			animated_sprite.play("jump")
 		elif velocity.y > 0:
@@ -75,8 +78,11 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot():
-	# Always play shoot animation before firing
-	$Gun.play("shoot")  # Play shoot animation
+	
+	$Gun.play("shoot")  
+
+	if gun_shoot_sound:
+		gun_shoot_sound.play()
 
 	shot_count += 1  # Increment the shot count
 	can_shoot = false
@@ -104,8 +110,12 @@ func start_reloading():
 	reload_timer = reload_time  # Reset the reload timer
 
 	# Wait for the shooting animation to finish before playing the reload animation
-	await $Gun.animation_finished  # Use await to wait for the animation to finish
-	$Gun.play("reload")  # Play reload animation (make sure it exists)
+	await $Gun.animation_finished  
+	
+	if gun_reload_sound:
+		gun_reload_sound.play()
+		
+	$Gun.play("reload")  
 
 func update_gun_rotation():
 	var mouse_position = get_global_mouse_position()
@@ -123,16 +133,17 @@ func update_gun_rotation():
 		# Reticle crossed to the left side of the player
 		is_reticle_on_left = true
 		$Gun.flip_v = true
-		$Gun.position.x = -10  # Move the gun 10 pixels left
-		animated_sprite.flip_h = true  # Flip character sprite
+		$Gun.position.x = -8  # Move the gun 10 pixels left
+		animated_sprite.flip_h = false  # Flip character sprite
 		
 	elif mouse_position.x > global_position.x and is_reticle_on_left:
 		# Reticle crossed to the right side of the player
 		is_reticle_on_left = false
 		$Gun.flip_v = false
-		$Gun.position.x = 10  # Move the gun 10 pixels right
-		animated_sprite.flip_h = false  # Flip character sprite
+		$Gun.position.x = 2  # Move the gun 10 pixels right
+		animated_sprite.flip_h = true  # Flip character sprite
 
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
-		$Gun.play("idle")  # Make sure you have an idle animation set up for the gun
+		$Gun.play("idle")  
+#The big test

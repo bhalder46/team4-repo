@@ -1,15 +1,13 @@
-extends Node2D  # Change this to your specific node type if necessary
+extends Node2D 
 
 # Bobbing parameters
 @export var bobbing_distance: float = 10.0  # The distance to bob up and down
 @export var bobbing_speed: float = 2.0       # Speed of the bobbing
 
-# Internal variable to keep track of the time and the initial position
 var time_passed: float = 0.0
 var initial_position: Vector2
 
 func _ready() -> void:
-	# Store the initial position of the node when the game starts
 	initial_position = position
 
 func _process(delta: float) -> void:
