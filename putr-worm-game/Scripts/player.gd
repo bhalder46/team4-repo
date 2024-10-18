@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -300.0
+var SPEED = 120.0
+var JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -22,6 +22,13 @@ var is_reloading = false  # Track if the gun is currently reloading
 
 # Track the current side of the reticle (left or right)
 var is_reticle_on_left = false
+
+# Coyote time variables
+var coyote_time: float = 0.2  # Time in seconds for coyote jumping
+var is_on_ground = false  # Track if the player is on the ground
+var coyote_timer: float = 0.0  # Timer for coyote time
+
+
 
 var max_health: int = 3
 var current_health: int = 3
@@ -56,14 +63,32 @@ func respawn() -> void:
 func update_checkpoint(new_checkpoint_position: Vector2) -> void:
 	checkpoint_position = new_checkpoint_position
 	print("Checkpoint updated to:", checkpoint_position)
-
+	
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_gun_rotation()
 
+	# Check if the player is on the ground
+	is_on_ground = is_on_floor()
+
 	# Apply gravity if the player is not on the floor
-	if not is_on_floor():
+	if not is_on_ground:
 		velocity.y += gravity * delta
+
+	# Update coyote timer
+	if not is_on_ground:
+		coyote_timer -= delta  # Decrease coyote timer if in the air
+	else:
+		coyote_timer = coyote_time  # Reset coyote timer when touching the ground
+
+	# Handle jumping
+	if Input.is_action_just_pressed("jump") and (is_on_ground or coyote_timer > 0):
+		velocity.y = JUMP_VELOCITY
+		if coyote_timer > 0:
+			coyote_timer = 0  # Reset coyote timer after using it to jump
+
+
+
 
 	# Handle jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -110,7 +135,7 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot():
-	
+	$Gun.stop()
 	$Gun.play("shoot")  
 
 	if gun_shoot_sound:

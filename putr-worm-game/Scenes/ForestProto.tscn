@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bkufbmm031vva"]
+[gd_scene load_steps=47 format=4 uid="uid://bkufbmm031vva"]
 
 [ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="1_brmsw"]
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hfml5"]
@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="35_b1jpr"]
 [ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="38_dtvp4"]
 [ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="39_fvopd"]
+[ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="40_x0ipi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("6_3c03n")
@@ -1322,5 +1323,10 @@ parameters/looping = false
 [node name="Trap" parent="." instance=ExtResource("38_dtvp4")]
 position = Vector2(1, -9)
 scale = Vector2(1.04, 1.04)
+
+[node name="Bird" parent="." instance=ExtResource("40_x0ipi")]
+
+[node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("39_fvopd")]
+position = Vector2(-136, -27)
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
