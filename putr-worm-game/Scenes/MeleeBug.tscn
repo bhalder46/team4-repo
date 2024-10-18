@@ -1,91 +1,91 @@
-[gd_scene load_steps=28 format=3 uid="uid://1cwobjep8l64"]
+[gd_scene load_steps=28 format=3 uid="uid://cikkcmvdxe01b"]
 
-[ext_resource type="Script" path="res://land_melee_mob_proto.gd" id="1_p2jve"]
-[ext_resource type="Texture2D" uid="uid://bv0sawcyi4tcg" path="res://Art/melee_mob_proto/Golem_Armor_AttackA.png" id="2_0k4ng"]
-[ext_resource type="Texture2D" uid="uid://badu80h54sqrx" path="res://Art/melee_mob_proto/Golem_Armor_Run.png" id="3_wq05e"]
-[ext_resource type="Texture2D" uid="uid://cork64626kixl" path="res://Art/melee_mob_proto/Golem_Armor_ArmorBreak.png" id="4_71syo"]
+[ext_resource type="Script" path="res://Scripts/melee_bug.gd" id="1_f5wgo"]
+[ext_resource type="Texture2D" uid="uid://bv0sawcyi4tcg" path="res://Art/melee_mob_proto/Golem_Armor_AttackA.png" id="1_hqlot"]
+[ext_resource type="Texture2D" uid="uid://cork64626kixl" path="res://Art/melee_mob_proto/Golem_Armor_ArmorBreak.png" id="2_hqqwv"]
+[ext_resource type="Texture2D" uid="uid://badu80h54sqrx" path="res://Art/melee_mob_proto/Golem_Armor_Run.png" id="3_vh1ot"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhr58"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l8w8"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpkef"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uyw3r"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dlymh"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eiqdf"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2crr"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orem7"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ud7xr"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t10bx"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iev2o"]
-atlas = ExtResource("2_0k4ng")
+atlas = ExtResource("1_hqlot")
 region = Rect2(128, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjlh4"]
-atlas = ExtResource("4_71syo")
+atlas = ExtResource("2_hqqwv")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap1n8"]
-atlas = ExtResource("4_71syo")
+atlas = ExtResource("2_hqqwv")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s5m6"]
-atlas = ExtResource("4_71syo")
+atlas = ExtResource("2_hqqwv")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6c6w"]
-atlas = ExtResource("4_71syo")
+atlas = ExtResource("2_hqqwv")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s38a6"]
-atlas = ExtResource("4_71syo")
+atlas = ExtResource("2_hqqwv")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqr6g"]
-atlas = ExtResource("3_wq05e")
+atlas = ExtResource("3_vh1ot")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0yau"]
-atlas = ExtResource("3_wq05e")
+atlas = ExtResource("3_vh1ot")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xehig"]
-atlas = ExtResource("3_wq05e")
+atlas = ExtResource("3_vh1ot")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tsl1"]
-atlas = ExtResource("3_wq05e")
+atlas = ExtResource("3_vh1ot")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k1716"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_00cx0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -163,31 +163,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeupo"]
-size = Vector2(46, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwsd3"]
+size = Vector2(36, 39)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_li3ul"]
-size = Vector2(45, 48)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kt65q"]
+radius = 208.087
 
-[node name="Node2D" type="Node2D"]
-
-[node name="land_melee_mob_proto" type="CharacterBody2D" parent="." groups=["bug"]]
+[node name="land_melee_mob_proto" type="CharacterBody2D" groups=["bug"]]
 position = Vector2(-2, -9)
-script = ExtResource("1_p2jve")
+script = ExtResource("1_f5wgo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="land_melee_mob_proto"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_k1716")
+sprite_frames = SubResource("SpriteFrames_00cx0")
 animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="land_melee_mob_proto"]
-position = Vector2(3, 2)
-shape = SubResource("RectangleShape2D_qeupo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 1.5)
+shape = SubResource("RectangleShape2D_bwsd3")
 
-[node name="Area2D" type="Area2D" parent="land_melee_mob_proto"]
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="land_melee_mob_proto/Area2D"]
-position = Vector2(3.5, 2)
-shape = SubResource("RectangleShape2D_li3ul")
-
-[connection signal="area_entered" from="land_melee_mob_proto/Area2D" to="land_melee_mob_proto" method="_on_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kt65q")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkufbmm031vva"]
+[gd_scene load_steps=13 format=4 uid="uid://bkufbmm031vva"]
 
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="1_y24sr"]
 [ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="2_8vmsg"]
@@ -952,9 +952,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cvakw")
 sources/1 = SubResource("TileSetAtlasSource_10i33")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxxiu"]
+size = Vector2(769.5, 433)
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_y24sr")]
+bullet_scene = null
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
@@ -982,3 +986,18 @@ script = ExtResource("3_gwg5j")
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
 tile_map_data = PackedByteArray("AAD+/wAAAQAIAAYAAAD+/wEAAQAIAAcAAAD//wAAAQAJAAYAAAD//wEAAQAJAAcAAAAAAAAAAQAKAAYAAAAAAAEAAQAKAAcAAAABAAAAAQALAAYAAAABAAEAAQALAAcAAAACAAAAAQAMAAYAAAACAAEAAQAMAAcAAAADAAAAAQANAAYAAAADAAEAAQANAAcAAAAGAAAAAQAaAAoAAAAGAAEAAQAaAAsAAAAHAAAAAQAbAAoAAAAHAAEAAQAbAAsAAAAIAAAAAQAcAAoAAAAIAAEAAQAcAAsAAAAJAAAAAQAdAAoAAAAJAAEAAQAdAAsAAAAKAAAAAQAeAAoAAAAKAAEAAQAeAAsAAAALAAAAAQAfAAoAAAALAAEAAQAfAAsAAAD2/wAAAQAaAAoAAAD2/wEAAQAaAAsAAAD3/wAAAQAbAAoAAAD3/wEAAQAbAAsAAAD4/wAAAQAcAAoAAAD4/wEAAQAcAAsAAAD5/wAAAQAdAAoAAAD5/wEAAQAdAAsAAAD6/wAAAQAeAAoAAAD6/wEAAQAeAAsAAAD7/wAAAQAfAAoAAAD7/wEAAQAfAAsAAAAOAAAAAQAaAAoAAAAOAAEAAQAaAAsAAAAPAAAAAQAbAAoAAAAPAAEAAQAbAAsAAAAQAAAAAQAcAAoAAAAQAAEAAQAcAAsAAAARAAAAAQAdAAoAAAARAAEAAQAdAAsAAAASAAAAAQAeAAoAAAASAAEAAQAeAAsAAAATAAAAAQAfAAoAAAATAAEAAQAfAAsAAAAVAAAAAQAOAAYAAAAWAAAAAQAOAAYAAAAXAAAAAQAOAAYAAAAYAAAAAQAOAAYAAAAZAAAAAQAOAAYAAAAaAP//AQAOAAYAAAAbAP7/AQAOAAYAAAAcAP3/AQAOAAYAAAAdAPz/AQAOAAYAAAAeAPv/AQAOAAYAAAAfAPr/AQAOAAYAAAD0/wEAAQAOAAYAAADy/wMAAQAOAAYAAADw/wUAAQAOAAYAAADx/wQAAQAOAAYAAADz/wIAAQAOAAYAAAD1/wAAAQAOAAYAAAA=")
 tile_set = SubResource("TileSet_yvhtc")
+
+[node name="AreaCamera2" type="Area2D" parent="."]
+position = Vector2(1292, -829)
+script = ExtResource("7_oxqpf")
+
+[node name="Camera2D" type="Camera2D" parent="AreaCamera2"]
+position = Vector2(-15, -28)
+zoom = Vector2(2.505, 2.505)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2"]
+position = Vector2(-13.75, -29)
+shape = SubResource("RectangleShape2D_sxxiu")
+
+[connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]
