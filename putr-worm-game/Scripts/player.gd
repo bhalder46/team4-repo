@@ -26,6 +26,9 @@ var is_reticle_on_left = false
 var max_health: int = 3
 var current_health: int = 3
 
+# Player's respawn checkpoint
+var checkpoint_position: Vector2 = Vector2(0, 0)  # Default to start position or some initial spawn point
+
 # Signal to notify health changes
 signal health_changed(new_health)
 
@@ -40,9 +43,19 @@ func take_damage(amount: int) -> void:
 
 # Function to Handle Player Death
 func die() -> void:
-	# Implement death logic (e.g., respawn, game over screen)
 	print("Player has died!")
-	# Example: QueueFree()  # Removes the player from the scene
+	respawn()
+
+func respawn() -> void:
+	global_position = checkpoint_position  # Set player position to the checkpoint
+	current_health = max_health  # Reset health to full
+	emit_signal("health_changed", current_health)  # Update health UI
+	print("Player respawned at checkpoint:", checkpoint_position)
+	
+# Function to Update Checkpoint Position
+func update_checkpoint(new_checkpoint_position: Vector2) -> void:
+	checkpoint_position = new_checkpoint_position
+	print("Checkpoint updated to:", checkpoint_position)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

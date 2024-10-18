@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="2_8vmsg"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_53bev"]
 [ext_resource type="Script" path="res://Scripts/target.gd" id="3_gwg5j"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="4_gdn7h"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="5_37ril"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="4_gdn7h"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="5_37ril"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 

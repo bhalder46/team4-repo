@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bkufbmm031vva"]
+[gd_scene load_steps=46 format=4 uid="uid://bkufbmm031vva"]
 
 [ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="1_brmsw"]
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hfml5"]
@@ -37,6 +37,8 @@
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="32_8sp3o"]
 [ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="34_8ql0b"]
 [ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="35_b1jpr"]
+[ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="38_dtvp4"]
+[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="39_fvopd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("6_3c03n")
@@ -993,9 +995,6 @@ size = Vector2(49, 59)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hfml5")
 
-[node name="HealthUI" parent="." instance=ExtResource("2_ioiyt")]
-z_index = 10
-
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-151, -1)
 offset = Vector2(0, -50)
@@ -1006,10 +1005,24 @@ drag_vertical_offset = 0.01
 script = ExtResource("28_xw2vl")
 player = NodePath("../Player")
 
+[node name="HealthUI" parent="Camera2D" instance=ExtResource("2_ioiyt")]
+z_index = 10
+offset_left = 131.535
+offset_top = -161.82
+offset_right = 131.535
+offset_bottom = -161.82
+scale = Vector2(0.5, 0.5)
+
 [node name="Player" parent="." instance=ExtResource("27_nt63h")]
 z_index = 200
 y_sort_enabled = true
 position = Vector2(-151, -1)
+
+[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("39_fvopd")]
+position = Vector2(258, -30)
+
+[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("39_fvopd")]
+position = Vector2(-202, -123)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -6
@@ -1305,5 +1318,9 @@ parameters/looping = false
 stream = ExtResource("34_8ql0b")
 volume_db = -2.211
 parameters/looping = false
+
+[node name="Trap" parent="." instance=ExtResource("38_dtvp4")]
+position = Vector2(1, -9)
+scale = Vector2(1.04, 1.04)
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
