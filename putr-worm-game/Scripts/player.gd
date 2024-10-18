@@ -1,18 +1,16 @@
 extends CharacterBody2D
 
-var SPEED = 120.0
-var JUMP_VELOCITY = -300.0
+const SPEED = 120.0
+const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @export var bullet_scene: PackedScene
-@onready var muzzle = get_node("Gun/Muzzle")
-@onready var gun_shoot_sound = get_node("Gun/Shoot Sound")
-@onready var gun_reload_sound = get_node("Gun/Reload Sound")
+@onready var muzzle = $Gun/Muzzle
+@onready var gun_shoot_sound = $"Gun/Shoot Sound"
+@onready var gun_reload_sound = $"Gun/Reload Sound"
 
-func _ready() -> void:
-	animated_sprite.flip_h = true  # Character sprite facing right
-	
+
 var can_shoot = true
 var shoot_cooldown = 0.4  # Time in seconds before the player can shoot again
 var reload_time = 1.5  # Time in seconds to reload
@@ -25,28 +23,23 @@ var is_reloading = false  # Track if the gun is currently reloading
 # Track the current side of the reticle (left or right)
 var is_reticle_on_left = false
 
-# Coyote time variables
-var coyote_time: float = 0.2  # Time in seconds for coyote jumping
-var is_on_ground = false  # Track if the player is on the ground
-var coyote_timer: float = 0.0  # Timer for coyote time
-
-#var max_health: int = 3
-#var current_health: int = 3
+var max_health: int = 3
+var current_health: int = 3
 
 # Player's respawn checkpoint
 var checkpoint_position: Vector2 = Vector2(0, 0)  # Default to start position or some initial spawn point
 
 # Signal to notify health changes
-#signal health_changed(new_health)
+signal health_changed(new_health)
 
 # New Function to Handle Taking Damage
-#func take_damage(amount: int) -> void:
-	#current_health -= amount
-	#current_health = clamp(current_health, 0, max_health)
-	#emit_signal("health_changed", current_health)
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	current_health = clamp(current_health, 0, max_health)
+	emit_signal("health_changed", current_health)
 	
-	#if current_health <= 0:
-		#die()
+	if current_health <= 0:
+		die()
 
 # Function to Handle Player Death
 func die() -> void:
@@ -68,30 +61,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_gun_rotation()
 
-	# Check if the player is on the ground
-	is_on_ground = is_on_floor()
-
 	# Apply gravity if the player is not on the floor
-	if not is_on_ground:
+	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Update coyote timer
-	if not is_on_ground:
-		coyote_timer -= delta  # Decrease coyote timer if in the air
-	else:
-		coyote_timer = coyote_time  # Reset coyote timer when touching the ground
-
 	# Handle jumping
-	if Input.is_action_just_pressed("jump") and (is_on_ground or coyote_timer > 0):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		if coyote_timer > 0:
-			coyote_timer = 0  # Reset coyote timer after using it to jump
 
 	# Get movement direction
 	var direction := Input.get_axis("move_left", "move_right")
 
 	# Play the appropriate animation based on movement state
-	if is_on_ground:
+	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
 		else:
@@ -128,9 +110,8 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot():
-	# Stop any current animation to ensure the shoot animation restarts
-	$Gun.stop()
-	$Gun.play("shoot")
+	
+	$Gun.play("shoot")  
 
 	if gun_shoot_sound:
 		gun_shoot_sound.play()
@@ -154,7 +135,6 @@ func shoot():
 			return  # Prevent firing a bullet if we are reloading
 	else:
 		print("Failed to instantiate bullet.")  # Debugging line
-
 
 # Function to start reloading
 func start_reloading():
@@ -197,4 +177,5 @@ func update_gun_rotation():
 
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
-		$Gun.play("idle")
+		$Gun.play("idle")  
+#The big test

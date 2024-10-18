@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var player = get_tree().root.get_node("Game/Player")
+
+@onready var player = get_parent().get_node("Dummy")
 @onready var animated_sprite = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -10,9 +11,8 @@ var attack_cooldown: float = 1.5
 var can_attack: bool = true
 var facing_left: bool = false
 
-var patrol_distance: float = 60.0
+var patrol_distance: float = 100.0
 var initial_position: Vector2
-var health: int = 3  # Add a health variable to track hits
 
 func _ready():
 	if not player:
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		
 		if distance_to_player < attack_range:
 			attack_player()
-		elif distance_to_player < attack_range * 2:
+		elif distance_to_player < attack_range*2:
 			chase_player()
 		else:
 			patrol()
@@ -65,11 +65,10 @@ func attack_player():
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
+
 func _on_area_entered(area):
-	if area.is_in_group("bullet"):
-		health -= 1  # Decrease health when hit by a bullet
-		if health <= 0:
-			die()
+	if area.is_in_group("bullets"):
+		die()
 
 func die():
 	animated_sprite.play("death")

@@ -5,10 +5,9 @@ if {has_spoken_to_npc} == true:
 elif {has_spoken_to_npc} == false:
 	[signal arg="dialogue_started"]
 	BitByte: Hello, World!
-	BitByte: This is the first pass for a big dialogue test
 	BitByte: Did it work?
 	- Yes
-		yipee! But the character shouldn't be able to move while shooting.
+		yipee!
 	- Nope, delete game
 		BitByte: Fallacy of sunk cost, cant do it.
 	[signal arg="dialogue_finished"]
