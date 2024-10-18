@@ -18,7 +18,7 @@ func _ready() -> void:
 		player.health_changed.connect(health_ui.update_hearts)
 	
 	# Initialize the UI with the player's current health
-	health_ui.update_hearts(player.current_health)
+	#health_ui.update_hearts(player.current_health)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8bclvth4kr5l" path="res://Art/WeaponsPack/Animations/OtherGunsAnimations/ReloadingOtherGuns.png" id="8_ctrkc"]
 [ext_resource type="Texture2D" uid="uid://dh436w1bofc5k" path="res://Art/Random Assets/worm 2/worm - 2.png" id="8_d8idc"]
 [ext_resource type="AudioStream" uid="uid://bdaf4h1uxfvmd" path="res://Gun Reload.mp3" id="9_6lpr5"]
-[ext_resource type="AudioStream" uid="uid://ddace7yr60c4l" path="res://Art/2024-10-06 15-41-08.mp3" id="9_12wdq"]
+[ext_resource type="AudioStream" uid="uid://ddace7yr60c4l" path="res://Audio/Sounds/2024-10-06 15-41-08.mp3" id="9_12wdq"]
 [ext_resource type="Texture2D" uid="uid://bopicv24m4x0w" path="res://Art/Random Assets/worm 2/worm - 3.png" id="9_o8xnt"]
 [ext_resource type="Texture2D" uid="uid://dffp7of4n2vs7" path="res://Art/Random Assets/worm 2/worm - 4.png" id="10_uuojg"]
 
