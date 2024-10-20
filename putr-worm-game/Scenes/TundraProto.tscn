@@ -1,16 +1,43 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkufbmm031vva"]
+[gd_scene load_steps=38 format=4 uid="uid://ciw582wmtaacq"]
 
-[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="1_y24sr"]
-[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="2_8vmsg"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_53bev"]
-[ext_resource type="Script" path="res://Scripts/target.gd" id="3_gwg5j"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="4_gdn7h"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="5_37ril"]
+[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hln07"]
+[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="2_kt3v3"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_ikdlx"]
+[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="4_hch64"]
+[ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="5_rs7pr"]
+[ext_resource type="Script" path="res://Scripts/Clouds.gd" id="6_61ex6"]
+[ext_resource type="Texture2D" uid="uid://b1julc3aa105g" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/cloud.png" id="7_1qifu"]
+[ext_resource type="Texture2D" uid="uid://brptlmhtqhgn3" path="res://Art/Tilemaps And Decor Sprites/tundra/background/winter_mountain_crop.png" id="8_pbs5h"]
+[ext_resource type="Texture2D" uid="uid://fn8gog2l8ph1" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine1.png" id="9_wfha8"]
+[ext_resource type="Texture2D" uid="uid://v17y2ql72hfy" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine2.png" id="10_ljfyr"]
+[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="11_it7dn"]
+[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="12_h74nd"]
+[ext_resource type="Texture2D" uid="uid://bitlbbh3jvxy4" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/tree1.png" id="13_ya1ka"]
+[ext_resource type="Texture2D" uid="uid://b01jewc6uy2hu" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/rock4.png" id="14_auoi5"]
+[ext_resource type="Texture2D" uid="uid://csibjwglovmw2" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Tree/tree_1.png" id="15_bqvec"]
+[ext_resource type="Texture2D" uid="uid://dmdjb3hcmf4d" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/dead_tree3.png" id="16_qunta"]
+[ext_resource type="Texture2D" uid="uid://gg858afiqxgi" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/tree2.png" id="17_5mwpa"]
+[ext_resource type="Texture2D" uid="uid://c4nc628unt12x" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/tree3.png" id="18_shqlb"]
+[ext_resource type="Texture2D" uid="uid://dlbfif1jjhjfi" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/rock2.png" id="19_0dqy7"]
+[ext_resource type="Texture2D" uid="uid://dqkskl3ujr7ke" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/rock3.png" id="20_pyups"]
+[ext_resource type="Texture2D" uid="uid://drhjut7nbjhrw" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/rock1.png" id="22_fqrjg"]
+[ext_resource type="Texture2D" uid="uid://chcv25bihl80u" path="res://Art/Tilemaps And Decor Sprites/tundra/decor/dead_tree2.png" id="23_18kf1"]
+[ext_resource type="Texture2D" uid="uid://ysc13ojnf4fs" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Tree_dead/tree_dead_2.png" id="26_c151r"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="30_4xkt3"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="31_ayb7a"]
+[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="32_nbhvr"]
+[ext_resource type="Script" path="res://Scripts/target.gd" id="33_jiysi"]
+[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="34_fooyj"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="35_0ywd1"]
+[ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="36_66pcd"]
+[ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="37_hoapu"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
+shader = ExtResource("11_it7dn")
+shader_parameter/lod = 0.684
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvakw"]
-texture = ExtResource("4_gdn7h")
+texture = ExtResource("30_4xkt3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -265,7 +292,7 @@ texture = ExtResource("4_gdn7h")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10i33"]
-texture = ExtResource("5_37ril")
+texture = ExtResource("31_ayb7a")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -952,33 +979,296 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cvakw")
 sources/1 = SubResource("TileSetAtlasSource_10i33")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns730"]
+size = Vector2(49, 59)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_hln07")
 
-[node name="Player" parent="." instance=ExtResource("1_y24sr")]
+[node name="HealthUI" parent="." instance=ExtResource("2_kt3v3")]
+z_index = 10
 
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(-151, -1)
 offset = Vector2(0, -50)
 zoom = Vector2(4.5, 4.5)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
-script = ExtResource("2_53bev")
-player = NodePath("..")
+script = ExtResource("3_ikdlx")
+player = NodePath("../Player")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("4_hch64")]
+z_index = 200
+y_sort_enabled = true
+position = Vector2(-151, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -6
+
+[node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-27, -150.64)
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1376, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
+position = Vector2(0, -75.935)
+scale = Vector2(2.21, 2.21)
+texture = ExtResource("5_rs7pr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/5"]
+position = Vector2(688, -75.935)
+texture = ExtResource("5_rs7pr")
+
+[node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-27, -194)
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1376, 0)
+script = ExtResource("6_61ex6")
+cloud_texture_width = 660
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
+position = Vector2(0, -36.255)
+texture = ExtResource("7_1qifu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/4"]
+position = Vector2(688, -36.255)
+texture = ExtResource("7_1qifu")
+
+[node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-27, -150.64)
+motion_scale = Vector2(0.12, 1)
+motion_mirroring = Vector2(1376, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_pbs5h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/3"]
+position = Vector2(688, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_pbs5h")
+
+[node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2(-22, -101.64)
+motion_scale = Vector2(0.11, 1)
+motion_mirroring = Vector2(1376, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
+position = Vector2(-8, 17)
+texture = ExtResource("9_wfha8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/2"]
+position = Vector2(679.605, 17)
+texture = ExtResource("9_wfha8")
+
+[node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2(-27, -150.64)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1376, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
+position = Vector2(-11, 100.5)
+texture = ExtResource("10_ljfyr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/1"]
+position = Vector2(677, 100.5)
+texture = ExtResource("10_ljfyr")
+
+[node name="Node" type="Node" parent="ParallaxBackground"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+follow_viewport_enabled = true
+
+[node name="World blur" type="Sprite2D" parent="CanvasLayer"]
+z_index = -5
+material = SubResource("ShaderMaterial_0cve3")
+position = Vector2(180, -185.714)
+scale = Vector2(20.3232, 2.4426)
+texture = ExtResource("12_h74nd")
+
+[node name="Foreground Decor" type="ParallaxBackground" parent="."]
+layer = 5
+
+[node name="1" type="ParallaxLayer" parent="Foreground Decor"]
+z_index = 7
+motion_scale = Vector2(1.1, 1)
+
+[node name="Pine2" type="Sprite2D" parent="Foreground Decor/1"]
+modulate = Color(0.366595, 0.366595, 0.366595, 1)
+z_index = -1565
+position = Vector2(-452, -155)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("13_ya1ka")
+
+[node name="2" type="ParallaxLayer" parent="Foreground Decor"]
+z_index = 8
+motion_scale = Vector2(1.2, 1)
+
+[node name="Rock1" type="Sprite2D" parent="Foreground Decor/2"]
+modulate = Color(0.497474, 0.497474, 0.497474, 1)
+position = Vector2(-556.6, 75.6)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("14_auoi5")
+
+[node name="Tree1" type="Sprite2D" parent="Foreground Decor/2"]
+modulate = Color(0.470076, 0.470076, 0.470076, 1)
+position = Vector2(568, 176)
+scale = Vector2(6.76435, 3.08435)
+texture = ExtResource("15_bqvec")
+
+[node name="3" type="ParallaxLayer" parent="Foreground Decor"]
+z_index = 9
+motion_scale = Vector2(1.3, 1)
+
+[node name="PineDead1" type="Sprite2D" parent="Foreground Decor/3"]
+modulate = Color(0.299547, 0.299547, 0.299547, 1)
+position = Vector2(-70, 80)
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("16_qunta")
+
+[node name="Pine1" type="Sprite2D" parent="Foreground Decor/3"]
+modulate = Color(0.366595, 0.366595, 0.366595, 1)
+position = Vector2(207, -37)
+scale = Vector2(0.343, 0.343)
+texture = ExtResource("13_ya1ka")
+
+[node name="Background Decor" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="-3" type="ParallaxLayer" parent="Background Decor"]
+z_index = 5
+motion_scale = Vector2(0.7, 1)
+
+[node name="Pine1" type="Sprite2D" parent="Background Decor/-3"]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
+position = Vector2(114, -150)
+scale = Vector2(0.311, 0.262)
+texture = ExtResource("17_5mwpa")
+
+[node name="Pine2" type="Sprite2D" parent="Background Decor/-3"]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
+position = Vector2(259, -162)
+scale = Vector2(0.296, 0.296)
+texture = ExtResource("17_5mwpa")
+
+[node name="Pine3" type="Sprite2D" parent="Background Decor/-3"]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
+z_index = -200
+position = Vector2(18, -234)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("18_shqlb")
+
+[node name="-2" type="ParallaxLayer" parent="Background Decor"]
+z_index = 10
+position = Vector2(-1, 0)
+motion_scale = Vector2(0.8, 1)
+
+[node name="Pine1" type="Sprite2D" parent="Background Decor/-2"]
+modulate = Color(0.728822, 0.728822, 0.728822, 1)
+position = Vector2(-85, -51)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_ya1ka")
+
+[node name="-1" type="ParallaxLayer" parent="Background Decor"]
+z_index = 15
+position = Vector2(1, 0)
+motion_scale = Vector2(0.9, 1)
+motion_offset = Vector2(155.885, 0)
+
+[node name="Rock1" type="Sprite2D" parent="Background Decor/-1"]
+position = Vector2(27, -7)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_auoi5")
+
+[node name="0" type="ParallaxLayer" parent="Background Decor"]
+z_index = 20
+
+[node name="Rock1" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(-201, -108)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_auoi5")
+
+[node name="Pine2" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(-234, -202)
+scale = Vector2(0.191, 0.191)
+texture = ExtResource("17_5mwpa")
+
+[node name="Rock3" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(404, -158)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("19_0dqy7")
+
+[node name="Rock4" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(414, -158)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("20_pyups")
+
+[node name="TreeDead2" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(386, -176)
+texture = ExtResource("26_c151r")
+
+[node name="Rock2" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(147, -8)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("22_fqrjg")
+
+[node name="PineDead3" type="Sprite2D" parent="Background Decor/0"]
+position = Vector2(116, -133)
+scale = Vector2(0.243, 0.243)
+texture = ExtResource("23_18kf1")
+
+[node name="Tilemap (Player Layer)" type="Node2D" parent="."]
+z_index = 6
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Tilemap (Player Layer)" groups=["tilemap"]]
+z_index = 6
+tile_map_data = PackedByteArray("AADv//r/AQAaAAwAAADv//v/AQAaAA0AAADv//z/AQAaAA4AAADv//3/AQAaAA8AAADv//7/AQAaABAAAADv////AQAaABAAAADv/wAAAQAaABAAAADw//r/AQAbAAwAAADx//r/AQAcAAwAAADy//r/AQAdAAwAAADz//r/AQAeAAwAAAD0//r/AQAfAAwAAAD0//v/AQAfAA0AAADw//v/AQAbAA0AAADw//z/AQAbAA4AAADw//3/AQAbAA8AAADw//7/AQAbABAAAADx//v/AQAcAA0AAADx//z/AQAcAA4AAADx//3/AQAcAA8AAADx//7/AQAcABAAAADy//v/AQAdAA0AAADy//z/AQAdAA4AAADy//3/AQAdAA8AAADy//7/AQAdABAAAADz//v/AQAeAA0AAADz//z/AQAeAA4AAADz//3/AQAeAA8AAADz//7/AQAeABAAAADw////AQAcAA8AAADx////AQAcAA8AAADy////AQAcAA8AAADz////AQAcAA8AAADz/wAAAQAcAA8AAADy/wAAAQAcAA8AAADx/wAAAQAcAA8AAADw/wAAAQAcAA8AAAD0//z/AQAfAA0AAAD0//3/AQAfAA4AAAD0//7/AQAfAA8AAAD0////AQAfABAAAAD0/wAAAQATAAIAAADw/wEAAQAcAA4AAADw/wIAAQAcAA8AAADw/wMAAQAcAA4AAADx/wEAAQAdAA4AAADx/wIAAQAdAA8AAADx/wMAAQAdAA4AAADy/wEAAQAcAA4AAADy/wIAAQAcAA8AAADy/wMAAQAcABAAAADz/wEAAQAdAA4AAADz/wIAAQAdAA8AAADz/wMAAQAdABAAAADw/wQAAQAcAA8AAADw/wUAAQAcABAAAADx/wQAAQAdAA8AAADx/wUAAQAdABAAAADy/wQAAQAcAA4AAADy/wUAAQAcAA8AAADy/wYAAQAcAA4AAADz/wQAAQAdAA4AAADz/wUAAQAdAA8AAADz/wYAAQAdAA4AAADw/wYAAQAcAA4AAADw/wcAAQAcAA8AAADw/wgAAQAcAA8AAADx/wYAAQAdAA4AAADx/wcAAQAdAA8AAADx/wgAAQAdAA8AAADy/wcAAQAcAA8AAADy/wgAAQAcAA8AAADz/wcAAQAdAA8AAADz/wgAAQAdAA8AAAD0/wEAAQAcAA4AAAD0/wIAAQAcAA8AAAD0/wMAAQAcAA4AAADv/wEAAQACAAwAAADv/wIAAQACAA0AAADv/wMAAQACAA4AAAD0/wQAAQAcAA8AAAD0/wUAAQAcAA4AAADv/wQAAQACAA0AAADv/wUAAQACAA0AAADv/wcAAQACAA0AAADv/wYAAQACAA0AAAD0/wYAAQAcAA4AAAD0/wcAAQAcAA8AAAD1/wAAAQAbAAwAAAD2/wAAAQAcAAwAAAD3/wAAAQAbAAwAAAD4/wAAAQAcAAwAAAD5/wAAAQAdAAwAAAD5/wEAAQAdAA4AAAD6/wAAAQAbAAwAAAD7/wAAAQAcAAwAAAD8/wAAAQAdAAwAAAD9/wAAAQAbAAwAAAD+/wAAAQAcAAwAAAD//wAAAQAdAAwAAAAAAAAAAQAeAAwAAAABAAAAAQAdAAwAAAACAAAAAQAbAAwAAAADAAAAAQAcAAwAAAAEAAAAAQAdAAwAAAAFAAAAAQAbAAwAAAAGAAAAAQAcAAwAAAAHAAAAAQAdAAwAAAAIAAAAAQAeAAwAAAAJAAAAAQAbAAwAAAAKAAAAAQAcAAwAAAALAAAAAQAdAAwAAAAMAAAAAQAbAAwAAAANAAAAAQAcAAwAAAAOAAAAAQAdAAwAAAAPAAAAAQAeAAwAAAD1/wEAAQAdAA4AAAD1/wIAAQAdAA8AAAD2/wEAAQAcAA4AAAD2/wIAAQAcAA8AAAD3/wEAAQAdAA4AAAD3/wIAAQAdAAEAAAD4/wEAAQAcAA4AAAD4/wIAAQAcAA8AAAD5/wIAAQAdAA8AAAD4/wMAAQAcAA4AAAD4/wQAAQAcAA8AAAD5/wMAAQAdAA4AAAD5/wQAAQAdAA8AAAD2/wMAAQAcAA4AAAD2/wQAAQAcAA8AAAD3/wMAAQAdAA4AAAD3/wQAAQAdAA8AAAD2/wUAAQAcAA4AAAD2/wYAAQAcAA4AAAD3/wUAAQAdAA4AAAD3/wYAAQAdAA4AAAD1/wUAAQAdAA4AAAD1/wYAAQAdAA4AAAD1/wMAAQAdAA4AAAD1/wQAAQAdAA8AAAD4/wUAAQAcAA4AAAD4/wYAAQAcAA4AAAD5/wUAAQAdAA4AAAD5/wYAAQAdAA4AAAD6/wUAAQAcAA4AAAD6/wYAAQAcAA4AAAD7/wUAAQAdAA4AAAD7/wYAAQAdAA4AAAD8/wUAAQAcAA4AAAD8/wYAAQAcAA4AAAD9/wUAAQAdAA4AAAD9/wYAAQAdAA4AAAD+/wUAAQAcAA4AAAD+/wYAAQAcAA4AAAD//wUAAQAdAA4AAAD//wYAAQAdAA4AAAD+/wMAAQAcAA4AAAD+/wQAAQAcAA8AAAD//wMAAQAdAA4AAAD//wQAAQAdAA8AAAD8/wMAAQAcAA4AAAD8/wQAAQAcAA8AAAD9/wMAAQAdAA4AAAD9/wQAAQAdAA8AAAD6/wMAAQAcAA4AAAD6/wQAAQAcAA8AAAD7/wMAAQAdAA4AAAD7/wQAAQAdAA8AAAD6/wEAAQAcAA4AAAD6/wIAAQAcAA8AAAD7/wEAAQAdAA4AAAD7/wIAAQAdAA8AAAD8/wEAAQAcAA4AAAD8/wIAAQATAAEAAAD9/wEAAQAdAA4AAAD9/wIAAQAdAA8AAAD+/wEAAQAcAA4AAAD+/wIAAQAcAA8AAAD//wEAAQAdAA4AAAD//wIAAQAdAA8AAAAAAAEAAQAcAA4AAAAAAAIAAQAcAA8AAAABAAEAAQAdAA4AAAABAAIAAQAdAA8AAAACAAEAAQAcAA4AAAACAAIAAQAcAA8AAAADAAEAAQAdAA4AAAADAAIAAQAdAA8AAAAEAAEAAQAcAA4AAAAEAAIAAQAcAA8AAAAFAAEAAQAdAA4AAAAFAAIAAQAdAA8AAAAGAAEAAQAcAA4AAAAGAAIAAQAUAAEAAAAHAAEAAQAcAA4AAAAHAAIAAQAcAA8AAAAGAAMAAQAcAA4AAAAGAAQAAQAcAA8AAAAHAAMAAQAcAA4AAAAHAAQAAQAcAA8AAAAGAAUAAQAdAA4AAAAGAAYAAQAdAA8AAAAHAAUAAQAcAA4AAAAHAAYAAQAcAA8AAAAEAAUAAQAdAA4AAAAEAAYAAQAcAA4AAAAFAAUAAQAcAA4AAAAFAAYAAQAcAA4AAAACAAUAAQAcAA4AAAACAAYAAQAcAA8AAAADAAUAAQAcAA4AAAADAAYAAQAcAA4AAAAAAAUAAQAcAA4AAAAAAAYAAQAcAA4AAAABAAUAAQAdAA4AAAABAAYAAQAdAA4AAAAAAAMAAQAcAA4AAAAAAAQAAQAcAA8AAAABAAMAAQAdAA4AAAABAAQAAQAdAA8AAAACAAMAAQAcAA4AAAACAAQAAQAcAA8AAAADAAMAAQAdAA4AAAADAAQAAQAdAA8AAAAEAAMAAQAcAA4AAAAEAAQAAQAcAA8AAAAFAAMAAQAdAA4AAAAFAAQAAQAdAA8AAAACAAcAAQAcAA4AAAACAAgAAQAcAA4AAAADAAcAAQAcAA4AAAADAAgAAQAcAA4AAAAAAAcAAQAdAA4AAAAAAAgAAQAdAA8AAAABAAcAAQAcAA4AAAABAAgAAQAcAA4AAAD0/wgAAQAcAA8AAAD1/wcAAQAcAA4AAAD1/wgAAQAcAA8AAAD2/wcAAQAdAA4AAAD3/wcAAQAcAA4AAAD4/wcAAQAdAA4AAAD5/wcAAQAcAA4AAAD6/wcAAQAdAA4AAAD7/wcAAQAcAA4AAAD8/wcAAQAdAA4AAAD9/wcAAQAcAA4AAAD+/wcAAQAdAA4AAAD//wcAAQAcAA4AAAD//wgAAQAcAA8AAAD9/wgAAQAcAA8AAAD+/wgAAQAdAA8AAAD7/wgAAQAcAA8AAAD8/wgAAQAdAA8AAAD5/wgAAQAcAA8AAAD6/wgAAQAdAA8AAAD3/wgAAQAcAA8AAAD4/wgAAQAdAA8AAAD2/wgAAQAdAA8AAAD1/wkAAQAdAA8AAAD1/woAAQAdAA8AAAD2/wkAAQAdAA4AAAD2/woAAQAcAA8AAAD3/wkAAQAcAA4AAAD3/woAAQAdAA8AAAD4/wkAAQAcAA8AAAD4/woAAQAcAA8AAAD3/wsAAQAdAA8AAAD3/wwAAQAdAA8AAAD4/wsAAQAcAA8AAAD4/wwAAQAcAA8AAAD5/wsAAQAdAA8AAAD5/wwAAQAdAA8AAAD6/wsAAQAcAA8AAAD6/wwAAQAcAA8AAAD5/wkAAQAdAA8AAAD5/woAAQAdAA8AAAD6/wkAAQAdAA4AAAD6/woAAQAdAA8AAAD7/wkAAQAcAA4AAAD7/woAAQAcAA8AAAD8/wkAAQAdAA4AAAD8/woAAQAdAA8AAAD9/wkAAQAcAA4AAAD9/woAAQAcAA8AAAD+/wkAAQAdAA4AAAD+/woAAQAdAA8AAAD//wkAAQAcAA4AAAD//woAAQAcAA8AAAAAAAkAAQAdAA4AAAAAAAoAAQAcAA8AAAAIAAUAAQAdAA4AAAAIAAYAAQAdAA8AAAAJAAUAAQAcAA4AAAAJAAYAAQAcAA8AAAAKAAUAAQAdAA4AAAAKAAYAAQAdAA8AAAAIAAMAAQAdAA4AAAAIAAQAAQAdAA8AAAAIAAEAAQAdAA4AAAAIAAIAAQAdAA8AAAAJAAEAAQAcAA4AAAAJAAIAAQAcAA8AAAAKAAEAAQAdAA4AAAAKAAIAAQAdAA8AAAALAAEAAQAcAA4AAAALAAIAAQAcAA8AAAAMAAEAAQAdAA4AAAAMAAIAAQAdAA8AAAALAAMAAQAcAA4AAAALAAQAAQAcAA8AAAAMAAMAAQAdAA4AAAAMAAQAAQAdAA8AAAAJAAMAAQAcAA4AAAAJAAQAAQAcAA8AAAAKAAMAAQAdAA4AAAAKAAQAAQAdAA8AAAANAAMAAQAcAA4AAAANAAQAAQAcAA8AAAAOAAMAAQAdAA4AAAAOAAQAAQAdAA8AAAANAAEAAQAcAA4AAAANAAIAAQAcAA8AAAAOAAEAAQAdAA4AAAAOAAIAAQAdAA8AAAAPAAEAAQAcAA4AAAAPAAIAAQAcAA8AAAAQAAEAAQAdAA4AAAAQAAIAAQAdAA8AAAANAAUAAQAcAA4AAAANAAYAAQAcAA8AAAAOAAUAAQAdAA4AAAAOAAYAAQAcAA4AAAALAAUAAQAcAA4AAAALAAYAAQAcAA8AAAAMAAUAAQAdAA4AAAAMAAYAAQAdAA8AAAAHAAcAAQAcAA4AAAAHAAgAAQAcAA8AAAAIAAcAAQAcAA4AAAAIAAgAAQAcAA4AAAAFAAcAAQAcAA4AAAAFAAgAAQAcAA8AAAAGAAcAAQAcAA4AAAAGAAgAAQAdAA8AAAADAAkAAQAcAA4AAAADAAoAAQAdAA8AAAAEAAkAAQAcAA4AAAAEAAoAAQAcAA4AAAD7/wsAAQAdAA8AAAD7/wwAAQAdAA8AAAD8/wsAAQAcAA8AAAD8/wwAAQAcAA8AAAD9/wsAAQAdAA8AAAD9/wwAAQAdAA8AAAD+/wsAAQAcAA8AAAD+/wwAAQAdAA8AAAD//wsAAQAdAA8AAAD//wwAAQAcAA8AAAAAAAsAAQAcAA8AAAAAAAwAAQAcAA8AAAD//w0AAQAdAA8AAAD//w4AAQAdAA8AAAAAAA0AAQAcAA8AAAAAAA4AAQAcAA8AAAABAA0AAQAdAA8AAAABAA4AAQAdAA8AAAACAA0AAQAcAA8AAAACAA4AAQAcAA8AAAADAA0AAQAdAA8AAAADAA4AAQAdAA8AAAAEAA0AAQAcAA8AAAAEAA4AAQAcAA8AAAAVAPr/AQAaAA4AAAAVAPv/AQAaAA4AAAAVAPz/AQAaAA4AAAAVAP3/AQAaAA8AAAAVAP7/AQAaABAAAAAVAP//AQAaABAAAAAWAPr/AQAcAA8AAAAWAPv/AQAcAA8AAAAWAPz/AQAbAA4AAAAWAP3/AQAbAA8AAAAWAP7/AQAbABAAAAAWAP//AQAcAA8AAAAXAPr/AQAdAA8AAAAXAPv/AQAdAA8AAAAXAPz/AQAcAA4AAAAXAP3/AQAcAA8AAAAXAP7/AQAcABAAAAAXAP//AQAcAA8AAAAYAPr/AQAcAA8AAAAYAPv/AQAcAA8AAAAYAPz/AQAdAA4AAAAYAP3/AQAdAA8AAAAYAP7/AQAdABAAAAAYAP//AQAcAA8AAAAZAPr/AQAdAA8AAAAZAPv/AQAdAA8AAAAZAPz/AQAeAA4AAAAZAP3/AQAeAA8AAAAZAP7/AQAeABAAAAAZAP//AQAcAA8AAAAaAPr/AQAfAA0AAAAaAPv/AQAfAA0AAAAaAPz/AQAfAA0AAAAaAP3/AQAfAA4AAAAaAP7/AQAfAA8AAAAaAP//AQAfABAAAAAUAAAAAQAbAAwAAAAVAAAAAQAOAAIAAAAQAAAAAQAPAAQAAAARAAAAAQAQAAQAAAASAAAAAQAJAAYAAAATAAAAAQAbAAwAAAARAAEAAQAbAA0AAAARAAIAAQAbAA4AAAARAAMAAQAcAA4AAAARAAQAAQAcAA4AAAASAAEAAQAcAA0AAAASAAIAAQAcAA4AAAASAAMAAQAcAA8AAAASAAQAAQAcABAAAAATAAEAAQAdAA0AAAATAAIAAQAdAA4AAAATAAMAAQAdAA8AAAATAAQAAQAdABAAAAAUAAEAAQAcAA8AAAAUAAIAAQAcAA8AAAAUAAMAAQAcAA8AAAAUAAQAAQAcAA8AAAAPAAMAAQAcAA4AAAAQAAMAAQAcAA4AAAAQAAQAAQAcAA4AAAAQAAUAAQAcAA4AAAAPAAUAAQAcAA4AAAAPAAQAAQAcAA4AAAAPAAYAAQAcAA4AAAAQAAYAAQAcAA4AAAAQAAcAAQAcAA4AAAARAAcAAQAcAA4AAAASAAcAAQAcAA8AAAATAAcAAQAdAA8AAAATAAYAAQAdAA8AAAAUAAYAAQAcAA8AAAAUAAUAAQAcAA8AAAATAAUAAQAcAA4AAAASAAUAAQAcAA4AAAARAAUAAQAcAA4AAAAOAAcAAQAcAA4AAAANAAcAAQAcAA4AAAANAAgAAQAcAA4AAAAMAAgAAQAcAA4AAAALAAgAAQAcAA4AAAALAAcAAQAcAA4AAAAKAAcAAQAcAA4AAAAJAAcAAQAcAA4AAAAEAAcAAQAcAA4AAAAJAAgAAQAcAA4AAAAKAAgAAQAcAA4AAAAOAAgAAQAcAA4AAAANAAkAAQAcAA4AAAAMAAkAAQAcAA4AAAALAAkAAQAcAA4AAAALAAoAAQAcAA4AAAAKAAoAAQAcAA4AAAAJAAoAAQAcAA4AAAAIAAoAAQAcAA4AAAAHAAoAAQAcAA4AAAAGAAoAAQAcAA4AAAAFAAoAAQAcAA4AAAACAAkAAQAcAA4AAAABAAkAAQAcAA4AAAAFAAkAAQAcAA4AAAAGAAkAAQAcAA4AAAAHAAkAAQAcAA4AAAAIAAkAAQAcAA4AAAAEAAgAAQAcAA4AAAAOAAkAAQAcAA4AAAAPAAkAAQAcAA4AAAAPAAgAAQAcAA4AAAAMAAcAAQAcAA4AAAAKAAkAAQAcAA4AAAAJAAkAAQAcAA4AAAAPAAcAAQAcAA4AAAARAAYAAQAcAA4AAAASAAYAAQAcAA8AAAAQAAgAAQAcAA4AAAAQAAkAAQAcAA4AAAARAAkAAQAcAA4AAAASAAkAAQAcAA4AAAATAAgAAQAdAA8AAAAUAAgAAQAcAA8AAAAUAAcAAQAcAA8AAAARAAgAAQAcAA4AAAATAAkAAQAcAA4AAAAUAAkAAQAcAA8AAAAUAAoAAQAcAA8AAAATAAoAAQAdAA8AAAASAAoAAQAcAA8AAAARAAoAAQAdAA8AAAAQAAoAAQAcAA8AAAAPAAoAAQAcAA4AAAAOAAoAAQAcAA4AAAANAAoAAQAcAA4AAAAMAAoAAQAcAA4AAAAVAPn/AQAaAA4AAAAaAPn/AQAfAA0AAAAaAPj/AQAfAA0AAAAVAPj/AQAaAAwAAAAWAPf/AQAaAAwAAAAXAPf/AQAbAAwAAAAYAPf/AQAbAAwAAAAZAPf/AQAbAAwAAAAaAPf/AQAfAAwAAAAWAPj/AQAOAAIAAAAWAPn/AQAcAA8AAAAXAPn/AQAdAA8AAAAYAPn/AQAcAA8AAAAZAPn/AQAdAA8AAAAYAPj/AQAdAA8AAAAZAPj/AQAdAA8AAAAXAPj/AQAcAA8AAAAWAAAAAQAdAA8AAAAXAAAAAQAdAA8AAAAWAAEAAQAcAA8AAAAXAAEAAQAdAA8AAAAYAAEAAQAcAA8AAAAZAAEAAQAcAA8AAAAYAAIAAQAcAA8AAAAZAAIAAQAcAA8AAAAYAAMAAQAcAA8AAAAZAAMAAQAcAA8AAAAWAAMAAQAcAA8AAAAXAAMAAQAdAA8AAAAWAAIAAQAcAA8AAAAXAAIAAQAdAA8AAAAVAAIAAQAdAA8AAAAVAAEAAQAdAA8AAAAVAAMAAQAdAA8AAAAVAAQAAQAdAA8AAAAVAAUAAQAdAA8AAAAVAAYAAQAdAA8AAAAVAAcAAQAdAA8AAAAWAAcAAQAcAA8AAAAXAAcAAQAdAA8AAAAYAAcAAQAcAA8AAAAZAAcAAQAdAA8AAAAYAAYAAQAcAA8AAAAZAAYAAQAdAA8AAAAYAAUAAQAdAA8AAAAZAAUAAQAdAA8AAAAYAAQAAQAdAA8AAAAZAAQAAQAcAA8AAAAYAAAAAQAcAA8AAAAZAAAAAQAcAA8AAAAWAAYAAQAcAA8AAAAXAAYAAQAdAA8AAAAWAAUAAQAcAA8AAAAXAAUAAQAcAA8AAAAWAAQAAQAcAA8AAAAXAAQAAQAcAA8AAAASAAgAAQAcAA8AAAAVAAgAAQAdAA8AAAAVAAkAAQAdAA8AAAAVAAoAAQAdAA8AAAAWAAoAAQAcAA8AAAAXAAoAAQAdAA8AAAAWAAkAAQAcAA8AAAAXAAkAAQAdAA8AAAAWAAgAAQAcAA8AAAAXAAgAAQAdAA8AAAAYAAgAAQAcAA8AAAAZAAgAAQAdAA8AAAAYAAkAAQAcAA8AAAAZAAkAAQAdAA8AAAAYAAoAAQAcAA8AAAAZAAoAAQAdAA8AAAAYAAsAAQAcAA8AAAAZAAsAAQAdAA8AAAAQAAsAAQAcAA8AAAARAAsAAQAdAA8AAAAOAAsAAQAcAA8AAAAPAAsAAQAdAA8AAAAMAAsAAQAcAA8AAAANAAsAAQAdAA8AAAAMAAwAAQAcAA8AAAANAAwAAQAdAA8AAAAKAAwAAQAcAA8AAAALAAwAAQAdAA8AAAAIAAwAAQAcAA8AAAAJAAwAAQAdAA8AAAAGAAsAAQAcAA8AAAAHAAsAAQAdAA8AAAAEAAsAAQAcAA8AAAAFAAsAAQAdAA8AAAACAAsAAQAcAA8AAAADAAsAAQAdAA8AAAACAAoAAQAcAA8AAAABAAoAAQAdAA8AAAABAAsAAQAdAA8AAAABAAwAAQAdAA8AAAACAAwAAQAcAA8AAAADAAwAAQAdAA8AAAAFAA0AAQAdAA8AAAAEAAwAAQAcAA8AAAAFAAwAAQAdAA8AAAAGAAwAAQAcAA8AAAAHAAwAAQAdAA8AAAAOAAwAAQAcAA8AAAAPAAwAAQAdAA8AAAAIAAsAAQAcAA8AAAAJAAsAAQAdAA8AAAAKAAsAAQAcAA8AAAALAAsAAQAdAA8AAAAQAAwAAQAcAA8AAAARAAwAAQAdAA8AAAAQAA0AAQAcAA8AAAARAA0AAQAdAA8AAAAQAA4AAQAcAA8AAAARAA4AAQAdAA8AAAAOAA4AAQAcAA8AAAAPAA4AAQAdAA8AAAAMAA4AAQAcAA8AAAANAA4AAQAdAA8AAAAKAA4AAQAcAA8AAAALAA4AAQAdAA8AAAAIAA4AAQAcAA8AAAAJAA4AAQAdAA8AAAAGAA4AAQAcAA8AAAAHAA4AAQAdAA8AAAAFAA4AAQAdAA8AAAD+/w0AAQAcAA8AAAD2/wwAAQAcAA8AAAD8/w0AAQAcAA8AAAD9/w0AAQAdAA8AAAD+/w4AAQAcAA8AAAD8/w4AAQAcAA8AAAD9/w4AAQAdAA8AAAD6/w0AAQAcAA8AAAD7/w0AAQAdAA8AAAD4/w0AAQAcAA8AAAD5/w0AAQAdAA8AAAD2/w0AAQAcAA8AAAD3/w0AAQAdAA8AAAD2/wsAAQAcAA8AAAD0/wsAAQAcAA8AAAD1/wsAAQAdAA8AAADy/wsAAQAcAA8AAADz/wsAAQAdAA8AAADy/woAAQAcAA8AAADz/woAAQAdAA8AAADy/wkAAQAcAA8AAADz/wkAAQAdAA8AAADw/wkAAQAcAA8AAADx/wkAAQAdAA8AAAD0/wkAAQAcAA8AAAD0/woAAQAcAA8AAADw/woAAQAcAA8AAADx/woAAQAdAA8AAADw/wsAAQAcAA8AAADx/wsAAQAdAA8AAADw/wwAAQAcAA8AAADx/wwAAQAdAA8AAADy/wwAAQAcAA8AAADz/wwAAQAdAA8AAAD0/wwAAQAcAA8AAAD1/wwAAQAdAA8AAAAaAAQAAQAdAA8AAAAaAAMAAQAdAA8AAAAaAAIAAQAdAA8AAAAaAAEAAQAdAA8AAAAaAAAAAQAdAA8AAAA=")
+tile_set = SubResource("TileSet_yvhtc")
+
+[node name="World Border" type="StaticBody2D" parent="."]
+position = Vector2(0, 101)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World Border"]
 shape = SubResource("WorldBoundaryShape2D_u8mg8")
 disabled = true
 
 [node name="Target" type="Sprite2D" parent="."]
-position = Vector2(86, -74)
+z_index = 100
+position = Vector2(75, -90)
 scale = Vector2(0.022236, 0.0211349)
-texture = ExtResource("2_8vmsg")
-script = ExtResource("3_gwg5j")
+texture = ExtResource("32_nbhvr")
+script = ExtResource("33_jiysi")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Computer (Network Access)" type="Sprite2D" parent="."]
+modulate = Color(0.603121, 0.687351, 0.6366, 1)
+z_index = -1664
+position = Vector2(304, -24)
+scale = Vector2(1.53125, 1.78125)
+texture = ExtResource("34_fooyj")
+script = ExtResource("35_0ywd1")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
-tile_map_data = PackedByteArray("AAD+/wAAAQAIAAYAAAD+/wEAAQAIAAcAAAD//wAAAQAJAAYAAAD//wEAAQAJAAcAAAAAAAAAAQAKAAYAAAAAAAEAAQAKAAcAAAABAAAAAQALAAYAAAABAAEAAQALAAcAAAACAAAAAQAMAAYAAAACAAEAAQAMAAcAAAADAAAAAQANAAYAAAADAAEAAQANAAcAAAAGAAAAAQAaAAoAAAAGAAEAAQAaAAsAAAAHAAAAAQAbAAoAAAAHAAEAAQAbAAsAAAAIAAAAAQAcAAoAAAAIAAEAAQAcAAsAAAAJAAAAAQAdAAoAAAAJAAEAAQAdAAsAAAAKAAAAAQAeAAoAAAAKAAEAAQAeAAsAAAALAAAAAQAfAAoAAAALAAEAAQAfAAsAAAD2/wAAAQAaAAoAAAD2/wEAAQAaAAsAAAD3/wAAAQAbAAoAAAD3/wEAAQAbAAsAAAD4/wAAAQAcAAoAAAD4/wEAAQAcAAsAAAD5/wAAAQAdAAoAAAD5/wEAAQAdAAsAAAD6/wAAAQAeAAoAAAD6/wEAAQAeAAsAAAD7/wAAAQAfAAoAAAD7/wEAAQAfAAsAAAAOAAAAAQAaAAoAAAAOAAEAAQAaAAsAAAAPAAAAAQAbAAoAAAAPAAEAAQAbAAsAAAAQAAAAAQAcAAoAAAAQAAEAAQAcAAsAAAARAAAAAQAdAAoAAAARAAEAAQAdAAsAAAASAAAAAQAeAAoAAAASAAEAAQAeAAsAAAATAAAAAQAfAAoAAAATAAEAAQAfAAsAAAAVAAAAAQAOAAYAAAAWAAAAAQAOAAYAAAAXAAAAAQAOAAYAAAAYAAAAAQAOAAYAAAAZAAAAAQAOAAYAAAAaAP//AQAOAAYAAAAbAP7/AQAOAAYAAAAcAP3/AQAOAAYAAAAdAPz/AQAOAAYAAAAeAPv/AQAOAAYAAAAfAPr/AQAOAAYAAAD0/wEAAQAOAAYAAADy/wMAAQAOAAYAAADw/wUAAQAOAAYAAADx/wQAAQAOAAYAAADz/wIAAQAOAAYAAAD1/wAAAQAOAAYAAAA=")
-tile_set = SubResource("TileSet_yvhtc")
+[node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
+position = Vector2(-198.531, 15.1579)
+scale = Vector2(0.653061, 0.561404)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
+position = Vector2(305, -29)
+shape = SubResource("RectangleShape2D_ns730")
+
+[node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_66pcd")
+volume_db = -1.0
+parameters/looping = false
+
+[node name="ForestMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("37_hoapu")
+volume_db = -2.211
+parameters/looping = false
+
+[connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
