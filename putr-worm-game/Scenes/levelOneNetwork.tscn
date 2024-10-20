@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dg3d16rppd1aw"]
+[gd_scene load_steps=38 format=4 uid="uid://dg3d16rppd1aw"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_c2iu7"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_4v8dn"]
@@ -19,10 +19,11 @@
 [ext_resource type="Script" path="res://Scenes/TrapPlatform.gd" id="16_w3d02"]
 [ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="17_orafw"]
 [ext_resource type="Script" path="res://Scripts/LevelCamera.gd" id="18_38o70"]
+[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="19_puwty"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_va72d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bg1h3"]
 texture = ExtResource("4_pgpsj")
 0:0/0 = 0
 1:0/0 = 0
@@ -80,7 +81,7 @@ texture = ExtResource("4_pgpsj")
 5:8/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_gcoh5"]
-sources/0 = SubResource("TileSetAtlasSource_va72d")
+sources/0 = SubResource("TileSetAtlasSource_bg1h3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k80i6"]
 texture = ExtResource("5_tsuo2")
@@ -1510,20 +1511,6 @@ position = Vector2(-0.968995, 280.001)
 shape = SubResource("WorldBoundaryShape2D_u58b2")
 disabled = true
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("7_7qgk1")]
-z_index = 200
-y_sort_enabled = true
-position = Vector2(-225, -132)
-
-[node name="PlayerCamera" type="Camera2D" parent="Player" node_paths=PackedStringArray("player") groups=["player", "players"]]
-offset = Vector2(0, -50)
-zoom = Vector2(3.16, 3.16)
-process_callback = 0
-position_smoothing_speed = 8.0
-drag_vertical_offset = 0.01
-script = ExtResource("8_j3xre")
-player = NodePath("..")
-
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(105, 32)
 scale = Vector2(1.03134, 1.03134)
@@ -1845,6 +1832,30 @@ shape = SubResource("RectangleShape2D_chmsf")
 libraries = {
 "": SubResource("AnimationLibrary_iytt4")
 }
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(-151, -1)
+offset = Vector2(0, -50)
+zoom = Vector2(4.5, 4.5)
+process_callback = 0
+position_smoothing_speed = 8.0
+drag_vertical_offset = 0.01
+script = ExtResource("8_j3xre")
+player = NodePath("../Player")
+
+[node name="HealthUI" parent="Camera2D" instance=ExtResource("19_puwty")]
+z_index = 10
+offset_left = 131.535
+offset_top = -161.82
+offset_right = 131.535
+offset_bottom = -161.82
+scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." instance=ExtResource("7_7qgk1")]
+z_index = 200
+y_sort_enabled = true
+position = Vector2(-151, -1)
 
 [connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]

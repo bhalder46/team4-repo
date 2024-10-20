@@ -22,10 +22,18 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"BitByte": "res://NPC/NPC Dialogue/BitByte.dch"
+"BitByte": "res://NPC/NPC Dialogue/BitByte.dch",
+"General": "res://NPC/General.dch",
+"Worm": "res://NPC/Worm.dch"
 }
 directories/dtl_directory={
-"BitByteDialogue": "res://NPC/BitByteDialogue.dtl"
+"BitByteDialogue": "res://NPC/BitByteDialogue.dtl",
+"TutorialEnd": "res://NPC/TutorialEnd.dtl",
+"TutorialGeneral": "res://NPC/TutorialGeneral.dtl",
+"TutorialGeneralTarget1": "res://NPC/TutorialGeneralTarget1.dtl",
+"TutorialTarget2": "res://NPC/TutorialTarget2.dtl",
+"test": "res://NPC/test.dtl",
+"tutorialGeneralBird": "res://NPC/tutorialGeneralBird.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"
@@ -50,7 +58,8 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 variables={
-"has_spoken_to_npc": false
+"has_spoken_to_npc": false,
+"movement_done": false
 }
 
 [display]
@@ -67,6 +76,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 tilemap=""
 players=""
+Player=""
 
 [input]
 

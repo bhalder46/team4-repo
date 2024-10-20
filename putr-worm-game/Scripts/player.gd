@@ -10,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var gun_shoot_sound = $"Gun/Shoot Sound"
 @onready var gun_reload_sound = $"Gun/Reload Sound"
 
-
 var can_shoot = true
 var shoot_cooldown = 0.4  # Time in seconds before the player can shoot again
 var reload_time = 1.5  # Time in seconds to reload
@@ -28,7 +27,12 @@ var coyote_time: float = 0.2  # Time in seconds for coyote jumping
 var is_on_ground = false  # Track if the player is on the ground
 var coyote_timer: float = 0.0  # Timer for coyote time
 
+# New variable to control movement and jumping
+var disable_movement: bool = false
+var disable_shooting: bool = false
 
+func _ready() -> void:
+	animated_sprite.flip_h = true
 
 var max_health: int = 3
 var current_health: int = 3
@@ -81,21 +85,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		coyote_timer = coyote_time  # Reset coyote timer when touching the ground
 
-	# Handle jumping
-	if Input.is_action_just_pressed("jump") and (is_on_ground or coyote_timer > 0):
+	# Handle jumping, considering the disable_movement variable
+	if Input.is_action_just_pressed("jump") and (is_on_ground or coyote_timer > 0) and not disable_movement:
 		velocity.y = JUMP_VELOCITY
 		if coyote_timer > 0:
 			coyote_timer = 0  # Reset coyote timer after using it to jump
 
-
-
-
-	# Handle jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get movement direction
+	# Get movement direction, considering the disable_movement variable
 	var direction := Input.get_axis("move_left", "move_right")
+	if disable_movement:
+		direction = 0  # Disable left/right movement
 
 	# Play the appropriate animation based on movement state
 	if is_on_floor():
@@ -130,8 +129,8 @@ func _physics_process(delta: float) -> void:
 			shot_count = 0  # Reset shot count
 			$Gun.play("idle")  # Ensure the gun goes back to idle after reloading
 
-	# Handle shooting
-	if Input.is_action_just_pressed("shoot") and can_shoot and not is_reloading:
+	# Handle shooting, considering the disable_shooting variable
+	if Input.is_action_just_pressed("shoot") and can_shoot and not is_reloading and not disable_shooting:
 		shoot()
 
 func shoot():
@@ -202,5 +201,4 @@ func update_gun_rotation():
 
 	# Check if the gun is idle when not shooting or reloading
 	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
-		$Gun.play("idle")  
-#The big test
+		$Gun.play("idle")

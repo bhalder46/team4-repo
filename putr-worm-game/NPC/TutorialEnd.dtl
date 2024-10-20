@@ -1,0 +1,6 @@
+join General center
+General: Alright you've finished your training soldier. 
+General: Your mission is to get inside these computers and destroy those bugs.
+General: I won't be able to contact you once you're in there. 
+General: Good luck, Putr.
+[signal arg="end5"]

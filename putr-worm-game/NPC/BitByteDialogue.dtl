@@ -8,9 +8,9 @@ elif {has_spoken_to_npc} == false:
 	BitByte: Did it work?
 	- Yes
 		yipee!
-	- Nope, delete game
+		- Nope, delete game
 		BitByte: Fallacy of sunk cost, cant do it.
-	[signal arg="dialogue_finished"]
-	BitByte: Bye
-	set {has_spoken_to_npc} = true
-	[end_timeline]
+		[signal arg="dialogue_finished"]
+		BitByte: Bye
+		set {has_spoken_to_npc} = true
+		[end_timeline]
