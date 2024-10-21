@@ -18,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="16_ewrch"]
 [ext_resource type="Script" path="res://Scenes/TrapPlatform.gd" id="16_w3d02"]
 [ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="17_orafw"]
-[ext_resource type="Script" path="res://Scripts/LevelCamera.gd" id="18_38o70"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="19_puwty"]
+[ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="20_sfjhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1521,10 +1521,10 @@ scale = Vector2(1.03134, 1.03134)
 
 [node name="AreaCamera2" type="Area2D" parent="."]
 position = Vector2(1292, -829)
-script = ExtResource("18_38o70")
 
 [node name="Camera2D" type="Camera2D" parent="AreaCamera2"]
 position = Vector2(19, -58)
+enabled = false
 zoom = Vector2(2.505, 2.505)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2"]
@@ -1833,17 +1833,24 @@ libraries = {
 "": SubResource("AnimationLibrary_iytt4")
 }
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(-151, -1)
+[node name="Bird" parent="." instance=ExtResource("20_sfjhw")]
+position = Vector2(687, -59)
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("7_7qgk1")]
+z_index = 200
+y_sort_enabled = true
+position = Vector2(-174, -47)
+
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
 zoom = Vector2(4.5, 4.5)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
 script = ExtResource("8_j3xre")
-player = NodePath("../Player")
+player = NodePath("..")
 
-[node name="HealthUI" parent="Camera2D" instance=ExtResource("19_puwty")]
+[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("19_puwty")]
 z_index = 10
 offset_left = 131.535
 offset_top = -161.82
@@ -1851,11 +1858,6 @@ offset_right = 131.535
 offset_bottom = -161.82
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
-
-[node name="Player" parent="." instance=ExtResource("7_7qgk1")]
-z_index = 200
-y_sort_enabled = true
-position = Vector2(-151, -1)
 
 [connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]

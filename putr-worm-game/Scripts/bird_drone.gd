@@ -19,7 +19,7 @@ var buffswitch_delay: float = 1.0  # 1 second delay
 # Speed, jump, and shoot buffs
 var speed_boost: float = 1.2  # 20% speed increase
 var jump_boost: float = 1.1  # 10% jump height increase
-var shoot_cooldown_boost: float = 0.5  # 20% reduction in shoot cooldown
+var shoot_cooldown_boost: float = 0.46  # 20% reduction in shoot cooldown
 
 # Track if buffs are active
 var yellow_buff_active: bool = false
@@ -31,20 +31,33 @@ func _change_light_color():
 		LightColors.BLUE:
 			_remove_buff()  # Remove previous buffs
 			_apply_blue_buff()  # Apply blue buff
-			point_light.color = Color(0, 0, 1) # Blue
-			self.modulate = Color(0.5, 0.5, 1) # Light Blue
+			point_light.color = Color(0, 0, 1)  # Blue
+			self.modulate = Color(0.5, 0.5, 1)  # Light Blue
 			current_color = LightColors.RED
 		LightColors.RED:
 			_remove_buff()  # Remove previous buffs
-			point_light.color = Color(1, 0, 0) # Red
-			self.modulate = Color(1, 0.5, 0.5) # Light Red
+			point_light.color = Color(1, 0, 0)  # Red
+			self.modulate = Color(1, 0.5, 0.5)  # Light Red
 			current_color = LightColors.YELLOW
+			
+			# Call the toggle_shield() method
+			if player:
+				var shield = player.get_node("Shield")  # Adjust the path if needed
+				if shield and shield.has_method("toggle_shield"):
+					shield.toggle_shield()
+					
 		LightColors.YELLOW:
 			_remove_buff()  # Remove previous buffs
 			_apply_yellow_buff()  # Apply yellow buff
-			point_light.color = Color(1, 1, 0) # Yellow
-			self.modulate = Color(1, 1, 0.5) # Light Yellow
+			point_light.color = Color(1, 1, 0)  # Yellow
+			self.modulate = Color(1, 1, 0.5)  # Light Yellow
 			current_color = LightColors.BLUE
+			
+			# Call the toggle_off() method
+			if player:
+				var shield = player.get_node("Shield")  # Adjust the path if needed
+				if shield and shield.has_method("toggle_off"):
+					shield.toggle_off()
 
 # Apply the yellow buff (increase speed and jump)
 func _apply_yellow_buff():
