@@ -78,6 +78,7 @@ tilemap=""
 players=""
 Player=""
 enemybullet=""
+bullets=""
 
 [input]
 
