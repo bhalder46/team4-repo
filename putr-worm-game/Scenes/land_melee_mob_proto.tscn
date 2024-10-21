@@ -1,14 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://1cwobjep8l64"]
+[gd_scene load_steps=28 format=3 uid="uid://1cwobjep8l64"]
 
-[ext_resource type="Texture2D" uid="uid://drlw7fha6q0x1" path="res://Art/forest_envi_package/Sprites/Tile/Ground/ground_1.png" id="1_87i5e"]
-[ext_resource type="Script" path="res://land_melee_mob_proto.gd" id="1_p2jve"]
+[ext_resource type="Script" path="res://Scripts/land_melee_mob_proto.gd" id="1_p2jve"]
 [ext_resource type="Texture2D" uid="uid://bv0sawcyi4tcg" path="res://Art/melee_mob_proto/Golem_Armor_AttackA.png" id="2_0k4ng"]
 [ext_resource type="Texture2D" uid="uid://badu80h54sqrx" path="res://Art/melee_mob_proto/Golem_Armor_Run.png" id="3_wq05e"]
 [ext_resource type="Texture2D" uid="uid://cork64626kixl" path="res://Art/melee_mob_proto/Golem_Armor_ArmorBreak.png" id="4_71syo"]
-[ext_resource type="Texture2D" uid="uid://ob4jrf6jh6sc" path="res://Art/Pixel Adventure 1/Free/Main Characters/Virtual Guy/Idle (32x32).png" id="5_hwtfu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2bfc"]
-size = Vector2(16.4701, 18.0672)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhr58"]
 atlas = ExtResource("2_0k4ng")
@@ -146,7 +141,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s38a6")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -174,134 +169,37 @@ size = Vector2(46, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_li3ul"]
 size = Vector2(45, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35jvv"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8a0u5"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_so4l2"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4a10"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_404xs"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0tsm"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pk8i6"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7x8v2"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0u66e"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cyda5"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2qh7"]
-atlas = ExtResource("5_hwtfu")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v2u5y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_35jvv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8a0u5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_so4l2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y4a10")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_404xs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h0tsm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pk8i6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7x8v2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0u66e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cyda5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2qh7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7adhb"]
-size = Vector2(22, 23)
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Ground1" type="Sprite2D" parent="."]
-position = Vector2(958, 832)
-scale = Vector2(127.625, 22.3125)
-texture = ExtResource("1_87i5e")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ground1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1/StaticBody2D"]
-position = Vector2(0.156709, 0.761905)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_t2bfc")
-
-[node name="land_melee_mob_proto" type="CharacterBody2D" parent="."]
-position = Vector2(900, 634)
+[node name="land_melee_mob_proto" type="CharacterBody2D"]
 script = ExtResource("1_p2jve")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="land_melee_mob_proto"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k1716")
-animation = &"death"
+animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="land_melee_mob_proto"]
-position = Vector2(3, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qeupo")
 
-[node name="Area2D" type="Area2D" parent="land_melee_mob_proto"]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="land_melee_mob_proto/Area2D"]
-position = Vector2(3.5, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_li3ul")
 
-[node name="Dummy" type="CharacterBody2D" parent="."]
-position = Vector2(650, 634)
+[node name="RayCast_down_right" type="RayCast2D" parent="."]
+position = Vector2(23, 0)
+scale = Vector2(1.3, 1.3)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dummy"]
-sprite_frames = SubResource("SpriteFrames_v2u5y")
+[node name="RayCast_down_left" type="RayCast2D" parent="."]
+position = Vector2(-23, 0)
+scale = Vector2(1.3, 1.3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dummy"]
-shape = SubResource("RectangleShape2D_7adhb")
+[node name="RayCast_left" type="RayCast2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
 
-[connection signal="area_entered" from="land_melee_mob_proto/Area2D" to="land_melee_mob_proto" method="_on_area_entered"]
+[node name="RayCast_right" type="RayCast2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]

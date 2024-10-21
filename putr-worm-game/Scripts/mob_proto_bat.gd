@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-@onready var player= get_parent().get_node("Dummy")
+@onready var player= get_parent().get_node("Player")
 
 
 var base_y: float
-var speed: float = 250.0       # Speed of mob along x-axis
+var speed: float = 150.0       # Speed of mob along x-axis
 var amplitude: float = 65.0    # How far the mob moves up/down in its motion (amplitude)
 var frequency: float = 2.0     # Frequency of the wave (how fast it oscillates)
 var time_elapsed: float = 0.0  # Keeping track of time to calculate the sine wave
 
-var attack_range: float = 150.0
+var attack_range: float = 50.0
 var attack_cooldown: float = 1.5
 var can_attack: bool = true
 var facing_left: bool = false
@@ -26,6 +26,23 @@ func _ready():
 func _physics_process(delta):
 	
 	time_elapsed += delta  # Incrementing the time every frame
+	
+	if $RayCast_left.is_colliding() and not $RayCast_left.get_collider().is_in_group("players"):
+		
+		facing_left = !facing_left
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		if facing_left:
+			velocity.x = speed * -1
+		else:
+			velocity.x = speed * 1
+			
+	if $RayCast_right.is_colliding() and not $RayCast_right.get_collider().is_in_group("players"):
+		facing_left = !facing_left
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		if facing_left:
+			velocity.x = speed * -1
+		else:
+			velocity.x = speed * 1
 	
 	if player and is_instance_valid(player):
 		var distance_x = position.x - player.position.x
@@ -79,6 +96,8 @@ func _on_area_entered(area):
 	
 func die():
 	$AnimatedSprite2D.play("death")
+	set_physics_process(false)
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
+	
 	

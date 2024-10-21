@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var player = get_parent().get_node("Dummy")
+@onready var player = get_parent().get_node("Player")
 @onready var animated_sprite = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -11,7 +11,7 @@ var attack_cooldown: float = 1.5
 var can_attack: bool = true
 var facing_left: bool = false
 
-var patrol_distance: float = 100.0
+var patrol_distance: float = 300.0
 var initial_position: Vector2
 
 func _ready():
@@ -24,6 +24,38 @@ func _ready():
 
 func _physics_process(delta):
 	apply_gravity(delta)
+	if $RayCast_left.is_colliding() and not $RayCast_left.get_collider().is_in_group("players"):
+		
+		facing_left = !facing_left
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		if facing_left:
+			velocity.x = speed * -1
+		else:
+			velocity.x = speed * 1
+			
+	if $RayCast_right.is_colliding() and not $RayCast_right.get_collider().is_in_group("players"):
+		facing_left = !facing_left
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		if facing_left:
+			velocity.x = speed * -1
+		else:
+			velocity.x = speed * 1
+			
+	if not $RayCast_down_left.is_colliding():
+		facing_left = !facing_left
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		if facing_left:
+			velocity.x = speed * -1
+		else:
+			velocity.x = speed * 1
+			
+	if not $RayCast_down_right.is_colliding():
+		facing_left = !facing_left
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		if facing_left:
+			velocity.x = speed * -1
+		else:
+			velocity.x = speed * 1
 	
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position)
@@ -73,5 +105,5 @@ func _on_area_entered(area):
 func die():
 	animated_sprite.play("death")
 	set_physics_process(false)
-	await animated_sprite.animation_finished
+	await $AnimatedSprite2D.animation_finished
 	queue_free()

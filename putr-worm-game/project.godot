@@ -67,6 +67,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 tilemap=""
 players=""
+bullets=""
 
 [input]
 
