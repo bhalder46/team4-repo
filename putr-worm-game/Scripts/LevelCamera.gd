@@ -1,6 +1,6 @@
 extends Area2D
 # Reference to the player's camera
-@onready var player_camera = get_node("/root/Game/Camera2D")  # Adjust the path if needed
+@onready var player_camera = get_node("/root/Game/Player/Camera2D")  # Adjust the path if needed
 
 # Variable to store the area camera dynamically
 var current_area_camera: Camera2D = null

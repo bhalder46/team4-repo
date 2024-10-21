@@ -1019,10 +1019,10 @@ player = NodePath("..")
 
 [node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_kykxy")]
 z_index = 10
-offset_left = 131.535
-offset_top = -161.82
-offset_right = 131.535
-offset_bottom = -161.82
+offset_left = -258.0
+offset_top = 71.0
+offset_right = -258.0
+offset_bottom = 71.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
