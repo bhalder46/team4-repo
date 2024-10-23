@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dg3d16rppd1aw"]
+[gd_scene load_steps=43 format=4 uid="uid://dg3d16rppd1aw"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_c2iu7"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_4v8dn"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="20_sfjhw"]
 [ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="21_6bc2s"]
 [ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="22_yee8h"]
+[ext_resource type="Shader" path="res://Scripts/CRT.gdshader" id="26_0x4ut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1266,6 +1267,10 @@ _data = {
 "fade_out": SubResource("Animation_ku41a")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vonbg"]
+shader = ExtResource("26_0x4ut")
+shader_parameter/intensity = 1.0
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_c2iu7")
 
@@ -1536,7 +1541,7 @@ position = Vector2(32.5, -46)
 shape = SubResource("RectangleShape2D_koa8h")
 
 [node name="NpcTest" parent="." instance=ExtResource("17_orafw")]
-position = Vector2(95, -1)
+position = Vector2(289, -206)
 
 [node name="Node" type="Node" parent="."]
 
@@ -1960,7 +1965,7 @@ position = Vector2(-164, -42)
 position = Vector2(1173, -74)
 
 [node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("22_yee8h")]
-position = Vector2(1198, -683)
+position = Vector2(1393, -684)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("7_7qgk1")]
 z_index = 200
@@ -1984,6 +1989,22 @@ offset_right = -258.0
 offset_bottom = 71.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 128
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
+z_index = 4096
+material = SubResource("ShaderMaterial_vonbg")
+offset_left = -391.0
+offset_top = -163.0
+offset_right = -351.0
+offset_bottom = -123.0
+scale = Vector2(85.3546, 58.5877)
+
+[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("22_yee8h")]
+position = Vector2(1201, -685)
 
 [connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]

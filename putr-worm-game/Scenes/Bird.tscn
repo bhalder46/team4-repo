@@ -53,5 +53,5 @@ script = ExtResource("2_4a7yg")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(7, -38)
 scale = Vector2(0.0981396, 0.0981396)
-energy = 0.0
+energy = 1.44
 texture = ExtResource("3_wlys5")

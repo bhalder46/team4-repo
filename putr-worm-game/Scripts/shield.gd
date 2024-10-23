@@ -5,8 +5,8 @@ extends AnimatedSprite2D  # Ensure this script extends AnimatedSprite2D
 @onready var shield_timer = $ShieldTimer  # Timer for handling the shield disabling duration
 
 # Duration of the spawn animation
-var spawn_animation_duration: float = 0.5  # Adjust this based on your animation length
-var shield_disable_duration: float = 5.0  # Duration to disable the shield
+var spawn_animation_duration: float = 0.5 # Adjust this based on your animation length
+var shield_disable_duration: float = 4.0  # Duration to disable the shield
 var shield_active: bool = false  # Track if the shield is currently active
 var is_disabled: bool = false  # Variable to disable the script functionality
 

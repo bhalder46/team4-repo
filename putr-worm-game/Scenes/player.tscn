@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=87 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -541,6 +541,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyk1w"]
 radius = 10.2553
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq4f3"]
+size = Vector2(17, 27)
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 script = ExtResource("1_bjqqb")
 bullet_scene = ExtResource("2_uoog2")
@@ -603,8 +606,14 @@ wait_time = 0.5
 one_shot = true
 
 [node name="ShieldTimer" type="Timer" parent="Shield"]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["Player", "players"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Player", "players"]]
+position = Vector2(-2.5, -14.5)
+shape = SubResource("RectangleShape2D_mq4f3")
 
 [connection signal="animation_finished" from="Shield" to="Shield" method="_on_AnimatedSprite2D_animation_finished"]
 [connection signal="body_entered" from="Shield/Area2D" to="Shield" method="_on_Area2D_body_entered"]

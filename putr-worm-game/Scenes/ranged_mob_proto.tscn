@@ -174,7 +174,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myhwb"]
 size = Vector2(32, 27)
 
-[node name="Ranged_mob_proto" type="CharacterBody2D"]
+[node name="Ranged_mob_proto" type="CharacterBody2D" groups=["bug"]]
 motion_mode = 1
 script = ExtResource("1_vjlfn")
 mob_projectile_scene = ExtResource("2_neplx")
