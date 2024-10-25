@@ -978,21 +978,39 @@ texture = ExtResource("31_ayb7a")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlarg"]
 texture = ExtResource("26_say8g")
 14:10/0 = 0
+14:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:8/0 = 0
+14:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:9/0 = 0
+15:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:9/0 = 0
+16:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:10/0 = 0
+16:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:9/0 = 0
+14:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:10/0 = 0
+15:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:8/0 = 0
+15:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:8/0 = 0
+16:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:8/0 = 0
+18:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 20:8/0 = 0
+20:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:8/0 = 0
+19:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:9/0 = 0
+19:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:10/0 = 0
+19:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:9/0 = 0
+18:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 20:9/0 = 0
+20:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:10/0 = 0
+18:10/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_yvhtc"]
 physics_layer_0/collision_layer = 1
@@ -1008,23 +1026,25 @@ size = Vector2(49, 59)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hln07")
 
-[node name="HealthUI" parent="." instance=ExtResource("2_kt3v3")]
-z_index = 10
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Player" parent="." instance=ExtResource("4_hch64")]
+y_sort_enabled = true
 position = Vector2(-151, -1)
+
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
 zoom = Vector2(4.5, 4.5)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
 script = ExtResource("3_ikdlx")
-player = NodePath("../Player")
+player = NodePath("..")
 
-[node name="Player" parent="." instance=ExtResource("4_hch64")]
-z_index = 200
-y_sort_enabled = true
-position = Vector2(-151, -1)
+[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("2_kt3v3")]
+z_index = 10
+offset_left = 151.0
+offset_top = 1.0
+offset_right = 151.0
+offset_bottom = 1.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -6
