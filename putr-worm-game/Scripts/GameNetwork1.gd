@@ -23,12 +23,7 @@ func _ready() -> void:
 	# Connect all checkpoints in the scene to the player's update_checkpoint function
 	for checkpoint in get_tree().get_nodes_in_group("Checkpoints"):
 		checkpoint.checkpoint_activated.connect(player.update_checkpoint)
-
-	if spike_scene:
-		var spike_instance = spike_scene.instantiate()
-		add_child(spike_instance)
-		spike_instance.position = Vector2(400,600)
-	
+		
 	# Initialize the UI with the player's current health
 	health_ui.update_hearts(player.current_health)
 	

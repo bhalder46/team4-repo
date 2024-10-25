@@ -545,6 +545,7 @@ radius = 10.2553
 size = Vector2(17, 27)
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
+z_index = 200
 script = ExtResource("1_bjqqb")
 bullet_scene = ExtResource("2_uoog2")
 

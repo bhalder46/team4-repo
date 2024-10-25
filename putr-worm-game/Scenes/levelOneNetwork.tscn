@@ -1275,6 +1275,7 @@ shader_parameter/intensity = 1.0
 script = ExtResource("1_c2iu7")
 
 [node name="Scene Background" type="ColorRect" parent="."]
+z_index = -100
 offset_left = -969.0
 offset_top = -1503.0
 offset_right = 1099.0
@@ -1961,6 +1962,9 @@ scale = Vector2(251.274, 0.295466)
 [node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("22_yee8h")]
 position = Vector2(-164, -42)
 
+[node name="Checkpoint" parent="Checkpoint" groups=["Checkpoints"] instance=ExtResource("22_yee8h")]
+position = Vector2(357, 9)
+
 [node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("22_yee8h")]
 position = Vector2(1173, -74)
 
@@ -1968,13 +1972,12 @@ position = Vector2(1173, -74)
 position = Vector2(1393, -684)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("7_7qgk1")]
-z_index = 200
 y_sort_enabled = true
-position = Vector2(-178, -32)
+position = Vector2(178, -15)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
@@ -1990,11 +1993,11 @@ offset_bottom = 71.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 4096
 material = SubResource("ShaderMaterial_vonbg")
 offset_left = -391.0

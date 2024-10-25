@@ -1016,7 +1016,6 @@ scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("27_nt63h")]
-z_index = 200
 y_sort_enabled = true
 position = Vector2(-151, -1)
 

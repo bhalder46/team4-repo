@@ -7,4 +7,4 @@ const Player = preload("res://Scripts/player.gd")  # Adjust the path to your Pla
 # Function to detect when the player enters the spikes
 func _on_body_entered(body: Node) -> void:
 	if body is Player:  # Check if the colliding body is the player
-		body.take_damage(3)  # Reduce the player's health by 1
+		body.die()  # Call the die function on the player
