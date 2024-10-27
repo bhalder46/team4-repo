@@ -1529,12 +1529,11 @@ scale = Vector2(1.03134, 1.03134)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 
 [node name="AreaCamera2" type="Area2D" parent="."]
-position = Vector2(1292, -829)
+position = Vector2(74, -161)
 script = ExtResource("14_4rxdd")
 
 [node name="Camera2D" type="Camera2D" parent="AreaCamera2"]
 position = Vector2(15, -42)
-enabled = false
 zoom = Vector2(2.505, 2.505)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2"]
@@ -1973,7 +1972,7 @@ position = Vector2(1393, -684)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("7_7qgk1")]
 y_sort_enabled = true
-position = Vector2(178, -15)
+position = Vector2(83, -71)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
@@ -2009,6 +2008,18 @@ scale = Vector2(85.3546, 58.5877)
 [node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("22_yee8h")]
 position = Vector2(1201, -685)
 
+[node name="AreaCamera3" type="Area2D" parent="."]
+position = Vector2(1197, -148)
+script = ExtResource("14_4rxdd")
+
+[node name="Camera2D" type="Camera2D" parent="AreaCamera3"]
+position = Vector2(15, -42)
+zoom = Vector2(2.505, 2.505)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera3"]
+position = Vector2(32.5, -46)
+shape = SubResource("RectangleShape2D_koa8h")
+
 [connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]
 [connection signal="body_entered" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_entered"]
@@ -2041,3 +2052,5 @@ position = Vector2(1201, -685)
 [connection signal="body_exited" from="Node/Trap Platform17/Area2D" to="Node/Trap Platform17" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Node/Trap Platform18/Area2D" to="Node/Trap Platform18" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform18/Area2D" to="Node/Trap Platform18" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AreaCamera3" to="AreaCamera3" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaCamera3" to="AreaCamera3" method="_on_body_exited"]
