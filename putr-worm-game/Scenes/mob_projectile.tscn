@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbyxko8knvo8d"]
 
-[ext_resource type="Script" path="res://Scenes/mob_projectile.gd" id="1_0gujy"]
+[ext_resource type="Script" path="res://Scripts/mob_projectile.gd" id="1_0gujy"]
 [ext_resource type="Texture2D" uid="uid://dlms3ihjih7vi" path="res://Art/laserRed08.png" id="1_xda85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6r27"]

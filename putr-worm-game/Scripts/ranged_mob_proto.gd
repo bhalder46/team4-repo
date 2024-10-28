@@ -4,16 +4,17 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @export var mob_projectile_scene: PackedScene
 
+@export var speed: float = 100.0
+@export var amplitude: float = 65.0
+@export var frequency: float = 2.0
+@export var attack_range: float = 400.0
+@export var attack_cooldown: float = 1.0
+@export var patrol_distance: float = 300.0
+
 var base_y: float
-var speed: float = 100.0
-var amplitude: float = 65.0
-var frequency: float = 2.0
 var time_elapsed: float = 0.0
-var attack_range: float = 400.0
-var attack_cooldown: float = 1.0
 var can_attack: bool = true
 var facing_left: bool = false
-var patrol_distance: float = 300.0
 var initial_position: Vector2
 
 func _ready():

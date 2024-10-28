@@ -1694,8 +1694,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0wki"]
 radius = 165.208
 
-[node name="Sprite2D" type="AnimatedSprite2D"]
-modulate = Color(0.95746, 0, 0.409779, 1)
+[node name="Planet" type="AnimatedSprite2D"]
+z_index = 1
 scale = Vector2(0.189908, 0.189908)
 sprite_frames = SubResource("SpriteFrames_u1fa7")
 autoplay = "default"

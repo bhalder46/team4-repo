@@ -1,54 +1,54 @@
 [gd_scene load_steps=51 format=4 uid="uid://uod7mhhwk13l"]
 
-[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_ocsu6"]
-[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_qb80s"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_0rwio"]
-[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="4_kykxy"]
-[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="5_xm0kb"]
-[ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="6_ens26"]
-[ext_resource type="Script" path="res://Scripts/Clouds.gd" id="7_jp0d6"]
-[ext_resource type="Texture2D" uid="uid://b1julc3aa105g" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/cloud.png" id="8_pjsj3"]
-[ext_resource type="Texture2D" uid="uid://dm332ry216lfi" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/mountain.png" id="9_8uxwn"]
-[ext_resource type="Texture2D" uid="uid://fn8gog2l8ph1" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine1.png" id="10_xs4tc"]
-[ext_resource type="Texture2D" uid="uid://v17y2ql72hfy" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine2.png" id="11_0v0l4"]
-[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="12_6yc7g"]
-[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="13_d55xy"]
-[ext_resource type="Texture2D" uid="uid://co4btihy8kd7i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_3.png" id="23_vme8w"]
-[ext_resource type="Script" path="res://addons/dialogic/Core/DialogicGameHandler.gd" id="24_e78q3"]
-[ext_resource type="Texture2D" uid="uid://c4ffhcurgfa0m" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_1.png" id="24_pue1s"]
-[ext_resource type="Texture2D" uid="uid://cdmiyjc3he3o5" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_1.png" id="25_71u5n"]
-[ext_resource type="Texture2D" uid="uid://cu4v6ew3gw284" path="res://Art/Random Assets/636039264184061330.png" id="26_0o3rm"]
-[ext_resource type="Script" path="res://Scenes/tutorialBird.gd" id="26_2g7y2"]
-[ext_resource type="Script" path="res://Scenes/tutorialTarget1.gd" id="26_jm3g0"]
-[ext_resource type="Script" path="res://Scenes/TutorialScript.gd" id="26_s2uot"]
-[ext_resource type="Texture2D" uid="uid://ckvf14cja8cvl" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_2.png" id="26_ww4kf"]
-[ext_resource type="Script" path="res://Scenes/tutorialTarget2.gd" id="27_6xlyr"]
-[ext_resource type="Script" path="res://Scripts/EndTutorial.gd" id="27_mm067"]
-[ext_resource type="Texture2D" uid="uid://bmtvqux14k2ih" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_1.png" id="27_tc1cg"]
-[ext_resource type="Texture2D" uid="uid://bolou401t785i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_7.png" id="28_ndxih"]
-[ext_resource type="Texture2D" uid="uid://di78jua68asd7" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine_dead/pine_dead_1.png" id="29_mfm82"]
-[ext_resource type="Texture2D" uid="uid://ddvymhsusbme3" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_1.png" id="30_cno5m"]
-[ext_resource type="Texture2D" uid="uid://bvjaxeiidj8qf" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_1.png" id="31_5o0ej"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="31_xb8j1"]
-[ext_resource type="Texture2D" uid="uid://c2nostb20qgh0" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_8.png" id="32_7v5fn"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="32_lqhjt"]
-[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="33_u4lgn"]
-[ext_resource type="Texture2D" uid="uid://cou2gaue6xd36" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_7.png" id="33_xhbvc"]
-[ext_resource type="Texture2D" uid="uid://dupujbq72jsrq" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_4.png" id="34_1xlh2"]
-[ext_resource type="Script" path="res://Scripts/target.gd" id="34_4nd6a"]
-[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="35_5f86i"]
-[ext_resource type="Texture2D" uid="uid://disitwtc0je5p" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_3.png" id="35_8e5u0"]
-[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="36_s1uvy"]
-[ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="37_1vo6k"]
-[ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="38_s3aii"]
-[ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="39_e0mn1"]
+[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_4v47l"]
+[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_l2drf"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_miwoo"]
+[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="4_hbc4h"]
+[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="5_cskv3"]
+[ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="6_hdb2b"]
+[ext_resource type="Script" path="res://Scripts/Clouds.gd" id="7_xuffg"]
+[ext_resource type="Texture2D" uid="uid://b1julc3aa105g" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/cloud.png" id="8_ocghj"]
+[ext_resource type="Texture2D" uid="uid://dm332ry216lfi" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/mountain.png" id="9_skkkm"]
+[ext_resource type="Texture2D" uid="uid://fn8gog2l8ph1" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine1.png" id="10_ukavf"]
+[ext_resource type="Texture2D" uid="uid://v17y2ql72hfy" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine2.png" id="11_1qxki"]
+[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="12_qubtu"]
+[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="13_1ukqm"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="14_cvg4o"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="15_hkggf"]
+[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="16_bibet"]
+[ext_resource type="Script" path="res://Scripts/target.gd" id="17_ku3s8"]
+[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="18_xwq53"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="19_l0kbc"]
+[ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="20_m8cgp"]
+[ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="21_roptg"]
+[ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="22_yvbif"]
+[ext_resource type="Texture2D" uid="uid://co4btihy8kd7i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_3.png" id="23_tq31b"]
+[ext_resource type="Texture2D" uid="uid://c4ffhcurgfa0m" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_1.png" id="24_5mobt"]
+[ext_resource type="Texture2D" uid="uid://cdmiyjc3he3o5" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_1.png" id="25_cwpda"]
+[ext_resource type="Texture2D" uid="uid://ckvf14cja8cvl" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_2.png" id="26_bs8vc"]
+[ext_resource type="Texture2D" uid="uid://bolou401t785i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_7.png" id="27_ux3k3"]
+[ext_resource type="Texture2D" uid="uid://bmtvqux14k2ih" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_1.png" id="28_7pml0"]
+[ext_resource type="Texture2D" uid="uid://di78jua68asd7" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine_dead/pine_dead_1.png" id="29_ebp3s"]
+[ext_resource type="Texture2D" uid="uid://ddvymhsusbme3" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_1.png" id="30_k0yyj"]
+[ext_resource type="Texture2D" uid="uid://bvjaxeiidj8qf" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_1.png" id="31_ag07n"]
+[ext_resource type="Texture2D" uid="uid://c2nostb20qgh0" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_8.png" id="32_eglr7"]
+[ext_resource type="Texture2D" uid="uid://cou2gaue6xd36" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_7.png" id="33_o3a0d"]
+[ext_resource type="Texture2D" uid="uid://dupujbq72jsrq" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_4.png" id="34_1ifh7"]
+[ext_resource type="Texture2D" uid="uid://disitwtc0je5p" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_3.png" id="35_qtm7l"]
+[ext_resource type="Script" path="res://addons/dialogic/Core/DialogicGameHandler.gd" id="36_3ws82"]
+[ext_resource type="Script" path="res://Scripts/TutorialScript.gd" id="37_h8dks"]
+[ext_resource type="Script" path="res://Scripts/tutorialBird.gd" id="38_yxpli"]
+[ext_resource type="Script" path="res://Scripts/tutorialTarget1.gd" id="39_2jdxg"]
+[ext_resource type="Script" path="res://Scripts/tutorialTarget2.gd" id="40_4d37m"]
+[ext_resource type="Texture2D" uid="uid://cu4v6ew3gw284" path="res://Art/Random Assets/636039264184061330.png" id="41_insyf"]
+[ext_resource type="Script" path="res://Scripts/EndTutorial.gd" id="42_nywfn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
-shader = ExtResource("12_6yc7g")
+shader = ExtResource("12_qubtu")
 shader_parameter/lod = 0.684
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvakw"]
-texture = ExtResource("31_xb8j1")
+texture = ExtResource("14_cvg4o")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -303,7 +303,7 @@ texture = ExtResource("31_xb8j1")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10i33"]
-texture = ExtResource("32_lqhjt")
+texture = ExtResource("15_hkggf")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1001,9 +1001,9 @@ size = Vector2(49, 59)
 radius = 119.567
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_ocsu6")
+script = ExtResource("1_4v47l")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_qb80s")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_l2drf")]
 y_sort_enabled = true
 position = Vector2(-295, -31)
 
@@ -1013,10 +1013,10 @@ zoom = Vector2(4.5, 4.5)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
-script = ExtResource("3_0rwio")
+script = ExtResource("3_miwoo")
 player = NodePath("..")
 
-[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_kykxy")]
+[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_hbc4h")]
 z_index = 10
 offset_left = -258.0
 offset_top = 71.0
@@ -1025,7 +1025,7 @@ offset_bottom = 71.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
-[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("5_xm0kb")]
+[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("5_cskv3")]
 visible = false
 position = Vector2(-291, -45)
 
@@ -1040,26 +1040,26 @@ motion_mirroring = Vector2(1376, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
 position = Vector2(0, -75.935)
 scale = Vector2(2.21, 2.21)
-texture = ExtResource("6_ens26")
+texture = ExtResource("6_hdb2b")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/5"]
 position = Vector2(688, -75.935)
-texture = ExtResource("6_ens26")
+texture = ExtResource("6_hdb2b")
 
 [node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -194)
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1376, 0)
-script = ExtResource("7_jp0d6")
+script = ExtResource("7_xuffg")
 cloud_texture_width = 660
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
 position = Vector2(0, -36.255)
-texture = ExtResource("8_pjsj3")
+texture = ExtResource("8_ocghj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/4"]
 position = Vector2(688, -36.255)
-texture = ExtResource("8_pjsj3")
+texture = ExtResource("8_ocghj")
 
 [node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -150.64)
@@ -1067,11 +1067,11 @@ motion_scale = Vector2(0.12, 1)
 motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
-texture = ExtResource("9_8uxwn")
+texture = ExtResource("9_skkkm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/3"]
 position = Vector2(688, 0)
-texture = ExtResource("9_8uxwn")
+texture = ExtResource("9_skkkm")
 
 [node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-22, -101.64)
@@ -1080,11 +1080,11 @@ motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
 position = Vector2(-7, 22.64)
-texture = ExtResource("10_xs4tc")
+texture = ExtResource("10_ukavf")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/2"]
 position = Vector2(679.605, 17)
-texture = ExtResource("10_xs4tc")
+texture = ExtResource("10_ukavf")
 
 [node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -150.64)
@@ -1093,11 +1093,11 @@ motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
 position = Vector2(-11, 100.5)
-texture = ExtResource("11_0v0l4")
+texture = ExtResource("11_1qxki")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/1"]
 position = Vector2(677, 100.5)
-texture = ExtResource("11_0v0l4")
+texture = ExtResource("11_1qxki")
 
 [node name="Node" type="Node" parent="ParallaxBackground"]
 
@@ -1110,7 +1110,7 @@ z_index = -5
 material = SubResource("ShaderMaterial_0cve3")
 position = Vector2(180, -185.714)
 scale = Vector2(27.5232, 2.4426)
-texture = ExtResource("13_d55xy")
+texture = ExtResource("13_1ukqm")
 
 [node name="Tilemap (Player Layer)" type="Node2D" parent="."]
 z_index = 6
@@ -1140,16 +1140,16 @@ disabled = true
 z_index = 100
 position = Vector2(75, -90)
 scale = Vector2(0.022236, 0.0211349)
-texture = ExtResource("33_u4lgn")
-script = ExtResource("34_4nd6a")
+texture = ExtResource("16_bibet")
+script = ExtResource("17_ku3s8")
 
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = -1664
 position = Vector2(664, -43)
 scale = Vector2(1.53125, 1.78125)
-texture = ExtResource("35_5f86i")
-script = ExtResource("36_s1uvy")
+texture = ExtResource("18_xwq53")
+script = ExtResource("19_l0kbc")
 
 [node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
 position = Vector2(-198.531, 15.1579)
@@ -1160,16 +1160,16 @@ position = Vector2(305, -29)
 shape = SubResource("RectangleShape2D_ns730")
 
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("37_1vo6k")
+stream = ExtResource("20_m8cgp")
 volume_db = -1.0
 parameters/looping = false
 
 [node name="ForestMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("38_s3aii")
+stream = ExtResource("21_roptg")
 volume_db = -2.211
 parameters/looping = false
 
-[node name="Trap" parent="." instance=ExtResource("39_e0mn1")]
+[node name="Trap" parent="." instance=ExtResource("22_yvbif")]
 position = Vector2(-820, -168)
 scale = Vector2(1.04, 1.04)
 
@@ -1203,81 +1203,81 @@ z_index = 20
 [node name="Pine1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-433, -238)
 scale = Vector2(1.3875, 1.39286)
-texture = ExtResource("13_d55xy")
+texture = ExtResource("13_1ukqm")
 
 [node name="Pine3" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-387, -232)
-texture = ExtResource("23_vme8w")
+texture = ExtResource("23_tq31b")
 
 [node name="Rock1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-367, -184)
 scale = Vector2(0.520833, 0.53125)
-texture = ExtResource("24_pue1s")
+texture = ExtResource("24_5mobt")
 
 [node name="UpperGrass1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-225, -32)
-texture = ExtResource("25_71u5n")
+texture = ExtResource("25_cwpda")
 
 [node name="UpperGrass2" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-163, -32)
-texture = ExtResource("26_ww4kf")
+texture = ExtResource("26_bs8vc")
 
 [node name="Bush7" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-345, -175)
-texture = ExtResource("28_ndxih")
+texture = ExtResource("27_ux3k3")
 
 [node name="Bush2" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(238, -192)
-texture = ExtResource("27_tc1cg")
+texture = ExtResource("28_7pml0")
 
 [node name="Pine2" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(31, -232)
-texture = ExtResource("13_d55xy")
+texture = ExtResource("13_1ukqm")
 
 [node name="Pine4" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(149, -297)
 scale = Vector2(2.4498, 2.4498)
-texture = ExtResource("23_vme8w")
+texture = ExtResource("23_tq31b")
 
 [node name="PineDead1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(342, -216)
-texture = ExtResource("29_mfm82")
+texture = ExtResource("29_ebp3s")
 
 [node name="FlowerOrange1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(294, -192)
-texture = ExtResource("30_cno5m")
+texture = ExtResource("30_k0yyj")
 
 [node name="FlowerWhite1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(67, -190)
-texture = ExtResource("31_5o0ej")
+texture = ExtResource("31_ag07n")
 
 [node name="FlowerWhite8" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(177, -176)
-texture = ExtResource("32_7v5fn")
+texture = ExtResource("32_eglr7")
 
 [node name="FlowerOrange7" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(119, -157)
-texture = ExtResource("33_xhbvc")
+texture = ExtResource("33_o3a0d")
 
 [node name="Rock4" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(194, -31)
-texture = ExtResource("34_1xlh2")
+texture = ExtResource("34_1ifh7")
 
 [node name="Rock3" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(6, -31)
-texture = ExtResource("35_8e5u0")
+texture = ExtResource("35_qtm7l")
 
 [node name="Rock5" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(272, -31)
-texture = ExtResource("34_1xlh2")
+texture = ExtResource("34_1ifh7")
 
 [node name="UpperGrass3" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(357, 48)
-texture = ExtResource("26_ww4kf")
+texture = ExtResource("26_bs8vc")
 
 [node name="UpperGrass4" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(447, 48)
-texture = ExtResource("25_71u5n")
+texture = ExtResource("25_cwpda")
 
 [node name="1" type="ParallaxLayer" parent="Foreground Decor"]
 z_index = 7
@@ -1296,12 +1296,12 @@ motion_scale = Vector2(1.3, 1)
 motion_offset = Vector2(-130.51, 0)
 
 [node name="DialogicGameHandler" type="Node" parent="."]
-script = ExtResource("24_e78q3")
+script = ExtResource("36_3ws82")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler"]
 position = Vector2(-294, -54)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("26_s2uot")
+script = ExtResource("37_h8dks")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler/Area2D"]
 position = Vector2(28.9043, 375.779)
@@ -1309,12 +1309,12 @@ scale = Vector2(109.911, 81.7655)
 shape = SubResource("CircleShape2D_ltlui")
 
 [node name="DialogicGameHandler2" type="Node" parent="."]
-script = ExtResource("24_e78q3")
+script = ExtResource("36_3ws82")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler2"]
 position = Vector2(-47, -57)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("26_2g7y2")
+script = ExtResource("38_yxpli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler2/Area2D"]
 position = Vector2(28.9043, 375.779)
@@ -1322,12 +1322,12 @@ scale = Vector2(109.911, 81.7655)
 shape = SubResource("CircleShape2D_ltlui")
 
 [node name="DialogicGameHandler3" type="Node" parent="."]
-script = ExtResource("24_e78q3")
+script = ExtResource("36_3ws82")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler3"]
 position = Vector2(-44, -176)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("26_jm3g0")
+script = ExtResource("39_2jdxg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler3/Area2D"]
 position = Vector2(5289.81, 3989.04)
@@ -1336,12 +1336,12 @@ shape = SubResource("CircleShape2D_ltlui")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(12, 11)
-script = ExtResource("27_6xlyr")
+script = ExtResource("40_4d37m")
 
 [node name="Target" type="Sprite2D" parent="Node2D"]
 position = Vector2(255, -149)
 scale = Vector2(0.0935071, 0.0935071)
-texture = ExtResource("26_0o3rm")
+texture = ExtResource("41_insyf")
 
 [node name="Area2D" type="Area2D" parent="Node2D/Target"]
 
@@ -1349,12 +1349,12 @@ texture = ExtResource("26_0o3rm")
 shape = SubResource("CircleShape2D_8liy6")
 
 [node name="DialogicGameHandler4" type="Node" parent="."]
-script = ExtResource("24_e78q3")
+script = ExtResource("36_3ws82")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler4"]
 position = Vector2(610, -60)
 scale = Vector2(-0.0054052, 0.194595)
-script = ExtResource("27_mm067")
+script = ExtResource("42_nywfn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler4/Area2D"]
 position = Vector2(28.9043, 375.779)
@@ -1365,7 +1365,7 @@ shape = SubResource("CircleShape2D_ltlui")
 z_index = -4096
 position = Vector2(512, 186)
 scale = Vector2(3.4, 1.8)
-texture = ExtResource("11_0v0l4")
+texture = ExtResource("11_1qxki")
 flip_v = true
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]

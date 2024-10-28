@@ -34,13 +34,13 @@ func _process(delta):
 	global_position = Vector2(x, y)  # Set the new global position
 
 	# Change sorting layer based on y position
-	if y > center_position.y:
-		z_index = -1  # Background
+	if y < center_position.y:
+		z_index = -8  # Background
 	else:
-		z_index = 1  # Foreground
+		z_index = 50  # Foreground
 
 	# Always disable monitoring when in negative z index
-	$Area2D.monitoring = z_index < 0
+	$Area2D.monitoring = z_index > 0
 
 	# Calculate scale based on vertical position
 	var scale_factor = initial_scale + (sin(elapsed_time * speed) * scale_strength)
