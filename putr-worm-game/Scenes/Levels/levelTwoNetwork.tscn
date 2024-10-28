@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://btqkay11in5yp"]
+[gd_scene load_steps=56 format=4 uid="uid://btqkay11in5yp"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_1m8v0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_hpt6g"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://ly4asxr7x1se" path="res://Scenes/Planet.tscn" id="26_4jfes"]
 [ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="27_vmtie"]
 [ext_resource type="PackedScene" uid="uid://1cwobjep8l64" path="res://Scenes/land_melee_mob_proto.tscn" id="28_hb0em"]
+[ext_resource type="PackedScene" uid="uid://dnwynbyhwv0p" path="res://tank_mob_proto.tscn" id="29_x7k13"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1968,7 +1969,7 @@ position = Vector2(2484, 144)
 scale = Vector2(0.533771, 0.533771)
 
 [node name="land_melee_mob_proto2" parent="." instance=ExtResource("28_hb0em")]
-position = Vector2(2872, 144)
+position = Vector2(2881, 148)
 scale = Vector2(0.533771, 0.533771)
 
 [node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("24_vk0a2")]
@@ -1979,6 +1980,9 @@ position = Vector2(2848, -408)
 
 [node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("24_vk0a2")]
 position = Vector2(2693, -315)
+
+[node name="tank_mob_proto" parent="." instance=ExtResource("29_x7k13")]
+position = Vector2(1434, -140)
 
 [connection signal="body_entered" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_exited"]

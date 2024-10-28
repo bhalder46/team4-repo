@@ -52,6 +52,11 @@ func _on_Area2D_entered(area: Area2D) -> void:
 	if area.is_in_group("enemybullet"):
 		print_debug("Enemy bullet detected: ", area.name)  # Specific debug for enemy bullets
 
+		# Stop the spawn timer if a bullet collides during the spawn phase
+		if spawn_timer.is_stopped() == false:
+			spawn_timer.stop()
+			print_debug("Spawn timer stopped due to bullet collision.")
+
 		# Play die animation before freeing the shield
 		play("die")  # Ensure the die animation exists
 

@@ -4,11 +4,11 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed: float = 100.0
-var attack_range: float = 50.0
+var attack_range: float = 30.0
 var attack_cooldown: float = 1.5
 var can_attack: bool = true
 var facing_left: bool = true
-var patrol_distance: float = 300.0
+var patrol_distance: float = 100.0
 var initial_position: Vector2
 var is_attacking: bool = false
 var is_retreating: bool = false

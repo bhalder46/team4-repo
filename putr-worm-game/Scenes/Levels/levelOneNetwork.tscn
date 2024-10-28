@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dg3d16rppd1aw"]
+[gd_scene load_steps=47 format=4 uid="uid://dg3d16rppd1aw"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_p1mbb"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_sretp"]
@@ -26,6 +26,7 @@
 [ext_resource type="Shader" path="res://Scripts/CRT.gdshader" id="24_uc6t5"]
 [ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="25_iiypi"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="26_nrsso"]
+[ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="27_4k6n5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1960,7 +1961,6 @@ libraries = {
 position = Vector2(-174, -42)
 
 [node name="Area2D" parent="." instance=ExtResource("19_j5h5u")]
-visible = false
 position = Vector2(556, 101)
 scale = Vector2(251.274, 0.295466)
 
@@ -2027,6 +2027,10 @@ scale = Vector2(0.653061, 0.561404)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
 position = Vector2(305, -29)
 shape = SubResource("RectangleShape2D_smx1y")
+
+[node name="Ranged_mob_proto" parent="." instance=ExtResource("27_4k6n5")]
+position = Vector2(744, -203)
+patrol_distance = 200.0
 
 [connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]
