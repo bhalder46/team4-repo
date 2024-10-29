@@ -1170,7 +1170,7 @@ volume_db = -2.211
 parameters/looping = false
 
 [node name="Trap" parent="." instance=ExtResource("22_yvbif")]
-position = Vector2(-538, 20)
+position = Vector2(-526, 19)
 scale = Vector2(1.04, 1.04)
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]
