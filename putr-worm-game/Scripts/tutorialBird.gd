@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var BirdScene: PackedScene  # Declare a variable to hold the Bird scene
 var is_active = false        # Track if this Area2D is active
 var has_been_activated = false  # New flag to track if the area has been activated
@@ -9,7 +10,7 @@ func _ready():
 	Dialogic.signal_event.connect(spawn_bird)     # Connect the bird signal to the spawn function
 
 	# Load the Bird scene from the scenes folder
-	BirdScene = preload("Bird.tscn")  # Make sure this path is correct
+	BirdScene = preload("res://Scenes/Bird.tscn")  # Make sure this path is correct
 
 func _on_body_entered(body):
 	if body.name == "Player" and not has_been_activated:  # Check if it has been activated before

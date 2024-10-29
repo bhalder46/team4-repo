@@ -1018,10 +1018,10 @@ player = NodePath("..")
 
 [node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_hbc4h")]
 z_index = 10
-offset_left = -258.0
-offset_top = 71.0
-offset_right = -258.0
-offset_bottom = 71.0
+offset_left = 136.0
+offset_top = -107.0
+offset_right = 136.0
+offset_bottom = -107.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
@@ -1170,7 +1170,7 @@ volume_db = -2.211
 parameters/looping = false
 
 [node name="Trap" parent="." instance=ExtResource("22_yvbif")]
-position = Vector2(-820, -168)
+position = Vector2(-538, 20)
 scale = Vector2(1.04, 1.04)
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]

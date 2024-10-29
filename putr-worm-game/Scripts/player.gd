@@ -9,6 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var muzzle = $Gun/Muzzle
 @onready var gun_shoot_sound = $"Gun/Shoot Sound"
 @onready var gun_reload_sound = $"Gun/Reload Sound"
+@onready var camera: Camera2D = $Camera2D
 
 var can_shoot = true
 var shoot_cooldown = 0.4  # Time in seconds before the player can shoot again
@@ -31,8 +32,6 @@ var coyote_timer: float = 0.0  # Timer for coyote time
 var disable_movement: bool = false
 var disable_shooting: bool = false
 
-func _ready() -> void:
-	animated_sprite.flip_h = true
 
 var max_health: int = 3
 var current_health: int = 3
@@ -43,14 +42,34 @@ var checkpoint_position: Vector2 = Vector2(0, 0)  # Default to start position or
 # Signal to notify health changes
 signal health_changed(new_health)
 
+#Invincibility variables
+@export var invincibility_duration: float = 1.0
+var is_invincible: bool = false
+var invincibility_timer: float = 0.0
+
+func _ready() -> void:
+	animated_sprite.flip_h = true
+
 # New Function to Handle Taking Damage
 func take_damage(amount: int) -> void:
 	current_health -= amount
 	current_health = clamp(current_health, 0, max_health)
 	emit_signal("health_changed", current_health)
 	
+	camera.screenshake() # Trigger screen shake
+	
+	is_invincible = true
+	invincibility_timer = invincibility_duration
+	
 	if current_health <= 0:
 		die()
+
+func _process(delta:float) -> void:
+	#Decrease invincibility timer if the player is invincible
+	if is_invincible:
+		invincibility_timer -= delta
+		if invincibility_timer <= 0:
+			is_invincible = false
 
 # Function to Handle Player Death
 func die() -> void:
