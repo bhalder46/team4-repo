@@ -9,7 +9,7 @@ func _ready():
 	Dialogic.signal_event.connect(spawn_bird)     # Connect the bird signal to the spawn function
 
 	# Load the Bird scene from the scenes folder
-	BirdScene = preload("Bird.tscn")  # Make sure this path is correct
+	BirdScene = preload("res://Scenes/Bird.tscn")
 
 func _on_body_entered(body):
 	if body.name == "Player" and not has_been_activated:  # Check if it has been activated before

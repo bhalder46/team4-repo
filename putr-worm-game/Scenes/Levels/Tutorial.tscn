@@ -1018,10 +1018,10 @@ player = NodePath("..")
 
 [node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_hbc4h")]
 z_index = 10
-offset_left = -258.0
-offset_top = 71.0
-offset_right = -258.0
-offset_bottom = 71.0
+offset_left = -203.0
+offset_top = 46.0
+offset_right = -203.0
+offset_bottom = 46.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
@@ -1150,6 +1150,7 @@ position = Vector2(664, -43)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("18_xwq53")
 script = ExtResource("19_l0kbc")
+next_scene = "res://Scenes/Levels/levelOneNetwork.tscn"
 
 [node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
 position = Vector2(-198.531, 15.1579)

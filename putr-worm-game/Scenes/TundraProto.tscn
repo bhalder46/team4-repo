@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://ciw582wmtaacq"]
+[gd_scene load_steps=41 format=4 uid="uid://ciw582wmtaacq"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hln07"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="2_kt3v3"]
@@ -1023,6 +1023,9 @@ sources/3 = SubResource("TileSetAtlasSource_nlarg")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns730"]
 size = Vector2(49, 59)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw683"]
+size = Vector2(737, 400)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hln07")
 
@@ -1312,4 +1315,17 @@ stream = ExtResource("37_hoapu")
 volume_db = -2.211
 parameters/looping = false
 
+[node name="AreaCamera2" type="Area2D" parent="."]
+position = Vector2(-1536, -1222)
+
+[node name="Camera2D4" type="Camera2D" parent="AreaCamera2"]
+position = Vector2(15, -42)
+zoom = Vector2(2.505, 2.505)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2"]
+position = Vector2(32.5, -46)
+shape = SubResource("RectangleShape2D_jw683")
+
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AreaCamera2" to="AreaCamera2" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaCamera2" to="AreaCamera2" method="_on_body_exited"]

@@ -1,4 +1,5 @@
 join General center
 General: Alright now its time for your rifle training.
-General: Shoot the target!
+General: Aim with your mouse.
+General: And shoot that target!
 [signal arg="end3"]
