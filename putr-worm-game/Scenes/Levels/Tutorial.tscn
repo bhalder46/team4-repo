@@ -1150,6 +1150,7 @@ position = Vector2(664, -43)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("18_xwq53")
 script = ExtResource("19_l0kbc")
+next_scene = "res://Scenes/Levels/levelOneNetwork.tscn"
 
 [node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
 position = Vector2(-198.531, 15.1579)
