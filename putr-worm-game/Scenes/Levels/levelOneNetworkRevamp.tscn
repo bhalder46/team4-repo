@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=49 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_wj8sm"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_oqcwa"]
@@ -1657,7 +1657,16 @@ shader_parameter/intensity = 1.0
 size = Vector2(49, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4n0pt"]
-size = Vector2(25.0209, 45.4763)
+size = Vector2(20.9396, 45.5706)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_03p6b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(9.375, 1, 1)
+spread = 0.0
+gravity = Vector3(0, -500, 0)
+scale_max = 3.0
+color = Color(1, 0.213423, 0.997713, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wj8sm")
@@ -2579,14 +2588,14 @@ libraries = {
 }
 
 [node name="Bird" parent="." instance=ExtResource("18_wwbok")]
-position = Vector2(809, -459)
+position = Vector2(20.0001, -719)
 
 [node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("19_5x7v0")]
 position = Vector2(-832, -313)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("20_rfm16")]
 y_sort_enabled = true
-position = Vector2(-5, -772)
+position = Vector2(0, -711)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
@@ -2599,32 +2608,31 @@ player = NodePath("..")
 
 [node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("22_vbvyf")]
 z_index = 10
-offset_left = -225.0
-offset_top = 50.0
-offset_right = -225.0
-offset_bottom = 50.0
+offset_left = -217.0
+offset_top = 59.0
+offset_right = -217.0
+offset_bottom = 59.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 layer = 128
-visible = false
 follow_viewport_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
 z_index = 4096
 material = SubResource("ShaderMaterial_vonbg")
-offset_left = -391.0
-offset_top = -163.0
-offset_right = -351.0
-offset_bottom = -123.0
-scale = Vector2(85.3546, 58.5877)
+offset_left = -1056.0
+offset_top = -1125.0
+offset_right = -1016.0
+offset_bottom = -1085.0
+scale = Vector2(99.9969, 42.5877)
 metadata/_edit_use_anchors_ = true
 
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = 276
-position = Vector2(-778, -492)
+position = Vector2(1918, 4)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("24_27gt8")
 script = ExtResource("25_ox0jk")
@@ -2638,26 +2646,25 @@ scale = Vector2(0.653061, 0.561404)
 position = Vector2(305, -29)
 shape = SubResource("RectangleShape2D_smx1y")
 
-[node name="Node2" type="Node" parent="."]
-
-[node name="Area2D2" parent="Node2" instance=ExtResource("27_tn3xa")]
-position = Vector2(172, 538)
-scale = Vector2(304.7, -0.28574)
-
-[node name="Area2D" type="Area2D" parent="Node2"]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2(50, -362)
 scale = Vector2(0.022236, 0.0211349)
-monitoring = false
 gravity_space_override = 1
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 gravity = 0.0
 script = ExtResource("27_gj5fv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/Area2D"]
-position = Vector2(-2608.38, -5819.76)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2585.9, -5772.46)
 scale = Vector2(1002.98, 1002.98)
 shape = SubResource("RectangleShape2D_4n0pt")
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Area2D2" parent="Node2" instance=ExtResource("27_tn3xa")]
+position = Vector2(172, 538)
+scale = Vector2(304.7, -0.28574)
 
 [node name="Area2D3" parent="Node2" instance=ExtResource("27_tn3xa")]
 position = Vector2(1512, -201)
@@ -2711,6 +2718,19 @@ scale = Vector2(1.36913, 1.36913)
 position = Vector2(1511, 55)
 scale = Vector2(1.36913, 1.36913)
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(2, -7)
+scale = Vector2(22.4111, 21.1979)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_03p6b")
+lifetime = 2.0
+
+[node name="Control" type="Control" parent="GPUParticles2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Node/Trap Platform14/Area2D" to="Node/Trap Platform14" method="_on_area_2d_body_entered"]
@@ -2762,5 +2782,5 @@ scale = Vector2(1.36913, 1.36913)
 [connection signal="body_entered" from="Node/Trap Platform29/Area2D" to="Node/Trap Platform29" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform29/Area2D" to="Node/Trap Platform29" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Node2/Area2D" to="Node2/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Node2/Area2D" to="Node2/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
