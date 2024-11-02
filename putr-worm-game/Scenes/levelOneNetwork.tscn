@@ -1,37 +1,37 @@
 [gd_scene load_steps=46 format=4 uid="uid://dg3d16rppd1aw"]
 
-[ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_p1mbb"]
-[ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_sretp"]
-[ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="3_6tptc"]
-[ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_vagra"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="5_7sjgq"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="6_86hom"]
-[ext_resource type="Texture2D" uid="uid://cqh1klmjlwput" path="res://Art/Tilemaps And Decor Sprites/B&W Tiles/B&W tile set.png" id="7_0sash"]
-[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="7_lioe1"]
-[ext_resource type="Script" path="res://Scripts/target.gd" id="8_mo7lw"]
-[ext_resource type="Texture2D" uid="uid://c3hlafnjpp5xs" path="res://Art/Random Assets/purple-neon-triangle-free-png.png" id="9_12jf6"]
-[ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="10_6dfdn"]
-[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="11_j35ka"]
-[ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="12_frsne"]
-[ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="13_4kdau"]
-[ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="15_5oran"]
-[ext_resource type="Script" path="res://Scripts/TrapPlatform.gd" id="16_3b8lr"]
-[ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="17_vhcwh"]
-[ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="18_ehfmo"]
-[ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="19_j5h5u"]
-[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="20_5wx71"]
-[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="21_getrl"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="22_7r0ip"]
-[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="23_1gyms"]
-[ext_resource type="Shader" path="res://Scripts/CRT.gdshader" id="24_uc6t5"]
-[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="25_iiypi"]
-[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="26_nrsso"]
-[ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="27_4k6n5"]
+[ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_1d8ti"]
+[ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_ppc87"]
+[ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="3_v0n22"]
+[ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_asr77"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="5_wdb3m"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="6_xnqn8"]
+[ext_resource type="Texture2D" uid="uid://cqh1klmjlwput" path="res://Art/Tilemaps And Decor Sprites/B&W Tiles/B&W tile set.png" id="7_sl7a1"]
+[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="8_rs4xk"]
+[ext_resource type="Script" path="res://Scripts/target.gd" id="9_l3cwh"]
+[ext_resource type="Texture2D" uid="uid://c3hlafnjpp5xs" path="res://Art/Random Assets/purple-neon-triangle-free-png.png" id="10_hfewi"]
+[ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="11_pvafk"]
+[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="12_ofv7t"]
+[ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="13_ucgfl"]
+[ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="14_35ac1"]
+[ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="15_j7tcn"]
+[ext_resource type="Script" path="res://Scripts/TrapPlatform.gd" id="16_nundc"]
+[ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="17_snmfp"]
+[ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="18_ihoi3"]
+[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="19_otsug"]
+[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="20_p16tf"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="21_kjv0k"]
+[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="22_amnxe"]
+[ext_resource type="Shader" path="res://Scripts/CRT.gdshader" id="23_hiyfd"]
+[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="24_id3y2"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="25_largx"]
+[ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="26_bsu6j"]
+[ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="27_b61m8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bg1h3"]
-texture = ExtResource("4_vagra")
+texture = ExtResource("4_asr77")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -91,7 +91,7 @@ texture = ExtResource("4_vagra")
 sources/0 = SubResource("TileSetAtlasSource_bg1h3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k80i6"]
-texture = ExtResource("5_7sjgq")
+texture = ExtResource("5_wdb3m")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -346,7 +346,7 @@ texture = ExtResource("5_7sjgq")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oemrh"]
-texture = ExtResource("6_86hom")
+texture = ExtResource("6_xnqn8")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1032,7 +1032,7 @@ texture = ExtResource("6_86hom")
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl1g3"]
-texture = ExtResource("4_vagra")
+texture = ExtResource("4_asr77")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a5183")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1197,7 +1197,7 @@ texture = ExtResource("4_vagra")
 5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2q33"]
-texture = ExtResource("7_0sash")
+texture = ExtResource("7_sl7a1")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1646,14 +1646,14 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vonbg"]
-shader = ExtResource("24_uc6t5")
+shader = ExtResource("23_hiyfd")
 shader_parameter/intensity = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smx1y"]
 size = Vector2(49, 59)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_p1mbb")
+script = ExtResource("1_1d8ti")
 
 [node name="Scene Background" type="ColorRect" parent="."]
 z_index = -100
@@ -1701,70 +1701,70 @@ motion_offset = Vector2(-42.78, 0)
 [node name="Node2D2" type="Node2D" parent="Foreground Decor/1"]
 z_index = -4096
 position = Vector2(-14, -6)
-script = ExtResource("2_sretp")
+script = ExtResource("2_ppc87")
 
 [node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, 49)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, -596)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Node2D3" type="Node2D" parent="Foreground Decor/1"]
 z_index = -4096
 position = Vector2(-775, -477)
-script = ExtResource("2_sretp")
+script = ExtResource("2_ppc87")
 
 [node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, 49)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, -596)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Node2D4" type="Node2D" parent="Foreground Decor/1"]
 z_index = -4096
 position = Vector2(-804, -420)
-script = ExtResource("2_sretp")
+script = ExtResource("2_ppc87")
 
 [node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, 49)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, -596)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Node2D5" type="Node2D" parent="Foreground Decor/1"]
 z_index = -4096
 position = Vector2(9, -93)
-script = ExtResource("2_sretp")
+script = ExtResource("2_ppc87")
 
 [node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, 49)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
 modulate = Color(0.872988, 0.287954, 0.599015, 1)
 z_index = 4096
 position = Vector2(320, -596)
-texture = ExtResource("3_6tptc")
+texture = ExtResource("3_v0n22")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Foreground Decor/1"]
 material = SubResource("ShaderMaterial_u67rk")
@@ -1857,23 +1857,23 @@ tile_set = SubResource("TileSet_5w206")
 z_index = 100
 position = Vector2(75, -90)
 scale = Vector2(0.022236, 0.0211349)
-texture = ExtResource("7_lioe1")
-script = ExtResource("8_mo7lw")
+texture = ExtResource("8_rs4xk")
+script = ExtResource("9_l3cwh")
 
 [node name="Triangle Light" type="Sprite2D" parent="."]
 position = Vector2(24, -356)
 scale = Vector2(0.104037, 0.122535)
-texture = ExtResource("9_12jf6")
-script = ExtResource("10_6dfdn")
+texture = ExtResource("10_hfewi")
+script = ExtResource("11_pvafk")
 
 [node name="PointLight2D" type="PointLight2D" parent="Triangle Light"]
 position = Vector2(19.2239, 261.149)
 scale = Vector2(49.5976, 8.1609)
 color = Color(1, 0.529412, 1, 1)
 shadow_enabled = true
-texture = ExtResource("11_j35ka")
+texture = ExtResource("12_ofv7t")
 offset = Vector2(-2.13178, 359)
-script = ExtResource("12_frsne")
+script = ExtResource("13_ucgfl")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Triangle Light/PointLight2D"]
 position = Vector2(-6.78294, 102)
@@ -1883,7 +1883,7 @@ scale = Vector2(0.193798, 1)
 position = Vector2(649, -241)
 
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_4kdau")
+stream = ExtResource("14_35ac1")
 volume_db = 0.6
 max_distance = 14275.0
 parameters/looping = true
@@ -1905,7 +1905,7 @@ scale = Vector2(1.03134, 1.03134)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 
-[node name="NpcTest" parent="." instance=ExtResource("15_5oran")]
+[node name="NpcTest" parent="." instance=ExtResource("15_j7tcn")]
 position = Vector2(-1426, -1003)
 
 [node name="Node" type="Node" parent="."]
@@ -1913,13 +1913,13 @@ position = Vector2(-1426, -1003)
 [node name="Trap Platform4" type="StaticBody2D" parent="Node"]
 position = Vector2(901, -182)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform4"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform4"]
 position = Vector2(970.101, 39.2695)
@@ -1940,13 +1940,13 @@ libraries = {
 [node name="Trap Platform5" type="StaticBody2D" parent="Node"]
 position = Vector2(948, -135)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform5"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform5"]
 position = Vector2(970.101, 39.2695)
@@ -1967,13 +1967,13 @@ libraries = {
 [node name="Trap Platform6" type="StaticBody2D" parent="Node"]
 position = Vector2(950, -230)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform6"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform6"]
 position = Vector2(970.101, 39.2695)
@@ -1994,13 +1994,13 @@ libraries = {
 [node name="Trap Platform7" type="StaticBody2D" parent="Node"]
 position = Vector2(902, -273)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform7"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform7"]
 position = Vector2(970.101, 39.2695)
@@ -2021,13 +2021,13 @@ libraries = {
 [node name="Trap Platform8" type="StaticBody2D" parent="Node"]
 position = Vector2(949, -318)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform8"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform8"]
 position = Vector2(970.101, 39.2695)
@@ -2048,13 +2048,13 @@ libraries = {
 [node name="Trap Platform9" type="StaticBody2D" parent="Node"]
 position = Vector2(901, -366)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform9"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform9"]
 position = Vector2(970.101, 39.2695)
@@ -2075,13 +2075,13 @@ libraries = {
 [node name="Trap Platform10" type="StaticBody2D" parent="Node"]
 position = Vector2(949, -407)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform10"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform10"]
 position = Vector2(970.101, 39.2695)
@@ -2102,13 +2102,13 @@ libraries = {
 [node name="Trap Platform11" type="StaticBody2D" parent="Node"]
 position = Vector2(902, -451)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform11"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform11"]
 position = Vector2(970.101, 39.2695)
@@ -2129,13 +2129,13 @@ libraries = {
 [node name="Trap Platform12" type="StaticBody2D" parent="Node"]
 position = Vector2(949, -495)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform12"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform12"]
 position = Vector2(970.101, 39.2695)
@@ -2156,13 +2156,13 @@ libraries = {
 [node name="Trap Platform13" type="StaticBody2D" parent="Node"]
 position = Vector2(-527, -32)
 scale = Vector2(1.521, 1.521)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform13"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform13"]
 position = Vector2(970.101, 39.2695)
@@ -2183,13 +2183,13 @@ libraries = {
 [node name="Trap Platform14" type="StaticBody2D" parent="Node"]
 position = Vector2(-424, -61)
 scale = Vector2(1.521, 1.521)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform14"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform14"]
 position = Vector2(970.101, 39.2695)
@@ -2210,13 +2210,13 @@ libraries = {
 [node name="Trap Platform15" type="StaticBody2D" parent="Node"]
 position = Vector2(884, -532)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform15"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform15"]
 position = Vector2(970.101, 39.2695)
@@ -2237,13 +2237,13 @@ libraries = {
 [node name="Trap Platform16" type="StaticBody2D" parent="Node"]
 position = Vector2(964, -561)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform16"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform16"]
 position = Vector2(970.101, 39.2695)
@@ -2264,13 +2264,13 @@ libraries = {
 [node name="Trap Platform17" type="StaticBody2D" parent="Node"]
 position = Vector2(885, -604)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform17"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform17"]
 position = Vector2(970.101, 39.2695)
@@ -2291,13 +2291,13 @@ libraries = {
 [node name="Trap Platform18" type="StaticBody2D" parent="Node"]
 position = Vector2(966, -639)
 scale = Vector2(0.366, 0.366)
-script = ExtResource("16_3b8lr")
+script = ExtResource("16_nundc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Trap Platform18"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(969.616, 38.7847)
 scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_vhcwh")
+texture = ExtResource("17_snmfp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Trap Platform18"]
 position = Vector2(970.101, 39.2695)
@@ -2315,19 +2315,19 @@ libraries = {
 "": SubResource("AnimationLibrary_iytt4")
 }
 
-[node name="Bird" parent="." instance=ExtResource("18_ehfmo")]
+[node name="Bird" parent="." instance=ExtResource("18_ihoi3")]
 position = Vector2(-174, -42)
 
-[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("20_5wx71")]
+[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("19_otsug")]
 position = Vector2(-164, -42)
 
-[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("20_5wx71")]
+[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("19_otsug")]
 position = Vector2(1173, -74)
 
-[node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("20_5wx71")]
+[node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("19_otsug")]
 position = Vector2(1393, -684)
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("21_getrl")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("20_p16tf")]
 y_sort_enabled = true
 position = Vector2(-172, -40)
 
@@ -2337,10 +2337,10 @@ zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
-script = ExtResource("22_7r0ip")
+script = ExtResource("21_kjv0k")
 player = NodePath("..")
 
-[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("23_1gyms")]
+[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("22_amnxe")]
 z_index = 10
 offset_left = -225.0
 offset_top = 50.0
@@ -2364,7 +2364,7 @@ offset_bottom = -123.0
 scale = Vector2(85.3546, 58.5877)
 metadata/_edit_use_anchors_ = true
 
-[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("20_5wx71")]
+[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("19_otsug")]
 position = Vector2(1201, -685)
 
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
@@ -2372,8 +2372,8 @@ modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = 276
 position = Vector2(1273, -797)
 scale = Vector2(1.53125, 1.78125)
-texture = ExtResource("25_iiypi")
-script = ExtResource("26_nrsso")
+texture = ExtResource("24_id3y2")
+script = ExtResource("25_largx")
 next_scene = "res://Scenes/Levels/levelTwoNetwork.tscn"
 
 [node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
@@ -2384,33 +2384,33 @@ scale = Vector2(0.653061, 0.561404)
 position = Vector2(305, -29)
 shape = SubResource("RectangleShape2D_smx1y")
 
-[node name="Ranged_mob_proto" parent="." instance=ExtResource("27_4k6n5")]
+[node name="Ranged_mob_proto" parent="." instance=ExtResource("26_bsu6j")]
 position = Vector2(744, -203)
 patrol_distance = 200.0
 
-[node name="Area2D2" parent="." instance=ExtResource("19_j5h5u")]
+[node name="Area2D2" parent="." instance=ExtResource("27_b61m8")]
 visible = false
 position = Vector2(119, 92)
 scale = Vector2(304.7, -0.28574)
 
-[node name="Ranged_mob_proto2" parent="." instance=ExtResource("27_4k6n5")]
+[node name="Ranged_mob_proto2" parent="." instance=ExtResource("26_bsu6j")]
 position = Vector2(807, -153)
 speed = 25.0
 amplitude = 50.0
 attack_cooldown = 0.8
 patrol_distance = 200.0
 
-[node name="Ranged_mob_proto3" parent="." instance=ExtResource("27_4k6n5")]
+[node name="Ranged_mob_proto3" parent="." instance=ExtResource("26_bsu6j")]
 position = Vector2(1279, -916)
 amplitude = 30.0
 patrol_distance = 50.0
 
-[node name="Ranged_mob_proto4" parent="." instance=ExtResource("27_4k6n5")]
+[node name="Ranged_mob_proto4" parent="." instance=ExtResource("26_bsu6j")]
 position = Vector2(1494, -838)
 amplitude = 40.0
 patrol_distance = 20.0
 
-[node name="Ranged_mob_proto5" parent="." instance=ExtResource("27_4k6n5")]
+[node name="Ranged_mob_proto5" parent="." instance=ExtResource("26_bsu6j")]
 position = Vector2(1019, -832)
 amplitude = 40.0
 patrol_distance = 20.0
