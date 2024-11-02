@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 120.0
-var JUMP_VELOCITY = -300.0
+var JUMP_VELOCITY = -310.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -57,6 +57,7 @@ func take_damage(amount: int) -> void:
 	emit_signal("health_changed", current_health)
 	
 	camera.screenshake() # Trigger screen shake
+	
 	
 	is_invincible = true
 	invincibility_timer = invincibility_duration
