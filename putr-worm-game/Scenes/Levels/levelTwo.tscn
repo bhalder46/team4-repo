@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://btqkay11in5yp"]
+[gd_scene load_steps=68 format=4 uid="uid://btqkay11in5yp"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mqgvh"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_5uc60"]
@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://ly4asxr7x1se" path="res://Scenes/Planet.tscn" id="26_866x4"]
 [ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="27_pms3k"]
 [ext_resource type="PackedScene" uid="uid://dnwynbyhwv0p" path="res://tank_mob_proto.tscn" id="28_77r1m"]
-[ext_resource type="Shader" path="res://Scripts/CRT.gdshader" id="29_xakos"]
+[ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="29_3b374"]
 [ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="30_kt873"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="31_gru7f"]
 
@@ -1342,11 +1342,108 @@ radius = 17.5
 radius = 17.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_833ml"]
-shader = ExtResource("29_xakos")
-shader_parameter/intensity = 1.0
+shader = ExtResource("29_3b374")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 0.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv3sl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ect0f"]
+shader = ExtResource("29_3b374")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 1.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
+[sub_resource type="Animation" id="Animation_s06t1"]
+resource_name = "transitionFadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionFadeInLayer/TransitionFadeIn:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cnfmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionFadeInLayer/TransitionFadeIn:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8tlf"]
+_data = {
+"RESET": SubResource("Animation_cnfmo"),
+"transitionFadeIn": SubResource("Animation_s06t1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qcuu"]
 size = Vector2(49, 59)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3w85j"]
+shader = ExtResource("29_3b374")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 0.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
+[sub_resource type="Animation" id="Animation_p7eeq"]
+resource_name = "transitionFadeOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ypyah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1528m"]
+_data = {
+"RESET": SubResource("Animation_ypyah"),
+"transitionFadeOut": SubResource("Animation_p7eeq")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mqgvh")
@@ -1988,20 +2085,39 @@ position = Vector2(1434, -140)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 z_index = 4096
 material = SubResource("ShaderMaterial_833ml")
-offset_left = -391.0
-offset_top = -163.0
-offset_right = -351.0
-offset_bottom = -123.0
+offset_left = -33764.6
+offset_top = -9712.79
+offset_right = -33724.6
+offset_bottom = -9672.79
 scale = Vector2(85.3546, 58.5877)
 metadata/_edit_use_anchors_ = true
+
+[node name="TransitionFadeInLayer" type="CanvasLayer" parent="."]
+layer = 126
+follow_viewport_enabled = true
+
+[node name="TransitionFadeIn" type="ColorRect" parent="TransitionFadeInLayer"]
+material = SubResource("ShaderMaterial_ect0f")
+offset_left = -758.0
+offset_top = -546.0
+offset_right = -718.0
+offset_bottom = -506.0
+scale = Vector2(34.887, 19.6554)
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionFadeInAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o8tlf")
+}
+autoplay = "transitionFadeIn"
 
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = -1664
-position = Vector2(2675, 136)
+position = Vector2(2676, 134)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("30_kt873")
 script = ExtResource("31_gru7f")
@@ -2013,7 +2129,26 @@ scale = Vector2(0.653061, 0.561404)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
 position = Vector2(305, -29)
-shape = SubResource("RectangleShape2D_uv3sl")
+shape = SubResource("RectangleShape2D_2qcuu")
+
+[node name="TransitionFadeOutLayer" type="CanvasLayer" parent="Computer (Network Access)/Area2D"]
+layer = 126
+follow_viewport_enabled = true
+
+[node name="TransitionFadeOut" type="ColorRect" parent="Computer (Network Access)/Area2D/TransitionFadeOutLayer"]
+material = SubResource("ShaderMaterial_3w85j")
+offset_left = 2183.0
+offset_top = -239.0
+offset_right = 2223.0
+offset_bottom = -199.0
+scale = Vector2(23.6345, 14.0745)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayerFadeOut" type="AnimationPlayer" parent="Computer (Network Access)"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_1528m")
+}
 
 [connection signal="body_entered" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_exited"]
@@ -2028,3 +2163,4 @@ shape = SubResource("RectangleShape2D_uv3sl")
 [connection signal="body_entered" from="Portal5/PortalEntrance/Area2D" to="Portal5" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="Portal5/PortalExit/Area2D" to="Portal5" method="_on_exit_area_entered"]
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]

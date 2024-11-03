@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://mwwnos8eoalx"]
+[gd_scene load_steps=77 format=4 uid="uid://mwwnos8eoalx"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_cykx7"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_rd0sc"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://Scripts/target.gd" id="9_iobs2"]
 [ext_resource type="Texture2D" uid="uid://c3hlafnjpp5xs" path="res://Art/Random Assets/purple-neon-triangle-free-png.png" id="10_6eo4u"]
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="11_87eqs"]
-[ext_resource type="Shader" path="res://Scripts/Glitch.gdshader" id="11_ch4hb"]
 [ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="12_mvdw0"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="13_eia4w"]
 [ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="15_3nyv1"]
@@ -20,6 +19,7 @@
 [ext_resource type="Script" path="res://Scripts/portal.gd" id="18_ljw6t"]
 [ext_resource type="Texture2D" uid="uid://y51wochrrm6v" path="res://Art/Purple Portal Sprite Sheet.png" id="19_0i0fb"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="20_57shk"]
+[ext_resource type="AudioStream" uid="uid://qbqykw6ng57w" path="res://Audio/Music/Glitch.mp3" id="21_2l8x3"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="21_8ds0g"]
 [ext_resource type="Texture2D" uid="uid://cqh1klmjlwput" path="res://Art/Tilemaps And Decor Sprites/B&W Tiles/B&W tile set.png" id="21_y3jr7"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="22_3oj8g"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://Scripts/saw.gd" id="31_l64yx"]
 [ext_resource type="Texture2D" uid="uid://yx3pd7ae20cx" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Traps/Saw/Off.png" id="32_12bma"]
 [ext_resource type="Script" path="res://Scripts/AntiGravity.gd" id="34_y2iur"]
+[ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="35_jp1ve"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1664,10 +1665,60 @@ radius = 17.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_6owm2"]
 radius = 17.5
 
+[sub_resource type="Shader" id="Shader_q1cex"]
+code = "shader_type canvas_item;
+
+// 振動の強さ
+uniform float shake_power = 0.03;
+// 振動率
+uniform float shake_rate : hint_range( 0.0, 1.0 ) = 0.2;
+// 振動速度
+uniform float shake_speed = 5.0;
+// 振動ブロックサイズ
+uniform float shake_block_size = 30.5;
+// 色の分離率
+uniform float shake_color_rate : hint_range( 0.0, 1.0 ) = 0.01;
+// スクリーン
+uniform sampler2D screen_texture : hint_screen_texture;
+
+float random( float seed )
+{
+	return fract( 543.2543 * sin( dot( vec2( seed, seed ), vec2( 3525.46, -54.3415 ) ) ) );
+}
+
+void fragment( )
+{
+	float enable_shift = float(
+		random( trunc( TIME * shake_speed ) )
+	<	shake_rate
+	);
+
+	vec2 fixed_uv = SCREEN_UV;
+	fixed_uv.x += (
+		random(
+			( trunc( SCREEN_UV.y * shake_block_size ) / shake_block_size )
+		+	TIME
+		) - 0.5
+	) * shake_power * enable_shift;
+
+	vec4 pixel_color = textureLod( screen_texture, fixed_uv, 0.0 );
+	pixel_color.r = mix(
+		pixel_color.r
+	,	textureLod( screen_texture, fixed_uv + vec2( shake_color_rate, 0.0 ), 0.0 ).r
+	,	enable_shift
+	);
+	pixel_color.b = mix(
+		pixel_color.b
+	,	textureLod( screen_texture, fixed_uv + vec2( -shake_color_rate, 0.0 ), 0.0 ).b
+	,	enable_shift
+	);
+	COLOR = pixel_color;
+}"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1rlv6"]
-shader = ExtResource("11_ch4hb")
+shader = SubResource("Shader_q1cex")
 shader_parameter/shake_power = 0.03
-shader_parameter/shake_rate = 0.102
+shader_parameter/shake_rate = 0.8
 shader_parameter/shake_speed = 3.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
@@ -1753,6 +1804,76 @@ color = Color(0.625644, 0.336553, 0.955616, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_833ml"]
 shader = ExtResource("30_sub12")
 shader_parameter/intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1nur"]
+shader = SubResource("Shader_q1cex")
+shader_parameter/shake_power = 0.08
+shader_parameter/shake_rate = 0.085
+shader_parameter/shake_speed = 3.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cmfd"]
+shader = SubResource("Shader_q1cex")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 3.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvodu"]
+shader = SubResource("Shader_q1cex")
+shader_parameter/shake_power = 0.09
+shader_parameter/shake_rate = 0.015
+shader_parameter/shake_speed = 3.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2rrv"]
+shader = ExtResource("35_jp1ve")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 1.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
+[sub_resource type="Animation" id="Animation_s06t1"]
+resource_name = "transitionFadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionFadeInLayer/TransitionFadeIn:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cnfmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionFadeInLayer/TransitionFadeIn:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8tlf"]
+_data = {
+"RESET": SubResource("Animation_cnfmo"),
+"transitionFadeIn": SubResource("Animation_s06t1")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_cykx7")
@@ -2029,6 +2150,8 @@ tile_map_data = PackedByteArray("AADFAGMABAAAAAEAAADFAGIABAAAAAEAAADFAGEABAAAAAE
 tile_set = SubResource("TileSet_5w206")
 
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_2l8x3")
+volume_db = 0.6
 max_distance = 32065.0
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
@@ -3053,6 +3176,7 @@ rotation = 1.5708
 scale = Vector2(1.82964, 1.82964)
 
 [node name="Area2D2" parent="Spikes" instance=ExtResource("23_isin3")]
+visible = false
 position = Vector2(3378, 1548)
 scale = Vector2(104.91, 1.724)
 
@@ -3114,13 +3238,12 @@ visible = false
 shape = SubResource("CircleShape2D_c0eis")
 
 [node name="ColorRect" type="ColorRect" parent="AllSaws/Saw3/Sprite2D"]
-visible = false
 material = SubResource("ShaderMaterial_1rlv6")
-offset_left = -28.0
-offset_top = -26.0
-offset_right = 12.0
-offset_bottom = 14.0
-scale = Vector2(1.37635, 1.17674)
+offset_left = -20.6667
+offset_top = -20.6667
+offset_right = 19.3333
+offset_bottom = 19.3333
+scale = Vector2(1.10968, 1.01674)
 
 [node name="Saw4" type="Node2D" parent="AllSaws"]
 z_index = 825
@@ -3353,17 +3476,6 @@ position = Vector2(477, 360)
 [node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(1558, -1034)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-material = SubResource("ShaderMaterial_1rlv6")
-offset_left = 2751.0
-offset_top = 830.0
-offset_right = 2806.0
-offset_bottom = 906.0
-scale = Vector2(28.1477, 12.8459)
-
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = 128
 
@@ -3386,13 +3498,67 @@ position = Vector2(2600, 1286)
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer4"]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer4"]
 material = SubResource("ShaderMaterial_1rlv6")
+offset_left = 2751.0
+offset_top = 830.0
+offset_right = 2806.0
+offset_bottom = 906.0
+scale = Vector2(28.1477, 12.8459)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer4"]
+material = SubResource("ShaderMaterial_q1nur")
 offset_left = 1355.0
 offset_top = -1354.0
 offset_right = 1410.0
 offset_bottom = -1278.0
 scale = Vector2(15.9418, 6.87812)
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_1rlv6")
+offset_left = -271.0
+offset_top = -701.0
+offset_right = -216.0
+offset_bottom = -625.0
+scale = Vector2(9.5018, 6.87812)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_2cmfd")
+offset_left = 72.0
+offset_top = -12.0
+offset_right = 127.0
+offset_bottom = 64.0
+scale = Vector2(11.5418, 3.71812)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_kvodu")
+offset_left = 2397.0
+offset_top = -1544.0
+offset_right = 2452.0
+offset_bottom = -1468.0
+scale = Vector2(23.4218, 12.2781)
+
+[node name="TransitionFadeInLayer" type="CanvasLayer" parent="."]
+layer = 126
+follow_viewport_enabled = true
+
+[node name="TransitionFadeIn" type="ColorRect" parent="TransitionFadeInLayer"]
+material = SubResource("ShaderMaterial_b2rrv")
+offset_left = -195.0
+offset_top = -399.0
+offset_right = -155.0
+offset_bottom = -359.0
+scale = Vector2(23.6345, 14.0745)
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionFadeInAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o8tlf")
+}
+autoplay = "transitionFadeIn"
 
 [connection signal="body_entered" from="AllPortals/Portal2/PortalEntrance/Area2D" to="AllPortals/Portal2" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal2/PortalExit/Area2D" to="AllPortals/Portal2" method="_on_exit_area_entered"]

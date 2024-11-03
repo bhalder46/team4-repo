@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://uod7mhhwk13l"]
+[gd_scene load_steps=55 format=4 uid="uid://uod7mhhwk13l"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_4v47l"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_l2drf"]
@@ -41,6 +41,7 @@
 [ext_resource type="Script" path="res://Scripts/tutorialTarget2.gd" id="40_4d37m"]
 [ext_resource type="Texture2D" uid="uid://cu4v6ew3gw284" path="res://Art/Random Assets/636039264184061330.png" id="41_insyf"]
 [ext_resource type="Script" path="res://Scripts/EndTutorial.gd" id="42_nywfn"]
+[ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="42_p5321"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("12_qubtu")
@@ -991,13 +992,59 @@ sources/1 = SubResource("TileSetAtlasSource_10i33")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns730"]
-size = Vector2(49, 59)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltlui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8liy6"]
 radius = 119.567
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sudf5"]
+size = Vector2(49, 59)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4sjjg"]
+shader = ExtResource("42_p5321")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 0.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
+[sub_resource type="Animation" id="Animation_p7eeq"]
+resource_name = "transitionFadeOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ypyah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1528m"]
+_data = {
+"RESET": SubResource("Animation_ypyah"),
+"transitionFadeOut": SubResource("Animation_p7eeq")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_4v47l")
@@ -1141,23 +1188,6 @@ position = Vector2(75, -90)
 scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("16_bibet")
 script = ExtResource("17_ku3s8")
-
-[node name="Computer (Network Access)" type="Sprite2D" parent="."]
-modulate = Color(0.603121, 0.687351, 0.6366, 1)
-z_index = -1664
-position = Vector2(664, -43)
-scale = Vector2(1.53125, 1.78125)
-texture = ExtResource("18_xwq53")
-script = ExtResource("19_l0kbc")
-next_scene = "res://Scenes/Levels/levelOne.tscn"
-
-[node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
-position = Vector2(-198.531, 15.1579)
-scale = Vector2(0.653061, 0.561404)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
-position = Vector2(305, -29)
-shape = SubResource("RectangleShape2D_ns730")
 
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_m8cgp")
@@ -1364,9 +1394,46 @@ scale = Vector2(3.4, 1.8)
 texture = ExtResource("11_1qxki")
 flip_v = true
 
-[connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
+[node name="Computer (Network Access)" type="Sprite2D" parent="."]
+modulate = Color(0.603121, 0.687351, 0.6366, 1)
+z_index = -1664
+position = Vector2(654, -42)
+scale = Vector2(1.53125, 1.78125)
+texture = ExtResource("18_xwq53")
+script = ExtResource("19_l0kbc")
+next_scene = "res://Scenes/Levels/levelOne.tscn"
+
+[node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
+position = Vector2(-198.531, 15.1579)
+scale = Vector2(0.653061, 0.561404)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
+position = Vector2(305, -29)
+shape = SubResource("RectangleShape2D_sudf5")
+
+[node name="TransitionFadeOutLayer" type="CanvasLayer" parent="Computer (Network Access)/Area2D"]
+layer = 126
+follow_viewport_enabled = true
+
+[node name="TransitionFadeOut" type="ColorRect" parent="Computer (Network Access)/Area2D/TransitionFadeOutLayer"]
+material = SubResource("ShaderMaterial_4sjjg")
+offset_left = -791.0
+offset_top = -456.0
+offset_right = -751.0
+offset_bottom = -416.0
+scale = Vector2(52.9945, 21.2745)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayerFadeOut" type="AnimationPlayer" parent="Computer (Network Access)"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_1528m")
+}
+
 [connection signal="body_entered" from="DialogicGameHandler/Area2D" to="DialogicGameHandler/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler2/Area2D" to="DialogicGameHandler2/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler3/Area2D" to="DialogicGameHandler3/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Node2D/Target/Area2D" to="Node2D" method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="DialogicGameHandler4/Area2D" to="DialogicGameHandler4/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
