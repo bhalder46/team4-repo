@@ -1684,6 +1684,21 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(0.4, 1)
 shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
+[sub_resource type="Animation" id="Animation_cnfmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionFadeInLayer/TransitionFadeIn:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
 [sub_resource type="Animation" id="Animation_s06t1"]
 resource_name = "transitionFadeIn"
 length = 1.5
@@ -1698,21 +1713,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_cnfmo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TransitionFadeInLayer/TransitionFadeIn:material:shader_parameter/fade")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o8tlf"]
@@ -1733,6 +1733,21 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(0.4, 1)
 shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
+[sub_resource type="Animation" id="Animation_ypyah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_p7eeq"]
 resource_name = "transitionFadeOut"
 length = 1.5
@@ -1747,21 +1762,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_ypyah"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1528m"]
@@ -2818,11 +2818,11 @@ follow_viewport_enabled = true
 
 [node name="TransitionFadeIn" type="ColorRect" parent="TransitionFadeInLayer"]
 material = SubResource("ShaderMaterial_j8d0e")
-offset_left = -473.0
-offset_top = -965.0
-offset_right = -433.0
-offset_bottom = -925.0
-scale = Vector2(23.6345, 14.0745)
+offset_left = -623.0
+offset_top = -1225.0
+offset_right = -583.0
+offset_bottom = -1185.0
+scale = Vector2(31.3545, 20.9798)
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionFadeInAnimation" type="AnimationPlayer" parent="."]

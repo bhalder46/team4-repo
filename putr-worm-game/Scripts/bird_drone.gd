@@ -19,45 +19,76 @@ var buffswitch_delay: float = 1.0  # 1 second delay
 # Speed, jump, and shoot buffs
 var speed_boost: float = 1.2  # 20% speed increase
 var jump_boost: float = 1.1  # 10% jump height increase
-var shoot_cooldown_boost: float = 0.44  # 20% reduction in shoot cooldown
+var shoot_cooldown_boost: float = 0.35  # 20% reduction in shoot cooldown
 
 # Track if buffs are active
 var yellow_buff_active: bool = false
 var blue_buff_active: bool = false
+
 
 # Function to change the point light color and apply/remove buffs
 func _change_light_color():
 	match current_color:
 		LightColors.BLUE:
 			_remove_buff()  # Remove previous buffs
-			_apply_blue_buff()  # Apply blue buff
 			point_light.color = Color(0, 0, 1)  # Blue
 			self.modulate = Color(0.5, 0.5, 1)  # Light Blue
 			current_color = LightColors.RED
-		LightColors.RED:
-			_remove_buff()  # Remove previous buffs
-			point_light.color = Color(1, 0, 0)  # Red
-			self.modulate = Color(1, 0.5, 0.5)  # Light Red
-			current_color = LightColors.YELLOW
-			
-			# Call the toggle_shield() method
+
+			# Turn on shield and set gun shader mode to 0
 			if player:
 				var shield = player.get_node("Shield")  # Adjust the path if needed
 				if shield and shield.has_method("toggle_shield"):
 					shield.toggle_shield()
 					
+				var speed_boost_vfx = player.get_node("SpeedBoostVFX")  # Adjust the path if needed
+				if speed_boost_vfx:
+					speed_boost_vfx.emitting = false
+				
+				# Set gun shader mode to 0
+				var gun = player.get_node("Gun")  # Adjust path as needed
+				if gun and gun.material and gun.material is ShaderMaterial:
+					gun.material.set_shader_parameter("mode", 0)
+
+		LightColors.RED:
+			_remove_buff()  # Remove previous buffs
+			_apply_blue_buff()  # Apply the shooting cooldown reduction
+			point_light.color = Color(1, 0, 0)  # Red
+			self.modulate = Color(1, 0.5, 0.5)  # Light Red
+			current_color = LightColors.YELLOW
+			
+			# Turn off shield and set gun shader mode to 1
+			if player:
+				var shield = player.get_node("Shield")  # Adjust the path if needed
+				if shield and shield.has_method("toggle_off"):
+					shield.toggle_off()
+					
+				var speed_boost_vfx = player.get_node("SpeedBoostVFX")  # Adjust the path if needed
+				if speed_boost_vfx:
+					speed_boost_vfx.emitting = false
+				
+				# Set gun shader mode to 1
+				var gun = player.get_node("Gun")  # Adjust path as needed
+				if gun and gun.material and gun.material is ShaderMaterial:
+					gun.material.set_shader_parameter("mode", 1)
+
 		LightColors.YELLOW:
 			_remove_buff()  # Remove previous buffs
 			_apply_yellow_buff()  # Apply yellow buff
 			point_light.color = Color(1, 1, 0)  # Yellow
 			self.modulate = Color(1, 1, 0.5)  # Light Yellow
 			current_color = LightColors.BLUE
-			
-			# Call the toggle_off() method
+
+			# Turn on VFX and set gun shader mode to 0
 			if player:
-				var shield = player.get_node("Shield")  # Adjust the path if needed
-				if shield and shield.has_method("toggle_off"):
-					shield.toggle_off()
+				var speed_boost_vfx = player.get_node("SpeedBoostVFX")  # Adjust the path if needed
+				if speed_boost_vfx:
+					speed_boost_vfx.emitting = true
+
+				# Set gun shader mode to 0
+				var gun = player.get_node("Gun")  # Adjust path as needed
+				if gun and gun.material and gun.material is ShaderMaterial:
+					gun.material.set_shader_parameter("mode", 0)
 
 # Apply the yellow buff (increase speed and jump)
 func _apply_yellow_buff():
@@ -87,7 +118,12 @@ func _remove_buff():
 func _ready():
 	# Assign the player node (replace 'Player' with your actual player node path)
 	player = get_node("/root/Game/Player")
-
+	
+	if player:
+		var gun = player.get_node("Gun")  # Adjust path as needed
+		if gun and gun.material and gun.material is ShaderMaterial:
+			gun.material.set_shader_parameter("mode", 0)
+			
 func _process(delta: float):
 	# Update cooldown timer
 	if buffswitch_cooldown > 0:
@@ -104,4 +140,4 @@ func _process(delta: float):
 	# Check for buffswitch input and ensure cooldown has passed
 	if Input.is_action_just_pressed("buffswitch") and buffswitch_cooldown <= 0:
 		_change_light_color()
-		buffswitch_cooldown = buffswitch_delay  # Set cooldown
+		buffswitch_cooldown = buffswitch_delay

@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=93 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -12,10 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://bdaf4h1uxfvmd" path="res://Gun Reload.mp3" id="9_6lpr5"]
 [ext_resource type="AudioStream" uid="uid://ddace7yr60c4l" path="res://Audio/Sounds/2024-10-06 15-41-08.mp3" id="9_12wdq"]
 [ext_resource type="Texture2D" uid="uid://bopicv24m4x0w" path="res://Art/Random Assets/worm 2/worm - 3.png" id="9_o8xnt"]
+[ext_resource type="Shader" path="res://Scripts/RedPulse.gdshader" id="10_qlet2"]
 [ext_resource type="Texture2D" uid="uid://dffp7of4n2vs7" path="res://Art/Random Assets/worm 2/worm - 4.png" id="10_uuojg"]
 [ext_resource type="Texture2D" uid="uid://ddl5k8we8vjhh" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206h_192.png" id="14_5mfq2"]
 [ext_resource type="Texture2D" uid="uid://18ai5t0s2lh4" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206_192.png" id="14_746xo"]
 [ext_resource type="Script" path="res://Scripts/shield.gd" id="16_osfvu"]
+[ext_resource type="Texture2D" uid="uid://d24vfqvghntcp" path="res://Art/left_arrow_sticker_by_s_a_r_c_ddmch16-fullview.png" id="17_qr2rg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jikkb"]
 atlas = ExtResource("3_0tcss")
@@ -91,6 +93,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72lyu"]
 size = Vector2(16.0132, 26.2802)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrvqc"]
+shader = ExtResource("10_qlet2")
+shader_parameter/shine_color = Color(0.608113, 0, 0.11705, 1)
+shader_parameter/alpha_limit = 0.0
+shader_parameter/cycle_speed = 2.0
+shader_parameter/full_pulse_cycle = true
+shader_parameter/mode = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd3ei"]
 atlas = ExtResource("8_8tco8")
@@ -544,6 +554,22 @@ radius = 10.2553
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq4f3"]
 size = Vector2(17, 27)
 
+[sub_resource type="Gradient" id="Gradient_h031q"]
+offsets = PackedFloat32Array(0, 0.672131)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lbv34"]
+gradient = SubResource("Gradient_h031q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p47d8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+gravity = Vector3(0, -150, 0)
+scale_min = 0.04
+scale_max = 0.04
+color_ramp = SubResource("GradientTexture1D_lbv34")
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 z_index = 200
 script = ExtResource("1_bjqqb")
@@ -562,7 +588,8 @@ position = Vector2(-2.33098, -14.3582)
 shape = SubResource("RectangleShape2D_72lyu")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.86646, -12.4563)
+material = SubResource("ShaderMaterial_rrvqc")
+position = Vector2(6, -12)
 scale = Vector2(0.581781, 0.508944)
 sprite_frames = SubResource("SpriteFrames_3s17c")
 animation = &"reload"
@@ -615,6 +642,16 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Player", "players"]]
 position = Vector2(-2.5, -14.5)
 shape = SubResource("RectangleShape2D_mq4f3")
+
+[node name="SpeedBoostVFX" type="GPUParticles2D" parent="."]
+z_index = 2175
+position = Vector2(0, -11)
+emitting = false
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_p47d8")
+texture = ExtResource("17_qr2rg")
+lifetime = 0.8
+speed_scale = 0.35
 
 [connection signal="animation_finished" from="Shield" to="Shield" method="_on_AnimatedSprite2D_animation_finished"]
 [connection signal="body_entered" from="Shield/Area2D" to="Shield" method="_on_Area2D_body_entered"]

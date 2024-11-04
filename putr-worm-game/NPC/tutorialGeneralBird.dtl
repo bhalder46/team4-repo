@@ -6,7 +6,7 @@ General: There are some things not even training can fix.
 [signal arg="bird"]
 General: This is B.I.R.D. , aka Battlefield Intelligence Reinforcement Drone.
 General: This is your lifeline. Within it are 3 abilities to help you. Press Q to change your B.I.R.D. ability.
-General: Blue is a Weapon boost that increases rate of fire.
-General: Red is a defense boost, your shield will absorb 1 projectile before it must recharge.
+General: Blue is a defense boost, your shield will absorb 1 projectile before it must recharge.
+General: Red is a Weapon boost that increases rate of fire.
 General: And finally Yellow, its a movement boost that enchances your speed and jump!
 [signal arg="end2"]
