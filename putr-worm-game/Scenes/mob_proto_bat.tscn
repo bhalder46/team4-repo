@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dgmjsx575ufb"]
+[gd_scene load_steps=32 format=3 uid="uid://dgmjsx575ufb"]
 
 [ext_resource type="Script" path="res://Scripts/mob_proto_bat.gd" id="1_1u3a6"]
 [ext_resource type="Texture2D" uid="uid://meg8yqm0ceix" path="res://Art/bat_mob-1_proto/Bat_Fly.png" id="1_8f4r3"]
@@ -183,6 +183,12 @@ size = Vector2(34.5, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1yfn"]
 size = Vector2(34.5, 24.125)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_krk8n"]
+radius = 359.513
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3xc7"]
+radius = 24.5051
+
 [node name="Mob_Proto_Bat" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 motion_mode = 1
@@ -209,4 +215,18 @@ scale = Vector2(0.5, 0.5)
 rotation = 4.71239
 scale = Vector2(0.51, 0.51)
 
+[node name="ChaeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaeArea"]
+shape = SubResource("CircleShape2D_krk8n")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_i3xc7")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="ChaeArea" to="." method="_on_chase_area_body_entered"]
+[connection signal="area_exited" from="ChaeArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

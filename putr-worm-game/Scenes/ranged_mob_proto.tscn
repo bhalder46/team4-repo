@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6kpc05rlrngv"]
+[gd_scene load_steps=30 format=3 uid="uid://b6kpc05rlrngv"]
 
 [ext_resource type="Script" path="res://Scripts/ranged_mob_proto.gd" id="1_vjlfn"]
 [ext_resource type="PackedScene" uid="uid://cbyxko8knvo8d" path="res://Scenes/mob_projectile.tscn" id="2_neplx"]
@@ -174,6 +174,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myhwb"]
 size = Vector2(32, 27)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7ii4"]
+radius = 762.079
+
 [node name="Ranged_mob_proto" type="CharacterBody2D" groups=["bug"]]
 motion_mode = 1
 script = ExtResource("1_vjlfn")
@@ -200,4 +203,11 @@ scale = Vector2(0.4, 0.4)
 rotation = 4.71239
 scale = Vector2(0.4, 0.4)
 
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_h7ii4")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

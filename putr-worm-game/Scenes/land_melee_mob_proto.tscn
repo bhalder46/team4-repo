@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://1cwobjep8l64"]
+[gd_scene load_steps=30 format=3 uid="uid://1cwobjep8l64"]
 
 [ext_resource type="Script" path="res://Scripts/land_melee_mob_proto.gd" id="1_p2jve"]
 [ext_resource type="Texture2D" uid="uid://cnasqsg2eu2hm" path="res://Art/Canines/Canine_Gray_Attack.png" id="2_btm5l"]
@@ -173,13 +173,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qeupo"]
 size = Vector2(43.5, 28.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylxib"]
+size = Vector2(623.5, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1n4ur"]
+size = Vector2(104.25, 49)
+
 [node name="land_melee_mob_proto" type="CharacterBody2D"]
 script = ExtResource("1_p2jve")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_k1716")
-animation = &"attack"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0.75)
@@ -205,4 +211,18 @@ scale = Vector2(0.6, 0.6)
 rotation = -1.5708
 scale = Vector2(0.6, 0.6)
 
+[node name="ChaseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("RectangleShape2D_ylxib")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("RectangleShape2D_1n4ur")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
+[connection signal="area_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
