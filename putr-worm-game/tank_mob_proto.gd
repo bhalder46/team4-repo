@@ -5,23 +5,25 @@ extends CharacterBody2D
 @onready var health_bar = $HealthBar
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var speed: float = 60.0        # Slower than other mobs
-var attack_range: float = 70.0 # Slightly larger attack range
-var attack_cooldown: float = 2.0  # Longer attack cooldown
+var speed: float = 60.0
+var attack_cooldown: float = 2.0
 var can_attack: bool = true
 var facing_left: bool = false
 var patrol_distance: float = 300.0
 var initial_position: Vector2
 
+# States
+var is_chasing: bool = false
+var is_attacking: bool = false
+var is_hurt: bool = false
+
 # Health system
 var max_health: float = 100.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 20.0  # 5 hits to kill
-var is_hurt: bool = false
+var damage_taken_per_hit: float = 20.0
 var hurt_animation_time: float = 0.2
 var knockback_force: float = 100.0
-var is_heavy: bool = true  # Reduces knockback
-var is_attacking: bool = false 
+var is_heavy: bool = true
 
 func _ready():
 	if not player:
@@ -47,15 +49,10 @@ func _physics_process(delta):
 	if should_change_direction():
 		change_direction()
 	
-	if player:
-		var distance_to_player = abs(global_position.x - player.global_position.x)
-		
-		if distance_to_player < attack_range and can_attack:
-			attack_player()
-		elif distance_to_player < attack_range * 2:
-			chase_player()
-		else:
-			patrol()
+	if is_chasing:
+		chase_player()
+	else:
+		patrol()
 	
 	move_and_slide()
 
@@ -124,11 +121,24 @@ func attack_player():
 		animated_sprite.play("attack")
 		can_attack = false
 	
-	await animated_sprite.animation_finished
-	is_attacking = false
+		await animated_sprite.animation_finished
+		is_attacking = false
 	
-	await get_tree().create_timer(attack_cooldown).timeout
-	can_attack = true
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
+
+# New functions for Area2D detection
+func _on_chase_area_body_entered(body):
+	if body.is_in_group("players"):
+		is_chasing = true
+
+func _on_chase_area_body_exited(body):
+	if body.is_in_group("players"):
+		is_chasing = false
+
+func _on_attack_area_body_entered(body):
+	if body.is_in_group("players") and can_attack:
+		attack_player()
 
 func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
 	if is_hurt:
@@ -144,12 +154,11 @@ func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
 	
 	# Visual feedback
 	is_hurt = true
-	animated_sprite.modulate = Color(1, 0.3, 0.3)  # Red tint
+	animated_sprite.modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(hurt_animation_time).timeout
-	animated_sprite.modulate = Color(1, 1, 1)  # Reset tint
+	animated_sprite.modulate = Color(1, 1, 1)
 	is_hurt = false
 	
-	# Check if dead
 	if current_health <= 0:
 		die()
 

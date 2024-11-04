@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dnwynbyhwv0p"]
+[gd_scene load_steps=29 format=3 uid="uid://dnwynbyhwv0p"]
 
 [ext_resource type="Script" path="res://tank_mob_proto.gd" id="1_bccg5"]
 [ext_resource type="Texture2D" uid="uid://bv0sawcyi4tcg" path="res://Art/melee_mob_proto/Golem_Armor_AttackA.png" id="2_fumjy"]
@@ -166,6 +166,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4lgn"]
 size = Vector2(46.5, 52)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4p4ap"]
+size = Vector2(829.242, 92.8572)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy3ji"]
+size = Vector2(165.714, 85.7143)
+
 [node name="tank_mob_proto" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_bccg5")
@@ -208,4 +214,19 @@ position = Vector2(25, 0)
 [node name="RayCast_down_left" type="RayCast2D" parent="."]
 position = Vector2(-22, 0)
 
+[node name="ChaseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_4p4ap")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_oy3ji")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
+[connection signal="area_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

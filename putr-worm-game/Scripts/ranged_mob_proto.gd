@@ -3,11 +3,9 @@ extends CharacterBody2D
 @onready var player = get_parent().get_node("Player")
 @onready var animated_sprite = $AnimatedSprite2D
 @export var mob_projectile_scene: PackedScene
-
 @export var speed: float = 100.0
 @export var amplitude: float = 65.0
 @export var frequency: float = 2.0
-@export var attack_range: float = 400.0
 @export var attack_cooldown: float = 1.0
 @export var patrol_distance: float = 300.0
 
@@ -16,6 +14,7 @@ var time_elapsed: float = 0.0
 var can_attack: bool = true
 var facing_left: bool = false
 var initial_position: Vector2
+var player_in_range: bool = false
 
 func _ready():
 	base_y = position.y
@@ -28,16 +27,12 @@ func _ready():
 
 func _physics_process(delta):
 	time_elapsed += delta
-
 	handle_collisions()
 	
-	if player and is_instance_valid(player):
-		var distance = position.distance_to(player.position)
-		
-		if distance < attack_range and can_attack:
-			shoot_at_player()
-		else:
-			patrol(delta)
+	if player_in_range and can_attack and is_instance_valid(player):
+		shoot_at_player()
+	else:
+		patrol(delta)
 	
 	move_and_slide()
 
@@ -68,7 +63,7 @@ func patrol(delta):
 	animated_sprite.play("fly")
 
 func shoot_at_player():
-	if can_attack:
+	if can_attack and player:
 		animated_sprite.play("attack")
 		can_attack = false
 		
@@ -79,8 +74,23 @@ func shoot_at_player():
 		var direction = (player.global_position - global_position).normalized()
 		projectile.set_direction(direction)
 		
+		# Update facing direction based on player position
+		if player.global_position.x < global_position.x and not facing_left:
+			flip_direction()
+		elif player.global_position.x > global_position.x and facing_left:
+			flip_direction()
+		
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
+
+# New functions for Area2D detection
+func _on_detection_area_body_entered(body):
+	if body.is_in_group("players"):
+		player_in_range = true
+
+func _on_detection_area_body_exited(body):
+	if body.is_in_group("players"):
+		player_in_range = false
 
 func _on_area_entered(area):
 	if area.is_in_group("bullets"):
