@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var BirdScene: PackedScene  # Declare a variable to hold the Bird scene
 var is_active = false        # Track if this Area2D is active
 var has_been_activated = false  # New flag to track if the area has been activated

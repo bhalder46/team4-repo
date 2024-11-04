@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://uod7mhhwk13l"]
+[gd_scene load_steps=55 format=4 uid="uid://uod7mhhwk13l"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_4v47l"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_l2drf"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="19_l0kbc"]
 [ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="20_m8cgp"]
 [ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="21_roptg"]
-[ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="22_yvbif"]
 [ext_resource type="Texture2D" uid="uid://co4btihy8kd7i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_3.png" id="23_tq31b"]
 [ext_resource type="Texture2D" uid="uid://c4ffhcurgfa0m" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_1.png" id="24_5mobt"]
 [ext_resource type="Texture2D" uid="uid://cdmiyjc3he3o5" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_1.png" id="25_cwpda"]
@@ -993,9 +992,6 @@ sources/1 = SubResource("TileSetAtlasSource_10i33")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns730"]
-size = Vector2(49, 59)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltlui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8liy6"]
@@ -1066,27 +1062,17 @@ drag_vertical_offset = 0.01
 script = ExtResource("3_miwoo")
 player = NodePath("..")
 
-[node name="UI" type="CanvasLayer" parent="."]
-layer = 128
-offset = Vector2(-161.795, -100)
-transform = Transform2D(1, 0, 0, 1, -161.795, -100)
-
-[node name="HealthUI" parent="UI" instance=ExtResource("4_hbc4h")]
-z_index = 500
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -145.205
-offset_top = -85.0
-offset_right = -145.205
-offset_bottom = -85.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_hbc4h")]
+z_index = 10
+offset_left = 136.0
+offset_top = -107.0
+offset_right = 136.0
+offset_bottom = -107.0
 scale = Vector2(0.5, 0.5)
-size_flags_horizontal = 0
-size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("5_cskv3")]
+visible = false
 position = Vector2(-291, -45)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -1203,22 +1189,6 @@ scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("16_bibet")
 script = ExtResource("17_ku3s8")
 
-[node name="Computer (Network Access)" type="Sprite2D" parent="."]
-modulate = Color(0.603121, 0.687351, 0.6366, 1)
-z_index = -1664
-position = Vector2(664, -43)
-scale = Vector2(1.53125, 1.78125)
-texture = ExtResource("18_xwq53")
-script = ExtResource("19_l0kbc")
-
-[node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
-position = Vector2(-198.531, 15.1579)
-scale = Vector2(0.653061, 0.561404)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer (Network Access)/Area2D"]
-position = Vector2(305, -29)
-shape = SubResource("RectangleShape2D_ns730")
-
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_m8cgp")
 volume_db = -1.0
@@ -1228,10 +1198,6 @@ parameters/looping = false
 stream = ExtResource("21_roptg")
 volume_db = -2.211
 parameters/looping = false
-
-[node name="Trap" parent="." instance=ExtResource("22_yvbif")]
-position = Vector2(-820, -168)
-scale = Vector2(1.04, 1.04)
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]
 layer = -1
@@ -1255,7 +1221,7 @@ motion_scale = Vector2(0.9, 1)
 motion_offset = Vector2(42.415, 0)
 
 [node name="Foreground Decor" type="ParallaxBackground" parent="."]
-layer = -2
+layer = 5
 
 [node name="0" type="ParallaxLayer" parent="Foreground Decor"]
 z_index = 20
