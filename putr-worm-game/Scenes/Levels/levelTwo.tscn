@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://btqkay11in5yp"]
+[gd_scene load_steps=70 format=4 uid="uid://btqkay11in5yp"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mqgvh"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_5uc60"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="20_olqaj"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="21_kduks"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="22_1ndo1"]
+[ext_resource type="Shader" path="res://Scripts/CRT.gdshader" id="23_i8mw3"]
 [ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="23_tg0fi"]
 [ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="24_ovup2"]
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="25_7guex"]
@@ -1341,6 +1342,10 @@ radius = 17.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_6owm2"]
 radius = 17.5
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ehgg"]
+shader = ExtResource("23_i8mw3")
+shader_parameter/intensity = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_833ml"]
 shader = ExtResource("29_3b374")
 shader_parameter/shake_power = 0.03
@@ -1771,6 +1776,20 @@ offset_top = 67.0
 offset_right = -234.0
 offset_bottom = 67.0
 scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 128
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
+z_index = 4096
+material = SubResource("ShaderMaterial_8ehgg")
+offset_left = -1056.0
+offset_top = -1125.0
+offset_right = -1016.0
+offset_bottom = -1085.0
+scale = Vector2(99.9969, 42.5877)
 metadata/_edit_use_anchors_ = true
 
 [node name="Spikes" type="Node2D" parent="."]

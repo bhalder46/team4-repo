@@ -9,8 +9,9 @@ var flutter_speed: float = 1.0
 enum LightColors { BLUE, RED, YELLOW }
 var current_color: LightColors = LightColors.BLUE
 
-# Reference to the PointLight2D node
+# Reference to the PointLight2D and Sprite2D nodes
 @onready var point_light: PointLight2D = $PointLight2D
+@onready var color_sprite: Sprite2D = $Sprite2D  # Reference to the Sprite2D node
 
 # Cooldown timer for buffswitch
 var buffswitch_cooldown: float = 0.0
@@ -34,6 +35,7 @@ func _change_light_color():
 			point_light.color = Color(0, 0, 1)  # Blue
 			self.modulate = Color(0.5, 0.5, 1)  # Light Blue
 			current_color = LightColors.RED
+			color_sprite.visible = false  # Hide Sprite2D
 
 			# Turn on shield and set gun shader mode to 0
 			if player:
@@ -56,6 +58,7 @@ func _change_light_color():
 			point_light.color = Color(1, 0, 0)  # Red
 			self.modulate = Color(1, 0.5, 0.5)  # Light Red
 			current_color = LightColors.YELLOW
+			color_sprite.visible = false  # Hide Sprite2D
 			
 			# Turn off shield and set gun shader mode to 1
 			if player:
@@ -78,6 +81,7 @@ func _change_light_color():
 			point_light.color = Color(1, 1, 0)  # Yellow
 			self.modulate = Color(1, 1, 0.5)  # Light Yellow
 			current_color = LightColors.BLUE
+			color_sprite.visible = false  # Make Sprite2D visible
 
 			# Turn on VFX and set gun shader mode to 0
 			if player:
@@ -118,6 +122,7 @@ func _remove_buff():
 func _ready():
 	# Assign the player node (replace 'Player' with your actual player node path)
 	player = get_node("/root/Game/Player")
+	color_sprite.visible = true  # Make Sprite2D visible on ready
 	
 	if player:
 		var gun = player.get_node("Gun")  # Adjust path as needed
