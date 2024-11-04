@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
-@onready var player = get_parent().get_node("Player")
+@onready var player: CharacterBody2D = get_parent().get_node("Player")
 @onready var animated_sprite = $AnimatedSprite2D
+
+const PlayerScript = preload("res://Scripts/player.gd")
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed: float = 100.0
 var attack_range: float = 30.0
@@ -149,8 +152,17 @@ func perform_attack():
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
 
-func _on_area_entered(area):
-	if area.is_in_group("bullets"):
+
+func _on_area_entered(body):
+	if body.is_in_group("players"):  # Ensure it's the player
+		print("collision detected with player")
+		var player = body as PlayerScript
+		if player and not player.is_invincible:
+			print("player is not invincible, applying damage")
+			player.take_damage(1)
+		else:
+			print("player is invincible, no damage applied")
+	elif body.is_in_group("bullets"):  
 		die()
 
 func die():

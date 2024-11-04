@@ -1,6 +1,6 @@
-[gd_scene load_steps=46 format=4 uid="uid://6j4eebna35bb"]
+[gd_scene load_steps=48 format=4 uid="uid://6j4eebna35bb"]
 
-[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_ror13"]
+[ext_resource type="Script" path="res://Scripts/ranged_mob_proto.gd" id="1_in30r"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_7tcly"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_yl1qe"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="4_xj6rl"]
@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://dupujbq72jsrq" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_4.png" id="33_g6jhd"]
 [ext_resource type="Texture2D" uid="uid://disitwtc0je5p" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_3.png" id="34_1ffxl"]
 [ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="35_xxtrw"]
+[ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="36_2bxxq"]
+[ext_resource type="PackedScene" uid="uid://dgmjsx575ufb" path="res://Scenes/mob_proto_bat.tscn" id="37_aut6j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("12_6k7cg")
@@ -997,6 +999,21 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(0.4, 1)
 shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
+[sub_resource type="Animation" id="Animation_ypyah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_p7eeq"]
 resource_name = "transitionFadeOut"
 length = 1.5
@@ -1013,21 +1030,6 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_ypyah"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Computer (Network Access)/Area2D/TransitionFadeOutLayer/TransitionFadeOut:material:shader_parameter/fade")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1528m"]
 _data = {
 "RESET": SubResource("Animation_ypyah"),
@@ -1035,7 +1037,7 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_ror13")
+script = ExtResource("1_in30r")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_7tcly")]
 y_sort_enabled = true
@@ -1351,6 +1353,14 @@ position = Vector2(512, 186)
 scale = Vector2(3.4, 1.8)
 texture = ExtResource("11_gvt4u")
 flip_v = true
+
+[node name="Ranged_mob_proto" parent="." instance=ExtResource("36_2bxxq")]
+z_index = 15
+position = Vector2(-231, -53)
+
+[node name="Mob_Proto_Bat" parent="." instance=ExtResource("37_aut6j")]
+z_index = 65
+position = Vector2(-152, -66)
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]

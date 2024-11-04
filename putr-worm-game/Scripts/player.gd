@@ -52,18 +52,19 @@ func _ready() -> void:
 
 # New Function to Handle Taking Damage
 func take_damage(amount: int) -> void:
-	current_health -= amount
-	current_health = clamp(current_health, 0, max_health)
-	emit_signal("health_changed", current_health)
+	if not is_invincible:
+		current_health -= amount
+		current_health = clamp(current_health, 0, max_health)
+		emit_signal("health_changed", current_health)
 	
-	camera.screenshake() # Trigger screen shake
+		camera.screenshake() # Trigger screen shake
 	
 	
-	is_invincible = true
-	invincibility_timer = invincibility_duration
+		is_invincible = true
+		invincibility_timer = invincibility_duration
 	
-	if current_health <= 0:
-		die()
+		if current_health <= 0:
+			die()
 
 func _process(delta:float) -> void:
 	#Decrease invincibility timer if the player is invincible

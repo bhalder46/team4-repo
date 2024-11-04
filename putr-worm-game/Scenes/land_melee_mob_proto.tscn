@@ -206,3 +206,4 @@ rotation = -1.5708
 scale = Vector2(0.6, 0.6)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
