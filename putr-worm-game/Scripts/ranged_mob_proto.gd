@@ -16,6 +16,12 @@ var facing_left: bool = false
 var initial_position: Vector2
 var player_in_range: bool = false
 
+# New variables for hit effect and death
+var is_dying: bool = false
+var gravity: float = 980.0
+var is_hurt: bool = false
+var hurt_animation_time: float = 0.2
+
 func _ready():
 	base_y = position.y
 	initial_position = global_position
@@ -24,8 +30,21 @@ func _ready():
 	if position.x > player.position.x:
 		animated_sprite.flip_h = true
 		facing_left = true
+	# Make sure death raycast starts disabled
+	$DeathRaycast.enabled = false
 
 func _physics_process(delta):
+	if is_dying:
+		# Apply gravity while dying
+		velocity.y += gravity * delta
+		move_and_slide()
+		
+		# Check if the death raycast hit something
+		if $DeathRaycast.is_colliding():
+			await get_tree().create_timer(0.5).timeout
+			queue_free()
+		return
+		
 	time_elapsed += delta
 	handle_collisions()
 	
@@ -83,7 +102,17 @@ func shoot_at_player():
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
 
-# New functions for Area2D detection
+func take_damage():
+	if is_dying:
+		return
+		
+	# Visual feedback - red flash
+	animated_sprite.modulate = Color(1, 0.3, 0.3)  # Red tint
+	await get_tree().create_timer(hurt_animation_time).timeout
+	animated_sprite.modulate = Color(1, 1, 1)  # Reset tint
+	
+	die()
+
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("players"):
 		player_in_range = true
@@ -94,10 +123,19 @@ func _on_detection_area_body_exited(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("bullets"):
-		die()
+		take_damage()
 
 func die():
+	is_dying = true
 	animated_sprite.play("death")
-	set_physics_process(false)
-	await animated_sprite.animation_finished
+	
+	# Enable the death raycast when starting to die
+	$DeathRaycast.enabled = true
+	
+	# Add some initial downward velocity and slight horizontal velocity
+	velocity.y = -100  # Small upward force
+	velocity.x = velocity.x * 0.5  # Maintain some momentum
+	
+	# Set a backup timer just in case
+	await get_tree().create_timer(3.0).timeout
 	queue_free()
