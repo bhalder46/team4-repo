@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="25_7guex"]
 [ext_resource type="PackedScene" uid="uid://ly4asxr7x1se" path="res://Scenes/Planet.tscn" id="26_866x4"]
 [ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="27_pms3k"]
-[ext_resource type="PackedScene" uid="uid://dnwynbyhwv0p" path="res://tank_mob_proto.tscn" id="28_77r1m"]
+[ext_resource type="PackedScene" uid="uid://dnwynbyhwv0p" path="res://Scenes/tank_mob_proto.tscn" id="28_77r1m"]
 [ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="29_3b374"]
 [ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="30_kt873"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="31_gru7f"]
@@ -1771,16 +1771,15 @@ player = NodePath("..")
 
 [node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("22_1ndo1")]
 z_index = 10
-offset_left = -234.0
-offset_top = 67.0
-offset_right = -234.0
-offset_bottom = 67.0
+offset_left = -223.0
+offset_top = 43.0
+offset_right = -223.0
+offset_bottom = 43.0
 scale = Vector2(0.5, 0.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 layer = 128
-visible = false
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
@@ -1790,7 +1789,7 @@ offset_left = -1056.0
 offset_top = -1125.0
 offset_right = -1016.0
 offset_bottom = -1085.0
-scale = Vector2(99.9969, 42.5877)
+scale = Vector2(185.357, 42.5877)
 metadata/_edit_use_anchors_ = true
 
 [node name="Spikes" type="Node2D" parent="."]
@@ -1810,14 +1809,6 @@ scale = Vector2(1.82964, 1.82964)
 
 [node name="Area2D5" parent="Spikes" instance=ExtResource("23_tg0fi")]
 position = Vector2(1123, 131)
-scale = Vector2(1.82964, 1.82964)
-
-[node name="Area2D6" parent="Spikes" instance=ExtResource("23_tg0fi")]
-position = Vector2(1268, -27)
-scale = Vector2(1.82964, 1.82964)
-
-[node name="Area2D7" parent="Spikes" instance=ExtResource("23_tg0fi")]
-position = Vector2(1347, -60)
 scale = Vector2(1.82964, 1.82964)
 
 [node name="Area2D8" parent="Spikes" instance=ExtResource("23_tg0fi")]
@@ -2116,7 +2107,6 @@ layer = 126
 follow_viewport_enabled = true
 
 [node name="TransitionFadeIn" type="ColorRect" parent="TransitionFadeInLayer"]
-visible = false
 material = SubResource("ShaderMaterial_ect0f")
 offset_left = -758.0
 offset_top = -546.0

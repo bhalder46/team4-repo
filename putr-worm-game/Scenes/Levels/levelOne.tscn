@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=62 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_dwgih"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_xd666"]
@@ -29,6 +29,8 @@
 [ext_resource type="Script" path="res://Scripts/AntiGravity.gd" id="27_fqcxj"]
 [ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="28_kmjxt"]
 [ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="29_0j153"]
+[ext_resource type="PackedScene" uid="uid://1cwobjep8l64" path="res://Scenes/land_melee_mob_proto.tscn" id="30_yeer5"]
+[ext_resource type="PackedScene" uid="uid://b6kpc05rlrngv" path="res://Scenes/ranged_mob_proto.tscn" id="31_hgmr4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1781,6 +1783,7 @@ offset_right = 1099.0
 offset_bottom = 72.0
 scale = Vector2(2.28, 1.28086)
 color = Color(0.0689307, 0.0236965, 0.106206, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]
 layer = -1
@@ -2750,7 +2753,8 @@ shape = SubResource("RectangleShape2D_4n0pt")
 [node name="Node2" type="Node" parent="."]
 
 [node name="Area2D2" parent="Node2" instance=ExtResource("28_kmjxt")]
-position = Vector2(172, 538)
+visible = false
+position = Vector2(-516, 171)
 scale = Vector2(304.7, -0.28574)
 
 [node name="Area2D3" parent="Node2" instance=ExtResource("28_kmjxt")]
@@ -2866,6 +2870,32 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_1528m")
 }
+
+[node name="land_melee_mob_proto" parent="." instance=ExtResource("30_yeer5")]
+position = Vector2(1266, -168)
+patrol_distance = 50.0
+
+[node name="land_melee_mob_proto2" parent="." instance=ExtResource("30_yeer5")]
+position = Vector2(1941, 229)
+
+[node name="land_melee_mob_proto3" parent="." instance=ExtResource("30_yeer5")]
+position = Vector2(2162, 74)
+patrol_distance = 50.0
+
+[node name="Ranged_mob_proto" parent="." instance=ExtResource("31_hgmr4")]
+position = Vector2(600, -202)
+speed = 150.0
+patrol_distance = 100.0
+
+[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("20_062ps")]
+position = Vector2(1060, -266)
+
+[node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("20_062ps")]
+position = Vector2(1556, 262)
+
+[node name="Ranged_mob_proto2" parent="." instance=ExtResource("31_hgmr4")]
+position = Vector2(1961, 101)
+patrol_distance = 20.0
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]

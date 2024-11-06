@@ -7,7 +7,7 @@ extends Camera2D
 @export var enable_camera_follow: bool = true  # Toggle for enabling or disabling camera follow logic
 
 # Screenshake parameters
-@export var shake_intensity: float = 10.0  # How much the camera shakes
+@export var shake_intensity: float = 18.0  # How much the camera shakes
 @export var shake_duration: float = 0.2  # Duration of the shake in seconds
 
 var shake_timer: float = 0.0  # Internal timer for the shake effect

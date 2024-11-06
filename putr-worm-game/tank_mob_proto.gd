@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed: float = 60.0
-var attack_cooldown: float = 2.0
+var attack_cooldown: float = 1.0
 var can_attack: bool = true
 var facing_left: bool = false
 var patrol_distance: float = 300.0
@@ -24,6 +24,7 @@ var damage_taken_per_hit: float = 20.0
 var hurt_animation_time: float = 0.2
 var knockback_force: float = 100.0
 var is_heavy: bool = true
+var player_in_attack_area: bool = false  # Track if player is in attack area
 
 func _ready():
 	if not player:
@@ -115,10 +116,14 @@ func chase_player():
 		change_direction()
 
 func attack_player():
-	if not is_attacking and can_attack:
+	if not is_attacking and can_attack and player_in_attack_area:
 		is_attacking = true
 		velocity.x = 0
 		animated_sprite.play("attack")
+		
+		if player and player.has_method("take_damage"):
+			player.take_damage(1)  # Call the player's take_damage method
+			
 		can_attack = false
 	
 		await animated_sprite.animation_finished
@@ -126,8 +131,12 @@ func attack_player():
 	
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
+		
+		# If the player is still in the area, trigger another attack
+		if player_in_attack_area:
+			attack_player()
 
-# New functions for Area2D detection
+# Functions for Area2D detection
 func _on_chase_area_body_entered(body):
 	if body.is_in_group("players"):
 		is_chasing = true
@@ -137,8 +146,15 @@ func _on_chase_area_body_exited(body):
 		is_chasing = false
 
 func _on_attack_area_body_entered(body):
-	if body.is_in_group("players") and can_attack:
-		attack_player()
+	if body.is_in_group("players"):
+		player_in_attack_area = true
+		if can_attack:
+			attack_player()
+
+func _on_attack_area_body_exited(body):
+	if body.is_in_group("players"):
+		player_in_attack_area = false
+		can_attack = false
 
 func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
 	if is_hurt:

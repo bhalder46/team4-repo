@@ -174,12 +174,12 @@ animations = [{
 size = Vector2(43.5, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylxib"]
-size = Vector2(623.5, 49)
+size = Vector2(372, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1n4ur"]
 size = Vector2(104.25, 49)
 
-[node name="land_melee_mob_proto" type="CharacterBody2D"]
+[node name="land_melee_mob_proto" type="CharacterBody2D" groups=["bug"]]
 script = ExtResource("1_p2jve")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

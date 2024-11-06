@@ -175,7 +175,7 @@ animations = [{
 size = Vector2(32, 27)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ii4"]
-radius = 762.079
+radius = 279.716
 
 [node name="Ranged_mob_proto" type="CharacterBody2D" groups=["bug"]]
 motion_mode = 1

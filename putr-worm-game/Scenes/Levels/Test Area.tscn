@@ -1181,7 +1181,7 @@ script = ExtResource("17_3djwl")
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = -1664
-position = Vector2(-45.0001, -43)
+position = Vector2(241, -40)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("18_jw2ei")
 script = ExtResource("19_p8lgb")

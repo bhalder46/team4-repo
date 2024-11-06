@@ -223,10 +223,10 @@ shape = SubResource("RectangleShape2D_4p4ap")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oy3ji")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
 [connection signal="area_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

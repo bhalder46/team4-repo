@@ -7,7 +7,7 @@ var speed: float = 100.0
 var attack_cooldown: float = 1.5
 var can_attack: bool = true
 var facing_left: bool = true
-var patrol_distance: float = 100.0
+@export var patrol_distance: float = 100.0
 var initial_position: Vector2
 var is_attacking: bool = false
 var is_retreating: bool = false
@@ -18,6 +18,7 @@ var player_in_attack_range: bool = false
 # New variables for retreat control
 var retreat_start_position: Vector2
 var retreat_distance: float = 100.0  # How far to retreat in pixels
+var health: int = 2  # Number of hits required to trigger die
 
 func _ready():
 	if not player:
@@ -141,6 +142,10 @@ func perform_attack():
 		is_attacking = true
 		velocity.x = 0
 		animated_sprite.play("attack")
+		
+		if player and player.has_method("take_damage"):
+			player.take_damage(1) 
+			
 		can_attack = false
 		
 		# Wait for attack animation to finish
@@ -172,6 +177,11 @@ func _on_attack_area_body_exited(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("bullets"):
+		take_damage()
+
+func take_damage():
+	health -= 1
+	if health <= 0:
 		die()
 
 func die():
