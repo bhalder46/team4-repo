@@ -1062,15 +1062,6 @@ drag_vertical_offset = 0.01
 script = ExtResource("3_miwoo")
 player = NodePath("..")
 
-[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_hbc4h")]
-z_index = 10
-offset_left = -179.0
-offset_top = 23.0
-offset_right = -179.0
-offset_bottom = 23.0
-scale = Vector2(0.5, 0.5)
-metadata/_edit_use_anchors_ = true
-
 [node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("5_cskv3")]
 visible = false
 position = Vector2(-291, -45)
@@ -1181,13 +1172,6 @@ position = Vector2(0, 101)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Border"]
 shape = SubResource("WorldBoundaryShape2D_u8mg8")
 disabled = true
-
-[node name="Target" type="Sprite2D" parent="."]
-z_index = 100
-position = Vector2(75, -90)
-scale = Vector2(0.022236, 0.0211349)
-texture = ExtResource("16_bibet")
-script = ExtResource("17_ku3s8")
 
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_m8cgp")
@@ -1412,7 +1396,7 @@ position = Vector2(305, -29)
 shape = SubResource("RectangleShape2D_sudf5")
 
 [node name="TransitionFadeOutLayer" type="CanvasLayer" parent="Computer (Network Access)/Area2D"]
-layer = 126
+layer = 128
 follow_viewport_enabled = true
 
 [node name="TransitionFadeOut" type="ColorRect" parent="Computer (Network Access)/Area2D/TransitionFadeOutLayer"]
@@ -1429,6 +1413,29 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_1528m")
 }
+
+[node name="Heart" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="HealthUI" parent="Heart" instance=ExtResource("4_hbc4h")]
+z_index = 10
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 50.0
+offset_bottom = 34.0
+scale = Vector2(3.42, 3.42)
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 127
+follow_viewport_enabled = true
+
+[node name="Target" type="Sprite2D" parent="CanvasLayer2"]
+z_index = 100
+position = Vector2(481, -862)
+scale = Vector2(0.022236, 0.0211349)
+texture = ExtResource("16_bibet")
+script = ExtResource("17_ku3s8")
 
 [connection signal="body_entered" from="DialogicGameHandler/Area2D" to="DialogicGameHandler/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler2/Area2D" to="DialogicGameHandler2/Area2D" method="_on_body_entered"]

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var music_player = $NetworkMusic 
 @onready var player = $Player  # Adjust the path to your player node
-@onready var health_ui: Control = $Player/Camera2D/HealthUI
+@onready var health_ui: Control = $Heart/HealthUI
 
 #Load the checkpoint scene
 @export var checkpoint_scene: PackedScene  # Assuming you have a checkpoint scene

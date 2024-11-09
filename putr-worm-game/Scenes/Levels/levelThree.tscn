@@ -1804,10 +1804,6 @@ gravity = Vector3(0, -500, 0)
 scale_max = 3.0
 color = Color(0.625644, 0.336553, 0.955616, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_833ml"]
-shader = ExtResource("30_sub12")
-shader_parameter/intensity = 1.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1nur"]
 shader = SubResource("Shader_q1cex")
 shader_parameter/shake_power = 0.08
@@ -1877,6 +1873,10 @@ _data = {
 "RESET": SubResource("Animation_cnfmo"),
 "transitionFadeIn": SubResource("Animation_s06t1")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ng1fj"]
+shader = ExtResource("30_sub12")
+shader_parameter/intensity = 1.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_cykx7")
@@ -2086,34 +2086,16 @@ position = Vector2(677, 100.5)
 
 [node name="Node" type="Node" parent="ParallaxBackground"]
 
-[node name="Target" type="Sprite2D" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 127
+follow_viewport_enabled = true
+
+[node name="Target" type="Sprite2D" parent="CanvasLayer2"]
 z_index = 100
 position = Vector2(481, -862)
 scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("8_rrqyh")
 script = ExtResource("9_iobs2")
-
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("20_57shk")]
-y_sort_enabled = true
-position = Vector2(258, -63)
-
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
-offset = Vector2(0, -50)
-zoom = Vector2(4, 4)
-process_callback = 0
-position_smoothing_speed = 8.0
-drag_vertical_offset = 0.01
-script = ExtResource("21_8ds0g")
-player = NodePath("..")
-
-[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("22_3oj8g")]
-z_index = 10
-offset_left = -215.0
-offset_top = 46.0
-offset_right = -215.0
-offset_bottom = 46.0
-scale = Vector2(0.5, 0.5)
-metadata/_edit_use_anchors_ = true
 
 [node name="Bird" parent="." instance=ExtResource("25_tjbcw")]
 position = Vector2(-524, -305)
@@ -3479,19 +3461,6 @@ position = Vector2(477, 360)
 [node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(1558, -1034)
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
-z_index = 4096
-material = SubResource("ShaderMaterial_833ml")
-offset_left = -391.0
-offset_top = -163.0
-offset_right = -351.0
-offset_bottom = -123.0
-scale = Vector2(85.3546, 58.5877)
-metadata/_edit_use_anchors_ = true
-
 [node name="Checkpoint6" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(2997, -936)
 
@@ -3499,6 +3468,7 @@ position = Vector2(2997, -936)
 position = Vector2(2600, 1286)
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
+layer = 121
 follow_viewport_enabled = true
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer4"]
@@ -3545,16 +3515,15 @@ offset_bottom = -1468.0
 scale = Vector2(23.4218, 12.2781)
 
 [node name="TransitionFadeInLayer" type="CanvasLayer" parent="."]
-layer = 126
-follow_viewport_enabled = true
+layer = 128
 
 [node name="TransitionFadeIn" type="ColorRect" parent="TransitionFadeInLayer"]
 material = SubResource("ShaderMaterial_b2rrv")
-offset_left = -195.0
-offset_top = -399.0
-offset_right = -155.0
-offset_bottom = -359.0
-scale = Vector2(23.6345, 14.0745)
+offset_left = 11.746
+offset_top = -6.30914
+offset_right = 51.746
+offset_bottom = 33.6909
+scale = Vector2(47.8745, 27.1945)
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionFadeInAnimation" type="AnimationPlayer" parent="."]
@@ -3582,6 +3551,44 @@ position = Vector2(2666, 859)
 
 [node name="land_melee_mob_proto3" parent="." instance=ExtResource("38_vfwkn")]
 position = Vector2(2507, 1032)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 120
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 4096
+material = SubResource("ShaderMaterial_ng1fj")
+offset_left = -1.0
+offset_top = -7.0
+offset_right = 39.0
+offset_bottom = 33.0
+scale = Vector2(48.0369, 27.4277)
+metadata/_edit_use_anchors_ = true
+
+[node name="Heart" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="HealthUI" parent="Heart" instance=ExtResource("22_3oj8g")]
+z_index = 10
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 50.0
+offset_bottom = 34.0
+scale = Vector2(3.42, 3.42)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("20_57shk")]
+y_sort_enabled = true
+position = Vector2(260.215, -117.03)
+
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+offset = Vector2(0, -50)
+zoom = Vector2(4, 4)
+process_callback = 0
+position_smoothing_speed = 8.0
+drag_vertical_offset = 0.01
+script = ExtResource("21_8ds0g")
+player = NodePath("..")
 
 [connection signal="body_entered" from="AllPortals/Portal2/PortalEntrance/Area2D" to="AllPortals/Portal2" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal2/PortalExit/Area2D" to="AllPortals/Portal2" method="_on_exit_area_entered"]
