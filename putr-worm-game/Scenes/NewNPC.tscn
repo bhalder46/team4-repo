@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bivfc3jopmkmx"]
+[gd_scene load_steps=6 format=3 uid="uid://0x4i7qa88n0r"]
 
-[ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="1_nai5w"]
-[ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="1_qgm52"]
-[ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="2_subly"]
-[ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="3_pf2b0"]
+[ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="1_geouq"]
+[ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="2_0dn83"]
+[ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="3_hi1d6"]
+[ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="4_r715m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fndpc"]
 radius = 14.8822
@@ -13,18 +13,18 @@ radius = 14.8822
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 scale = Vector2(1.625, 1.3125)
-texture = ExtResource("1_qgm52")
-script = ExtResource("2_subly")
+texture = ExtResource("1_geouq")
+script = ExtResource("2_0dn83")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 position = Vector2(-0.615385, 24.381)
 scale = Vector2(1.59, 1.59)
-script = ExtResource("3_pf2b0")
+script = ExtResource("3_hi1d6")
 
 [node name="EKey" type="Sprite2D" parent="Sprite2D/Area2D"]
 position = Vector2(11.224, -23.9593)
 scale = Vector2(0.412745, 0.412745)
-texture = ExtResource("1_nai5w")
+texture = ExtResource("4_r715m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 position = Vector2(0.387034, -15.8131)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://6j4eebna35bb"]
+[gd_scene load_steps=52 format=4 uid="uid://6j4eebna35bb"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_ror13"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_7tcly"]
@@ -36,6 +36,10 @@
 [ext_resource type="Texture2D" uid="uid://disitwtc0je5p" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_3.png" id="34_1ffxl"]
 [ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="35_xxtrw"]
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="37_4rpcc"]
+[ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="37_ng2r3"]
+[ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="38_qhx82"]
+[ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="39_otb6f"]
+[ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="40_vbojn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("12_6k7cg")
@@ -1035,6 +1039,9 @@ _data = {
 "transitionFadeOut": SubResource("Animation_p7eeq")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjmts"]
+radius = 10.5285
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ror13")
 
@@ -1050,15 +1057,6 @@ position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
 script = ExtResource("3_yl1qe")
 player = NodePath("..")
-
-[node name="HealthUI" parent="Player/Camera2D" instance=ExtResource("4_xj6rl")]
-z_index = 10
-offset_left = 136.0
-offset_top = -107.0
-offset_right = 136.0
-offset_bottom = -107.0
-scale = Vector2(0.5, 0.5)
-metadata/_edit_use_anchors_ = true
 
 [node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("5_wd2w6")]
 visible = false
@@ -1355,5 +1353,41 @@ flip_v = true
 
 [node name="Bird" parent="." instance=ExtResource("37_4rpcc")]
 
+[node name="Heart" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="HealthUI" parent="Heart" instance=ExtResource("4_xj6rl")]
+z_index = 10
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 50.0
+offset_bottom = 34.0
+scale = Vector2(3.42, 3.42)
+metadata/_edit_use_anchors_ = true
+
+[node name="NPC" type="Sprite2D" parent="."]
+position = Vector2(-41, -45)
+scale = Vector2(1.625, 1.3125)
+texture = ExtResource("37_ng2r3")
+script = ExtResource("38_qhx82")
+
+[node name="Area2D" type="Area2D" parent="NPC"]
+position = Vector2(-0.615385, 24.381)
+scale = Vector2(1.59, 1.59)
+script = ExtResource("39_otb6f")
+dialog_name = "TutorialEnd"
+
+[node name="EKey" type="Sprite2D" parent="NPC/Area2D"]
+position = Vector2(11.224, -23.9593)
+scale = Vector2(0.412745, 0.412745)
+texture = ExtResource("40_vbojn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
+position = Vector2(0.387034, -15.8131)
+scale = Vector2(2.57485, 2.57485)
+shape = SubResource("CircleShape2D_kjmts")
+
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
+[connection signal="body_entered" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_exited"]
