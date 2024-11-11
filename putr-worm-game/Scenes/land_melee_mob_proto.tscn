@@ -174,10 +174,10 @@ animations = [{
 size = Vector2(43.5, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylxib"]
-size = Vector2(372, 49)
+size = Vector2(210, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1n4ur"]
-size = Vector2(104.25, 49)
+size = Vector2(44, 30)
 
 [node name="land_melee_mob_proto" type="CharacterBody2D" groups=["bug"]]
 script = ExtResource("1_p2jve")
@@ -219,6 +219,7 @@ shape = SubResource("RectangleShape2D_ylxib")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_1n4ur")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]

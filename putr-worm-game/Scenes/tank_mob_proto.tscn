@@ -167,10 +167,10 @@ animations = [{
 size = Vector2(46.5, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p4ap"]
-size = Vector2(829.242, 92.8572)
+size = Vector2(350, 92.8572)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oy3ji"]
-size = Vector2(165.714, 85.7143)
+size = Vector2(50, 67.1429)
 
 [node name="tank_mob_proto" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
@@ -217,12 +217,15 @@ position = Vector2(-22, 0)
 [node name="ChaseArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+position = Vector2(0.714296, 0)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_4p4ap")
 
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(2.14286, 0.714287)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_oy3ji")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]

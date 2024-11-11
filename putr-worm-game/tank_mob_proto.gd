@@ -6,10 +6,10 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed: float = 60.0
-var attack_cooldown: float = 1.0
+var attack_cooldown: float = .5
 var can_attack: bool = true
 var facing_left: bool = false
-var patrol_distance: float = 300.0
+@export var patrol_distance: float = 300.0
 var initial_position: Vector2
 
 # States
@@ -107,7 +107,7 @@ func patrol():
 
 func chase_player():
 	var direction = (player.global_position - global_position).normalized()
-	velocity.x = direction.x * speed * 1.2  # Only slightly faster when chasing
+	velocity.x = direction.x * speed * 1.7  # Only slightly faster when chasing
 	animated_sprite.play("walk")
 	
 	if velocity.x < 0 and not facing_left:

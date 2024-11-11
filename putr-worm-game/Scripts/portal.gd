@@ -1,7 +1,8 @@
 extends Node2D
 
-# Set player_node_path directly to "/root/Game/Player"
-var player_node_path: NodePath = "/root/Game/Player"
+# Editable properties
+@export var one_way: bool = false # If true, makes the teleporter one-way
+@export var player_node_path: NodePath = "/root/Game/Player" # Path to the player node
 
 # Variables to access the player and teleporter nodes
 var player
@@ -35,11 +36,12 @@ func _process(delta):
 	if teleport_cooldown:
 		return
 
+	# Teleport player based on entrance and exit overlap, and respect one-way setting
 	if entrance_area.overlaps_body(player):
 		player.global_position = exit_position
 		start_teleport_cooldown() # Start cooldown after teleporting
 
-	elif exit_area.overlaps_body(player):
+	elif exit_area.overlaps_body(player) and not one_way:
 		player.global_position = entrance_position
 		start_teleport_cooldown() # Start cooldown after teleporting
 

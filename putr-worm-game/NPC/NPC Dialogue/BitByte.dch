@@ -20,7 +20,7 @@
 "image": "\"res://NPC/7_36_7_622_0.png\""
 },
 "mirror": false,
-"offset": Vector2(150, -120),
+"offset": Vector2(-230, -120),
 "scale": 0.2,
 "scene": ""
 }

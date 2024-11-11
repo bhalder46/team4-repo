@@ -1341,7 +1341,7 @@ script = ExtResource("39_2jdxg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler3/Area2D"]
 position = Vector2(5289.81, 3989.04)
-scale = Vector2(20.0862, 81.7655)
+scale = Vector2(20.0862, 240.171)
 shape = SubResource("CircleShape2D_ltlui")
 
 [node name="Node2D" type="Node2D" parent="."]

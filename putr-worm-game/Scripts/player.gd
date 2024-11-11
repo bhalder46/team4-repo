@@ -12,45 +12,66 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera: Camera2D = $Camera2D
 
 var can_shoot = true
-var shoot_cooldown = 0.4  # Time in seconds before the player can shoot again
-var reload_time = 1.5  # Time in seconds to reload
-var shoot_timer = 0.0  # Timer to track the shooting cooldown
-var reload_timer = 0.0  # Timer to track the reload time
-var shot_count = 0  # Count the number of shots fired
-var max_shots = 6  # Maximum number of shots before needing to reload
-var is_reloading = false  # Track if the gun is currently reloading
+var shoot_cooldown = 0.4
+var reload_time = 1.5
+var shoot_timer = 0.0
+var reload_timer = 0.0
+var shot_count = 0
+var max_shots = 6
+var is_reloading = false
 
-# Track the current side of the reticle (left or right)
 var is_reticle_on_left = false
 
-# Coyote time variables
-var coyote_time: float = 0.2  # Time in seconds for coyote jumping
-var is_on_ground = false  # Track if the player is on the ground
-var coyote_timer: float = 0.0  # Timer for coyote time
+var coyote_time: float = 0.2
+var is_on_ground = false
+var coyote_timer: float = 0.0
 
-# New variable to control movement and jumping
 var disable_movement: bool = false
 var disable_shooting: bool = false
-
 
 var max_health: int = 3
 var current_health: int = 3
 
-# Player's respawn checkpoint
-var checkpoint_position: Vector2 = Vector2(0, 0)  # Default to start position or some initial spawn point
+var checkpoint_position: Vector2 = Vector2(0, 0)
 
-# Signal to notify health changes
 signal health_changed(new_health)
 
-#Invincibility variables
-@export var invincibility_duration: float = 1.0
+@export var invincibility_duration: float = 1.0  # Total invincibility period
+@export var flash_duration: float = 0.1  # Duration of the initial red flash
+@export var blink_interval: float = 0.1  # Interval at which the character blinks during i-frames
+
 var is_invincible: bool = false
 var invincibility_timer: float = 0.0
+var flash_timer: float = 0.0
+var blink_timer: float = 1.0
+var flashing: bool = false
 
 func _ready() -> void:
 	animated_sprite.flip_h = true
 
-# New Function to Handle Taking Damage
+func _process(delta: float) -> void:
+	# Handle the initial red flash
+	if flashing:
+		flash_timer -= delta
+		if flash_timer <= 0:
+			animated_sprite.modulate = Color(1, 1, 1)  # Reset to normal color
+			flashing = false
+
+	# Handle invincibility frames
+	if is_invincible:
+		invincibility_timer -= delta
+		blink_timer -= delta
+
+		# Toggle visibility at each blink interval
+		if blink_timer <= 0:
+			animated_sprite.visible = not animated_sprite.visible  # Toggle visibility
+			blink_timer = blink_interval  # Reset blink timer
+
+		# End invincibility when the timer runs out
+		if invincibility_timer <= 0:
+			is_invincible = false
+			animated_sprite.visible = true  # Ensure the sprite is visible after i-frames end
+
 func take_damage(amount: int) -> void:
 	if is_invincible:
 		return  # Exit if invincible
@@ -63,17 +84,18 @@ func take_damage(amount: int) -> void:
 	
 	is_invincible = true
 	invincibility_timer = invincibility_duration
+	blink_timer = blink_interval  # Initialize blink timer for i-frames
 	
+	start_flashing()  # Trigger the red flash effect
+
 	if current_health <= 0:
 		die()
 
-
-func _process(delta:float) -> void:
-	#Decrease invincibility timer if the player is invincible
-	if is_invincible:
-		invincibility_timer -= delta
-		if invincibility_timer <= 0:
-			is_invincible = false
+# Function to start the initial red flash effect
+func start_flashing() -> void:
+	animated_sprite.modulate = Color(1, 0, 0)  # Set to red
+	flash_timer = flash_duration
+	flashing = true
 
 # Function to Handle Player Death
 func die() -> void:
