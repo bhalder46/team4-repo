@@ -137,5 +137,5 @@ func die():
 	velocity.x = velocity.x * 0.5  # Maintain some momentum
 	
 	# Set a backup timer just in case
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	queue_free()

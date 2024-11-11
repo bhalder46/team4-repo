@@ -2805,7 +2805,7 @@ position = Vector2(1928, 5)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("25_cjb03")
 script = ExtResource("26_cnejr")
-next_scene = "res://Scenes/Levels/levelTwoRevamp.tscn"
+next_scene = "res://Scenes/Levels/LevelTwoRevamp.tscn"
 
 [node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
 position = Vector2(-198.531, 15.1579)
@@ -2871,7 +2871,7 @@ scale = Vector2(47.9545, 27.6198)
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 120
+layer = 99
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 4096

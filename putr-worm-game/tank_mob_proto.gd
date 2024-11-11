@@ -185,6 +185,7 @@ func _on_area_entered(area):
 		take_damage(damage_taken_per_hit, knockback_direction)
 
 func die():
+	is_attacking = false
 	animated_sprite.play("death")
 	set_physics_process(false)
 	health_bar.hide()

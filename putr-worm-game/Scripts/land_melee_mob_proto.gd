@@ -180,6 +180,10 @@ func _on_area_entered(area):
 		take_damage()
 
 func take_damage():
+	
+	animated_sprite.modulate = Color(1, 0.3, 0.3)
+	await get_tree().create_timer(.2).timeout
+	animated_sprite.modulate = Color(1, 1, 1)
 	health -= 1
 	if health <= 0:
 		die()

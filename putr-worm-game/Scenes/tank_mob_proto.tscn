@@ -167,7 +167,7 @@ animations = [{
 size = Vector2(46.5, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p4ap"]
-size = Vector2(350, 92.8572)
+size = Vector2(350, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oy3ji"]
 size = Vector2(50, 67.1429)
@@ -217,7 +217,7 @@ position = Vector2(-22, 0)
 [node name="ChaseArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
-position = Vector2(0.714296, 0)
+position = Vector2(0.714296, -0.714287)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_4p4ap")
 

@@ -92,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72lyu"]
-size = Vector2(16.0132, 26.2802)
+size = Vector2(13.9275, 26.2802)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rrvqc"]
 shader = ExtResource("10_qlet2")
@@ -584,7 +584,7 @@ autoplay = "idle"
 frame_progress = 0.42008
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.33098, -14.3582)
+position = Vector2(-1.28812, -14.3582)
 shape = SubResource("RectangleShape2D_72lyu")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
