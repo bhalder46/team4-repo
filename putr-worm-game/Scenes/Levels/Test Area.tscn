@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://6j4eebna35bb"]
+[gd_scene load_steps=111 format=4 uid="uid://6j4eebna35bb"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_ror13"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_7tcly"]
@@ -44,6 +44,12 @@
 [ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="39_otb6f"]
 [ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="40_vbojn"]
 [ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="44_yj8ua"]
+[ext_resource type="Script" path="res://Scenes/Levels/bossTrap.gd" id="46_ksigy"]
+[ext_resource type="Shader" path="res://Scenes/Levels/light.gdshader" id="48_80473"]
+[ext_resource type="Texture2D" uid="uid://qkvej2cddjtq" path="res://Art/Random Assets/New Piskel-1.png(5).png" id="48_ah5sa"]
+[ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="49_yb7hh"]
+[ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/bossBullet.tscn" id="50_0gqm5"]
+[ext_resource type="Script" path="res://Scenes/Levels/RedlightTest.gd" id="50_t8pui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("12_6k7cg")
@@ -1389,6 +1395,24 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjmts"]
 radius = 10.5285
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xifyq"]
+shader = ExtResource("48_80473")
+shader_parameter/light_color = Vector3(255, 0, 0)
+shader_parameter/brightness = 0.792
+shader_parameter/attenuation_strength = 0.0
+shader_parameter/intensity = 0.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("49_yb7hh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7q0d"]
+shader = ExtResource("48_80473")
+shader_parameter/light_color = Vector3(255, 0, 0)
+shader_parameter/brightness = 0.792
+shader_parameter/attenuation_strength = 0.0
+shader_parameter/intensity = 0.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("49_yb7hh")
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ror13")
 
@@ -1759,8 +1783,54 @@ scale = Vector2(2.57485, 2.57485)
 shape = SubResource("CircleShape2D_kjmts")
 
 [node name="Area2D3" parent="." instance=ExtResource("44_yj8ua")]
-position = Vector2(-194, -25)
+position = Vector2(-392, -184)
 scale = Vector2(1.36913, 1.36913)
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("50_t8pui")
+
+[node name="RedLight" type="ColorRect" parent="Node2D"]
+z_index = -30
+material = SubResource("ShaderMaterial_xifyq")
+offset_left = -176.0
+offset_top = -89.0
+offset_right = -136.0
+offset_bottom = -49.0
+scale = Vector2(0.765134, 0.765134)
+
+[node name="redBossTrap" type="Sprite2D" parent="."]
+position = Vector2(-153, -127)
+scale = Vector2(3.3522, 3.3522)
+texture = ExtResource("48_ah5sa")
+script = ExtResource("46_ksigy")
+bullet_scene = ExtResource("50_0gqm5")
+bullet_speed = 150
+spawn_interval = 0.5
+
+[node name="Left" type="Marker2D" parent="redBossTrap"]
+position = Vector2(7.45777, 0.298313)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="Right" type="Marker2D" parent="redBossTrap"]
+position = Vector2(-7.4578, 0.298313)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="Up" type="Marker2D" parent="redBossTrap"]
+position = Vector2(0, -7.75611)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="Down" type="Marker2D" parent="redBossTrap"]
+position = Vector2(0, 7.4578)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="RedLight" type="ColorRect" parent="redBossTrap"]
+z_index = -30
+material = SubResource("ShaderMaterial_i7q0d")
+offset_left = -14.8698
+offset_top = -15.0067
+offset_right = 25.1302
+offset_bottom = 24.9933
+scale = Vector2(0.765134, 0.765134)
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]

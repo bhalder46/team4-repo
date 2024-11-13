@@ -11,7 +11,7 @@ void vertex() {
 
 float insideUnitSquare(vec2 v) {
     vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
-    return s.x * s.y;   
+    return s.x * s.y;
 }
 
 void fragment() {

@@ -84,6 +84,7 @@ enemybullet=""
 bullets=""
 bullet=""
 bug=""
+shieldBug=""
 
 [input]
 

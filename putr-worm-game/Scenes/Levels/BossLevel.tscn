@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://bfqotab2td11r"]
+[gd_scene load_steps=130 format=4 uid="uid://bfqotab2td11r"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mb6l0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_tulq0"]
@@ -36,6 +36,12 @@
 [ext_resource type="Texture2D" uid="uid://18ai5t0s2lh4" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206_192.png" id="34_gr2bb"]
 [ext_resource type="Texture2D" uid="uid://m22vx2qp5puy" path="res://Art/Random Assets/spritesheetBugBoss-1.png.png" id="34_kjtsx"]
 [ext_resource type="Texture2D" uid="uid://ddl5k8we8vjhh" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206h_192.png" id="35_3ataw"]
+[ext_resource type="PackedScene" uid="uid://ndxoqx75ugao" path="res://Scenes/flyBoss.tscn" id="37_kpi5m"]
+[ext_resource type="Texture2D" uid="uid://qkvej2cddjtq" path="res://Art/Random Assets/New Piskel-1.png(5).png" id="38_nawgx"]
+[ext_resource type="Script" path="res://Scenes/Levels/bossTrap.gd" id="39_cutgh"]
+[ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/bossBullet.tscn" id="40_a64cl"]
+[ext_resource type="Shader" path="res://Scenes/Levels/light.gdshader" id="41_7cttv"]
+[ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="41_vm5ar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -2361,6 +2367,15 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tx5y7"]
+shader = ExtResource("41_7cttv")
+shader_parameter/light_color = Vector3(255, 0, 0)
+shader_parameter/brightness = 0.792
+shader_parameter/attenuation_strength = 0.0
+shader_parameter/intensity = 0.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("41_vm5ar")
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mb6l0")
 
@@ -2371,7 +2386,7 @@ offset_top = -1933.0
 offset_right = -1710.0
 offset_bottom = 162.0
 scale = Vector2(2.64, 1.96086)
-color = Color(0.0354269, 0.0340352, 0.0283015, 1)
+color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]
@@ -2812,8 +2827,8 @@ zoom = Vector2(1.99, 1.99)
 position = Vector2(-50.5, -97)
 shape = SubResource("RectangleShape2D_6w11g")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(-1570, 960)
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["bug", "shieldBug"]]
+position = Vector2(-1132.44, 613.928)
 mass = 0.137
 physics_material_override = SubResource("PhysicsMaterial_j5tt6")
 gravity_scale = 0.856
@@ -2834,7 +2849,7 @@ autoplay = "idle"
 
 [node name="Shield" type="AnimatedSprite2D" parent="RigidBody2D"]
 modulate = Color(1, 1, 1, 0.286275)
-z_index = 1300
+z_index = 120
 position = Vector2(0, -3)
 scale = Vector2(0.453206, 0.453206)
 sprite_frames = SubResource("SpriteFrames_p65pp")
@@ -2847,8 +2862,13 @@ autoplay = "idle"
 scale = Vector2(4.2, 4.2)
 shape = SubResource("CircleShape2D_5hgj8")
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
-position = Vector2(-1427, 960)
+[node name="Ranged_mob_proto" parent="." instance=ExtResource("37_kpi5m")]
+position = Vector2(-2475, 943)
+amplitude = 10.0
+patrol_distance = 200.0
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." groups=["bug", "shieldBug"]]
+position = Vector2(-1250.6, 613.928)
 mass = 0.137
 physics_material_override = SubResource("PhysicsMaterial_j5tt6")
 gravity_scale = 0.856
@@ -2860,13 +2880,20 @@ script = ExtResource("33_2ricn")
 scale = Vector2(4.2, 4.2)
 shape = SubResource("CircleShape2D_5hgj8")
 
+[node name="Bug" type="AnimatedSprite2D" parent="RigidBody2D2"]
+position = Vector2(-3.38554e-05, -2.71797e-05)
+scale = Vector2(0.164699, 0.164699)
+sprite_frames = SubResource("SpriteFrames_hkdn8")
+animation = &"idle"
+autoplay = "idle"
+
 [node name="Shield" type="AnimatedSprite2D" parent="RigidBody2D2"]
 modulate = Color(1, 1, 1, 0.286275)
-z_index = 1300
+z_index = 120
 position = Vector2(0, -3)
 scale = Vector2(0.453206, 0.453206)
 sprite_frames = SubResource("SpriteFrames_p65pp")
-animation = &"idle"
+animation = &"spawn"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D2"]
@@ -2875,84 +2902,73 @@ autoplay = "idle"
 scale = Vector2(4.2, 4.2)
 shape = SubResource("CircleShape2D_5hgj8")
 
-[node name="Bug" type="AnimatedSprite2D" parent="RigidBody2D2"]
-position = Vector2(-3.38554e-05, -2.71797e-05)
-scale = Vector2(0.164699, 0.164699)
-sprite_frames = SubResource("SpriteFrames_hkdn8")
-animation = &"idle"
-autoplay = "idle"
+[node name="redBossTrap" type="Sprite2D" parent="."]
+position = Vector2(-1919.66, 1099)
+scale = Vector2(3.3522, 3.3522)
+texture = ExtResource("38_nawgx")
+script = ExtResource("39_cutgh")
+bullet_scene = ExtResource("40_a64cl")
+bullet_speed = 150
+spawn_interval = 0.5
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="."]
-position = Vector2(-1860, 960)
-mass = 0.137
-physics_material_override = SubResource("PhysicsMaterial_j5tt6")
-gravity_scale = 0.856
-can_sleep = false
-linear_velocity = Vector2(0, -50)
-script = ExtResource("33_2ricn")
+[node name="Left" type="Marker2D" parent="redBossTrap"]
+position = Vector2(7.45777, 0.298313)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
-scale = Vector2(4.2, 4.2)
-shape = SubResource("CircleShape2D_5hgj8")
+[node name="Right" type="Marker2D" parent="redBossTrap"]
+position = Vector2(-7.4578, 0.298313)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="Shield" type="AnimatedSprite2D" parent="RigidBody2D3"]
-modulate = Color(1, 1, 1, 0.286275)
-z_index = 1300
-position = Vector2(0, -3)
-scale = Vector2(0.453206, 0.453206)
-sprite_frames = SubResource("SpriteFrames_p65pp")
-animation = &"idle"
-autoplay = "idle"
+[node name="Up" type="Marker2D" parent="redBossTrap"]
+position = Vector2(0, -7.75611)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D3"]
+[node name="Down" type="Marker2D" parent="redBossTrap"]
+position = Vector2(0, 7.4578)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3/Area2D"]
-scale = Vector2(4.2, 4.2)
-shape = SubResource("CircleShape2D_5hgj8")
+[node name="RedLight" type="ColorRect" parent="redBossTrap"]
+z_index = -30
+material = SubResource("ShaderMaterial_tx5y7")
+offset_left = -14.8698
+offset_top = -15.0067
+offset_right = 25.1302
+offset_bottom = 24.9933
+scale = Vector2(0.765134, 0.765134)
 
-[node name="Bug" type="AnimatedSprite2D" parent="RigidBody2D3"]
-position = Vector2(-3.38554e-05, -2.71797e-05)
-scale = Vector2(0.164699, 0.164699)
-sprite_frames = SubResource("SpriteFrames_hkdn8")
-animation = &"idle"
-autoplay = "idle"
+[node name="redBossTrap2" type="Sprite2D" parent="."]
+position = Vector2(-1387, 1099)
+scale = Vector2(3.3522, 3.3522)
+texture = ExtResource("38_nawgx")
+script = ExtResource("39_cutgh")
+bullet_scene = ExtResource("40_a64cl")
+bullet_speed = 150
+spawn_interval = 0.5
 
-[node name="RigidBody2D4" type="RigidBody2D" parent="."]
-position = Vector2(-1729, 960)
-mass = 0.137
-physics_material_override = SubResource("PhysicsMaterial_j5tt6")
-gravity_scale = 0.856
-can_sleep = false
-linear_velocity = Vector2(0, -50)
-script = ExtResource("33_2ricn")
+[node name="Left" type="Marker2D" parent="redBossTrap2"]
+position = Vector2(7.45777, 0.298313)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
-scale = Vector2(4.2, 4.2)
-shape = SubResource("CircleShape2D_5hgj8")
+[node name="Right" type="Marker2D" parent="redBossTrap2"]
+position = Vector2(-7.4578, 0.298313)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="Shield" type="AnimatedSprite2D" parent="RigidBody2D4"]
-modulate = Color(1, 1, 1, 0.286275)
-z_index = 1300
-position = Vector2(0, -3)
-scale = Vector2(0.453206, 0.453206)
-sprite_frames = SubResource("SpriteFrames_p65pp")
-animation = &"idle"
-autoplay = "idle"
+[node name="Up" type="Marker2D" parent="redBossTrap2"]
+position = Vector2(0, -7.75611)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D4"]
+[node name="Down" type="Marker2D" parent="redBossTrap2"]
+position = Vector2(0, 7.4578)
+scale = Vector2(0.298311, 0.298311)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4/Area2D"]
-scale = Vector2(4.2, 4.2)
-shape = SubResource("CircleShape2D_5hgj8")
-
-[node name="Bug" type="AnimatedSprite2D" parent="RigidBody2D4"]
-position = Vector2(-3.38554e-05, -2.71797e-05)
-scale = Vector2(0.164699, 0.164699)
-sprite_frames = SubResource("SpriteFrames_hkdn8")
-animation = &"idle"
-autoplay = "idle"
-frame = 1
-frame_progress = 0.925124
+[node name="RedLight" type="ColorRect" parent="redBossTrap2"]
+z_index = -30
+material = SubResource("ShaderMaterial_tx5y7")
+offset_left = -14.8698
+offset_top = -15.0067
+offset_right = 25.1302
+offset_bottom = 24.9933
+scale = Vector2(0.765134, 0.765134)
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
@@ -2964,5 +2980,3 @@ frame_progress = 0.925124
 [connection signal="body_exited" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_exited"]
 [connection signal="body_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_body_entered"]
 [connection signal="body_entered" from="RigidBody2D2/Area2D" to="RigidBody2D2" method="_on_body_entered"]
-[connection signal="body_entered" from="RigidBody2D3/Area2D" to="RigidBody2D3" method="_on_body_entered"]
-[connection signal="body_entered" from="RigidBody2D4/Area2D" to="RigidBody2D4" method="_on_body_entered"]

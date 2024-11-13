@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 200
+@export var speed = 200
 var direction = Vector2.ZERO
 
 func _ready():
@@ -18,7 +18,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 # Signal handler for when the bug enemy enters another body
 func _on_body_entered(body):
-	if body.is_in_group("players"):  # Ensure it's the player
+	if body.is_in_group("players"):
 		body.take_damage(1)
 	elif body.is_in_group("tilemap"):  # Check if it collides with TileMap group
+		queue_free()
+	elif body.is_in_group("shieldBug"):
 		queue_free()
