@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var gun_shoot_sound = $"Gun/Shoot Sound"
 @onready var gun_reload_sound = $"Gun/Reload Sound"
 @onready var camera: Camera2D = $Camera2D
+@onready var collision_shape = $CollisionShape2D
+@onready var original_collision_shape_position = collision_shape.position
 
 var can_shoot = true
 var shoot_cooldown = 0.4
@@ -48,7 +50,8 @@ var flashing: bool = false
 
 func _ready() -> void:
 	animated_sprite.flip_h = true
-
+	flip_collision_shape()
+	
 func _process(delta: float) -> void:
 	# Handle the initial red flash
 	if flashing:
@@ -229,13 +232,13 @@ func update_gun_rotation():
 	$Gun.rotation = angle
 
 	# Introduce a clear threshold to decide when to flip (reticle on the left vs right)
-	
 	if mouse_position.x < global_position.x and not is_reticle_on_left:
 		# Reticle crossed to the left side of the player
 		is_reticle_on_left = true
 		$Gun.flip_v = true
 		$Gun.position.x = -8  # Move the gun 10 pixels left
 		animated_sprite.flip_h = false  # Flip character sprite
+		flip_collision_shape()  # Flip collision shape
 		
 	elif mouse_position.x > global_position.x and is_reticle_on_left:
 		# Reticle crossed to the right side of the player
@@ -243,7 +246,18 @@ func update_gun_rotation():
 		$Gun.flip_v = false
 		$Gun.position.x = 2  # Move the gun 10 pixels right
 		animated_sprite.flip_h = true  # Flip character sprite
+		flip_collision_shape()  # Flip collision shape
 
 	# Check if the gun is idle when not shooting or reloading
-	if can_shoot and not is_reloading and !$Gun.is_playing():  # Play idle animation if gun is not currently shooting or reloading
+	if can_shoot and not is_reloading and !$Gun.is_playing():
 		$Gun.play("idle")
+		
+func flip_collision_shape() -> void:
+	# Flip the scale on the x-axis based on the sprite's horizontal flip
+	collision_shape.scale.x = 1.0 if animated_sprite.flip_h else -1.0
+	
+	# Move the collision shape -20 on the x-axis only when facing right
+	if animated_sprite.flip_h:
+		collision_shape.position.x = original_collision_shape_position.x - 3
+	else:
+		collision_shape.position.x = original_collision_shape_position.x
