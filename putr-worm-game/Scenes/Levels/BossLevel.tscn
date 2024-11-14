@@ -2386,7 +2386,7 @@ offset_top = -1933.0
 offset_right = -1710.0
 offset_bottom = 162.0
 scale = Vector2(2.64, 1.96086)
-color = Color(0, 0, 0, 1)
+color = Color(0.0110876, 0.0110876, 0.0110876, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]
@@ -2816,6 +2816,7 @@ scale = Vector2(99.9969, 42.5877)
 metadata/_edit_use_anchors_ = true
 
 [node name="AreaCamera2D2" type="Area2D" parent="."]
+visible = false
 position = Vector2(-1627, 1195)
 script = ExtResource("30_cixyp")
 
@@ -2927,48 +2928,14 @@ scale = Vector2(0.298311, 0.298311)
 position = Vector2(0, 7.4578)
 scale = Vector2(0.298311, 0.298311)
 
-[node name="RedLight" type="ColorRect" parent="redBossTrap"]
+[node name="RedLight" type="PointLight2D" parent="redBossTrap"]
 z_index = -30
 material = SubResource("ShaderMaterial_tx5y7")
-offset_left = -14.8698
-offset_top = -15.0067
-offset_right = 25.1302
-offset_bottom = 24.9933
-scale = Vector2(0.765134, 0.765134)
-
-[node name="redBossTrap2" type="Sprite2D" parent="."]
-position = Vector2(-1387, 1099)
-scale = Vector2(3.3522, 3.3522)
-texture = ExtResource("38_nawgx")
-script = ExtResource("39_cutgh")
-bullet_scene = ExtResource("40_a64cl")
-bullet_speed = 150
-spawn_interval = 0.5
-
-[node name="Left" type="Marker2D" parent="redBossTrap2"]
-position = Vector2(7.45777, 0.298313)
-scale = Vector2(0.298311, 0.298311)
-
-[node name="Right" type="Marker2D" parent="redBossTrap2"]
-position = Vector2(-7.4578, 0.298313)
-scale = Vector2(0.298311, 0.298311)
-
-[node name="Up" type="Marker2D" parent="redBossTrap2"]
-position = Vector2(0, -7.75611)
-scale = Vector2(0.298311, 0.298311)
-
-[node name="Down" type="Marker2D" parent="redBossTrap2"]
-position = Vector2(0, 7.4578)
-scale = Vector2(0.298311, 0.298311)
-
-[node name="RedLight" type="ColorRect" parent="redBossTrap2"]
-z_index = -30
-material = SubResource("ShaderMaterial_tx5y7")
-offset_left = -14.8698
-offset_top = -15.0067
-offset_right = 25.1302
-offset_bottom = 24.9933
-scale = Vector2(0.765134, 0.765134)
+position = Vector2(1.52588e-05, -0.298321)
+scale = Vector2(0.147787, 0.146835)
+color = Color(1, 0, 0, 1)
+energy = 0.0
+texture = ExtResource("41_vm5ar")
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
