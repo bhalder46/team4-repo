@@ -1,8 +1,10 @@
-[gd_scene load_steps=90 format=4 uid="uid://mwwnos8eoalx"]
+[gd_scene load_steps=93 format=4 uid="uid://mwwnos8eoalx"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_cykx7"]
+[ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="2_ncxdb"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_rd0sc"]
 [ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="3_gx3lx"]
+[ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="3_kvo3v"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_v7ogu"]
 [ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="5_wmixr"]
 [ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="6_0cl1u"]
@@ -41,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://1cwobjep8l64" path="res://Scenes/land_melee_mob_proto.tscn" id="38_vfwkn"]
 [ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="40_1qv4m"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="41_gdpfr"]
+[ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="44_vp703"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1991,6 +1994,12 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource("1_cykx7")
 
+[node name="BugDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ncxdb")
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kvo3v")
+
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(256, -180)
 scale = Vector2(22.4111, 21.1979)
@@ -3723,6 +3732,9 @@ libraries = {
 
 [node name="Checkpoint10" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(1725.06, 6.82726)
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_vp703")
 
 [connection signal="body_entered" from="AllPortals/Portal2/PortalEntrance/Area2D" to="AllPortals/Portal2" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal2/PortalExit/Area2D" to="AllPortals/Portal2" method="_on_exit_area_entered"]

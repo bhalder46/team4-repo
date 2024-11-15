@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var bug_death: AudioStreamPlayer = $"../BugDeath"
+
 @onready var player = get_parent().get_node("Player")
 @onready var animated_sprite = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -191,6 +193,9 @@ func take_damage():
 func die():
 	is_attacking = false
 	is_retreating = false
+	if bug_death:
+		bug_death.play()
+
 	animated_sprite.play("death")
 	set_physics_process(false)
 	await animated_sprite.animation_finished

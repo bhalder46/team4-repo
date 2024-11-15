@@ -1,7 +1,9 @@
-[gd_scene load_steps=110 format=4 uid="uid://bu2xtjcad7awo"]
+[gd_scene load_steps=113 format=4 uid="uid://bu2xtjcad7awo"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_6st4o"]
+[ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="2_6ux8e"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_dipp6"]
+[ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="3_ekusx"]
 [ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="3_t18tx"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_ox47h"]
 [ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="5_tamf0"]
@@ -40,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://b0srlvxmtqjr2" path="res://Art/fly_death.png" id="38_vt4nm"]
 [ext_resource type="Texture2D" uid="uid://d4muej3ny8gvg" path="res://Art/fly_fly.png" id="39_81go2"]
 [ext_resource type="Script" path="res://Scripts/FlySpeed.gd" id="40_up3t3"]
+[ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="43_bynf1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1757,6 +1760,12 @@ animations = [{
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6st4o")
+
+[node name="BugDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6ux8e")
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ekusx")
 
 [node name="Scene Background" type="ColorRect" parent="."]
 z_index = -2220
@@ -3532,6 +3541,9 @@ sprite_frames = SubResource("SpriteFrames_ae1gy")
 animation = &"fly"
 autoplay = "fly"
 script = ExtResource("40_up3t3")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_bynf1")
 
 [connection signal="body_entered" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_exited"]

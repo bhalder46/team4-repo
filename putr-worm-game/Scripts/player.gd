@@ -12,6 +12,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera: Camera2D = $Camera2D
 @onready var collision_shape = $CollisionShape2D
 @onready var original_collision_shape_position = collision_shape.position
+@onready var player_death: AudioStreamPlayer = $"../PlayerDeath"
+@onready var player_hit: AudioStreamPlayer = $"../PlayerHit"
+@onready var health_ui: Control = $"../Heart/HealthUI"
+
 
 var can_shoot = true
 var shoot_cooldown = 0.4
@@ -48,6 +52,8 @@ var flash_timer: float = 0.0
 var blink_timer: float = 1.0
 var flashing: bool = false
 
+var is_dead: bool = false
+
 func _ready() -> void:
 	animated_sprite.flip_h = true
 	flip_collision_shape()
@@ -76,12 +82,15 @@ func _process(delta: float) -> void:
 			animated_sprite.visible = true  # Ensure the sprite is visible after i-frames end
 
 func take_damage(amount: int) -> void:
-	if is_invincible:
+	if is_invincible or is_dead:
 		return  # Exit if invincible
 
 	current_health -= amount
 	current_health = clamp(current_health, 0, max_health)
 	emit_signal("health_changed", current_health)
+	
+	if player_hit:
+		player_hit.play()
 	
 	camera.screenshake()  # Trigger screen shake
 	
@@ -102,10 +111,25 @@ func start_flashing() -> void:
 
 # Function to Handle Player Death
 func die() -> void:
+	if is_dead:
+		print("Already dead, skipping die.")  # Debugging line
+		return
+	
+	print("Entering die() function")  # Debugging line
+	is_dead = true
+	
+	if player_death:
+		player_death.play() #Play death sound effect
+	
 	print("Player has died!")
+	
+	health_ui.on_player_death()
+	
 	respawn()
 
 func respawn() -> void:
+	print("Respawning player...")  # Debugging line
+	is_dead = false
 	global_position = checkpoint_position  # Set player position to the checkpoint
 	current_health = max_health  # Reset health to full
 	emit_signal("health_changed", current_health)  # Update health UI

@@ -10,9 +10,13 @@ extends Control
 	$Heart3
 ]
 
+@onready var death_counter_label: Label = $DeathCounterLabel
+
+var death_count:int = 0
+
 func _ready():
 	update_hearts(3)  # Initialize with full hearts
-
+	update_death_counter()
 
 # Function to update the heart display
 func update_hearts(current_health: int) -> void:
@@ -21,3 +25,13 @@ func update_hearts(current_health: int) -> void:
 			hearts[i].texture = full_heart_texture
 		else:
 			hearts[i].texture = empty_heart_texture
+
+# Function to update the death counter display
+func update_death_counter() -> void:
+	death_counter_label.text = "Deaths: %d" % death_count
+
+# Call this function whenever the player dies
+func on_player_death() -> void:
+	death_count += 1
+	update_death_counter()
+	

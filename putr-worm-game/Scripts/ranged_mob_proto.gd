@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var frequency: float = 2.0
 @export var attack_cooldown: float = 1.0
 @export var patrol_distance: float = 300.0
+@onready var bug_death: AudioStreamPlayer = $"../BugDeath"
+
 
 var base_y: float
 var time_elapsed: float = 0.0
@@ -128,6 +130,9 @@ func _on_area_entered(area):
 func die():
 	is_dying = true
 	animated_sprite.play("death")
+	
+	if bug_death:
+		bug_death.play()
 	
 	# Enable the death raycast when starting to die
 	$DeathRaycast.enabled = true
