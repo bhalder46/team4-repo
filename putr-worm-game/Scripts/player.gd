@@ -93,7 +93,6 @@ func take_damage(amount: int) -> void:
 	if player_hit:
 		player_hit.play()
 	
-	camera.screenshake()  # Trigger screen shake
 	
 	is_invincible = true
 	invincibility_timer = invincibility_duration
