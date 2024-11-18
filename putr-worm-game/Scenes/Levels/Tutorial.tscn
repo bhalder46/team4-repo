@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://uod7mhhwk13l"]
+[gd_scene load_steps=58 format=4 uid="uid://uod7mhhwk13l"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_4v47l"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_l2drf"]
@@ -42,6 +42,9 @@
 [ext_resource type="Texture2D" uid="uid://cu4v6ew3gw284" path="res://Art/Random Assets/636039264184061330.png" id="41_insyf"]
 [ext_resource type="Script" path="res://Scripts/EndTutorial.gd" id="42_nywfn"]
 [ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="42_p5321"]
+[ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="43_ybqlv"]
+[ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="44_tv60s"]
+[ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="45_jfgl3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("12_qubtu")
@@ -1436,6 +1439,15 @@ position = Vector2(481, -862)
 scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("16_bibet")
 script = ExtResource("17_ku3s8")
+
+[node name="BugDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_ybqlv")
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_tv60s")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("45_jfgl3")
 
 [connection signal="body_entered" from="DialogicGameHandler/Area2D" to="DialogicGameHandler/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler2/Area2D" to="DialogicGameHandler2/Area2D" method="_on_body_entered"]

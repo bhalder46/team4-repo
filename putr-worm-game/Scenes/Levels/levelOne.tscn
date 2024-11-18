@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=69 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_dwgih"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_xd666"]
@@ -34,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="32_crika"]
 [ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="33_sb45t"]
 [ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="34_2oncc"]
+[ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="35_tkiya"]
+[ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="36_m38u0"]
+[ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="37_kreqw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 
@@ -1911,7 +1914,6 @@ motion_offset = Vector2(-130.51, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -6
-visible = false
 
 [node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -150.64)
@@ -2713,6 +2715,7 @@ script = ExtResource("22_hn5pb")
 player = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(50, -362)
 scale = Vector2(0.022236, 0.0211349)
 gravity_space_override = 1
@@ -2928,6 +2931,15 @@ texture = ExtResource("34_2oncc")
 position = Vector2(0.387034, -15.8131)
 scale = Vector2(2.57485, 2.57485)
 shape = SubResource("CircleShape2D_wiyal")
+
+[node name="BugDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_tkiya")
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_m38u0")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_kreqw")
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
