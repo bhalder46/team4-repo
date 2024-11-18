@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://0sysab1eu4ba"]
+
+[ext_resource type="Shader" path="res://Scripts/MotionBlur.gdshader" id="1_d228f"]
+[ext_resource type="Script" path="res://Scenes/Levels/yellowHead.gd" id="2_4vdhh"]
+[ext_resource type="Texture2D" uid="uid://brbjfy4qexb05" path="res://Art/NewBossSprites/laugh_face_1.png" id="2_dfcc3"]
+[ext_resource type="Texture2D" uid="uid://bqm1n1fshb30s" path="res://Art/NewBossSprites/laugh_face_2.png" id="3_8j1cr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgtgb"]
+shader = ExtResource("1_d228f")
+shader_parameter/dir = Vector2(-0.005, 0)
+shader_parameter/quality = 4
+shader_parameter/darken_amount = 0.8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ryol"]
+atlas = ExtResource("2_dfcc3")
+region = Rect2(0, 0, 1920, 1050)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c247"]
+atlas = ExtResource("3_8j1cr")
+region = Rect2(0, 0, 1920, 1050)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ruyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ryol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c247")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlf0b"]
+radius = 214.81
+
+[node name="yellowBossLEFT" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_vgtgb")
+scale = Vector2(0.374976, 0.374976)
+sprite_frames = SubResource("SpriteFrames_8ruyc")
+autoplay = "default"
+frame_progress = 0.450513
+script = ExtResource("2_4vdhh")
+speed = 600.0
+move_right = false
+move_left = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -66.6709)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.35991, 37.5404)
+scale = Vector2(1.39562, 1.20172)
+shape = SubResource("CircleShape2D_xlf0b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

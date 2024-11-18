@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://doipsg7rvmsl4"]
+
+[ext_resource type="Texture2D" uid="uid://qkvej2cddjtq" path="res://Art/Random Assets/New Piskel-1.png(5).png" id="1_obnhv"]
+[ext_resource type="Script" path="res://Scripts/bossTrap.gd" id="2_ea03l"]
+[ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/redTrapBullet.tscn" id="3_nop27"]
+[ext_resource type="Shader" path="res://Scenes/Levels/light.gdshader" id="4_u1umt"]
+[ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="5_46yjl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alfx2"]
+shader = ExtResource("4_u1umt")
+shader_parameter/light_color = Vector3(255, 0, 0)
+shader_parameter/brightness = 0.792
+shader_parameter/attenuation_strength = 0.0
+shader_parameter/intensity = 0.0
+shader_parameter/max_brightness = 1.0
+shader_parameter/light_texture = ExtResource("5_46yjl")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6br5y"]
+size = Vector2(8.92641, 6.24849)
+
+[node name="redBossTrap" type="Sprite2D"]
+scale = Vector2(3.3522, 3.3522)
+texture = ExtResource("1_obnhv")
+script = ExtResource("2_ea03l")
+bullet_scene = ExtResource("3_nop27")
+bullet_speed = 150
+spawn_interval = 0.5
+
+[node name="Left" type="Marker2D" parent="."]
+position = Vector2(7.45777, 0.298313)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="Right" type="Marker2D" parent="."]
+position = Vector2(-7.4578, 0.298313)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="Up" type="Marker2D" parent="."]
+position = Vector2(0, -7.75611)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="Down" type="Marker2D" parent="."]
+position = Vector2(0, 7.4578)
+scale = Vector2(0.298311, 0.298311)
+
+[node name="RedLight" type="PointLight2D" parent="."]
+z_index = -30
+material = SubResource("ShaderMaterial_alfx2")
+position = Vector2(1.52588e-05, -0.298321)
+scale = Vector2(0.147787, 0.146835)
+color = Color(1, 0, 0, 1)
+energy = 0.0
+texture = ExtResource("5_46yjl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.0378726, -0.0402073)
+shape = SubResource("RectangleShape2D_6br5y")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1804,8 +1804,8 @@ emission_shape = 3
 emission_box_extents = Vector3(9.375, 1, 1)
 spread = 0.0
 gravity = Vector3(0, -500, 0)
-scale_max = 3.0
-color = Color(0.625644, 0.336553, 0.955616, 1)
+scale_max = 4.0
+color = Color(0.961307, 0.940487, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q1nur"]
 shader = ExtResource("31_t787n")
@@ -3476,7 +3476,7 @@ visible = false
 shape = SubResource("CircleShape2D_c0eis")
 
 [node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(-197, 549)
+position = Vector2(-102.82, 549)
 
 [node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(-1145, -42)
@@ -3632,12 +3632,15 @@ patrol_distance = 50.0
 
 [node name="land_melee_mob_proto" parent="." instance=ExtResource("38_vfwkn")]
 position = Vector2(2510, 906)
+patrol_distance = null
 
 [node name="land_melee_mob_proto2" parent="." instance=ExtResource("38_vfwkn")]
 position = Vector2(2666, 859)
+patrol_distance = null
 
 [node name="land_melee_mob_proto3" parent="." instance=ExtResource("38_vfwkn")]
 position = Vector2(2507, 1032)
+patrol_distance = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 120
@@ -3685,6 +3688,7 @@ position = Vector2(2069.84, -1034)
 
 [node name="land_melee_mob_proto4" parent="." instance=ExtResource("38_vfwkn")]
 position = Vector2(2558.05, 757.833)
+patrol_distance = null
 
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
@@ -3712,7 +3716,7 @@ offset_left = 2.32129
 offset_top = 0.608704
 offset_right = 42.3213
 offset_bottom = 40.6087
-scale = Vector2(48.0345, 26.5545)
+scale = Vector2(48.0345, 27.6345)
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayerFadeOut" type="AnimationPlayer" parent="Computer (Network Access)"]
@@ -3723,6 +3727,9 @@ libraries = {
 
 [node name="Checkpoint10" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(1725.06, 6.82726)
+
+[node name="Checkpoint11" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(-1194.44, 407.492)
 
 [connection signal="body_entered" from="AllPortals/Portal2/PortalEntrance/Area2D" to="AllPortals/Portal2" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal2/PortalExit/Area2D" to="AllPortals/Portal2" method="_on_exit_area_entered"]

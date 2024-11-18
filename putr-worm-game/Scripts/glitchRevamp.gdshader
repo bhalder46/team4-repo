@@ -18,21 +18,21 @@ float random(float seed) {
 void fragment() {
     // Calculate elapsed time since glitch start
     float elapsed_time = TIME - glitch_start_time;
-    
+
     // Enable glitch only if within the glitch duration
     float enable_glitch = float(elapsed_time <= glitch_duration);
-    
+
     // Random shift for glitch effect, controlled by shake_rate and shake_speed
     float enable_shift = float(random(trunc(TIME * shake_speed)) < shake_rate) * enable_glitch;
-    
+
     vec2 fixed_uv = SCREEN_UV;
     fixed_uv.x += (random((trunc(SCREEN_UV.y * shake_block_size) / shake_block_size) + TIME) - 0.5) * shake_power * enable_shift;
-    
+
     vec4 pixel_color = textureLod(screen_texture, fixed_uv, 0.0);
-    
+
     // Color channel separation
     pixel_color.r = mix(pixel_color.r, textureLod(screen_texture, fixed_uv + vec2(shake_color_rate, 0.0), 0.0).r, enable_shift);
     pixel_color.b = mix(pixel_color.b, textureLod(screen_texture, fixed_uv + vec2(-shake_color_rate, 0.0), 0.0).b, enable_shift);
-    
+
     COLOR = pixel_color;
 }

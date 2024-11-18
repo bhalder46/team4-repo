@@ -15,7 +15,7 @@ var current_color: LightColors = LightColors.BLUE
 
 # Cooldown timer for buffswitch
 var buffswitch_cooldown: float = 0.0
-var buffswitch_delay: float = 1.0  # 1 second delay
+var buffswitch_delay: float = 0.7  # 1 second delay
 
 # Speed, jump, and shoot buffs
 var speed_boost: float = 1.2  # 20% speed increase
@@ -120,6 +120,8 @@ func _remove_buff():
 			blue_buff_active = false
 
 func _ready():
+
+	
 	# Assign the player node (replace 'Player' with your actual player node path)
 	player = get_node("/root/Game/Player")
 	color_sprite.visible = true  # Make Sprite2D visible on ready
@@ -128,6 +130,7 @@ func _ready():
 		var gun = player.get_node("Gun")  # Adjust path as needed
 		if gun and gun.material and gun.material is ShaderMaterial:
 			gun.material.set_shader_parameter("mode", 0)
+			
 			
 func _process(delta: float):
 	# Update cooldown timer
@@ -146,3 +149,25 @@ func _process(delta: float):
 	if Input.is_action_just_pressed("buffswitch") and buffswitch_cooldown <= 0:
 		_change_light_color()
 		buffswitch_cooldown = buffswitch_delay
+		
+	# Function to remove any active effects
+func remove():
+	# Deactivate the shield
+	if player:
+		var shield = player.get_node("Shield")  # Adjust the path if needed
+		if shield and shield.has_method("toggle_off"):
+			shield.toggle_off()
+
+		# Reset gun shader mode to 0
+		var gun = player.get_node("Gun")  # Adjust the path if needed
+		if gun and gun.material and gun.material is ShaderMaterial:
+			gun.material.set_shader_parameter("mode", 0)
+
+		# Turn off speed boost VFX
+		var speed_boost_vfx = player.get_node("SpeedBoostVFX")  # Adjust the path if needed
+		if speed_boost_vfx:
+			speed_boost_vfx.emitting = false
+
+	# Remove buffs and reset player stats
+	_remove_buff()
+	queue_free()

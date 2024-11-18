@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://vk46l6dfqdj0"]
+[gd_scene load_steps=4 format=3 uid="uid://dh0rfexrp5bql"]
 
 [ext_resource type="Script" path="res://Scripts/mob_projectile.gd" id="1_beynh"]
-[ext_resource type="Texture2D" uid="uid://dlms3ihjih7vi" path="res://Art/laserRed08.png" id="2_y10be"]
+[ext_resource type="Texture2D" uid="uid://cfakpf72mvsws" path="res://Art/New Piskel-1.png(7).png" id="2_fgjku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6r27"]
-size = Vector2(10, 10)
+size = Vector2(7.77716, 7.72766)
 
 [node name="Mob_projectile" type="Area2D" groups=["enemybullet"]]
+scale = Vector2(1.37619, 1.37619)
 script = ExtResource("1_beynh")
 speed = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_y10be")
+scale = Vector2(0.43197, 0.43197)
+texture = ExtResource("2_fgjku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0161212, -0.03462)
+rotation = 0.785398
 shape = SubResource("RectangleShape2D_p6r27")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

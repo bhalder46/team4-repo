@@ -558,7 +558,7 @@ size = Vector2(17, 27)
 offsets = PackedFloat32Array(0, 0.672131)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lbv34"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_48fpb"]
 gradient = SubResource("Gradient_h031q")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p47d8"]
@@ -568,7 +568,7 @@ emission_box_extents = Vector3(20, 1, 1)
 gravity = Vector3(0, -150, 0)
 scale_min = 0.04
 scale_max = 0.04
-color_ramp = SubResource("GradientTexture1D_lbv34")
+color_ramp = SubResource("GradientTexture1D_48fpb")
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 z_index = 200

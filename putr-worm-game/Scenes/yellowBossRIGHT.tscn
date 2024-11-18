@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjelcao5ctwu5"]
+
+[ext_resource type="Shader" path="res://Scripts/MotionBlur.gdshader" id="1_n5x6i"]
+[ext_resource type="Script" path="res://Scenes/Levels/yellowHead.gd" id="2_kgq5b"]
+[ext_resource type="Texture2D" uid="uid://bdob0wjxy72gn" path="res://Art/NewBossSprites/shoot_face_1.png" id="2_ry3tu"]
+[ext_resource type="Texture2D" uid="uid://cgmqblcdjhwm0" path="res://Art/NewBossSprites/shoot_face_2.png" id="3_a4at4"]
+[ext_resource type="Texture2D" uid="uid://cvyvch5e2thlx" path="res://Art/NewBossSprites/shoot_face_3.png" id="4_87iiu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfeq8"]
+shader = ExtResource("1_n5x6i")
+shader_parameter/dir = Vector2(0.005, 0)
+shader_parameter/quality = 4
+shader_parameter/darken_amount = 0.8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr0dj"]
+atlas = ExtResource("2_ry3tu")
+region = Rect2(0, 0, 1920, 1050)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hm4o"]
+atlas = ExtResource("3_a4at4")
+region = Rect2(0, 0, 1920, 1050)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuing"]
+atlas = ExtResource("4_87iiu")
+region = Rect2(0, 0, 1920, 1050)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olluf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr0dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hm4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuing")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hm4o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5814"]
+radius = 214.81
+
+[node name="yellowBossRIGHT" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_tfeq8")
+scale = Vector2(0.374976, 0.374976)
+sprite_frames = SubResource("SpriteFrames_olluf")
+autoplay = "default"
+frame_progress = 0.974548
+script = ExtResource("2_kgq5b")
+speed = 600.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.35991, 28.5601)
+scale = Vector2(1.39562, 1.20172)
+shape = SubResource("CircleShape2D_r5814")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

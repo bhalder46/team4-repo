@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://dkebsn1ieci1h"]
 
 [ext_resource type="Texture2D" uid="uid://dps6mu5rhgrio" path="res://Art/fly_attack.png" id="1_b72d2"]
-[ext_resource type="Script" path="res://Scenes/boss_proto.gd" id="1_blh04"]
+[ext_resource type="Script" path="res://Scripts/boss_proto.gd" id="1_blh04"]
 [ext_resource type="Texture2D" uid="uid://b0srlvxmtqjr2" path="res://Art/fly_death.png" id="2_cwb1o"]
 [ext_resource type="PackedScene" uid="uid://cbyxko8knvo8d" path="res://Scenes/mob_projectile.tscn" id="2_j7v04"]
 [ext_resource type="Texture2D" uid="uid://d4muej3ny8gvg" path="res://Art/fly_fly.png" id="3_u5mc3"]
@@ -177,39 +177,42 @@ radius = 199.304
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh8q4"]
 size = Vector2(1041.25, 456.25)
 
-[node name="Boss_proto" type="CharacterBody2D"]
+[node name="Node2D" type="Node2D"]
+
+[node name="Boss_proto" type="CharacterBody2D" parent="."]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_blh04")
 mob_projectile_scene = ExtResource("2_j7v04")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss_proto"]
 scale = Vector2(25, 25)
 sprite_frames = SubResource("SpriteFrames_xk7m4")
 animation = &"attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_proto"]
 shape = SubResource("CircleShape2D_jv7so")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Boss_proto"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_proto/Area2D"]
 shape = SubResource("CircleShape2D_jv7so")
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="Boss_proto"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_proto/DetectionArea"]
 position = Vector2(0, 230)
 shape = SubResource("RectangleShape2D_lh8q4")
 
-[node name="BossHealthBar" type="ProgressBar" parent="."]
+[node name="BossHealthBar" type="ProgressBar" parent="Boss_proto"]
 modulate = Color(100, 0, 0, 1)
 offset_left = -404.0
 offset_top = 342.0
 offset_right = 409.0
 offset_bottom = 371.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
-[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Boss_proto/Area2D" to="Boss_proto" method="_on_area_entered"]
+[connection signal="area_entered" from="Boss_proto/DetectionArea" to="Boss_proto" method="_on_detection_area_body_entered"]
+[connection signal="area_exited" from="Boss_proto/DetectionArea" to="Boss_proto" method="_on_detection_area_body_exited"]

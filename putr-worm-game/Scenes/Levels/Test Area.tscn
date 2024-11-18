@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://6j4eebna35bb"]
+[gd_scene load_steps=113 format=4 uid="uid://6j4eebna35bb"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_ror13"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_7tcly"]
@@ -44,12 +44,14 @@
 [ext_resource type="Script" path="res://Scripts/NPCBitByte.gd" id="39_otb6f"]
 [ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="40_vbojn"]
 [ext_resource type="PackedScene" uid="uid://vg5dv7gpvh6v" path="res://Scenes/Spike.tscn" id="44_yj8ua"]
-[ext_resource type="Script" path="res://Scenes/Levels/bossTrap.gd" id="46_ksigy"]
+[ext_resource type="Script" path="res://Scripts/bossTrap.gd" id="46_ksigy"]
 [ext_resource type="Shader" path="res://Scenes/Levels/light.gdshader" id="48_80473"]
 [ext_resource type="Texture2D" uid="uid://qkvej2cddjtq" path="res://Art/Random Assets/New Piskel-1.png(5).png" id="48_ah5sa"]
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="49_yb7hh"]
-[ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/bossBullet.tscn" id="50_0gqm5"]
+[ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/redTrapBullet.tscn" id="50_0gqm5"]
 [ext_resource type="Script" path="res://Scenes/Levels/RedlightTest.gd" id="50_t8pui"]
+[ext_resource type="PackedScene" uid="uid://ndxoqx75ugao" path="res://Scenes/flyBoss.tscn" id="51_6p4pj"]
+[ext_resource type="PackedScene" uid="uid://84pg1842asef" path="res://Scenes/Levels/blueAttackLEFT.tscn" id="52_fm6q2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("12_6k7cg")
@@ -1799,7 +1801,7 @@ offset_bottom = -49.0
 scale = Vector2(0.765134, 0.765134)
 
 [node name="redBossTrap" type="Sprite2D" parent="."]
-position = Vector2(-153, -127)
+position = Vector2(-524, -143)
 scale = Vector2(3.3522, 3.3522)
 texture = ExtResource("48_ah5sa")
 script = ExtResource("46_ksigy")
@@ -1831,6 +1833,12 @@ offset_top = -15.0067
 offset_right = 25.1302
 offset_bottom = 24.9933
 scale = Vector2(0.765134, 0.765134)
+
+[node name="Ranged_mob_proto" parent="." instance=ExtResource("51_6p4pj")]
+position = Vector2(-867, 55)
+
+[node name="blueAttack" parent="." instance=ExtResource("52_fm6q2")]
+position = Vector2(-138, -367)
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]

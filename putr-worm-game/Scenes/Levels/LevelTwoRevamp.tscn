@@ -2603,7 +2603,7 @@ libraries = {
 position = Vector2(407, -56)
 
 [node name="land_melee_mob_proto" parent="." instance=ExtResource("31_uoknp")]
-position = Vector2(634, -79)
+position = Vector2(662, -79)
 patrol_distance = 50.0
 
 [node name="Ranged_mob_proto5" parent="." instance=ExtResource("24_3icf0")]

@@ -18,3 +18,11 @@ func _on_Area2D_body_entered(body):
 		queue_free()  
 	if body.is_in_group("bug"):  
 		queue_free()  
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("tilemap"):
+		queue_free()
+	elif area.is_in_group("bug"):
+		queue_free()
+	else:
+		pass

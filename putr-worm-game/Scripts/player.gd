@@ -83,7 +83,7 @@ func take_damage(amount: int) -> void:
 	current_health = clamp(current_health, 0, max_health)
 	emit_signal("health_changed", current_health)
 	
-	camera.screenshake()  # Trigger screen shake
+	CameraShakeGlobalSingleton.screenshake()  # Trigger screen shake
 	
 	is_invincible = true
 	invincibility_timer = invincibility_duration
@@ -100,10 +100,18 @@ func start_flashing() -> void:
 	flash_timer = flash_duration
 	flashing = true
 
-# Function to Handle Player Death
 func die() -> void:
 	print("Player has died!")
+	
+	# Check if the boss exists in the scene
+	var boss = get_node_or_null("/root/Game/Boss_proto")
+	
+	if boss:
+		print("boss healed")
+		boss.heal()  # Call the heal method on the boss if it exists
+	
 	respawn()
+
 
 func respawn() -> void:
 	global_position = checkpoint_position  # Set player position to the checkpoint

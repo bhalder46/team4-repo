@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp7wssvgcuf8k"]
+
+[ext_resource type="Texture2D" uid="uid://gk7jhbvdill0" path="res://Art/WeaponsPack/Untitled.png" id="1_slvy4"]
+
+[node name="EndLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-1.52588e-05, -7.62939e-06)
+scale = Vector2(1.2942, 1.2942)
+texture = ExtResource("1_slvy4")

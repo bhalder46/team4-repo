@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctgq645nyecxn"
+path="res://.godot/imported/A Thousand Wings (Tension) - Destiny 2_ Warmind OST.mp3-c654abeee4a3622e88faae643a407370.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/A Thousand Wings (Tension) - Destiny 2_ Warmind OST.mp3"
+dest_files=["res://.godot/imported/A Thousand Wings (Tension) - Destiny 2_ Warmind OST.mp3-c654abeee4a3622e88faae643a407370.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
