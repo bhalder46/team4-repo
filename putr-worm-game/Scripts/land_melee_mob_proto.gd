@@ -86,7 +86,6 @@ func should_change_direction() -> bool:
 	return false
 
 func change_direction():
-	print("changing direction")
 	facing_left = !facing_left
 	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
 	velocity.x = speed * (-1 if facing_left else 1)
@@ -96,7 +95,6 @@ func apply_gravity(delta):
 		velocity.y += gravity * delta
 
 func patrol():
-	print("patroling")
 	if abs(global_position.x - initial_position.x) >= patrol_distance:
 		change_direction()
 	

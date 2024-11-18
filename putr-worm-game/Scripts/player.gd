@@ -11,7 +11,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var gun_reload_sound = $"Gun/Reload Sound"
 @onready var camera: Camera2D = $Camera2D
 @onready var collision_shape = $CollisionShape2D
+
 @onready var death_anim = $deathAnim
+@onready var bugDetect = $Area2D
 
 @onready var original_collision_shape_position = collision_shape.position
 @onready var player_death: AudioStreamPlayer = $"../PlayerDeath"
@@ -25,7 +27,7 @@ var reload_time = 1.5
 var shoot_timer = 0.0
 var reload_timer = 0.0
 var shot_count = 0
-var max_shots = 6
+var max_shots = 7
 var is_reloading = false
 
 var is_reticle_on_left = false
@@ -112,6 +114,7 @@ func start_flashing() -> void:
 	flashing = true
 
 func die() -> void:
+	
 	if is_dead:
 		print("Already dead, skipping die.")  # Debugging line
 		return
@@ -129,12 +132,18 @@ func die() -> void:
 	if boss:
 		print("boss healed")
 		boss.heal()  # Call the heal method on the boss if it exists
+		
 	health_ui.on_player_death()
 	
 	respawn()
 
 
 func respawn() -> void:
+	
+	is_invincible = true
+	invincibility_timer = .5
+	blink_timer = blink_interval  # Initialize blink timer for i-frames
+	
 	print("Respawning player...")  # Debugging line
 	is_dead = false
 	global_position = checkpoint_position  # Set player position to the checkpoint
@@ -206,10 +215,10 @@ func _physics_process(delta: float) -> void:
 		if reload_timer <= 0:
 			is_reloading = false  # Reloading complete
 			shot_count = 0  # Reset shot count
-			$Gun.play("idle")  # Ensure the gun goes back to idle after reloading
+			$Gun.play("idle")  # Ensudre the gun goes back to idle after reloading
 
 	# Handle shooting, considering the disable_shooting variable
-	if Input.is_action_just_pressed("shoot") and can_shoot and not is_reloading and not disable_shooting:
+	if Input.is_action_pressed("shoot") and can_shoot and not is_reloading and not disable_shooting:
 		shoot()
 
 func shoot():
