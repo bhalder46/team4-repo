@@ -55,7 +55,7 @@ var is_red_method_active: bool = false  # New flag for red method activation
 # Health system
 var max_health: float = 1500.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 7.0
+var damage_taken_per_hit: float = 6.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 var is_dying: bool = false
@@ -213,14 +213,14 @@ func shoot_at_player_red():
 		projectile_straight.set_direction(direction)
 
 		# Bullet 2: Slightly to the left
-		var direction_left = direction.rotated(-0.05)  # Rotate left slightly
+		var direction_left = direction.rotated(-0.04)  # Rotate left slightly
 		var projectile_left = mob_projectile_scene.instantiate()
 		get_parent().add_child(projectile_left)
 		projectile_left.global_position = spawn_position
 		projectile_left.set_direction(direction_left)
 
 		# Bullet 3: Slightly to the right
-		var direction_right = direction.rotated(0.05)  # Rotate right slightly
+		var direction_right = direction.rotated(0.04)  # Rotate right slightly
 		var projectile_right = mob_projectile_scene.instantiate()
 		get_parent().add_child(projectile_right)
 		projectile_right.global_position = spawn_position
@@ -264,7 +264,9 @@ func die():
 	is_dying = true
 	health_bar.hide()
 	
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/Levels/endLevel.tscn")
+	
 	queue_free()
 
 	
@@ -307,7 +309,8 @@ func redAttack():
 	# Keep shooting for the duration of red attack
 	var red_attack_duration = 12.0  # Duration of red attack
 	var elapsed_time = 0.0
-
+	
+	await get_tree().create_timer(1.5).timeout
 	while elapsed_time < red_attack_duration:
 		shoot_at_player_red()  # Keep shooting
 		await get_tree().create_timer(1.0).timeout  # Interval between shots
@@ -439,8 +442,6 @@ func idle():
 func stop_idle():
 	is_idle_active = false  # Reset the flag when idle is no longer active
 
-
-
 # Color switching variables
 var colors = [Color(1, 0, 0), Color(1, 1, 0), Color(0, 0, 1)]  # Red, Yellow, Blue
 var last_color = null
@@ -456,7 +457,7 @@ func colorSwitch():
 
 	color_timer.connect("timeout", Callable(self, "_on_switch_color"))
 
-	await get_tree().create_timer(5.0).timeout  # Run for 5 seconds
+	await get_tree().create_timer(randf_range(3.0, 5.0)).timeout  # Run for 5 seconds
 	color_timer.stop()
 	remove_child(color_timer)
 	color_timer.queue_free()

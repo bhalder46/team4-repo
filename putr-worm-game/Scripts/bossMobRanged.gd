@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var bug_death: AudioStreamPlayer = $"../BugDeath"
+
 @onready var player = get_parent().get_node("Player")
 @onready var animated_sprite = $AnimatedSprite2D
 @export var mob_projectile_scene: PackedScene
@@ -156,6 +158,8 @@ func die():
 	is_dying = true
 	animated_sprite.play("death")
 	
+	if bug_death:
+		bug_death.play()
 	# Enable the death raycast when starting to die
 	$DeathRaycast.enabled = true
 	

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 120.0
+@export var SPEED = 120.0
 var JUMP_VELOCITY = -310.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -11,6 +11,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var gun_reload_sound = $"Gun/Reload Sound"
 @onready var camera: Camera2D = $Camera2D
 @onready var collision_shape = $CollisionShape2D
+@onready var death_anim = $deathAnim
+
 @onready var original_collision_shape_position = collision_shape.position
 @onready var player_death: AudioStreamPlayer = $"../PlayerDeath"
 @onready var player_hit: AudioStreamPlayer = $"../PlayerHit"
@@ -124,7 +126,6 @@ func die() -> void:
 	
 	# Check if the boss exists in the scene
 	var boss = get_node_or_null("/root/Game/Boss_proto")
-	
 	if boss:
 		print("boss healed")
 		boss.heal()  # Call the heal method on the boss if it exists

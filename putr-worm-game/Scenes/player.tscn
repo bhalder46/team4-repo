@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=100 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://18ai5t0s2lh4" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206_192.png" id="14_746xo"]
 [ext_resource type="Script" path="res://Scripts/shield.gd" id="16_osfvu"]
 [ext_resource type="Texture2D" uid="uid://d24vfqvghntcp" path="res://Art/left_arrow_sticker_by_s_a_r_c_ddmch16-fullview.png" id="17_qr2rg"]
+[ext_resource type="Texture2D" uid="uid://c5jl0vq8alxoj" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Desappearing (96x96).png" id="19_66sip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jikkb"]
 atlas = ExtResource("3_0tcss")
@@ -570,6 +571,52 @@ scale_min = 0.04
 scale_max = 0.04
 color_ramp = SubResource("GradientTexture1D_48fpb")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8pgi"]
+atlas = ExtResource("19_66sip")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mudn"]
+atlas = ExtResource("19_66sip")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pyte"]
+atlas = ExtResource("19_66sip")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xua6j"]
+atlas = ExtResource("19_66sip")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ue8g"]
+atlas = ExtResource("19_66sip")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dek8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8pgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mudn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pyte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xua6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ue8g")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 z_index = 200
 script = ExtResource("1_bjqqb")
@@ -652,6 +699,13 @@ process_material = SubResource("ParticleProcessMaterial_p47d8")
 texture = ExtResource("17_qr2rg")
 lifetime = 0.8
 speed_scale = 0.35
+
+[node name="deathAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.66854, -14.266)
+scale = Vector2(0.550045, 0.550045)
+sprite_frames = SubResource("SpriteFrames_dek8f")
+frame = 5
+frame_progress = 1.0
 
 [connection signal="animation_finished" from="Shield" to="Shield" method="_on_AnimatedSprite2D_animation_finished"]
 [connection signal="body_entered" from="Shield/Area2D" to="Shield" method="_on_Area2D_body_entered"]

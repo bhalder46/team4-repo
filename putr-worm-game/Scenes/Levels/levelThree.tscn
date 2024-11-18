@@ -3739,6 +3739,7 @@ position = Vector2(1725.06, 6.82726)
 
 [node name="Checkpoint11" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 position = Vector2(-1194.44, 407.492)
+
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("44_vp703")
 
