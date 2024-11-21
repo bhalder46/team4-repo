@@ -664,7 +664,7 @@ z_index = 1300
 position = Vector2(1, -19)
 scale = Vector2(0.373206, 0.373206)
 sprite_frames = SubResource("SpriteFrames_7te1k")
-animation = &"idle"
+animation = &"die"
 script = ExtResource("16_osfvu")
 
 [node name="Area2D" type="Area2D" parent="Shield"]
@@ -681,7 +681,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="ShieldTimer" type="Timer" parent="Shield"]
-wait_time = 4.0
+wait_time = 2.5
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player", "players"]]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var SPEED = 120.0
-var JUMP_VELOCITY = -310.0
+@export var SPEED = 130.0
+var JUMP_VELOCITY = -320.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -20,6 +20,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player_hit: AudioStreamPlayer = $"../PlayerHit"
 @onready var health_ui: Control = $"../Heart/HealthUI"
 
+@export var double_jump_enabled: bool = false  # Toggle double jump
+var jump_count: int = 0  # Track the number of jumps
+
+@export var is_triple_shot: bool = false
 
 var can_shoot = true
 var shoot_cooldown = 0.4
@@ -178,7 +182,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		if coyote_timer > 0:
 			coyote_timer = 0  # Reset coyote timer after using it to jump
+	
+		# In _physics_process():
+	if Input.is_action_just_pressed("jump") and not disable_movement:
+		if is_on_ground:
+			velocity.y = JUMP_VELOCITY 
+			jump_count = 1  # Reset jump count on ground
+		elif double_jump_enabled and jump_count == 1:  # Second jump mid-air
+			velocity.y = JUMP_VELOCITY  + 55
+			jump_count = 2  # Increment jump count after double jump
 
+	
 	# Get movement direction, considering the disable_movement variable
 	var direction := Input.get_axis("move_left", "move_right")
 	if disable_movement:
@@ -228,25 +242,57 @@ func shoot():
 	if gun_shoot_sound:
 		gun_shoot_sound.play()
 
+	# Only allow shooting if the player can shoot
+	if not can_shoot:
+		return
+
 	shot_count += 1  # Increment the shot count
 	can_shoot = false
 	shoot_timer = shoot_cooldown  # Reset the shoot cooldown timer
 
-	var bullet = bullet_scene.instantiate()
-	if bullet:
-		get_tree().current_scene.add_child(bullet)
-		bullet.global_position = muzzle.global_position  # Set the bullet position to the muzzle's global position
+	var direction = (get_global_mouse_position() - muzzle.global_position).normalized()  # Calculate direction to target
 
-		# Calculate direction to mouse
-		var direction = (get_global_mouse_position() - muzzle.global_position).normalized()  # Calculate direction to target
-		bullet.set_direction(direction)  # Pass the calculated direction to the bullet
+	if is_triple_shot:
+		# Bullet 1: Straight
+		var projectile_straight = bullet_scene.instantiate()
+		get_parent().add_child(projectile_straight)
+		projectile_straight.global_position = muzzle.global_position
+		projectile_straight.set_direction(direction)
 
-		# Check if max shots reached
-		if shot_count >= max_shots:
+		# Bullet 2: Slightly to the left
+		var direction_left = direction.rotated(-0.04)  # Rotate left slightly
+		var projectile_left = bullet_scene.instantiate()
+		get_parent().add_child(projectile_left)
+		projectile_left.global_position = muzzle.global_position
+		projectile_left.set_direction(direction_left)
+
+		# Bullet 3: Slightly to the right
+		var direction_right = direction.rotated(0.04)  # Rotate right slightly
+		var projectile_right = bullet_scene.instantiate()
+		get_parent().add_child(projectile_right)
+		projectile_right.global_position = muzzle.global_position
+		projectile_right.set_direction(direction_right)
+
+		# After shooting 3 times, set shot_count to 0 and start reloading
+		if shot_count >= 3:
 			start_reloading()  # Start reloading if max shots reached
-			return  # Prevent firing a bullet if we are reloading
+			return  # Prevent further shooting until reload is complete
+
 	else:
-		print("Failed to instantiate bullet.")  # Debugging line
+		# Regular shot
+		var bullet = bullet_scene.instantiate()
+		if bullet:
+			get_tree().current_scene.add_child(bullet)
+			bullet.global_position = muzzle.global_position  # Set the bullet position to the muzzle's global position
+			bullet.set_direction(direction)  # Pass the calculated direction to the bullet
+
+	# Check if max shots reached (whether in triple shot or regular mode)
+	if shot_count >= max_shots:
+		start_reloading()  # Start reloading if max shots reached
+		return  # Prevent firing a bullet if we are reloading
+
+
+
 
 # Function to start reloading
 func start_reloading():

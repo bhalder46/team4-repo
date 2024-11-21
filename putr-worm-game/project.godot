@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CameraShakeGlobalSingleton="*res://Scripts/cameraShakeGlobalSingleton.gd"
+Birdglobal="*res://Scripts/birdglobal.gd"
 
 [dialogic]
 

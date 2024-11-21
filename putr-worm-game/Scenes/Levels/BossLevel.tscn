@@ -2333,7 +2333,6 @@ position = Vector2(32.976, -669.096)
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("21_v65my")]
 y_sort_enabled = true
 position = Vector2(2, -658.096)
-SPEED = 130.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(0, -17.0001)

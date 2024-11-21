@@ -55,7 +55,7 @@ var is_red_method_active: bool = false  # New flag for red method activation
 # Health system
 var max_health: float = 1500.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 7.0
+var damage_taken_per_hit: float = 10.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 var is_dying: bool = false
@@ -411,6 +411,8 @@ func yellowMovement():
 
 func _on_tv_crit_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullets"):
+		take_damage()
+		take_damage()
 		take_damage()
 		take_damage()
 		area.queue_free()

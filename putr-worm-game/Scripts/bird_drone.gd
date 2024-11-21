@@ -20,7 +20,7 @@ var buffswitch_delay: float = 0.7  # 1 second delay
 # Speed, jump, and shoot buffs
 var speed_boost: float = 1.2  # 20% speed increase
 var jump_boost: float = 1.1  # 10% jump height increase
-var shoot_cooldown_boost: float = 0.35  # 20% reduction in shoot cooldown
+var shoot_cooldown_boost: float = 0.50
 
 # Track if buffs are active
 var yellow_buff_active: bool = false
@@ -98,26 +98,28 @@ func _change_light_color():
 func _apply_yellow_buff():
 	if player and not yellow_buff_active:
 		player.SPEED *= speed_boost
-		player.JUMP_VELOCITY *= jump_boost
 		yellow_buff_active = true
+		player.double_jump_enabled = true
 
 # Apply the blue buff (reduce shoot cooldown)
 func _apply_blue_buff():
 	if player and not blue_buff_active:
 		player.shoot_cooldown *= shoot_cooldown_boost
 		blue_buff_active = true
+		player.is_triple_shot = true
 
 # Remove the buffs and reset player stats
 func _remove_buff():
 	if player:
 		if yellow_buff_active:
 			player.SPEED /= speed_boost
-			player.JUMP_VELOCITY /= jump_boost
 			yellow_buff_active = false
+			player.double_jump_enabled = false
 		
 		if blue_buff_active:
 			player.shoot_cooldown /= shoot_cooldown_boost
 			blue_buff_active = false
+			player.is_triple_shot = false
 
 func _ready():
 
@@ -130,7 +132,8 @@ func _ready():
 		var gun = player.get_node("Gun")  # Adjust path as needed
 		if gun and gun.material and gun.material is ShaderMaterial:
 			gun.material.set_shader_parameter("mode", 0)
-			
+	
+	
 			
 func _process(delta: float):
 	# Update cooldown timer

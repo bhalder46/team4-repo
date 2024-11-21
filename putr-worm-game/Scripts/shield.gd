@@ -6,7 +6,7 @@ extends AnimatedSprite2D  # Ensure this script extends AnimatedSprite2D
 
 # Duration of the spawn animation
 var spawn_animation_duration: float = 0.5 # Adjust this based on your animation length
-var shield_disable_duration: float = 4.0  # Duration to disable the shield
+var shield_disable_duration: float = 2.5  # Duration to disable the shield
 var shield_active: bool = false  # Track if the shield is currently active
 var is_disabled: bool = false  # Variable to disable the script functionality
 
@@ -59,14 +59,14 @@ func _on_Area2D_entered(area: Area2D) -> void:
 
 		# Play die animation before freeing the shield
 		play("die")  # Ensure the die animation exists
-
+		
 		# Queue free the enemy bullet
 		area.queue_free()
 		print("deleted")
 		
 		# Disable area monitoring
 		area.monitoring = false  # Disable the area detection
-		shield_active = true  # Activate the shield state
+		shield_active = true  
 
 		# Start the shield disable timer
 		shield_timer.start(shield_disable_duration)  # Start the shield timer

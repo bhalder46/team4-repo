@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=4 uid="uid://6j4eebna35bb"]
+[gd_scene load_steps=112 format=4 uid="uid://6j4eebna35bb"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_ror13"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_7tcly"]
@@ -50,7 +50,6 @@
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="49_yb7hh"]
 [ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/redTrapBullet.tscn" id="50_0gqm5"]
 [ext_resource type="Script" path="res://Scenes/Levels/RedlightTest.gd" id="50_t8pui"]
-[ext_resource type="PackedScene" uid="uid://ndxoqx75ugao" path="res://Scenes/flyBoss.tscn" id="51_6p4pj"]
 [ext_resource type="PackedScene" uid="uid://84pg1842asef" path="res://Scenes/Levels/blueAttackLEFT.tscn" id="52_fm6q2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
@@ -1552,7 +1551,7 @@ script = ExtResource("17_3djwl")
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = -1664
-position = Vector2(241, -40)
+position = Vector2(657, -44)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("18_jw2ei")
 script = ExtResource("19_p8lgb")
@@ -1834,11 +1833,8 @@ offset_right = 25.1302
 offset_bottom = 24.9933
 scale = Vector2(0.765134, 0.765134)
 
-[node name="Ranged_mob_proto" parent="." instance=ExtResource("51_6p4pj")]
-position = Vector2(-867, 55)
-
 [node name="blueAttack" parent="." instance=ExtResource("52_fm6q2")]
-position = Vector2(-138, -367)
+position = Vector2(803, -238)
 
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
