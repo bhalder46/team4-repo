@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6r27"]
 size = Vector2(10, 10)
 
-[node name="Mob_projectile" type="Area2D" groups=["redbullet"]]
+[node name="Mob_projectile" type="Area2D" groups=["bossAttack", "redbullet"]]
 scale = Vector2(0.680494, 0.680494)
 script = ExtResource("1_61s3g")
 speed = 400

@@ -4,6 +4,7 @@ extends AnimatedSprite2D  # Ensure this script extends AnimatedSprite2D
 @onready var spawn_timer = $SpawnTimer  # Timer node for handling the spawn animation duration
 @onready var shield_timer = $ShieldTimer  # Timer for handling the shield disabling duration
 
+var hit_count: int = 0
 # Duration of the spawn animation
 var spawn_animation_duration: float = 0.5 # Adjust this based on your animation length
 var shield_disable_duration: float = 2.5  # Duration to disable the shield
@@ -41,36 +42,32 @@ func _on_spawn_animation_finished() -> void:
 
 # Function triggered when another Area2D enters the area
 func _on_Area2D_entered(area: Area2D) -> void:
-	if is_disabled:  # Check if the script is disabled
+	if is_disabled or shield_active:  # Skip if disabled or shield is active
 		return
 	
-	if shield_active:  # Check if the shield is currently active
-		return  # If shield is active, ignore further hits
-
-	print_debug("Area entered: ", area.name)  # Debug message to see what area entered
-
 	if area.is_in_group("enemybullet"):
-		print_debug("Enemy bullet detected: ", area.name)  # Specific debug for enemy bullets
+		print_debug("Enemy bullet detected: ", area.name)
+		area.queue_free()  # Remove the bullet
+		hit_count += 1  # Increment hit counter
+		print_debug("Hit count: ", hit_count)
 
-		# Stop the spawn timer if a bullet collides during the spawn phase
-		if spawn_timer.is_stopped() == false:
-			spawn_timer.stop()
-			print_debug("Spawn timer stopped due to bullet collision.")
+		if hit_count >= 4:  # Trigger logic only after 3 hits
+			# Stop the spawn timer if active
+			if spawn_timer.is_stopped() == false:
+				spawn_timer.stop()
+				print_debug("Spawn timer stopped due to bullet collision.")
 
-		# Play die animation before freeing the shield
-		play("die")  # Ensure the die animation exists
-		
-		# Queue free the enemy bullet
-		area.queue_free()
-		print("deleted")
-		
-		# Disable area monitoring
-		area.monitoring = false  # Disable the area detection
-		shield_active = true  
+			# Play die animation and disable monitoring
+			play("die")
+			area.monitoring = false
+			shield_active = true
 
-		# Start the shield disable timer
-		shield_timer.start(shield_disable_duration)  # Start the shield timer
-		shield_timer.connect("timeout", Callable(self, "_on_shield_timer_timeout"))
+			# Start shield disable timer
+			shield_timer.start(shield_disable_duration)
+			shield_timer.connect("timeout", Callable(self, "_on_shield_timer_timeout"))
+			
+			# Reset hit count
+			hit_count = 0
 
 # Function triggered when the shield timer times out
 func _on_shield_timer_timeout() -> void:

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var SPEED = 130.0
-var JUMP_VELOCITY = -320.0
+@export var SPEED = 135.0
+@export var JUMP_VELOCITY = -320.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -31,7 +31,7 @@ var reload_time = 1.5
 var shoot_timer = 0.0
 var reload_timer = 0.0
 var shot_count = 0
-var max_shots = 7
+var max_shots = 6
 var is_reloading = false
 
 var is_reticle_on_left = false

@@ -1458,9 +1458,8 @@ shader_parameter/intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4b1wx"]
 shader = ExtResource("34_sbmqe")
-shader_parameter/dir = Vector2(-0.005, 0)
-shader_parameter/quality = 4
-shader_parameter/darken_amount = 0.58
+shader_parameter/size = null
+shader_parameter/samples = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_euw04"]
 atlas = ExtResource("35_a7581")

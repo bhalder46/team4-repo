@@ -11,7 +11,8 @@ func _on_area_entered(body):
 		body.velocity.y = fall_speed
 		body.JUMP_VELOCITY = reduced_jump_velocity
 
+
 func _on_area_exited(body):
 	if body is CharacterBody2D:
 		body.gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-		body.JUMP_VELOCITY = -300.0
+		body.JUMP_VELOCITY = -320.0

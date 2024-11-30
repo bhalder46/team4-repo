@@ -1,13 +1,14 @@
-[gd_scene load_steps=132 format=3 uid="uid://72dsdqdxfpn0"]
+[gd_scene load_steps=133 format=3 uid="uid://72dsdqdxfpn0"]
 
 [ext_resource type="Script" path="res://Scripts/boss_proto.gd" id="1_t15y1"]
-[ext_resource type="PackedScene" uid="uid://bxhylhjyua04d" path="res://Scenes/Levels/blueAttackRIGHT.tscn" id="2_e8ilq"]
-[ext_resource type="PackedScene" uid="uid://84pg1842asef" path="res://Scenes/Levels/blueAttackLEFT.tscn" id="3_w25pi"]
+[ext_resource type="PackedScene" uid="uid://bxhylhjyua04d" path="res://Scenes/blueAttackRIGHT.tscn" id="2_e8ilq"]
+[ext_resource type="PackedScene" uid="uid://84pg1842asef" path="res://Scenes/blueAttackLEFT.tscn" id="3_w25pi"]
 [ext_resource type="PackedScene" uid="uid://doipsg7rvmsl4" path="res://Scenes/Levels/redBossTrap.tscn" id="4_gny1v"]
 [ext_resource type="PackedScene" uid="uid://ndxoqx75ugao" path="res://Scenes/flyBoss.tscn" id="5_mhhnx"]
 [ext_resource type="PackedScene" uid="uid://bjelcao5ctwu5" path="res://Scenes/yellowBossRIGHT.tscn" id="6_4kcsb"]
 [ext_resource type="PackedScene" uid="uid://bnqp5ovgu73xn" path="res://Scenes/yellowBossUP.tscn" id="7_fddwu"]
 [ext_resource type="PackedScene" uid="uid://0sysab1eu4ba" path="res://Scenes/yellowBossLEFT.tscn" id="8_5x4p7"]
+[ext_resource type="PackedScene" uid="uid://1noddd0tkagn" path="res://Scenes/bossEnding.tscn" id="9_4ta5y"]
 [ext_resource type="PackedScene" uid="uid://dh0rfexrp5bql" path="res://Scenes/bossBullet.tscn" id="9_8yf4k"]
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="10_rjkqo"]
 [ext_resource type="Texture2D" uid="uid://d24vfqvghntcp" path="res://Art/left_arrow_sticker_by_s_a_r_c_ddmch16-fullview.png" id="11_2ws0x"]
@@ -50,7 +51,7 @@ size = Vector2(1871.14, 960.828)
 offsets = PackedFloat32Array(0, 0.672131)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lbv34"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fwn6b"]
 gradient = SubResource("Gradient_uf83u")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_faxr6"]
@@ -62,7 +63,7 @@ angle_max = -90.0
 gravity = Vector3(150, 0, 0)
 scale_min = 0.05
 scale_max = 0.05
-color_ramp = SubResource("GradientTexture1D_lbv34")
+color_ramp = SubResource("GradientTexture1D_fwn6b")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wiqp5"]
 particle_flag_disable_z = true
@@ -71,7 +72,7 @@ emission_box_extents = Vector3(160, 1, 1)
 gravity = Vector3(0, -150, 0)
 scale_min = 0.05
 scale_max = 0.05
-color_ramp = SubResource("GradientTexture1D_lbv34")
+color_ramp = SubResource("GradientTexture1D_fwn6b")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3ft5"]
 particle_flag_disable_z = true
@@ -82,7 +83,7 @@ angle_max = 90.0
 gravity = Vector3(-150, 0, 0)
 scale_min = 0.05
 scale_max = 0.05
-color_ramp = SubResource("GradientTexture1D_lbv34")
+color_ramp = SubResource("GradientTexture1D_fwn6b")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c17nx"]
 atlas = ExtResource("13_abnrq")
@@ -690,7 +691,7 @@ emission_box_extents = Vector3(160, 1, 1)
 gravity = Vector3(0, -200, 0)
 scale_min = 2.0
 scale_max = 2.0
-color_ramp = SubResource("GradientTexture1D_lbv34")
+color_ramp = SubResource("GradientTexture1D_fwn6b")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8siag"]
 atlas = ExtResource("35_0p3bk")
@@ -788,6 +789,7 @@ fly_boss_scene = ExtResource("5_mhhnx")
 yellowBossRIGHT_scene = ExtResource("6_4kcsb")
 yellowBossUP_scene = ExtResource("7_fddwu")
 yellowBossLEFT_scene = ExtResource("8_5x4p7")
+bossEnding = ExtResource("9_4ta5y")
 mob_projectile_scene = ExtResource("9_8yf4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

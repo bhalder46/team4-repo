@@ -1,0 +1,136 @@
+[gd_scene load_steps=19 format=3 uid="uid://b7vqgdn2dw0tn"]
+
+[ext_resource type="Script" path="res://Scripts/red_bug.gd" id="1_b5iud"]
+[ext_resource type="Shader" path="res://Scripts/RedPulse.gdshader" id="2_0rsxk"]
+[ext_resource type="Texture2D" uid="uid://m22vx2qp5puy" path="res://Art/Random Assets/spritesheetBugBoss-1.png.png" id="3_co7t7"]
+[ext_resource type="Texture2D" uid="uid://c5jl0vq8alxoj" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Desappearing (96x96).png" id="4_6r2g3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5ro4"]
+size = Vector2(399.233, 268.279)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_llstd"]
+shader = ExtResource("2_0rsxk")
+shader_parameter/shine_color = Color(0.607843, 0, 0.117647, 1)
+shader_parameter/alpha_limit = 0.0
+shader_parameter/cycle_speed = 2.0
+shader_parameter/full_pulse_cycle = true
+shader_parameter/mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3am5"]
+atlas = ExtResource("3_co7t7")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y58wp"]
+atlas = ExtResource("3_co7t7")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx7um"]
+atlas = ExtResource("3_co7t7")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji2d7"]
+atlas = ExtResource("3_co7t7")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxbah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3am5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y58wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx7um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji2d7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccmyj"]
+atlas = ExtResource("4_6r2g3")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w0ms"]
+atlas = ExtResource("4_6r2g3")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doqnt"]
+atlas = ExtResource("4_6r2g3")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da07h"]
+atlas = ExtResource("4_6r2g3")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvvym"]
+atlas = ExtResource("4_6r2g3")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mk0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccmyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w0ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doqnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da07h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvvym")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0e3q"]
+size = Vector2(42.8857, 29.0109)
+
+[node name="redBug" type="RigidBody2D" groups=["bug", "tilemap"]]
+position = Vector2(-579.564, 0)
+can_sleep = false
+script = ExtResource("1_b5iud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bug"]]
+position = Vector2(577.079, 0.789772)
+scale = Vector2(0.105, 0.105)
+shape = SubResource("RectangleShape2D_s5ro4")
+
+[node name="redBugSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_llstd")
+position = Vector2(577, -0.999954)
+scale = Vector2(0.137373, 0.137373)
+sprite_frames = SubResource("SpriteFrames_nxbah")
+autoplay = "default"
+
+[node name="redBugDeath" type="AnimatedSprite2D" parent="."]
+position = Vector2(578, 0)
+scale = Vector2(0.632751, 0.632751)
+sprite_frames = SubResource("SpriteFrames_5mk0b")
+animation = &"death"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(577.195, 0.823845)
+shape = SubResource("RectangleShape2D_i0e3q")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

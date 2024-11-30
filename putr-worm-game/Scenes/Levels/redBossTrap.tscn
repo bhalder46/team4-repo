@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://qkvej2cddjtq" path="res://Art/Random Assets/New Piskel-1.png(5).png" id="1_obnhv"]
 [ext_resource type="Script" path="res://Scripts/bossTrap.gd" id="2_ea03l"]
 [ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/redTrapBullet.tscn" id="3_nop27"]
-[ext_resource type="Shader" path="res://Scenes/Levels/light.gdshader" id="4_u1umt"]
+[ext_resource type="Shader" path="res://Scripts/light.gdshader" id="4_u1umt"]
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="5_46yjl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alfx2"]
@@ -18,7 +18,7 @@ shader_parameter/light_texture = ExtResource("5_46yjl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6br5y"]
 size = Vector2(8.92641, 6.24849)
 
-[node name="redBossTrap" type="Sprite2D"]
+[node name="redBossTrap" type="Sprite2D" groups=["bossAttack"]]
 scale = Vector2(3.3522, 3.3522)
 texture = ExtResource("1_obnhv")
 script = ExtResource("2_ea03l")

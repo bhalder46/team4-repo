@@ -70,4 +70,3 @@ void fragment()
     // Output the final color with the applied intensity
     COLOR = vec4(col, 1.0);
 }
-

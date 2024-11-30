@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://uod7mhhwk13l"]
+[gd_scene load_steps=61 format=4 uid="uid://uod7mhhwk13l"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_4v47l"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_l2drf"]
@@ -1049,6 +1049,43 @@ _data = {
 "transitionFadeOut": SubResource("Animation_p7eeq")
 }
 
+[sub_resource type="Animation" id="Animation_s0cml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_egq7x"]
+resource_name = "tutorialIntro"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_werxs"]
+_data = {
+"RESET": SubResource("Animation_s0cml"),
+"tutorialIntro": SubResource("Animation_egq7x")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_4v47l")
 
@@ -1448,6 +1485,22 @@ stream = ExtResource("44_tv60s")
 
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("45_jfgl3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer3/ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_werxs")
+}
+autoplay = "tutorialIntro"
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+z_index = 4096
+offset_right = 1945.0
+offset_bottom = 1101.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="DialogicGameHandler/Area2D" to="DialogicGameHandler/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler2/Area2D" to="DialogicGameHandler2/Area2D" method="_on_body_entered"]

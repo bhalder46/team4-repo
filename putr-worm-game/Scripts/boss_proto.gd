@@ -8,6 +8,8 @@ extends RigidBody2D
 @export var yellowBossUP_scene: PackedScene
 @export var yellowBossLEFT_scene: PackedScene
 
+@export var bossEnding: PackedScene
+
 @onready var markers = [
 	$bugShield1,
 	$bugShield2,
@@ -55,7 +57,7 @@ var is_red_method_active: bool = false  # New flag for red method activation
 # Health system
 var max_health: float = 1500.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 10.0
+var damage_taken_per_hit: float = 50.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 var is_dying: bool = false
@@ -256,20 +258,30 @@ func heal():
 	if current_health > max_health:
 		current_health = max_health  # Ensure health doesn't exceed the maximum value
 	
-	health_bar.value = current_health  # Update the health bar
+	health_bar.value = current_health  # Update the health bardddd
 	print("Boss healed! Current health: ", current_health)
+
 
 func die():
 	print("death")
 	is_dying = true
 	health_bar.hide()
-	
 
-	get_tree().change_scene_to_file("res://Scenes/Levels/endLevel.tscn")
+	# Ensure all bossAttack nodes in the scene tree are freed
+	for node in get_tree().get_nodes_in_group("bossAttack"):
+		if node.is_inside_tree():
+			node.queue_free()
 	
-	
+	var bossEnd = bossEnding.instantiate()
+	get_parent().add_child(bossEnd)
 
+	player.disable_movement = true
+	player.disable_shooting = true
 	
+	queue_free()
+
+
+
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("players"):
 		player_in_range = true

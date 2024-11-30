@@ -20,11 +20,11 @@ var buffswitch_delay: float = 0.7  # 1 second delay
 # Speed, jump, and shoot buffs
 var speed_boost: float = 1.2  # 20% speed increase
 var jump_boost: float = 1.1  # 10% jump height increase
-var shoot_cooldown_boost: float = 0.50
+var shoot_cooldown_boost: float = 1.50
 
 # Track if buffs are active
 var yellow_buff_active: bool = false
-var blue_buff_active: bool = false
+var red_buff_active: bool = false
 
 
 # Function to change the point light color and apply/remove buffs
@@ -54,7 +54,7 @@ func _change_light_color():
 
 		LightColors.RED:
 			_remove_buff()  # Remove previous buffs
-			_apply_blue_buff()  # Apply the shooting cooldown reduction
+			_apply_red_buff()  # Apply the shooting cooldown reduction
 			point_light.color = Color(1, 0, 0)  # Red
 			self.modulate = Color(1, 0.5, 0.5)  # Light Red
 			current_color = LightColors.YELLOW
@@ -102,11 +102,12 @@ func _apply_yellow_buff():
 		player.double_jump_enabled = true
 
 # Apply the blue buff (reduce shoot cooldown)
-func _apply_blue_buff():
-	if player and not blue_buff_active:
+func _apply_red_buff():
+	if player and not red_buff_active:
 		player.shoot_cooldown *= shoot_cooldown_boost
-		blue_buff_active = true
+		red_buff_active = true
 		player.is_triple_shot = true
+		player.shot_count = 0
 
 # Remove the buffs and reset player stats
 func _remove_buff():
@@ -116,9 +117,9 @@ func _remove_buff():
 			yellow_buff_active = false
 			player.double_jump_enabled = false
 		
-		if blue_buff_active:
+		if red_buff_active:
 			player.shoot_cooldown /= shoot_cooldown_boost
-			blue_buff_active = false
+			red_buff_active = false
 			player.is_triple_shot = false
 
 func _ready():
@@ -133,25 +134,30 @@ func _ready():
 		if gun and gun.material and gun.material is ShaderMaterial:
 			gun.material.set_shader_parameter("mode", 0)
 	
-	
 			
 func _process(delta: float):
+	# Flip the sprite based on the player's movement direction
+	if player:
+		if player.velocity.x < 0:
+			flip_h = true
+		elif player.velocity.x > 0:
+			flip_h = false
+
 	# Update cooldown timer
 	if buffswitch_cooldown > 0:
 		buffswitch_cooldown -= delta
 
+	# Calculate a random flutter position around the player
 	if player:
-		# Calculate a random flutter position around the player
 		var offset = Vector2(randf_range(-flutter_distance, flutter_distance), randf_range(-flutter_distance, flutter_distance))
 		var target_position = player.position + offset
-
-		# Move towards the target position with flutter speed using lerp
 		position = position.lerp(target_position, flutter_speed * delta)
 
 	# Check for buffswitch input and ensure cooldown has passed
 	if Input.is_action_just_pressed("buffswitch") and buffswitch_cooldown <= 0:
 		_change_light_color()
 		buffswitch_cooldown = buffswitch_delay
+
 		
 	# Function to remove any active effects
 func remove():

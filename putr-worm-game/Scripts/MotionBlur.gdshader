@@ -1,41 +1,29 @@
 shader_type canvas_item;
-uniform vec2 dir = vec2(0, 0);
-uniform int quality = 4;
-uniform float darken_amount = 0.8; // New uniform to control darkness (0.0 to 1.0)
 
-void vertex() {
-	vec2 blurSize = abs(dir) * 2.0;
-	VERTEX *= blurSize + 1.0;
-	UV = (UV - 0.5) * (blurSize + 1.0) + 0.5;
-}
+uniform vec2 size;
+uniform int samples = 0;
 
-float insideUnitSquare(vec2 v) {
-    vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
-    return s.x * s.y;
+vec4 getPixel(sampler2D tex, vec2 uv, vec2 offset) {
+	return texture(tex, uv + offset);
 }
 
 void fragment() {
-	float inSquare = insideUnitSquare(UV);
-	float numSamples = inSquare;
-	COLOR = texture(TEXTURE, UV) * inSquare;
-	vec2 stepSize = dir / float(quality);
-	vec2 uv;
+	vec4 color = vec4(0.0);
+	for (int x = -samples; x < 100; x++) {
+		for (int y = -samples; y < 100; y++) {
+			color += getPixel(TEXTURE, UV, vec2(float(x) * size.x, float(y) * size.y));
 
-	for (int i = 1; i <= quality; i++) {
-		uv = UV + stepSize * float(i);
-		inSquare = insideUnitSquare(uv);
-		numSamples += inSquare;
-		COLOR += texture(TEXTURE, uv) * inSquare;
-
-		uv = UV - stepSize * float(i);
-		inSquare = insideUnitSquare(uv);
-		numSamples += inSquare;
-		COLOR += texture(TEXTURE, uv) * inSquare;
+			if (y > samples) {
+				break;
+			}
+		}
+		if (x > samples) {
+			break;
+		}
 	}
-
-	COLOR.rgb /= numSamples;
-	COLOR.a /= float(quality) * 2.0 + 1.0;
-
-	// Apply the darken amount to the RGB values
-	COLOR.rgb *= darken_amount;
+	if (samples == 0) {
+		COLOR = getPixel(TEXTURE, UV, vec2(0.0, 0.0));
+	} else {
+		COLOR = color / float((samples * 2 + 1) * (samples * 2 + 1) - 1) + getPixel(TEXTURE, UV, vec2(0.0, 0.0));
+	}
 }

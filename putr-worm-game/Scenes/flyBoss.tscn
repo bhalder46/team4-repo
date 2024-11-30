@@ -177,7 +177,7 @@ size = Vector2(32, 27)
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7ii4"]
 radius = 279.716
 
-[node name="Ranged_mob_proto" type="CharacterBody2D" groups=["bug"]]
+[node name="Ranged_mob_proto" type="CharacterBody2D" groups=["bossAttack", "bug"]]
 scale = Vector2(2.1646, 2.1646)
 motion_mode = 1
 script = ExtResource("1_qqi13")
