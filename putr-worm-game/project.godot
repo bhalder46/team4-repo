@@ -34,7 +34,10 @@ directories/dtl_directory={
 "TutorialEnd": "res://NPC/TutorialEnd.dtl",
 "TutorialGeneral": "res://NPC/TutorialGeneral.dtl",
 "TutorialGeneralTarget1": "res://NPC/TutorialGeneralTarget1.dtl",
+"TutorialJump": "res://NPC/TutorialJump.dtl",
+"TutorialShield": "res://NPC/TutorialShield.dtl",
 "TutorialTarget2": "res://NPC/TutorialTarget2.dtl",
+"redBugs": "res://NPC/redBugs.dtl",
 "test": "res://NPC/test.dtl",
 "tutorialGeneralBird": "res://NPC/tutorialGeneralBird.dtl"
 }

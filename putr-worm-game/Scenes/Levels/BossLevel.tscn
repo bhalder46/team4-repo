@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://bfqotab2td11r"]
+[gd_scene load_steps=84 format=4 uid="uid://bfqotab2td11r"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mb6l0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_tulq0"]
@@ -37,6 +37,8 @@
 [ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="36_flmga"]
 [ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="37_0pi4k"]
 [ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="38_f2cp1"]
+[ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="39_23mv4"]
+[ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="40_d0qce"]
 [ext_resource type="Shader" path="res://Scripts/GlitchBOSS.gdshader" id="62_2e8y7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
@@ -2045,6 +2047,64 @@ shader_parameter/shake_rate = 1.0
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_860en"]
+size = Vector2(498.903, 46.9317)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ud8vc"]
+font = ExtResource("40_d0qce")
+
+[sub_resource type="LabelSettings" id="LabelSettings_cu2m7"]
+font = ExtResource("40_d0qce")
+
+[sub_resource type="Animation" id="Animation_608k4"]
+resource_name = "levelIntro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3.53333, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Text 2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2, 3.53333, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_isf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ue6u"]
+_data = {
+"RESET": SubResource("Animation_isf72"),
+"levelIntro": SubResource("Animation_608k4")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mb6l0")
 
@@ -2536,6 +2596,44 @@ stream = ExtResource("37_0pi4k")
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("38_f2cp1")
 
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-209.459, -88.0951)
+script = ExtResource("39_23mv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(211.7, 85.0951)
+shape = SubResource("RectangleShape2D_860en")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Area2D2"]
+layer = 127
+
+[node name="Text 1" type="Label" parent="Area2D2/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 433.045
+offset_top = 503.651
+offset_right = 865.045
+offset_bottom = 526.651
+scale = Vector2(2.5, 2.5)
+text = "₮ⱧɆ ₦Ɇ₮₩ØⱤ₭"
+label_settings = SubResource("LabelSettings_ud8vc")
+horizontal_alignment = 1
+
+[node name="Text 2" type="Label" parent="Area2D2/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 408.669
+offset_top = 567.999
+offset_right = 968.669
+offset_bottom = 590.999
+scale = Vector2(2.1674, 2.1674)
+text = "₣ł₦Đ ₮ⱧɆ VłⱤɄ₴."
+label_settings = SubResource("LabelSettings_cu2m7")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_3ue6u")
+}
+
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
@@ -2545,3 +2643,5 @@ stream = ExtResource("38_f2cp1")
 [connection signal="body_entered" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_exited"]
 [connection signal="body_entered" from="bossActivate" to="bossActivate" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="animation_finished" from="Area2D2/AnimationPlayer" to="Area2D2" method="_on_animation_player_animation_finished"]

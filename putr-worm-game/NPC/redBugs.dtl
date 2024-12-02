@@ -1,0 +1,7 @@
+join General center
+General: Yuck! Those nasty Red bugs must be leaking out the lab.
+[signal arg="bird"]
+General: Use this puppy, this is B.I.R.D. aka Battlefield Intelligence Reconnaissance Drone.
+General: Use Q to switch to the RED augment. It gives your weapon triple shot with a lower magazine.
+General: And its bullets are the only way to destroy these Red bugs.
+[signal arg="end2"]

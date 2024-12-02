@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://mwwnos8eoalx"]
+[gd_scene load_steps=106 format=4 uid="uid://mwwnos8eoalx"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_cykx7"]
 [ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="2_ncxdb"]
@@ -42,9 +42,12 @@
 [ext_resource type="PackedScene" uid="uid://1cwobjep8l64" path="res://Scenes/land_melee_mob_proto.tscn" id="38_vfwkn"]
 [ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="40_1qv4m"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="41_gdpfr"]
+[ext_resource type="Shader" path="res://Scripts/Computer.gdshader" id="42_fkhee"]
 [ext_resource type="PackedScene" uid="uid://b7vqgdn2dw0tn" path="res://Scenes/redBug.tscn" id="44_6rmww"]
 [ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="44_vp703"]
 [ext_resource type="Texture2D" uid="uid://c0fkylcgs47ld" path="res://Art/pngtree-pink-purple-neon-border-square-frame-png-image_6530067.png" id="45_8odiw"]
+[ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="47_rjgdm"]
+[ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="48_fxj5v"]
 
 [sub_resource type="Shader" id="Shader_wagqb"]
 code = "shader_type canvas_item;
@@ -1972,6 +1975,16 @@ _data = {
 "transitionFadeIn": SubResource("Animation_s06t1")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hvug"]
+shader = ExtResource("42_fkhee")
+shader_parameter/size_effect = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/pause_duration = 0.5
+shader_parameter/texture_size = Vector2(16, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6jf0"]
 size = Vector2(49, 59)
 
@@ -2021,6 +2034,64 @@ _data = {
 "transitionFadeOut": SubResource("Animation_p7eeq")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx7r2"]
+size = Vector2(170.908, 46.9317)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mo6m3"]
+font = ExtResource("48_fxj5v")
+
+[sub_resource type="LabelSettings" id="LabelSettings_frye6"]
+font = ExtResource("48_fxj5v")
+
+[sub_resource type="Animation" id="Animation_608k4"]
+resource_name = "levelIntro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3.53333, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Text 2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2, 3.53333, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_isf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ue6u"]
+_data = {
+"RESET": SubResource("Animation_isf72"),
+"levelIntro": SubResource("Animation_608k4")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_cykx7")
 
@@ -2052,7 +2123,7 @@ offset_right = 704.0
 offset_bottom = 1318.0
 rotation = 0.0029444
 scale = Vector2(2.28033, 1.28104)
-color = Color(0.0281339, 0.0172851, 0.0941126, 1)
+color = Color(0.027451, 0.0156863, 0.0941176, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
@@ -3765,12 +3836,6 @@ texture = ExtResource("32_12bma")
 visible = false
 shape = SubResource("CircleShape2D_c0eis")
 
-[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(-102.82, 549)
-
-[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(-1145, -42)
-
 [node name="AreaCamera2D" type="Area2D" parent="."]
 position = Vector2(1761, -1013)
 scale = Vector2(2, 2)
@@ -3821,19 +3886,41 @@ process_material = SubResource("ParticleProcessMaterial_14a76")
 lifetime = 1.4
 
 [node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(543, 664)
+position = Vector2(463.455, 688.846)
 
 [node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(477, 360)
+position = Vector2(487.822, 560.74)
 
 [node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(1558, -1034)
+position = Vector2(1535.27, -1022.78)
 
 [node name="Checkpoint6" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(2986.39, -824.638)
+position = Vector2(2975.08, -815.092)
 
 [node name="Checkpoint7" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(2600, 1286)
+position = Vector2(2568.37, 1296.69)
+
+[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(-102.82, 560.667)
+
+[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(-1145, -31.1373)
+
+[node name="Checkpoint8" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(2577.34, 640.634)
+
+[node name="Checkpoint9" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(2047.21, -1023.04)
+
+[node name="Checkpoint10" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(1725.06, 16.3273)
+
+[node name="Checkpoint11" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+position = Vector2(-1209.79, 416.836)
+
+[node name="Checkpoint12" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
+visible = false
+position = Vector2(2986.39, -906.986)
 
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 layer = 121
@@ -4143,22 +4230,16 @@ position = Vector2(2507, 1032.63)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("20_57shk")]
 y_sort_enabled = true
-position = Vector2(257.115, -67.1108)
+position = Vector2(257.115, -129.336)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
-zoom = Vector2(4, 4)
+zoom = Vector2(3.8, 3.8)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
 script = ExtResource("21_8ds0g")
 player = NodePath("..")
-
-[node name="Checkpoint8" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(2591.15, 629.498)
-
-[node name="Checkpoint9" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(2069.84, -1034)
 
 [node name="land_melee_mob_proto4" parent="." instance=ExtResource("38_vfwkn")]
 position = Vector2(2494.42, 731.375)
@@ -4166,6 +4247,7 @@ position = Vector2(2494.42, 731.375)
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = 86
+material = SubResource("ShaderMaterial_6hvug")
 position = Vector2(3839.83, 1299.68)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("40_1qv4m")
@@ -4198,20 +4280,11 @@ libraries = {
 "": SubResource("AnimationLibrary_1528m")
 }
 
-[node name="Checkpoint10" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(1725.06, 6.82726)
-
-[node name="Checkpoint11" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-position = Vector2(-1194.44, 407.492)
-
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("44_vp703")
 
-[node name="Checkpoint12" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
-visible = false
-position = Vector2(2986.39, -906.986)
-
 [node name="Node2D" type="Node2D" parent="."]
+z_index = 165
 position = Vector2(-579.564, 0)
 
 [node name="redBug" parent="Node2D" instance=ExtResource("44_6rmww")]
@@ -4251,6 +4324,44 @@ zoom = Vector2(2.2, 2.2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2D3"]
 position = Vector2(9.35022, -49.4889)
 shape = SubResource("RectangleShape2D_oye4w")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-209.459, -88.0951)
+script = ExtResource("47_rjgdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(472.636, 90.5926)
+shape = SubResource("RectangleShape2D_gx7r2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Area2D2"]
+layer = 127
+
+[node name="Text 1" type="Label" parent="Area2D2/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 433.045
+offset_top = 503.651
+offset_right = 865.045
+offset_bottom = 526.651
+scale = Vector2(2.5, 2.5)
+text = "The Network:Level 3"
+label_settings = SubResource("LabelSettings_mo6m3")
+horizontal_alignment = 1
+
+[node name="Text 2" type="Label" parent="Area2D2/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 408.669
+offset_top = 567.999
+offset_right = 968.669
+offset_bottom = 590.999
+scale = Vector2(2.1674, 2.1674)
+text = "Reach The Terminal. Find the Virus."
+label_settings = SubResource("LabelSettings_frye6")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_3ue6u")
+}
 
 [connection signal="body_entered" from="AllPortals/Portal2/PortalEntrance/Area2D" to="AllPortals/Portal2" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal2/PortalExit/Area2D" to="AllPortals/Portal2" method="_on_exit_area_entered"]
@@ -4328,3 +4439,5 @@ shape = SubResource("RectangleShape2D_oye4w")
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
 [connection signal="body_entered" from="AreaCamera2D3" to="AreaCamera2D3" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2D3" to="AreaCamera2D3" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="animation_finished" from="Area2D2/AnimationPlayer" to="Area2D2" method="_on_animation_player_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://uod7mhhwk13l"]
+[gd_scene load_steps=62 format=4 uid="uid://uod7mhhwk13l"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_4v47l"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_l2drf"]
@@ -1086,6 +1086,8 @@ _data = {
 "tutorialIntro": SubResource("Animation_egq7x")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_50xkv"]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_4v47l")
 
@@ -1501,6 +1503,9 @@ z_index = 4096
 offset_right = 1945.0
 offset_bottom = 1101.0
 color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_50xkv")
 
 [connection signal="body_entered" from="DialogicGameHandler/Area2D" to="DialogicGameHandler/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler2/Area2D" to="DialogicGameHandler2/Area2D" method="_on_body_entered"]

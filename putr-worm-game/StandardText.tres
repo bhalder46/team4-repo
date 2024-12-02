@@ -58,7 +58,7 @@ script = ExtResource("10_rli1t")
 name = "StandardText"
 base_overrides = {
 "canvas_layer": "100.0",
-"global_font_size": "23.0"
+"global_font_size": "25.0"
 }
 layers = Array[ExtResource("1_vdq6i")]([SubResource("Resource_nhxh3"), SubResource("Resource_2xyik"), SubResource("Resource_ppo7g"), SubResource("Resource_ncm2l"), SubResource("Resource_y3b64"), SubResource("Resource_vixem"), SubResource("Resource_785xx"), SubResource("Resource_sn5q3")])
 metadata/_latest_layer = -1

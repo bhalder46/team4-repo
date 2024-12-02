@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=87 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_dwgih"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_f26wi"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="21_nmdjt"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="22_hn5pb"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="23_80wum"]
+[ext_resource type="Shader" path="res://Scripts/Computer.gdshader" id="24_b0k8k"]
 [ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="25_cjb03"]
 [ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="26_cnejr"]
 [ext_resource type="Script" path="res://Scripts/AntiGravity.gd" id="27_fqcxj"]
@@ -39,6 +40,8 @@
 [ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="36_m38u0"]
 [ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="37_kreqw"]
 [ext_resource type="Texture2D" uid="uid://dwnfm7qq26wbu" path="res://Art/The Numbers.png" id="39_biwpr"]
+[ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="41_vcego"]
+[ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="42_kdac0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 shader = ExtResource("4_x14qd")
@@ -202,7 +205,7 @@ shader_parameter/BLUR_ITERATIONS = 3
 shader_parameter/BLUR_SIZE = 0.03
 shader_parameter/BLUR_SUBDIVISIONS = 32
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k80i6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8j6k"]
 texture = ExtResource("5_m332w")
 0:0/0 = 0
 1:0/0 = 0
@@ -457,7 +460,7 @@ texture = ExtResource("5_m332w")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oemrh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pj1ew"]
 texture = ExtResource("6_lmqnj")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1143,7 +1146,7 @@ texture = ExtResource("6_lmqnj")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a5183"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl1g3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o60sy"]
 texture = ExtResource("4_f26wi")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a5183")
@@ -1308,7 +1311,7 @@ texture = ExtResource("4_f26wi")
 5:8/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a5183")
 5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2q33"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_410s6"]
 texture = ExtResource("7_omgax")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1690,10 +1693,10 @@ texture = ExtResource("7_omgax")
 [sub_resource type="TileSet" id="TileSet_5w206"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_k80i6")
-sources/1 = SubResource("TileSetAtlasSource_oemrh")
-sources/2 = SubResource("TileSetAtlasSource_kl1g3")
-sources/3 = SubResource("TileSetAtlasSource_y2q33")
+sources/0 = SubResource("TileSetAtlasSource_e8j6k")
+sources/1 = SubResource("TileSetAtlasSource_pj1ew")
+sources/2 = SubResource("TileSetAtlasSource_o60sy")
+sources/3 = SubResource("TileSetAtlasSource_410s6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hn4y"]
 shader = ExtResource("10_uhkxh")
@@ -1818,6 +1821,16 @@ _data = {
 "transitionFadeIn": SubResource("Animation_s06t1")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dctnn"]
+shader = ExtResource("24_b0k8k")
+shader_parameter/size_effect = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/pause_duration = 0.5
+shader_parameter/texture_size = Vector2(16, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ski6n"]
 size = Vector2(49, 59)
 
@@ -1916,6 +1929,79 @@ scale_min = 0.7
 scale_max = 0.7
 color = Color(0.747992, 0.556154, 1, 1)
 anim_offset_max = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h6ilv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(15, 1, 1)
+direction = Vector3(1, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 25, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.7
+scale_max = 0.7
+color = Color(0.747992, 0.556154, 1, 1)
+anim_offset_max = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twems"]
+size = Vector2(466.25, 46.9317)
+
+[sub_resource type="LabelSettings" id="LabelSettings_47hkx"]
+font = ExtResource("42_kdac0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lctbv"]
+font = ExtResource("42_kdac0")
+
+[sub_resource type="Animation" id="Animation_608k4"]
+resource_name = "levelIntro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3.53333, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Text 2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2, 3.53333, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_isf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ue6u"]
+_data = {
+"RESET": SubResource("Animation_isf72"),
+"levelIntro": SubResource("Animation_608k4")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_dwgih")
@@ -2076,7 +2162,7 @@ JUMP_VELOCITY = -321.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
-zoom = Vector2(3.83, 3.83)
+zoom = Vector2(3.8, 3.8)
 process_callback = 0
 script = ExtResource("22_hn5pb")
 player = NodePath("..")
@@ -2900,7 +2986,7 @@ scale = Vector2(1.36913, 1.36913)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(2, -7)
 scale = Vector2(22.4111, 21.1979)
-amount = 20
+amount = 40
 process_material = SubResource("ParticleProcessMaterial_03p6b")
 lifetime = 2.0
 
@@ -2913,6 +2999,7 @@ autoplay = "transitionFadeIn"
 [node name="Computer (Network Access)" type="Sprite2D" parent="."]
 modulate = Color(0.603121, 0.687351, 0.6366, 1)
 z_index = 86
+material = SubResource("ShaderMaterial_dctnn")
 position = Vector2(2091, 21)
 scale = Vector2(1.53125, 1.78125)
 texture = ExtResource("25_cjb03")
@@ -2968,7 +3055,7 @@ speed = 150.0
 patrol_distance = 100.0
 
 [node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("20_062ps")]
-position = Vector2(1556, 262)
+position = Vector2(1552, 272)
 
 [node name="Ranged_mob_proto2" parent="." instance=ExtResource("31_hgmr4")]
 position = Vector2(2084, 101)
@@ -2986,7 +3073,7 @@ scale = Vector2(47.9545, 27.6198)
 metadata/_edit_use_anchors_ = true
 
 [node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("20_062ps")]
-position = Vector2(1060, -266)
+position = Vector2(1049, -256)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 99
@@ -3056,6 +3143,16 @@ process_material = SubResource("ParticleProcessMaterial_r8rwm")
 texture = ExtResource("39_biwpr")
 lifetime = 15.0
 
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+z_index = 1585
+material = SubResource("CanvasItemMaterial_bmki4")
+position = Vector2(291, -253)
+scale = Vector2(4.57151, 3.94947)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_h6ilv")
+texture = ExtResource("39_biwpr")
+lifetime = 15.0
+
 [node name="BugDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_tkiya")
 
@@ -3064,6 +3161,47 @@ stream = ExtResource("36_m38u0")
 
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_kreqw")
+
+[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("20_062ps")]
+position = Vector2(1480, -270)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-209.459, -88.0951)
+script = ExtResource("41_vcego")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(202.334, 82.0951)
+shape = SubResource("RectangleShape2D_twems")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Area2D2"]
+layer = 127
+
+[node name="Text 1" type="Label" parent="Area2D2/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 433.045
+offset_top = 503.651
+offset_right = 865.045
+offset_bottom = 526.651
+scale = Vector2(2.5, 2.5)
+text = "The Network:Level 1"
+label_settings = SubResource("LabelSettings_47hkx")
+horizontal_alignment = 1
+
+[node name="Text 2" type="Label" parent="Area2D2/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 408.669
+offset_top = 567.999
+offset_right = 968.669
+offset_bottom = 590.999
+scale = Vector2(2.1674, 2.1674)
+text = "Reach The Terminal. Find the Virus."
+label_settings = SubResource("LabelSettings_lctbv")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_3ue6u")
+}
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
@@ -3121,3 +3259,5 @@ stream = ExtResource("37_kreqw")
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
 [connection signal="body_entered" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="animation_finished" from="Area2D2/AnimationPlayer" to="Area2D2" method="_on_animation_player_animation_finished"]

@@ -20,7 +20,7 @@ func _on_body_entered(body):
 		# Disable movement and shooting when the timeline starts
 		body.disable_movement = true
 		body.disable_shooting = true
-		Dialogic.start("tutorialGeneralBird")
+		Dialogic.start("redBugs")
 
 func _on_body_exited(body):
 	if body.name == "Player":
@@ -28,7 +28,7 @@ func _on_body_exited(body):
 		is_active = false  # Mark this Area2D as inactive
 		# Optionally keep shooting disabled when exiting the area
 		body.disable_movement = false
-		body.disable_shooting = true  # Keep shooting disabled
+		body.disable_shooting = false  # Keep shooting disabled
 
 func timelineEnd2(argument: String):
 	# Only modify the player state if this Area2D is the active one
@@ -38,7 +38,7 @@ func timelineEnd2(argument: String):
 		if player:
 			# Re-enable movement and optionally keep shooting disabled
 			player.disable_movement = false
-			player.disable_shooting = true  # Keep shooting disabled
+			player.disable_shooting = false  # Keep shooting disabled
 
 func spawn_bird(argument: String):
 	# Only spawn the bird if this Area2D is active and the signal argument matches
@@ -46,4 +46,4 @@ func spawn_bird(argument: String):
 		print("Spawning bird")
 		var bird_instance = BirdScene.instantiate()  # Instantiate the Bird scene
 		bird_instance.position = Vector2(-570, -35)  # Set the position
-		get_parent().add_child(bird_instance)  # Add the instance to the scene
+		get_tree().root.get_node("Game").add_child(bird_instance)  # Add the instance to the Game node

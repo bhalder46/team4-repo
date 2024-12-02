@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [node name="Bird" type="AnimatedSprite2D"]
-z_index = 100
+z_index = 4096
 position = Vector2(0, -30)
 scale = Vector2(1.969, 1.969)
 sprite_frames = SubResource("SpriteFrames_uis28")

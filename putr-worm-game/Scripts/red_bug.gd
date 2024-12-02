@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var red_bug_death = $redBugDeath
 @onready var sprite = $redBugSprite
 
-@onready var bird = $"/root/Game/Bird"
+
 
 
 
@@ -17,6 +17,11 @@ func _ready() -> void:
 	sprite.speed_scale = speed_factor
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	# Dynamically fetch the bird node
+	var bird = get_node_or_null("/root/Game/Bird")
+	if bird == null:
+		return  # If no bird is found, exit the function
+
 	# Check if the Area2D is in the 'bullet' group
 	if not area.is_in_group("bullet"):
 		return  # Skip the logic if it's not in the group
@@ -24,7 +29,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Queue free the bullet
 	area.queue_free()
 
-	# Check if the bird's red_buff_active is true
+	# Check if red_buff_active is true
 	if not bird.red_buff_active:
 		return  # Skip the logic if red_buff_active is not true
 

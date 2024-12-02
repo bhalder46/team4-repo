@@ -15,6 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var death_anim = $deathAnim
 @onready var bugDetect = $Area2D
 
+@onready var dubJump = $doubleJump
+
 @onready var original_collision_shape_position = collision_shape.position
 @onready var player_death: AudioStreamPlayer = $"../PlayerDeath"
 @onready var player_hit: AudioStreamPlayer = $"../PlayerHit"
@@ -189,6 +191,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY 
 			jump_count = 1  # Reset jump count on ground
 		elif double_jump_enabled and jump_count == 1:  # Second jump mid-air
+			dubJump.play("doubleJump")
 			velocity.y = JUMP_VELOCITY  + 55
 			jump_count = 2  # Increment jump count after double jump
 

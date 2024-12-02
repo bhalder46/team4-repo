@@ -81,6 +81,7 @@ offset_right = -928.0
 offset_bottom = -518.0
 scale = Vector2(48.5842, 27.6613)
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -94,6 +95,7 @@ scale = Vector2(3.5, 3.5)
 text = "Yesterday, you were a worm."
 label_settings = SubResource("LabelSettings_bpnwb")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Text 2" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)

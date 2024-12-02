@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=107 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -19,6 +19,9 @@
 [ext_resource type="Script" path="res://Scripts/shield.gd" id="16_osfvu"]
 [ext_resource type="Texture2D" uid="uid://d24vfqvghntcp" path="res://Art/left_arrow_sticker_by_s_a_r_c_ddmch16-fullview.png" id="17_qr2rg"]
 [ext_resource type="Texture2D" uid="uid://c5jl0vq8alxoj" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Desappearing (96x96).png" id="19_66sip"]
+[ext_resource type="Texture2D" uid="uid://xbdvxbl2v6e0" path="res://Art/FX046_01.png" id="20_5bu5q"]
+[ext_resource type="Texture2D" uid="uid://dk4woppfwcsea" path="res://Art/FX046_02.png" id="21_gmhlc"]
+[ext_resource type="Texture2D" uid="uid://bgopp842qrrwp" path="res://Art/FX046_03.png" id="22_2me86"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jikkb"]
 atlas = ExtResource("3_0tcss")
@@ -617,6 +620,38 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_axua8"]
+atlas = ExtResource("20_5bu5q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8nct"]
+atlas = ExtResource("21_gmhlc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiiwx"]
+atlas = ExtResource("22_2me86")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4snw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axua8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8nct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiiwx")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"doubleJump",
+"speed": 10.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 z_index = 200
 script = ExtResource("1_bjqqb")
@@ -705,6 +740,15 @@ position = Vector2(-1.66854, -14.266)
 scale = Vector2(0.550045, 0.550045)
 sprite_frames = SubResource("SpriteFrames_dek8f")
 frame = 5
+frame_progress = 1.0
+
+[node name="doubleJump" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.883888, 3.57165)
+rotation = 1.5708
+scale = Vector2(1.0403, 1.0403)
+sprite_frames = SubResource("SpriteFrames_d4snw")
+animation = &"doubleJump"
+frame = 3
 frame_progress = 1.0
 
 [connection signal="animation_finished" from="Shield" to="Shield" method="_on_AnimatedSprite2D_animation_finished"]
