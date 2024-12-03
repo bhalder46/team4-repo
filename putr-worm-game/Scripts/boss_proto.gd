@@ -57,7 +57,7 @@ var is_red_method_active: bool = false  # New flag for red method activation
 # Health system
 var max_health: float = 1500.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 20.0
+var damage_taken_per_hit: float = 15.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 var is_dying: bool = false
@@ -72,6 +72,7 @@ func _ready():
 	
 	await get_tree().create_timer(2.0).timeout
 	intro()
+	#idle()
 	
 func setup_health_bar():
 	health_bar.max_value = max_health
@@ -426,7 +427,6 @@ func _on_tv_crit_area_entered(area: Area2D) -> void:
 		take_damage()
 		take_damage()
 		take_damage()
-		take_damage()
 		area.queue_free()
 
 func idle():
@@ -448,7 +448,7 @@ func idle():
 		fly_boss2.global_position = $flySpawn2.global_position  # Set the position at bugShield4
 		get_parent().add_child(fly_boss2)  # Add the FlyBoss instance to the scene
 
-	await get_tree().create_timer(7.0).timeout  # Wait for 12 seconds
+	await get_tree().create_timer(5.0).timeout  # Wait for 12 seconds
 	stop_idle()  # Reset the idle flag
 	colorSwitch()  # Call colorSwitch again
 

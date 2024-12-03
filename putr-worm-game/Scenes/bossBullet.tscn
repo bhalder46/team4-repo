@@ -9,7 +9,7 @@ size = Vector2(7.77716, 7.72766)
 [node name="Mob_projectile" type="Area2D" groups=["bossAttack", "enemybullet"]]
 scale = Vector2(1.881, 1.881)
 script = ExtResource("1_beynh")
-speed = 400
+speed = 375
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.43197, 0.43197)

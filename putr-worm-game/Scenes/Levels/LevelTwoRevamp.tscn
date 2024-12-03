@@ -1809,6 +1809,21 @@ font = ExtResource("50_yawe4")
 [sub_resource type="LabelSettings" id="LabelSettings_awe8b"]
 font = ExtResource("50_yawe4")
 
+[sub_resource type="Animation" id="Animation_isf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_608k4"]
 resource_name = "levelIntro"
 length = 5.0
@@ -1837,21 +1852,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_isf72"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ue6u"]
 _data = {
 "RESET": SubResource("Animation_isf72"),
@@ -1874,6 +1874,7 @@ offset_top = -1767.0
 offset_right = 1006.0
 offset_bottom = -78.0
 scale = Vector2(2.28033, 1.28104)
+mouse_filter = 2
 color = Color(0.0331722, 0.0252208, 0.133368, 1)
 
 [node name="Background Decor" type="ParallaxBackground" parent="."]
@@ -2499,6 +2500,7 @@ offset_top = -21.0
 offset_right = 30.0
 offset_bottom = 19.0
 scale = Vector2(0.543283, 1.2286)
+mouse_filter = 2
 
 [node name="PortalExit" type="AnimatedSprite2D" parent="Portal5"]
 position = Vector2(1435, 1414)
@@ -2526,6 +2528,7 @@ offset_top = -9712.79
 offset_right = -33724.6
 offset_bottom = -9672.79
 scale = Vector2(85.3546, 58.5877)
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionFadeInLayer" type="CanvasLayer" parent="."]
@@ -2538,6 +2541,7 @@ offset_top = 1.0
 offset_right = 37.9999
 offset_bottom = 41.0
 scale = Vector2(48.007, 26.9354)
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionFadeInAnimation" type="AnimationPlayer" parent="."]
@@ -2574,6 +2578,7 @@ offset_top = -4.0
 offset_right = 38.0
 offset_bottom = 36.0
 scale = Vector2(48.1945, 27.2745)
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayerFadeOut" type="AnimationPlayer" parent="Computer (Network Access)"]
@@ -2594,6 +2599,7 @@ offset_top = -7.0
 offset_right = 39.0
 offset_bottom = 33.0
 scale = Vector2(48.0369, 27.4277)
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
@@ -2604,6 +2610,7 @@ offset_top = -3.21997
 offset_right = 553.047
 offset_bottom = 292.78
 scale = Vector2(3.91149, 4.03711)
+mouse_filter = 2
 
 [node name="Heart" type="CanvasLayer" parent="."]
 layer = 127
@@ -2742,6 +2749,7 @@ offset_top = -548.0
 offset_right = 2677.0
 offset_bottom = -508.0
 scale = Vector2(1.6, 1)
+mouse_filter = 2
 
 [node name="Ranged_mob_proto6" parent="." instance=ExtResource("24_3icf0")]
 position = Vector2(3113, 22)

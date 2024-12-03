@@ -1954,6 +1954,21 @@ font = ExtResource("42_kdac0")
 [sub_resource type="LabelSettings" id="LabelSettings_lctbv"]
 font = ExtResource("42_kdac0")
 
+[sub_resource type="Animation" id="Animation_isf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_608k4"]
 resource_name = "levelIntro"
 length = 5.0
@@ -1982,21 +1997,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_isf72"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Text 1:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ue6u"]
 _data = {
 "RESET": SubResource("Animation_isf72"),
@@ -2013,6 +2013,7 @@ offset_top = -2023.0
 offset_right = 1099.0
 offset_bottom = 72.0
 scale = Vector2(2.28, 1.28086)
+mouse_filter = 2
 color = Color(0.0689307, 0.0236965, 0.106206, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -3024,6 +3025,7 @@ offset_top = -1.0
 offset_right = 41.0
 offset_bottom = 39.0
 scale = Vector2(47.8345, 27.6745)
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayerFadeOut" type="AnimationPlayer" parent="Computer (Network Access)"]
@@ -3086,6 +3088,7 @@ offset_top = -3.21997
 offset_right = 553.047
 offset_bottom = 292.78
 scale = Vector2(3.91149, 4.03711)
+mouse_filter = 2
 
 [node name="Heart" type="CanvasLayer" parent="."]
 layer = 127

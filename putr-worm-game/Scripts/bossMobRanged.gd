@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var mob_projectile_scene: PackedScene
 @export var speed: float = 100.0
 @export var amplitude: float = 65.0
-@export var frequency: float = 2.0
+@export var frequency: float = 1.5
 @export var attack_cooldown: float = 1.0
 @export var patrol_distance: float = 300.0
 
@@ -29,7 +29,7 @@ var is_fading_in: bool = true   # Flag to check if fading is in progress
 var is_ready_to_attack: bool = false  # Flag to check if it's ready to shoot
 
 # New variable to track when to start fade out
-var fade_out_timer: float = 6.0  # Time before starting fade-out
+var fade_out_timer: float = 3.0  # Time before starting fade-out
 
 func _ready():
 	base_y = position.y

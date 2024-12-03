@@ -80,6 +80,7 @@ offset_top = -558.0
 offset_right = -928.0
 offset_bottom = -518.0
 scale = Vector2(48.5842, 27.6613)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 

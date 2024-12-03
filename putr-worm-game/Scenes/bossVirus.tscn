@@ -958,6 +958,7 @@ offset_top = -215.659
 offset_right = -652.59
 offset_bottom = -175.659
 scale = Vector2(35.6697, 27.8669)
+mouse_filter = 2
 
 [node name="healVFX" type="GPUParticles2D" parent="."]
 z_index = 4096
