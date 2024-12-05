@@ -71,8 +71,8 @@ func _ready():
 	player.disable_shooting = true
 	
 	await get_tree().create_timer(2.0).timeout
-	intro()
-	#idle()
+	#intro()
+	idle()
 	
 func setup_health_bar():
 	health_bar.max_value = max_health
@@ -458,9 +458,10 @@ func stop_idle():
 
 # Color switching variables
 var colors = [Color(1, 0, 0), Color(1, 1, 0), Color(0, 0, 1)]  # Red, Yellow, Blue
-var last_color = null
+var restricted_color = null
 var color_timer = null
 var current_color_sequence = []  # To track the current sequence of colors
+var is_first_color_switch = true  # Track if it's the first colorSwitch call
 
 func colorSwitch():
 	color_timer = Timer.new()
@@ -471,7 +472,7 @@ func colorSwitch():
 
 	color_timer.connect("timeout", Callable(self, "_on_switch_color"))
 
-	await get_tree().create_timer(randf_range(3.0, 5.0)).timeout  # Run for 5 seconds
+	await get_tree().create_timer(randf_range(3.0, 4.0)).timeout  # Run for 5 seconds
 	color_timer.stop()
 	remove_child(color_timer)
 	color_timer.queue_free()
@@ -479,21 +480,54 @@ func colorSwitch():
 	# At the end, call the final color's method
 	if current_color_sequence.size() > 0:
 		var final_color = current_color_sequence[current_color_sequence.size() - 1]
+		restricted_color = final_color  # Set the restricted color
 		call_color_method(final_color)
+
+	# After the first color switch cycle, reset the flag for next colorSwitch calls
+	is_first_color_switch = false
+
+
+# Variable to track the last used color in the current switching cycle
+var last_used_color = null
 
 func _on_switch_color():
 	pulse_light()
 	animated_sprite_head.play("headLaugh")
-	var new_color = colors[randi() % colors.size()]
 
-	# Ensure the new color is different from the last one
-	while new_color == last_color:
-		new_color = colors[randi() % colors.size()]
+	# Filter the colors to exclude the restricted color
+	var available_colors = []
+	for c in colors:
+		if c != restricted_color:
+			available_colors.append(c)
+
+	# If it's the first time colorSwitch is called, include all three colors
+	var new_color = null
+	if is_first_color_switch:
+		# Ensure that the new color is not the same as the last used color
+		var available_non_repeating_colors = []
+		for color in available_colors:
+			if color != last_used_color:
+				available_non_repeating_colors.append(color)
+		
+		# Select a random color from the available non-repeating colors
+		new_color = available_non_repeating_colors[randi() % available_non_repeating_colors.size()]
+		
+		# Update the last used color
+		last_used_color = new_color
+	else:
+		# At this point, available_colors should have exactly two colors to alternate between
+		# Ensure the new color alternates between the available colors
+		if last_used_color == available_colors[0]:
+			new_color = available_colors[1]
+			last_used_color = new_color
+		else:
+			new_color = available_colors[0]
+			last_used_color = new_color
 
 	# Add the new color to the sequence
 	current_color_sequence.append(new_color)
 	point_light.color = new_color
-	last_color = new_color
+
 
 # Function to call the respective method based on the final color
 func call_color_method(color: Color):

@@ -1692,7 +1692,8 @@ texture = ExtResource("7_omgax")
 
 [sub_resource type="TileSet" id="TileSet_5w206"]
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 5
+physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_e8j6k")
 sources/1 = SubResource("TileSetAtlasSource_pj1ew")
 sources/2 = SubResource("TileSetAtlasSource_o60sy")
@@ -3051,11 +3052,6 @@ position = Vector2(1962, 61)
 scale = Vector2(0.5, 0.5)
 patrol_distance = 50.0
 
-[node name="Ranged_mob_proto" parent="." instance=ExtResource("31_hgmr4")]
-position = Vector2(600, -202)
-speed = 150.0
-patrol_distance = 100.0
-
 [node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("20_062ps")]
 position = Vector2(1552, 272)
 
@@ -3205,6 +3201,16 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_3ue6u")
 }
+
+[node name="land_melee_mob_proto5" parent="." instance=ExtResource("30_yeer5")]
+position = Vector2(521, -79)
+scale = Vector2(0.5, 0.5)
+patrol_distance = 50.0
+
+[node name="land_melee_mob_proto6" parent="." instance=ExtResource("30_yeer5")]
+position = Vector2(680, -79)
+scale = Vector2(0.5, 0.5)
+patrol_distance = 50.0
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]

@@ -46,7 +46,7 @@ speed = 600.0
 move_right = false
 move_left = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["bug"]]
 position = Vector2(0, -66.6709)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

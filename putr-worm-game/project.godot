@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 CameraShakeGlobalSingleton="*res://Scripts/cameraShakeGlobalSingleton.gd"
-Birdglobal="*res://Scripts/birdglobal.gd"
+BirdGlobal="*res://Scripts/birdglobal.gd"
+DeathCounter="*res://Scripts/GlobalDeathCounter.gd"
 
 [dialogic]
 
@@ -155,4 +156,3 @@ skip={
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
-2d/snap/snap_2d_vertices_to_pixel=true

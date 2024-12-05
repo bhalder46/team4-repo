@@ -245,9 +245,7 @@ func shoot():
 	if gun_shoot_sound:
 		gun_shoot_sound.play()
 
-	# Only allow shooting if the player can shoot
-	if not can_shoot:
-		return
+
 
 	shot_count += 1  # Increment the shot count
 	can_shoot = false
@@ -293,6 +291,10 @@ func shoot():
 	if shot_count >= max_shots:
 		start_reloading()  # Start reloading if max shots reached
 		return  # Prevent firing a bullet if we are reloading
+		
+func _input(event):
+	if event.is_action_pressed("reload") and not is_reloading:
+		start_reloading()
 
 
 
@@ -303,12 +305,12 @@ func start_reloading():
 	reload_timer = reload_time  # Reset the reload timer
 
 	# Wait for the shooting animation to finish before playing the reload animation
-	await $Gun.animation_finished  
+	await $Gun.animation_finished
 	
 	if gun_reload_sound:
 		gun_reload_sound.play()
 		
-	$Gun.play("reload")  
+	$Gun.play("reload")
 
 func update_gun_rotation():
 	var mouse_position = get_global_mouse_position()

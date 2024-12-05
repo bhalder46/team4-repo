@@ -2068,7 +2068,7 @@ scale = Vector2(2.42324, 2.42324)
 texture = ExtResource("23_pyxnr")
 
 [node name="-1" type="ParallaxLayer" parent="Background Decor"]
-modulate = Color(0.621524, 0.621524, 0.621524, 1)
+modulate = Color(0.43134, 0.43134, 0.43134, 1)
 z_index = 15
 position = Vector2(595, 42)
 motion_scale = Vector2(0.9, 1)

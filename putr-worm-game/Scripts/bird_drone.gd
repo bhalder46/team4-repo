@@ -2,8 +2,8 @@ extends AnimatedSprite2D
 
 # Variable to hold the player reference
 var player: CharacterBody2D
-var flutter_distance: float = 10.0
-var flutter_speed: float = 1.0
+var flutter_distance: float = 0.0
+var flutter_speed: float = 2.0
 
 # Color states
 enum LightColors { BLUE, RED, YELLOW }
@@ -18,19 +18,56 @@ var buffswitch_cooldown: float = 0.0
 var buffswitch_delay: float = 0.7  # 1 second delay
 
 # Speed, jump, and shoot buffs
-var speed_boost: float = 1.2  # 20% speed increase
-var jump_boost: float = 1.1  # 10% jump height increase
+var speed_boost: float = 1.6  
+var jump_boost: float = 1.0
 var shoot_cooldown_boost: float = 1.50
 
 # Track if buffs are active
 var yellow_buff_active: bool = false
 var red_buff_active: bool = false
 
+var no_color_active: bool = true
+
+func _ready():
+
+	# Assign the player node (replace 'Player' with your actual player node path)
+	player = get_node("/root/Game/Player")
+	color_sprite.visible = true  # Make Sprite2D visible on ready
+	
+	if player:
+		var gun = player.get_node("Gun")  # Adjust path as needed
+		if gun and gun.material and gun.material is ShaderMaterial:
+			gun.material.set_shader_parameter("mode", 0)
+
+func _process(delta: float):
+	# Flip the sprite based on the player's movement direction
+	if player:
+		if player.velocity.x < 0:
+			flip_h = true
+		elif player.velocity.x > 0:
+			flip_h = false
+
+	# Update cooldown timer
+	if buffswitch_cooldown > 0:
+		buffswitch_cooldown -= delta
+
+	# Calculate a random flutter position around the player
+	if player:
+		var offset = Vector2(randf_range(-flutter_distance, flutter_distance), randf_range(-flutter_distance, flutter_distance))
+		var target_position = player.position + offset
+		position = position.lerp(target_position, flutter_speed * delta)
+
+	# Check for buffswitch input and ensure cooldown has passed
+	if Input.is_action_just_pressed("buffswitch") and buffswitch_cooldown <= 0:
+		_change_light_color()
+		buffswitch_cooldown = buffswitch_delay
+
 
 # Function to change the point light color and apply/remove buffs
 func _change_light_color():
 	match current_color:
 		LightColors.BLUE:
+			no_color_active = false
 			_remove_buff()  # Remove previous buffs
 			point_light.color = Color(0, 0, 1)  # Blue
 			self.modulate = Color(0.5, 0.5, 1)  # Light Blue
@@ -47,12 +84,13 @@ func _change_light_color():
 				if speed_boost_vfx:
 					speed_boost_vfx.emitting = false
 				
-				# Set gun shader mode to 0
+				# Set gun shader mode to 0show 
 				var gun = player.get_node("Gun")  # Adjust path as needed
 				if gun and gun.material and gun.material is ShaderMaterial:
 					gun.material.set_shader_parameter("mode", 0)
 
 		LightColors.RED:
+			no_color_active = false
 			_remove_buff()  # Remove previous buffs
 			_apply_red_buff()  # Apply the shooting cooldown reduction
 			point_light.color = Color(1, 0, 0)  # Red
@@ -76,6 +114,7 @@ func _change_light_color():
 					gun.material.set_shader_parameter("mode", 1)
 
 		LightColors.YELLOW:
+			no_color_active = false
 			_remove_buff()  # Remove previous buffs
 			_apply_yellow_buff()  # Apply yellow buff
 			point_light.color = Color(1, 1, 0)  # Yellow
@@ -93,6 +132,8 @@ func _change_light_color():
 				var gun = player.get_node("Gun")  # Adjust path as needed
 				if gun and gun.material and gun.material is ShaderMaterial:
 					gun.material.set_shader_parameter("mode", 0)
+
+			
 
 # Apply the yellow buff (increase speed and jump)
 func _apply_yellow_buff():
@@ -121,42 +162,6 @@ func _remove_buff():
 			player.shoot_cooldown /= shoot_cooldown_boost
 			red_buff_active = false
 			player.is_triple_shot = false
-
-func _ready():
-
-	
-	# Assign the player node (replace 'Player' with your actual player node path)
-	player = get_node("/root/Game/Player")
-	color_sprite.visible = true  # Make Sprite2D visible on ready
-	
-	if player:
-		var gun = player.get_node("Gun")  # Adjust path as needed
-		if gun and gun.material and gun.material is ShaderMaterial:
-			gun.material.set_shader_parameter("mode", 0)
-	
-			
-func _process(delta: float):
-	# Flip the sprite based on the player's movement direction
-	if player:
-		if player.velocity.x < 0:
-			flip_h = true
-		elif player.velocity.x > 0:
-			flip_h = false
-
-	# Update cooldown timer
-	if buffswitch_cooldown > 0:
-		buffswitch_cooldown -= delta
-
-	# Calculate a random flutter position around the player
-	if player:
-		var offset = Vector2(randf_range(-flutter_distance, flutter_distance), randf_range(-flutter_distance, flutter_distance))
-		var target_position = player.position + offset
-		position = position.lerp(target_position, flutter_speed * delta)
-
-	# Check for buffswitch input and ensure cooldown has passed
-	if Input.is_action_just_pressed("buffswitch") and buffswitch_cooldown <= 0:
-		_change_light_color()
-		buffswitch_cooldown = buffswitch_delay
 
 		
 	# Function to remove any active effects

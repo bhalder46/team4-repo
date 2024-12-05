@@ -9,6 +9,8 @@ size = Vector2(9.09085, 8.33332)
 
 [node name="Bullet" type="Area2D" groups=["bullet", "bullets"]]
 scale = Vector2(0.440003, 0.480001)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_eqhqg")
 speed = 600.0
 

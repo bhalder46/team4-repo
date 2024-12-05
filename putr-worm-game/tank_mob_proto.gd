@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var player = get_parent().get_node("Player")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var health_bar = $HealthBar
+@onready var bug_death: AudioStreamPlayer = $"../BugDeath"
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed: float = 60.0
@@ -11,6 +13,8 @@ var can_attack: bool = true
 var facing_left: bool = false
 @export var patrol_distance: float = 300.0
 var initial_position: Vector2
+
+@onready var is_dying: bool = false
 
 # States
 var is_chasing: bool = false
@@ -22,7 +26,7 @@ var max_health: float = 100.0
 var current_health: float = max_health
 var damage_taken_per_hit: float = 20.0
 var hurt_animation_time: float = 0.2
-var knockback_force: float = 100.0
+var knockback_force: float = 150.0
 var is_heavy: bool = true
 var player_in_attack_area: bool = false  # Track if player is in attack area
 
@@ -116,6 +120,9 @@ func chase_player():
 		change_direction()
 
 func attack_player():
+	if is_dying:
+		return
+		
 	if not is_attacking and can_attack and player_in_attack_area:
 		is_attacking = true
 		velocity.x = 0
@@ -157,8 +164,7 @@ func _on_attack_area_body_exited(body):
 		can_attack = false
 
 func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
-	if is_hurt:
-		return
+
 		
 	current_health -= amount
 	health_bar.value = current_health
@@ -183,8 +189,12 @@ func _on_area_entered(area):
 		var bullet_position = area.global_position
 		var knockback_direction = global_position - bullet_position
 		take_damage(damage_taken_per_hit, knockback_direction)
+		print("area entered")
 
 func die():
+	is_dying = true
+	if bug_death:
+		bug_death.play()
 	is_attacking = false
 	animated_sprite.play("death")
 	set_physics_process(false)

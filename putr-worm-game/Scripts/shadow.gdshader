@@ -14,7 +14,7 @@ uniform float fade_factor : hint_range(0.0, 1.0, 0.001) = 1.0;  // New fade fact
 
 void fragment() {
     vec2 _rotated_uv = UV;
-    
+
     // Horizontal clipping logic
     float _hor = 1.0;
     if (_rotated_uv.x < left) {
@@ -67,7 +67,7 @@ void fragment() {
 
     // Set color to black
     COLOR.rgb = vec3(0.0);  // Set the color to black
-    
+
     // Apply fade factor to the alpha value
     COLOR.a = min(_hor * _ver, texture(TEXTURE, UV).a) * fade_factor;  // Apply fade factor to alpha
 }

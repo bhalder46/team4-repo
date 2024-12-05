@@ -1597,7 +1597,8 @@ texture = ExtResource("21_y3jr7")
 
 [sub_resource type="TileSet" id="TileSet_5w206"]
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 5
+physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_k80i6")
 sources/1 = SubResource("TileSetAtlasSource_oemrh")
 sources/2 = SubResource("TileSetAtlasSource_kl1g3")
@@ -1744,9 +1745,6 @@ shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0eis"]
 radius = 17.0294
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oye4w"]
-size = Vector2(447.956, 645.61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq17b"]
 size = Vector2(20.9396, 45.5706)
@@ -2033,6 +2031,9 @@ _data = {
 "RESET": SubResource("Animation_ypyah"),
 "transitionFadeOut": SubResource("Animation_p7eeq")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oye4w"]
+size = Vector2(447.956, 645.61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gx7r2"]
 size = Vector2(170.908, 46.9317)
@@ -3838,32 +3839,6 @@ texture = ExtResource("32_12bma")
 visible = false
 shape = SubResource("CircleShape2D_c0eis")
 
-[node name="AreaCamera2D" type="Area2D" parent="."]
-position = Vector2(1761, -1013)
-scale = Vector2(2, 2)
-script = ExtResource("30_6p0ps")
-
-[node name="Camera2D" type="Camera2D" parent="AreaCamera2D"]
-position = Vector2(15, -42)
-zoom = Vector2(2.2, 2.2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2D"]
-position = Vector2(9.35022, -49.4889)
-shape = SubResource("RectangleShape2D_oye4w")
-
-[node name="AreaCamera2D2" type="Area2D" parent="."]
-position = Vector2(2999, -946)
-script = ExtResource("30_6p0ps")
-
-[node name="Camera2D" type="Camera2D" parent="AreaCamera2D2"]
-position = Vector2(-11, -127)
-zoom = Vector2(1.7, 1.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2D2"]
-visible = false
-position = Vector2(-6.77979, -144.79)
-shape = SubResource("RectangleShape2D_oye4w")
-
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
 position = Vector2(3030, -964)
@@ -4140,10 +4115,10 @@ follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer5"]
 material = SubResource("ShaderMaterial_1rlv6")
-offset_left = -271.0
+offset_left = -190.0
 offset_top = -701.0
-offset_right = -216.0
-offset_bottom = -625.0
+offset_right = -174.0
+offset_bottom = -630.0
 scale = Vector2(9.88671, 7.15675)
 mouse_filter = 2
 
@@ -4181,6 +4156,51 @@ offset_top = -63.2328
 offset_right = 168.574
 offset_bottom = 12.7672
 scale = Vector2(1.13983, 0.95982)
+mouse_filter = 2
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_1rlv6")
+offset_left = 177.0
+offset_top = -678.0
+offset_right = 185.0
+offset_bottom = -608.0
+scale = Vector2(9.88671, 7.15675)
+mouse_filter = 2
+
+[node name="ColorRect7" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_1rlv6")
+offset_left = 99.088
+offset_top = -709.839
+offset_right = 107.088
+offset_bottom = -639.839
+scale = Vector2(9.88671, 7.15675)
+mouse_filter = 2
+
+[node name="ColorRect8" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_1rlv6")
+offset_left = 32.4134
+offset_top = -693.358
+offset_right = 40.4134
+offset_bottom = -623.358
+scale = Vector2(9.88671, 7.15675)
+mouse_filter = 2
+
+[node name="ColorRect9" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_1rlv6")
+offset_left = 17.4303
+offset_top = -678.375
+offset_right = 25.4303
+offset_bottom = -608.375
+scale = Vector2(9.88671, 7.15675)
+mouse_filter = 2
+
+[node name="ColorRect10" type="ColorRect" parent="CanvasLayer5"]
+material = SubResource("ShaderMaterial_1rlv6")
+offset_left = 368.135
+offset_top = -678.944
+offset_right = 376.135
+offset_bottom = -608.944
+scale = Vector2(9.88671, 7.15675)
 mouse_filter = 2
 
 [node name="TransitionFadeInLayer" type="CanvasLayer" parent="."]
@@ -4345,6 +4365,32 @@ rotation = 2.55657
 [node name="redBug8" parent="Node2D" instance=ExtResource("44_6rmww")]
 position = Vector2(-22.5836, 532.069)
 
+[node name="AreaCamera2D2" type="Area2D" parent="."]
+position = Vector2(2999, -946)
+script = ExtResource("30_6p0ps")
+
+[node name="Camera2D" type="Camera2D" parent="AreaCamera2D2"]
+position = Vector2(-11, -127)
+zoom = Vector2(1.7, 1.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2D2"]
+visible = false
+position = Vector2(-6.77979, -144.79)
+shape = SubResource("RectangleShape2D_oye4w")
+
+[node name="AreaCamera2D" type="Area2D" parent="."]
+position = Vector2(1761, -1013)
+scale = Vector2(2, 2)
+script = ExtResource("30_6p0ps")
+
+[node name="Camera2D" type="Camera2D" parent="AreaCamera2D"]
+position = Vector2(15, -42)
+zoom = Vector2(2.2, 2.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCamera2D"]
+position = Vector2(9.35022, -49.4889)
+shape = SubResource("RectangleShape2D_oye4w")
+
 [node name="AreaCamera2D3" type="Area2D" parent="."]
 position = Vector2(1761, -1013)
 scale = Vector2(2, 2)
@@ -4462,14 +4508,14 @@ libraries = {
 [connection signal="body_entered" from="AllSaws/Saw5/Saw11/Sprite2D/Area2D" to="AllSaws/Saw5/Saw11" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AllSaws/Saw9/Sprite2D/Area2D" to="AllSaws/Saw9" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AllSaws/Saw10/Sprite2D/Area2D" to="AllSaws/Saw10" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="AreaCamera2D" to="AreaCamera2D" method="_on_body_entered"]
-[connection signal="body_exited" from="AreaCamera2D" to="AreaCamera2D" method="_on_body_exited"]
-[connection signal="body_entered" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_entered"]
-[connection signal="body_exited" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
+[connection signal="body_entered" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaCamera2D2" to="AreaCamera2D2" method="_on_body_exited"]
+[connection signal="body_entered" from="AreaCamera2D" to="AreaCamera2D" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaCamera2D" to="AreaCamera2D" method="_on_body_exited"]
 [connection signal="body_entered" from="AreaCamera2D3" to="AreaCamera2D3" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaCamera2D3" to="AreaCamera2D3" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

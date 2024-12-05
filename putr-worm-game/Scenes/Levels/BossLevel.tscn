@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://bfqotab2td11r"]
+[gd_scene load_steps=85 format=4 uid="uid://bfqotab2td11r"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mb6l0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_tulq0"]
@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="38_f2cp1"]
 [ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="39_23mv4"]
 [ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="40_d0qce"]
+[ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="41_tp1cw"]
 [ext_resource type="Shader" path="res://Scripts/GlitchBOSS.gdshader" id="62_2e8y7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
@@ -1788,8 +1789,8 @@ texture = ExtResource("7_a6fo0")
 
 [sub_resource type="TileSet" id="TileSet_5w206"]
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_k80i6")
 sources/1 = SubResource("TileSetAtlasSource_oemrh")
 sources/2 = SubResource("TileSetAtlasSource_kl1g3")
@@ -2393,7 +2394,7 @@ position = Vector2(32.976, -669.096)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("21_v65my")]
 y_sort_enabled = true
-position = Vector2(-1, -696)
+position = Vector2(9, -696)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(0, -17.0001)
@@ -2638,6 +2639,12 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_3ue6u")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(357.8, -36.0614)
+rotation = -0.326377
+scale = Vector2(1.625, 1.3125)
+texture = ExtResource("41_tp1cw")
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]

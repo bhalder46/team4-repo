@@ -178,6 +178,8 @@ size = Vector2(32, 27)
 radius = 279.716
 
 [node name="Ranged_mob_proto" type="CharacterBody2D" groups=["bug"]]
+collision_layer = 4
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_vjlfn")
 mob_projectile_scene = ExtResource("2_neplx")
@@ -191,6 +193,8 @@ animation = &"death"
 shape = SubResource("RectangleShape2D_myhwb")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_myhwb")
@@ -198,10 +202,12 @@ shape = SubResource("RectangleShape2D_myhwb")
 [node name="RayCast_left" type="RayCast2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.4, 0.4)
+collision_mask = 4
 
 [node name="RayCast_right" type="RayCast2D" parent="."]
 rotation = 4.71239
 scale = Vector2(0.4, 0.4)
+collision_mask = 4
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
@@ -210,6 +216,7 @@ shape = SubResource("CircleShape2D_h7ii4")
 
 [node name="DeathRaycast" type="RayCast2D" parent="."]
 scale = Vector2(0.38, 0.38)
+collision_mask = 4
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

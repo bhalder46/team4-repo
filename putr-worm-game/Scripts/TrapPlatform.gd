@@ -19,6 +19,7 @@ func start_disappear_cycle() -> void:
 	$Area2D.set_deferred("monitoring", false)  # Temporarily stop monitoring using set_deferred
 	anim_player.play("fade_out")
 	print("Platform is disappearing...")
+	
 
 	# Wait for the fade out animation to finish
 	await anim_player.animation_finished
