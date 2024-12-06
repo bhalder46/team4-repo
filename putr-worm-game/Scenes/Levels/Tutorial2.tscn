@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://c3famfwu2clwq"]
+[gd_scene load_steps=98 format=4 uid="uid://c3famfwu2clwq"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hyh5m"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_to3lc"]
@@ -71,10 +71,31 @@
 [ext_resource type="Shader" path="res://Scripts/shadow.gdshader" id="62_1qht6"]
 [ext_resource type="PackedScene" uid="uid://b7vqgdn2dw0tn" path="res://Scenes/redBug.tscn" id="65_avvtj"]
 [ext_resource type="Script" path="res://Scripts/newTutorial.gd" id="65_srt4m"]
+[ext_resource type="Shader" path="res://Scripts/godrays.gdshader" id="72_wx6p7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("11_divkn")
 shader_parameter/lod = 0.684
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13dxb"]
+shader = ExtResource("72_wx6p7")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.1
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.435
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 5.59
+shader_parameter/ray2_density = 32.545
+shader_parameter/ray2_intensity = 0.665
+shader_parameter/color = Vector4(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8sm4i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2cu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvakw"]
 texture = ExtResource("13_p8gfh")
@@ -2007,22 +2028,161 @@ motion_scale = Vector2(0.7, 1)
 motion_offset = Vector2(129.01, 0)
 
 [node name="Pine1" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(-115, -214)
+position = Vector2(-126, -241)
 scale = Vector2(3.82897, 3.82897)
 texture = ExtResource("12_po582")
 
 [node name="Pine2" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(-286, -183)
+position = Vector2(-286, -218.883)
 scale = Vector2(3.82897, 3.82897)
 texture = ExtResource("12_po582")
 
 [node name="Pine3" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(45, -90)
+position = Vector2(45, -125.883)
 scale = Vector2(2.44, 2.44)
 texture = ExtResource("12_po582")
 
 [node name="Pine4" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(335, -190)
+position = Vector2(335, -225.883)
+scale = Vector2(3.82897, 3.82897)
+texture = ExtResource("12_po582")
+
+[node name="Pine5" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(-413, -247.883)
+scale = Vector2(4.52887, 4.73423)
+texture = ExtResource("12_po582")
+
+[node name="Bush1" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-256.26, -53.5067)
+scale = Vector2(1.80561, 1.80561)
+texture = ExtResource("22_boabj")
+flip_h = true
+
+[node name="Bush3" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-208.26, -52.5067)
+scale = Vector2(1.69314, 1.69314)
+texture = ExtResource("15_rofvq")
+flip_h = true
+
+[node name="Bush2" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-322.26, -54.5067)
+scale = Vector2(2.01064, 2.01064)
+texture = ExtResource("16_klfco")
+flip_h = true
+
+[node name="Rock2" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-176.26, -71.5067)
+scale = Vector2(2.84238, 2.84238)
+texture = ExtResource("17_2yhom")
+flip_h = true
+
+[node name="Bush4" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-120.26, -59.5067)
+scale = Vector2(2.45561, 2.45561)
+texture = ExtResource("16_klfco")
+flip_h = true
+
+[node name="Rock4" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-375.26, -76.5067)
+scale = Vector2(3.53083, 3.53083)
+texture = ExtResource("29_pmvn5")
+flip_h = true
+
+[node name="Bush5" type="Sprite2D" parent="Background Decor/-3"]
+z_index = -5
+position = Vector2(-52.2601, -45.5067)
+scale = Vector2(1.81767, 1.53767)
+texture = ExtResource("16_klfco")
+flip_h = true
+
+[node name="Bush6" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(117.74, -29.5067)
+scale = Vector2(1.80561, 1.80561)
+texture = ExtResource("22_boabj")
+
+[node name="Bush7" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(165.74, -28.5067)
+scale = Vector2(1.69314, 1.69314)
+texture = ExtResource("15_rofvq")
+
+[node name="Bush8" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(51.7399, -30.5067)
+scale = Vector2(2.01064, 2.01064)
+texture = ExtResource("16_klfco")
+
+[node name="Rock3" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(197.74, -47.5067)
+scale = Vector2(2.84238, 2.84238)
+texture = ExtResource("17_2yhom")
+
+[node name="Bush9" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(253.74, -35.5067)
+scale = Vector2(2.45561, 2.45561)
+texture = ExtResource("16_klfco")
+
+[node name="Rock5" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(-1.26007, -52.5067)
+scale = Vector2(3.53083, 3.53083)
+texture = ExtResource("29_pmvn5")
+
+[node name="Bush10" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(321.74, -21.5067)
+scale = Vector2(1.81767, 1.53767)
+texture = ExtResource("16_klfco")
+
+[node name="Bush11" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(590.74, -37.5067)
+scale = Vector2(1.80561, 1.80561)
+texture = ExtResource("22_boabj")
+
+[node name="Bush12" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(638.74, -36.5067)
+scale = Vector2(1.69314, 1.69314)
+texture = ExtResource("15_rofvq")
+
+[node name="Bush13" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(524.74, -38.5067)
+scale = Vector2(2.01064, 2.01064)
+texture = ExtResource("16_klfco")
+
+[node name="Rock6" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(670.74, -55.5067)
+scale = Vector2(2.84238, 2.84238)
+texture = ExtResource("17_2yhom")
+
+[node name="Bush14" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(726.74, -43.5067)
+scale = Vector2(2.45561, 2.45561)
+texture = ExtResource("16_klfco")
+
+[node name="Rock7" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(471.74, -60.5067)
+scale = Vector2(3.53083, 3.53083)
+texture = ExtResource("29_pmvn5")
+
+[node name="Bush15" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(794.74, -29.5067)
+scale = Vector2(1.81767, 1.53767)
+texture = ExtResource("16_klfco")
+
+[node name="Bush16" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(603, -40)
+scale = Vector2(2.01064, 2.01064)
+texture = ExtResource("16_klfco")
+
+[node name="Pine6" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(161, -212)
+scale = Vector2(3.82897, 3.82897)
+texture = ExtResource("12_po582")
+
+[node name="Pine7" type="Sprite2D" parent="Background Decor/-3"]
+position = Vector2(528, -205)
 scale = Vector2(3.82897, 3.82897)
 texture = ExtResource("12_po582")
 
@@ -2034,7 +2194,7 @@ motion_scale = Vector2(0.8, 1)
 motion_offset = Vector2(87.345, 0)
 
 [node name="Pine1" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(-276, -191)
+position = Vector2(-257, -185)
 scale = Vector2(2.85473, 2.85473)
 texture = ExtResource("12_po582")
 
@@ -2048,24 +2208,29 @@ position = Vector2(-87, -86)
 texture = ExtResource("23_pyxnr")
 
 [node name="Pine3" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(-73, -175)
+position = Vector2(-52, -175)
 scale = Vector2(2.85473, 2.85473)
 texture = ExtResource("12_po582")
 
 [node name="Pine4" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(425, -156)
+position = Vector2(101, -232)
 scale = Vector2(3.04363, 3.04363)
 texture = ExtResource("12_cwd3u")
 
 [node name="Pine5" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(247, -165)
+position = Vector2(248, -165)
 scale = Vector2(2.85473, 2.85473)
 texture = ExtResource("12_po582")
 
 [node name="PineDead2" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(182, -66)
+position = Vector2(472.745, -141)
 scale = Vector2(2.42324, 2.42324)
 texture = ExtResource("23_pyxnr")
+
+[node name="Pine6" type="Sprite2D" parent="Background Decor/-2"]
+position = Vector2(412.745, -165)
+scale = Vector2(3.04363, 3.04363)
+texture = ExtResource("12_cwd3u")
 
 [node name="-1" type="ParallaxLayer" parent="Background Decor"]
 modulate = Color(0.43134, 0.43134, 0.43134, 1)
@@ -2115,12 +2280,12 @@ scale = Vector2(2.04792, 2.04792)
 texture = ExtResource("18_c57o3")
 
 [node name="Bush6" type="Sprite2D" parent="Background Decor/-1"]
-position = Vector2(-225.26, -48)
+position = Vector2(-251, -47)
 scale = Vector2(1.80561, 1.80561)
 texture = ExtResource("22_boabj")
 
 [node name="Bush7" type="Sprite2D" parent="Background Decor/-1"]
-position = Vector2(-177.26, -47)
+position = Vector2(-172, -51)
 scale = Vector2(1.69314, 1.69314)
 texture = ExtResource("15_rofvq")
 
@@ -2154,11 +2319,24 @@ position = Vector2(-51.2602, -49)
 scale = Vector2(2.04792, 2.04792)
 texture = ExtResource("18_c57o3")
 
+[node name="World blur" type="Sprite2D" parent="Background Decor/-1"]
+z_index = -5
+material = SubResource("ShaderMaterial_0cve3")
+position = Vector2(-18, -229)
+scale = Vector2(-27.1745, 4.36114)
+texture = ExtResource("12_po582")
+
+[node name="Pine2" type="Sprite2D" parent="Background Decor/-1"]
+z_index = -5
+position = Vector2(-705, -274)
+scale = Vector2(3.82897, 3.82897)
+texture = ExtResource("12_po582")
+
 [node name="Foreground Decor" type="ParallaxBackground" parent="."]
 layer = 5
 
 [node name="0" type="ParallaxLayer" parent="Foreground Decor"]
-z_index = 20
+z_index = -2365
 
 [node name="Pine1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-433, -238)
@@ -2204,6 +2382,7 @@ position = Vector2(342, -216)
 texture = ExtResource("23_pyxnr")
 
 [node name="FlowerOrange1" type="Sprite2D" parent="Foreground Decor/0"]
+z_index = -190
 position = Vector2(294, -192)
 texture = ExtResource("24_0yw45")
 
@@ -2239,6 +2418,15 @@ texture = ExtResource("20_su1qk")
 position = Vector2(447, 48)
 texture = ExtResource("19_1dvcm")
 
+[node name="ColorRect5" type="ColorRect" parent="Foreground Decor/0"]
+z_index = 26
+material = SubResource("ShaderMaterial_13dxb")
+offset_left = -141.0
+offset_top = -585.0
+offset_right = -101.0
+offset_bottom = -545.0
+scale = Vector2(10.1281, 11.0996)
+
 [node name="1" type="ParallaxLayer" parent="Foreground Decor"]
 modulate = Color(0.377919, 0.377919, 0.377919, 1)
 z_index = 7
@@ -2263,6 +2451,7 @@ motion_scale = Vector2(1.2, 1)
 motion_offset = Vector2(-86.485, 0)
 
 [node name="Bush1" type="Sprite2D" parent="Foreground Decor/2"]
+material = SubResource("ShaderMaterial_8sm4i")
 position = Vector2(-460, 16)
 scale = Vector2(3.54464, 3.68888)
 texture = ExtResource("22_boabj")
@@ -2273,12 +2462,19 @@ scale = Vector2(3.68363, 3.68363)
 texture = ExtResource("18_c57o3")
 
 [node name="Rock3" type="Sprite2D" parent="Foreground Decor/2"]
-position = Vector2(-477, 15)
+material = SubResource("ShaderMaterial_f2cu6")
+position = Vector2(-477, 6.99999)
 scale = Vector2(5.26549, 5.80092)
 texture = ExtResource("29_pmvn5")
 
 [node name="Bush2" type="Sprite2D" parent="Foreground Decor/2"]
 position = Vector2(-436, 77)
+scale = Vector2(3.54464, 3.68888)
+texture = ExtResource("22_boabj")
+
+[node name="Bush3" type="Sprite2D" parent="Foreground Decor/2"]
+material = SubResource("ShaderMaterial_8sm4i")
+position = Vector2(-460, 16)
 scale = Vector2(3.54464, 3.68888)
 texture = ExtResource("22_boabj")
 
@@ -2453,13 +2649,13 @@ disabled = true
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_l04kn")
 volume_db = -1.0
-parameters/looping = false
+parameters/looping = true
 
 [node name="ForestMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_iv2sf")
 volume_db = -2.211
 max_distance = 49465.0
-parameters/looping = false
+parameters/looping = true
 
 [node name="Pine5" type="Sprite2D" parent="."]
 z_index = -4096
