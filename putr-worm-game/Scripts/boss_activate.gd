@@ -9,10 +9,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player": # Ensure it's the player entering
 		await get_tree().create_timer(5.0).timeout # Wait 8 seconds
 		glitchRect.visible = true # Make glitchRect visible
+		$static1.play()
 		call_bird_remove()
 		await get_tree().create_timer(0.3).timeout # Wait 0.3 seconds
 		spawn_boss(Vector2(-1630.98, 870.918)) # Spawn boss at given position
 		glitchRect.visible = false # Hide glitchRect
+		$static1.stop()
 
 		if NetworkMusic:
 			NetworkMusic.stop() # Stop the music

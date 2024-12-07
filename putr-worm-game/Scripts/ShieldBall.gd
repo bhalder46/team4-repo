@@ -7,11 +7,16 @@ const Player = preload("res://Scripts/player.gd")
 
 @onready var shield_sprite: AnimatedSprite2D = $Shield  # Reference to the shield AnimatedSprite2D
 @onready var bug_sprite: AnimatedSprite2D = $Bug        # Reference to the bug AnimatedSprite2D
+@onready var bounce1: AudioStreamPlayer2D = $bounce1
+@onready var bounce2: AudioStreamPlayer2D = $bounce2
 
 # Function to handle the ball's collision and bounces
 func _on_body_entered(body: Node2D) -> void:
 	bounce_count += 1
 	print("Bounce Count: ", bounce_count, "/", max_bounces)
+	
+	var chosen_bounce_sound = bounce1 if randi() % 2 == 0 else bounce2
+	chosen_bounce_sound.play()
 	
 	if body is Player:  # Replace 'Player' with the correct script or node name
 		body.take_damage(1)  # Pass the damage amount as needed

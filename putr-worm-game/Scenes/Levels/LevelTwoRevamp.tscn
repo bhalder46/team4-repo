@@ -1,10 +1,8 @@
-[gd_scene load_steps=129 format=4 uid="uid://bu2xtjcad7awo"]
+[gd_scene load_steps=134 format=4 uid="uid://bu2xtjcad7awo"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_6st4o"]
 [ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="2_6ux8e"]
-[ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_dipp6"]
 [ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="3_ekusx"]
-[ext_resource type="Texture2D" uid="uid://cw0e781v3ovpp" path="res://Art/Random Assets/120735130-6c9e2300-c4c0-11eb-8346-94429163466a.png" id="3_t18tx"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_ox47h"]
 [ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="5_tamf0"]
 [ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="6_uryui"]
@@ -14,9 +12,8 @@
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="9_tddlt"]
 [ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="10_hbip1"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="11_l1wd0"]
-[ext_resource type="AudioStream" uid="uid://gmln8gnxcjnb" path="res://Audio/Music/[WITH GREAT POWER].mp3" id="12_d6ncx"]
-[ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="13_w70jq"]
 [ext_resource type="Script" path="res://Scripts/TrapPlatform.gd" id="14_0haxc"]
+[ext_resource type="AudioStream" uid="uid://xfvrileb63ma" path="res://Audio/Music/Temple of Mistake.mp3" id="15_0ovl3"]
 [ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="15_qyoge"]
 [ext_resource type="Script" path="res://Scripts/portal.gd" id="16_ee7iq"]
 [ext_resource type="Texture2D" uid="uid://y51wochrrm6v" path="res://Art/Purple Portal Sprite Sheet.png" id="17_hc2p6"]
@@ -39,7 +36,9 @@
 [ext_resource type="PackedScene" uid="uid://1cwobjep8l64" path="res://Scenes/land_melee_mob_proto.tscn" id="31_uoknp"]
 [ext_resource type="Script" path="res://Scripts/target.gd" id="32_45u7v"]
 [ext_resource type="Shader" path="res://Scripts/Glitch.gdshader" id="34_wumnj"]
+[ext_resource type="AudioStream" uid="uid://cyda3lkm0kuuf" path="res://Audio/Sounds/disappear.mp3" id="35_blqrf"]
 [ext_resource type="Script" path="res://Scripts/BirdFlock.gd" id="35_eeils"]
+[ext_resource type="AudioStream" uid="uid://bvig83d60tdlw" path="res://Audio/Sounds/appear.mp3" id="36_15l0p"]
 [ext_resource type="Shader" path="res://Scripts/MotionBlur.gdshader" id="36_an8wa"]
 [ext_resource type="Texture2D" uid="uid://dps6mu5rhgrio" path="res://Art/fly_attack.png" id="37_h83vx"]
 [ext_resource type="Texture2D" uid="uid://b0srlvxmtqjr2" path="res://Art/fly_death.png" id="38_vt4nm"]
@@ -49,6 +48,7 @@
 [ext_resource type="Script" path="res://Scripts/LevelCamera.gd" id="46_41fp0"]
 [ext_resource type="PackedScene" uid="uid://b7vqgdn2dw0tn" path="res://Scenes/redBug.tscn" id="46_jgy2j"]
 [ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="49_jjpde"]
+[ext_resource type="Texture2D" uid="uid://dwnfm7qq26wbu" path="res://Art/The Numbers.png" id="50_c43vm"]
 [ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="50_yawe4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_va72d"]
@@ -1859,6 +1859,72 @@ _data = {
 "levelIntro": SubResource("Animation_608k4")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xo55q"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_47xvr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 1, 1)
+direction = Vector3(1, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, -25, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.7
+scale_max = 0.7
+color = Color(0, 0.517591, 0.940061, 1)
+anim_offset_max = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vqqao"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 15, 1)
+direction = Vector3(1, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(25, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.7
+scale_max = 0.7
+color = Color(0, 0.517591, 0.940061, 1)
+anim_offset_max = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_70b1w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 15, 1)
+direction = Vector3(1, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(-25, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.7
+scale_max = 0.7
+color = Color(0, 0.517591, 0.940061, 1)
+anim_offset_max = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cj7yi"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+direction = Vector3(1, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 25, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.7
+scale_max = 0.7
+color = Color(0, 0.517591, 0.940061, 1)
+anim_offset_max = 1.0
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6st4o")
 
@@ -1910,74 +1976,6 @@ z_index = 20
 z_index = 7
 motion_scale = Vector2(1.1, 1)
 motion_offset = Vector2(-42.78, 0)
-
-[node name="Node2D2" type="Node2D" parent="Foreground Decor/1"]
-z_index = -4096
-position = Vector2(-765, 54)
-script = ExtResource("2_dipp6")
-
-[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, 49)
-texture = ExtResource("3_t18tx")
-
-[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D2"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, -596)
-texture = ExtResource("3_t18tx")
-
-[node name="Node2D3" type="Node2D" parent="Foreground Decor/1"]
-z_index = -4096
-position = Vector2(-1526, -417)
-script = ExtResource("2_dipp6")
-
-[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, 49)
-texture = ExtResource("3_t18tx")
-
-[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D3"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, -596)
-texture = ExtResource("3_t18tx")
-
-[node name="Node2D4" type="Node2D" parent="Foreground Decor/1"]
-z_index = -4096
-position = Vector2(-1555, -360)
-script = ExtResource("2_dipp6")
-
-[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, 49)
-texture = ExtResource("3_t18tx")
-
-[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D4"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, -596)
-texture = ExtResource("3_t18tx")
-
-[node name="Node2D5" type="Node2D" parent="Foreground Decor/1"]
-z_index = -4096
-position = Vector2(-742, -33)
-script = ExtResource("2_dipp6")
-
-[node name="Sprite1" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, 49)
-texture = ExtResource("3_t18tx")
-
-[node name="Sprite2" type="Sprite2D" parent="Foreground Decor/1/Node2D5"]
-modulate = Color(0.872988, 0.287954, 0.599015, 1)
-z_index = 4096
-position = Vector2(320, -596)
-texture = ExtResource("3_t18tx")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Foreground Decor/1"]
 position = Vector2(-823, 60)
@@ -2087,9 +2085,9 @@ position = Vector2(-6.78294, 102)
 scale = Vector2(0.193798, 1)
 
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_d6ncx")
+stream = ExtResource("15_0ovl3")
 volume_db = 0.6
-max_distance = 32065.0
+max_distance = 1e+10
 parameters/looping = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
@@ -2099,9 +2097,6 @@ scale = Vector2(1.03134, 1.03134)
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-
-[node name="NpcTest" parent="." instance=ExtResource("13_w70jq")]
-position = Vector2(-523, -691)
 
 [node name="Node" type="Node" parent="."]
 
@@ -2682,6 +2677,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Trap Platform13"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("35_blqrf")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Trap Platform13"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("36_15l0p")
+max_distance = 1e+12
+
 [node name="Trap Platform14" type="StaticBody2D" parent="."]
 position = Vector2(128, -58)
 scale = Vector2(0.694101, 0.694101)
@@ -2709,6 +2716,18 @@ shape = SubResource("RectangleShape2D_2kcna")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Trap Platform14"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("35_blqrf")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Trap Platform14"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("36_15l0p")
+max_distance = 1e+12
 
 [node name="land_melee_mob_proto" parent="." instance=ExtResource("31_uoknp")]
 position = Vector2(662, -79)
@@ -3782,6 +3801,46 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_3ue6u")
 }
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+z_index = 1585
+material = SubResource("CanvasItemMaterial_xo55q")
+position = Vector2(-1184, -112)
+scale = Vector2(4.57151, 3.94947)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_47xvr")
+texture = ExtResource("50_c43vm")
+lifetime = 15.0
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+z_index = -2130
+material = SubResource("CanvasItemMaterial_xo55q")
+position = Vector2(864, -217)
+scale = Vector2(4.57151, 3.94947)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_vqqao")
+texture = ExtResource("50_c43vm")
+lifetime = 4.5
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="."]
+z_index = -2130
+material = SubResource("CanvasItemMaterial_xo55q")
+position = Vector2(1152, -217)
+scale = Vector2(4.57151, 3.94947)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_70b1w")
+texture = ExtResource("50_c43vm")
+lifetime = 4.5
+
+[node name="GPUParticles2D5" type="GPUParticles2D" parent="."]
+z_index = 1585
+material = SubResource("CanvasItemMaterial_xo55q")
+position = Vector2(-428, -216)
+scale = Vector2(4.57151, 3.94947)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_cj7yi")
+texture = ExtResource("50_c43vm")
+lifetime = 15.0
 
 [connection signal="body_entered" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_exited"]

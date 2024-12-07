@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nhu6gja3a12p"
+path="res://.godot/imported/TUNIC (Original Soundtrack) - 54 Night Rites Lifeformed Janice Kwan.mp3-d8bd5bf26dde0c9739f7fbeaf89a773f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/TUNIC (Original Soundtrack) - 54 Night Rites Lifeformed Janice Kwan.mp3"
+dest_files=["res://.godot/imported/TUNIC (Original Soundtrack) - 54 Night Rites Lifeformed Janice Kwan.mp3-d8bd5bf26dde0c9739f7fbeaf89a773f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

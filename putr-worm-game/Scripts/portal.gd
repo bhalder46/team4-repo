@@ -48,5 +48,5 @@ func _process(delta):
 # Function to start teleport cooldown
 func start_teleport_cooldown():
 	teleport_cooldown = true
-	await get_tree().create_timer(1).timeout # 1-second delay
+	await get_tree().create_timer(1.5).timeout # 1-second delay
 	teleport_cooldown = false

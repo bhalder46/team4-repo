@@ -36,9 +36,11 @@ var is_spawning = true  # Track whether spawning is active
 func spawn_bullet_loop() -> void:
 	while is_spawning:  # Check this flag to control the loop
 		if spawn_alternate:
+			$shoot1.play()
 			spawn_bullet_at_marker(left_marker, Vector2.RIGHT)
 			spawn_bullet_at_marker(right_marker, Vector2.LEFT)
 		else:
+			$shoot2.play()
 			spawn_bullet_at_marker(up_marker, Vector2.UP)
 			spawn_bullet_at_marker(down_marker, Vector2.DOWN)
 

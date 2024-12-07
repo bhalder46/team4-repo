@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://bfqotab2td11r"]
+[gd_scene load_steps=86 format=4 uid="uid://bfqotab2td11r"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mb6l0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_tulq0"]
@@ -39,7 +39,8 @@
 [ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="38_f2cp1"]
 [ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="39_23mv4"]
 [ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="40_d0qce"]
-[ext_resource type="Texture2D" uid="uid://bjldd6tojphov" path="res://NPC/7_36_7_622_0.png" id="41_tp1cw"]
+[ext_resource type="AudioStream" uid="uid://bibtwt60ivr1u" path="res://Audio/Sounds/mus_f_noise.wav" id="42_3i8km"]
+[ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/7_36_7_622_0-1.png(1).png" id="42_fseti"]
 [ext_resource type="Shader" path="res://Scripts/GlitchBOSS.gdshader" id="62_2e8y7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
@@ -104,7 +105,7 @@ texture = ExtResource("4_8tlce")
 [sub_resource type="TileSet" id="TileSet_gcoh5"]
 sources/0 = SubResource("TileSetAtlasSource_bg1h3")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k80i6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n56ox"]
 texture = ExtResource("5_b35cc")
 0:0/0 = 0
 1:0/0 = 0
@@ -359,7 +360,7 @@ texture = ExtResource("5_b35cc")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oemrh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alxpl"]
 texture = ExtResource("6_04o46")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1045,7 +1046,7 @@ texture = ExtResource("6_04o46")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a5183"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl1g3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_114rn"]
 texture = ExtResource("4_8tlce")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a5183")
@@ -1222,7 +1223,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u2k86"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2q33"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dix0y"]
 texture = ExtResource("7_a6fo0")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_kowb0")
@@ -1791,10 +1792,10 @@ texture = ExtResource("7_a6fo0")
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 7
 physics_layer_0/collision_mask = 7
-sources/0 = SubResource("TileSetAtlasSource_k80i6")
-sources/1 = SubResource("TileSetAtlasSource_oemrh")
-sources/2 = SubResource("TileSetAtlasSource_kl1g3")
-sources/3 = SubResource("TileSetAtlasSource_y2q33")
+sources/0 = SubResource("TileSetAtlasSource_n56ox")
+sources/1 = SubResource("TileSetAtlasSource_alxpl")
+sources/2 = SubResource("TileSetAtlasSource_114rn")
+sources/3 = SubResource("TileSetAtlasSource_dix0y")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hn4y"]
 shader = ExtResource("10_g866l")
@@ -2394,7 +2395,8 @@ position = Vector2(32.976, -669.096)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("21_v65my")]
 y_sort_enabled = true
-position = Vector2(9, -696)
+position = Vector2(2.24097, -608.952)
+SPEED = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(0, -17.0001)
@@ -2593,6 +2595,12 @@ offset_bottom = -175.659
 scale = Vector2(35.6697, 27.8669)
 mouse_filter = 2
 
+[node name="static1" type="AudioStreamPlayer2D" parent="bossActivate"]
+position = Vector2(1630.89, -870.918)
+stream = ExtResource("42_3i8km")
+volume_db = -5.0
+max_distance = 1e+14
+
 [node name="BugDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_flmga")
 
@@ -2644,7 +2652,7 @@ libraries = {
 position = Vector2(357.8, -36.0614)
 rotation = -0.326377
 scale = Vector2(1.625, 1.3125)
-texture = ExtResource("41_tp1cw")
+texture = ExtResource("42_fseti")
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]

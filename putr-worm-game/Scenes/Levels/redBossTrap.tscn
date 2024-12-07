@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://doipsg7rvmsl4"]
+[gd_scene load_steps=9 format=3 uid="uid://doipsg7rvmsl4"]
 
 [ext_resource type="Texture2D" uid="uid://qkvej2cddjtq" path="res://Art/Random Assets/New Piskel-1.png(5).png" id="1_obnhv"]
 [ext_resource type="Script" path="res://Scripts/bossTrap.gd" id="2_ea03l"]
 [ext_resource type="PackedScene" uid="uid://vk46l6dfqdj0" path="res://Scenes/redTrapBullet.tscn" id="3_nop27"]
 [ext_resource type="Shader" path="res://Scripts/light.gdshader" id="4_u1umt"]
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="5_46yjl"]
+[ext_resource type="AudioStream" uid="uid://c8vw8dm6s2kw2" path="res://Audio/Sounds/snd_enemy_bullet_shot.wav" id="6_uwbn2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alfx2"]
 shader = ExtResource("4_u1umt")
@@ -56,5 +57,16 @@ texture = ExtResource("5_46yjl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.0378726, -0.0402073)
 shape = SubResource("RectangleShape2D_6br5y")
+
+[node name="shoot1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uwbn2")
+volume_db = -10.0
+max_distance = 1e+16
+
+[node name="shoot2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uwbn2")
+volume_db = -10.0
+pitch_scale = 0.6
+max_distance = 1e+11
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

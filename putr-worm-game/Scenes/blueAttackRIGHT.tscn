@@ -1,9 +1,11 @@
-[gd_scene load_steps=57 format=3 uid="uid://bxhylhjyua04d"]
+[gd_scene load_steps=59 format=3 uid="uid://bxhylhjyua04d"]
 
 [ext_resource type="Script" path="res://Scripts/ShieldBall.gd" id="1_kyuvs"]
 [ext_resource type="Texture2D" uid="uid://m22vx2qp5puy" path="res://Art/Random Assets/spritesheetBugBoss-1.png.png" id="2_dvixu"]
 [ext_resource type="Texture2D" uid="uid://18ai5t0s2lh4" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206_192.png" id="3_6vpm4"]
 [ext_resource type="Texture2D" uid="uid://ddl5k8we8vjhh" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206h_192.png" id="4_nkgi2"]
+[ext_resource type="AudioStream" uid="uid://brwq0xfweymfq" path="res://Audio/Sounds/snd_decibatbouncewave1.wav" id="5_g6646"]
+[ext_resource type="AudioStream" uid="uid://cloergn06du5l" path="res://Audio/Sounds/snd_decibatbouncewave2.wav" id="6_urhmn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_foy04"]
 friction = 0.0
@@ -418,5 +420,13 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(4.2, 4.2)
 shape = SubResource("CircleShape2D_bg441")
+
+[node name="bounce1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_g6646")
+volume_db = -10.0
+
+[node name="bounce2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_urhmn")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

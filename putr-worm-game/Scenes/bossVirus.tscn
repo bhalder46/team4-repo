@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://72dsdqdxfpn0"]
+[gd_scene load_steps=140 format=3 uid="uid://72dsdqdxfpn0"]
 
 [ext_resource type="Script" path="res://Scripts/boss_proto.gd" id="1_t15y1"]
 [ext_resource type="PackedScene" uid="uid://bxhylhjyua04d" path="res://Scenes/blueAttackRIGHT.tscn" id="2_e8ilq"]
@@ -40,6 +40,13 @@
 [ext_resource type="AudioStream" uid="uid://dyw2ykxahlxyu" path="res://Audio/Music/AFTERLIFE - Undertale Yellow OST Extended.mp3" id="37_wx8ip"]
 [ext_resource type="AudioStream" uid="uid://cy4g50qor2aem" path="res://Audio/Sounds/birdDeathSound.mp3" id="38_6bl84"]
 [ext_resource type="Texture2D" uid="uid://bvirkapx04hph" path="res://Art/MiniBird_by_LapizWCG/MiniBird/MiniBird [Metal]/MiniBird [Metal].png" id="39_el1as"]
+[ext_resource type="AudioStream" uid="uid://bibtwt60ivr1u" path="res://Audio/Sounds/mus_f_noise.wav" id="41_0pksr"]
+[ext_resource type="AudioStream" uid="uid://bbem16r45prq" path="res://Audio/Sounds/snd_bullet_warning.wav" id="41_21ifq"]
+[ext_resource type="AudioStream" uid="uid://cq7rotgcpfloa" path="res://Audio/Sounds/snd_hurtdragon.wav" id="42_713fp"]
+[ext_resource type="AudioStream" uid="uid://bwqjx450thk04" path="res://Audio/Sounds/snd_spearappear.wav" id="44_dg24r"]
+[ext_resource type="AudioStream" uid="uid://bpy1fmbq4pwef" path="res://Audio/Sounds/snd_arrow.wav" id="45_8anpl"]
+[ext_resource type="AudioStream" uid="uid://drw36uofeiqco" path="res://Audio/Sounds/mus_sfx_rainbowbeam_1.wav" id="46_ufoaj"]
+[ext_resource type="AudioStream" uid="uid://ciptpfaoa60a8" path="res://Audio/Sounds/mus_sfx_ahh.wav" id="47_hn08m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmfef"]
 radius = 95.5702
@@ -848,10 +855,10 @@ position = Vector2(-736.67, 242.887)
 position = Vector2(-306.463, 561.408)
 
 [node name="yellowHead3" type="Marker2D" parent="."]
-position = Vector2(309.914, 561.408)
+position = Vector2(299.509, 561.408)
 
 [node name="yellowHead4" type="Marker2D" parent="."]
-position = Vector2(674.354, 250.905)
+position = Vector2(672.462, 249.278)
 
 [node name="yellowVFX1" type="GPUParticles2D" parent="."]
 z_index = -2395
@@ -1023,6 +1030,45 @@ offset_bottom = 1302.57
 max_value = 150.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="yellowBlip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("41_21ifq")
+volume_db = -5.0
+max_distance = 1e+14
+
+[node name="yellowSpawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("42_713fp")
+volume_db = -5.0
+pitch_scale = 0.68
+max_distance = 1e+14
+
+[node name="static" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("41_0pksr")
+volume_db = -5.0
+max_distance = 1e+14
+
+[node name="switch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("44_dg24r")
+max_distance = 1e+12
+
+[node name="shootball" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("45_8anpl")
+pitch_scale = 0.4
+max_distance = 1e+12
+
+[node name="shieldOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("46_ufoaj")
+max_distance = 1e+12
+
+[node name="shieldOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("46_ufoaj")
+pitch_scale = 0.6
+max_distance = 1e+12
+
+[node name="heal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("47_hn08m")
+volume_db = -5.0
+max_distance = 1e+12
 
 [connection signal="area_entered" from="hitBox" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="hitBox" to="." method="_on_area_2d_body_entered"]

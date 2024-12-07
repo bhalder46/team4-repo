@@ -71,8 +71,7 @@ func _ready():
 	player.disable_shooting = true
 	
 	await get_tree().create_timer(2.0).timeout
-	#intro()
-	idle()
+	intro()
 	
 func setup_health_bar():
 	health_bar.max_value = max_health
@@ -92,6 +91,7 @@ func intro():
 	await get_tree().create_timer(2.0).timeout
 	animated_sprite_head.play("headShootIntro")
 	await get_tree().create_timer(0.3).timeout
+	$shootball.play()
 	
 	target_position = bird_bullet.global_position + Vector2(0, 147)
 	is_moving = true
@@ -184,6 +184,7 @@ func pulse_light():
 
 func shoot_at_player():
 	if can_attack and player:
+		$shootball.play()
 		animated_sprite_head.play("headShoot")
 		can_attack = false
 
@@ -203,6 +204,7 @@ func shoot_at_player():
 
 func shoot_at_player_red():
 	if can_attack and player:
+		$shootball.play()
 		animated_sprite_head.play("headShoot")
 		can_attack = false
 
@@ -251,6 +253,7 @@ func take_damage():
 		die()
 
 func heal():
+	$heal.play()
 	heal_VFX.emitting = true
 	if is_dying:
 		return  # Prevent healing if the boss is already dying
@@ -338,6 +341,7 @@ func blueShield():
 	animated_sprite_head.play("headIdle")
 	# Activate the shield
 	shield_sprite.play("activate")  # Play the shield activation animation
+	$shieldOn.play()
 	shield_area.monitoring = true  # Enable the Area2D for detection
 	shield_area.monitorable = true  # Enable the Area2D for detection
 	await get_tree().create_timer(1.2).timeout
@@ -361,6 +365,8 @@ func blueShield():
 
 	# Deactivate the shield
 	shield_sprite.play("deactivate")  # Play the shield deactivation animation
+	$shieldOff.play()
+
 	shield_area.monitoring = false  # Disable the Area2D for detection
 	shield_area.monitorable = false  # Enable the Area2D for detection
 	idle()  # Transition to the idle method
@@ -371,6 +377,7 @@ func yellowMovement():
 	print("Yellow method is active")
 		# Make glitch_rect visible for 0.5 seconds
 	glitch_rect.visible = true
+	$static.play()
 	
 	hitBox_regular.monitoring = false
 	hitBox_regular.monitorable = false
@@ -380,6 +387,7 @@ func yellowMovement():
 	animated_sprite_head.play("yellowDisappear")
 	await get_tree().create_timer(0.3).timeout
 	glitch_rect.visible = false
+	$static.stop()
 
 	# Arrays of emitters, markers, and scenes
 	var emitters = [$yellowVFX1, $yellowVFX2, $yellowVFX3, $yellowVFX4]
@@ -390,20 +398,34 @@ func yellowMovement():
 	var indices = [0, 1, 2, 3]
 	indices.shuffle()
 
-	# Loop through shuffled emitters
 	for i in indices:
 		var emitter = emitters[i]
 		var head = heads[i]
 		var scene = scenes[i]
 
-		# Activate the emitter
+	# Activate the emitter
 		emitter.emitting = true
-		await get_tree().create_timer(2.5).timeout  # Wait for 2.5 seconds
+
+		var elapsed_time = 0.0
+		var blip_interval = 0.1  # Adjust interval as needed
+
+	# Play yellowBlip rapidly for 2.5 seconds
+		while elapsed_time < 2.5:
+			$yellowBlip.play()
+			await get_tree().create_timer(blip_interval).timeout
+			elapsed_time += blip_interval
+
+	# Ensure total time is 2.5 seconds
+		if elapsed_time < 2.5:
+			await get_tree().create_timer(2.5 - elapsed_time).timeout
+
 
 		# Instantiate the corresponding boss scene at the marker
 		if scene:
 			var instance = scene.instantiate()
 			instance.global_position = head.global_position
+			$yellowSpawn.pitch_scale = randf_range(0.70, 1.0)
+			$yellowSpawn.play()
 			get_parent().add_child(instance)
 
 		# Deactivate the emitter
@@ -412,8 +434,10 @@ func yellowMovement():
 		
 	await get_tree().create_timer(1.5).timeout
 	glitch_rect.visible = true
+	$static.play()
 	await get_tree().create_timer(.3).timeout
 	glitch_rect.visible = false
+	$static.stop()
 	
 	hitBox_regular.monitoring = true
 	hitBox_regular.monitorable = true
@@ -471,8 +495,9 @@ func colorSwitch():
 	add_child(color_timer)
 
 	color_timer.connect("timeout", Callable(self, "_on_switch_color"))
-
+	
 	await get_tree().create_timer(randf_range(3.0, 4.0)).timeout  # Run for 5 seconds
+
 	color_timer.stop()
 	remove_child(color_timer)
 	color_timer.queue_free()
@@ -491,6 +516,7 @@ func colorSwitch():
 var last_used_color = null
 
 func _on_switch_color():
+	$switch.play()
 	pulse_light()
 	animated_sprite_head.play("headLaugh")
 

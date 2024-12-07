@@ -19,7 +19,9 @@ func start_disappear_cycle() -> void:
 	$Area2D.set_deferred("monitoring", false)  # Temporarily stop monitoring using set_deferred
 	anim_player.play("fade_out")
 	print("Platform is disappearing...")
-	
+	$fade.pitch_scale = randf_range(0.7, 1.0); $fade.play()
+		
+		
 
 	# Wait for the fade out animation to finish
 	await anim_player.animation_finished
@@ -32,6 +34,7 @@ func start_disappear_cycle() -> void:
 
 	# Start fade in animation
 	anim_player.play("fade_in")
+	$appear.pitch_scale = randf_range(0.7, 1.0); $appear.play()
 
 	# Wait for fade in animation to finish
 	await anim_player.animation_finished

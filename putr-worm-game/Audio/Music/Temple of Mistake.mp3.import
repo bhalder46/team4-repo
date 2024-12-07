@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xfvrileb63ma"
+path="res://.godot/imported/Temple of Mistake.mp3-77e273bbca737b62b3d972832b2aaabe.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Temple of Mistake.mp3"
+dest_files=["res://.godot/imported/Temple of Mistake.mp3-77e273bbca737b62b3d972832b2aaabe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

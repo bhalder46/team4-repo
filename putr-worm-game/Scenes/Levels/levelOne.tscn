@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=89 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_dwgih"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_f26wi"]
@@ -15,12 +15,14 @@
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="12_d8e3n"]
 [ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="13_yh75m"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="14_i2oao"]
-[ext_resource type="AudioStream" uid="uid://cnudmswli134v" path="res://Art/WeaponsPack/Fez - Original Game Soundtrack - Puzzle [HD].mp3" id="15_gve27"]
+[ext_resource type="AudioStream" uid="uid://di8baxh3jfhlh" path="res://Audio/Music/puzzle.mp3" id="16_sms56"]
 [ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="16_td70x"]
 [ext_resource type="Script" path="res://Scripts/TrapPlatform.gd" id="17_8d8r8"]
 [ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="18_l0w32"]
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="19_s7e31"]
+[ext_resource type="AudioStream" uid="uid://cyda3lkm0kuuf" path="res://Audio/Sounds/disappear.mp3" id="20_8je63"]
 [ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="20_062ps"]
+[ext_resource type="AudioStream" uid="uid://bvig83d60tdlw" path="res://Audio/Sounds/appear.mp3" id="21_lbgtu"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="21_nmdjt"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="22_hn5pb"]
 [ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="23_80wum"]
@@ -2212,7 +2214,7 @@ position = Vector2(-6.78294, 102)
 scale = Vector2(0.193798, 1)
 
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_gve27")
+stream = ExtResource("16_sms56")
 volume_db = 0.6
 max_distance = 14275.0
 parameters/looping = true
@@ -2257,6 +2259,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform13"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform13"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform14" type="StaticBody2D" parent="Node"]
 position = Vector2(-247, -64)
 scale = Vector2(1.03905, 1.03905)
@@ -2283,6 +2297,18 @@ shape = SubResource("RectangleShape2D_fonvm")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform14"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform14"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform5" type="StaticBody2D" parent="Node"]
 position = Vector2(789, -249)
@@ -2311,6 +2337,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform5"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform5"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform6" type="StaticBody2D" parent="Node"]
 position = Vector2(851, -233)
 scale = Vector2(0.366, 0.366)
@@ -2337,6 +2375,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform6"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform6"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform7" type="StaticBody2D" parent="Node"]
 position = Vector2(915, -247)
@@ -2365,6 +2415,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform7"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform7"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform8" type="StaticBody2D" parent="Node"]
 position = Vector2(980, -229)
 scale = Vector2(0.366, 0.366)
@@ -2391,6 +2453,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform8"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform8"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform9" type="StaticBody2D" parent="Node"]
 position = Vector2(1047, -247)
@@ -2419,6 +2493,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform9"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform9"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform10" type="StaticBody2D" parent="Node"]
 position = Vector2(1161, -262)
 scale = Vector2(0.361858, 0.361858)
@@ -2445,6 +2531,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform10"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform10"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform11" type="StaticBody2D" parent="Node"]
 position = Vector2(1177, -262)
@@ -2473,6 +2571,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform11"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform11"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform12" type="StaticBody2D" parent="Node"]
 position = Vector2(1193, -262)
 scale = Vector2(0.361858, 0.361858)
@@ -2499,6 +2609,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform12"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform12"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform15" type="StaticBody2D" parent="Node"]
 position = Vector2(1209, -262)
@@ -2527,6 +2649,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform15"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform15"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform16" type="StaticBody2D" parent="Node"]
 position = Vector2(1225, -262)
 scale = Vector2(0.361858, 0.361858)
@@ -2553,6 +2687,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform16"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform16"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform17" type="StaticBody2D" parent="Node"]
 position = Vector2(1241, -262)
@@ -2581,6 +2727,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform17"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform17"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform18" type="StaticBody2D" parent="Node"]
 position = Vector2(1161, -133)
 scale = Vector2(0.361858, 0.361858)
@@ -2607,6 +2765,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform18"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform18"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform19" type="StaticBody2D" parent="Node"]
 position = Vector2(1177, -133)
@@ -2635,6 +2805,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform19"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform19"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform20" type="StaticBody2D" parent="Node"]
 position = Vector2(1193, -133)
 scale = Vector2(0.361858, 0.361858)
@@ -2661,6 +2843,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform20"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform20"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform21" type="StaticBody2D" parent="Node"]
 position = Vector2(1209, -133)
@@ -2689,6 +2883,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform21"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform21"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform22" type="StaticBody2D" parent="Node"]
 position = Vector2(1225, -133)
 scale = Vector2(0.361858, 0.361858)
@@ -2715,6 +2921,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform22"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform22"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform23" type="StaticBody2D" parent="Node"]
 position = Vector2(1241, -133)
@@ -2743,6 +2961,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform23"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform23"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform24" type="StaticBody2D" parent="Node"]
 position = Vector2(1161, -5)
 scale = Vector2(0.361858, 0.361858)
@@ -2769,6 +2999,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform24"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform24"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform25" type="StaticBody2D" parent="Node"]
 position = Vector2(1177, -5)
@@ -2797,6 +3039,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform25"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform25"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform26" type="StaticBody2D" parent="Node"]
 position = Vector2(1193, -5)
 scale = Vector2(0.361858, 0.361858)
@@ -2823,6 +3077,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform26"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform26"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Trap Platform27" type="StaticBody2D" parent="Node"]
 position = Vector2(1209, -5)
@@ -2851,6 +3117,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform27"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform27"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform28" type="StaticBody2D" parent="Node"]
 position = Vector2(1225, -5)
 scale = Vector2(0.361858, 0.361858)
@@ -2878,6 +3156,19 @@ libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
 
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform28"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+max_distance = 1e+12
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform28"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
+
 [node name="Trap Platform29" type="StaticBody2D" parent="Node"]
 position = Vector2(1241, -5)
 scale = Vector2(0.361858, 0.361858)
@@ -2904,6 +3195,18 @@ shape = SubResource("RectangleShape2D_e6kyn")
 libraries = {
 "": SubResource("AnimationLibrary_ssng7")
 }
+
+[node name="fade" type="AudioStreamPlayer2D" parent="Node/Trap Platform29"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("20_8je63")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="Node/Trap Platform29"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("21_lbgtu")
+max_distance = 1e+12
 
 [node name="Bird" parent="." instance=ExtResource("19_s7e31")]
 position = Vector2(20.0001, -719)

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mus_f_alarm.ogg-bb4bc792110f8ec9e4b26620b3ea5
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
