@@ -5,6 +5,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	introMusic.play(10)
+	DeathCounter.death_count = 0
 
 # Called when an animation finishes playing.
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

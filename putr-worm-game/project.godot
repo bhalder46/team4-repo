@@ -14,7 +14,7 @@ config/name="Putr Worm Game"
 run/main_scene="res://Scenes/Levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://Art/Random Assets/worm 2/worm - 0.png"
+config/icon="res://Worm Icon.png"
 
 [autoload]
 
