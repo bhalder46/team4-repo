@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=3 uid="uid://q3eaxaytmb4a"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_m54lw"]
+[ext_resource type="Texture2D" uid="uid://cnxrrnx85ts7m" path="res://Art/Pause Menu/IMG_2381.png" id="2_4bknw"]
+[ext_resource type="Shader" path="res://pause_menu.gdshader" id="2_scxsh"]
+[ext_resource type="Texture2D" uid="uid://dapwp48766syx" path="res://Art/Pause Menu/IMG_2375.png" id="3_b575w"]
+[ext_resource type="Texture2D" uid="uid://dio1rdmwevtgn" path="res://Art/Pause Menu/IMG_2376.png" id="4_owdd1"]
+[ext_resource type="Texture2D" uid="uid://bljn48agclnu6" path="res://Art/Pause Menu/IMG_2375-1.png" id="5_qmn6r"]
+[ext_resource type="Texture2D" uid="uid://sdjtmaqvyrge" path="res://Art/Pause Menu/IMG_2377.png" id="5_r5opc"]
+[ext_resource type="Texture2D" uid="uid://bpgmm4bf3esa3" path="res://Art/Pause Menu/IMG_2375-1.png (1).png" id="6_00ktn"]
+[ext_resource type="Texture2D" uid="uid://c2qdbaebw2uhl" path="res://Art/Pause Menu/IMG_2376-1.png (1).png" id="8_nn88o"]
+[ext_resource type="Texture2D" uid="uid://m0puohtosx3c" path="res://Art/Pause Menu/IMG_2376-1.png" id="9_bkpj0"]
+[ext_resource type="Texture2D" uid="uid://ch1jrsp4gbqis" path="res://Art/Pause Menu/IMG_2376-1.png (2).png" id="11_w5ffy"]
+[ext_resource type="Texture2D" uid="uid://bdandho58kcn2" path="res://Art/Pause Menu/IMG_2376-1.png (3).png" id="12_afp82"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srgq6"]
+shader = ExtResource("2_scxsh")
+shader_parameter/amount = 3.0
+
+[node name="Pause_Menu" type="Control"]
+process_mode = 3
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.18, 0.18)
+script = ExtResource("1_m54lw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_srgq6")
+layout_mode = 0
+offset_top = -850.0
+offset_right = 12844.0
+offset_bottom = 7761.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 2205.56
+offset_top = -338.889
+offset_right = 8605.56
+offset_bottom = 6061.11
+texture = ExtResource("2_4bknw")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+process_mode = 2
+layout_mode = 2
+offset_left = 3605.56
+offset_top = 2261.11
+offset_right = 7195.56
+offset_bottom = 3261.11
+mouse_filter = 0
+theme_override_constants/separation = 300
+
+[node name="Respawn" type="TextureButton" parent="HBoxContainer"]
+process_mode = 2
+layout_mode = 2
+texture_normal = ExtResource("3_b575w")
+texture_pressed = ExtResource("5_qmn6r")
+texture_hover = ExtResource("6_00ktn")
+
+[node name="Resume" type="TextureButton" parent="HBoxContainer"]
+process_mode = 2
+layout_mode = 2
+texture_normal = ExtResource("4_owdd1")
+texture_pressed = ExtResource("8_nn88o")
+texture_hover = ExtResource("9_bkpj0")
+
+[node name="Quit" type="TextureButton" parent="HBoxContainer"]
+process_mode = 2
+layout_mode = 2
+texture_normal = ExtResource("5_r5opc")
+texture_pressed = ExtResource("11_w5ffy")
+texture_hover = ExtResource("12_afp82")
+
+[connection signal="pressed" from="HBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_exit_pressed"]
