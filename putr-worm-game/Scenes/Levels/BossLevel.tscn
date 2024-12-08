@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://bfqotab2td11r"]
+[gd_scene load_steps=88 format=4 uid="uid://bfqotab2td11r"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mb6l0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_tulq0"]
@@ -40,7 +40,9 @@
 [ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="39_23mv4"]
 [ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="40_d0qce"]
 [ext_resource type="AudioStream" uid="uid://bibtwt60ivr1u" path="res://Audio/Sounds/mus_f_noise.wav" id="42_3i8km"]
-[ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/7_36_7_622_0-1.png(1).png" id="42_fseti"]
+[ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/sickByte.png" id="42_fseti"]
+[ext_resource type="Texture2D" uid="uid://duh1os5iturmt" path="res://Art/f23308e5b5dac4a.png" id="43_btaag"]
+[ext_resource type="Texture2D" uid="uid://cnxrtr2bf4che" path="res://Art/pixel-art-wrech-icon-png.png" id="44_bnesr"]
 [ext_resource type="Shader" path="res://Scripts/GlitchBOSS.gdshader" id="62_2e8y7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
@@ -2401,7 +2403,7 @@ SPEED = 140.0
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(0, -17.0001)
 offset = Vector2(0, -65)
-zoom = Vector2(2.455, 2.455)
+zoom = Vector2(2.695, 2.695)
 process_callback = 0
 position_smoothing_speed = 8.0
 drag_vertical_offset = 0.01
@@ -2653,6 +2655,19 @@ position = Vector2(357.8, -36.0614)
 rotation = -0.326377
 scale = Vector2(1.625, 1.3125)
 texture = ExtResource("42_fseti")
+
+[node name="Toolbox" type="Sprite2D" parent="."]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(204.5, -23.5)
+scale = Vector2(0.0209052, 0.0196093)
+texture = ExtResource("43_btaag")
+
+[node name="Pixel-art-wrech-icon-png" type="Sprite2D" parent="."]
+position = Vector2(233.582, -56.3409)
+rotation = 0.261799
+scale = Vector2(0.0803868, 0.0865723)
+skew = 0.202394
+texture = ExtResource("44_bnesr")
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]

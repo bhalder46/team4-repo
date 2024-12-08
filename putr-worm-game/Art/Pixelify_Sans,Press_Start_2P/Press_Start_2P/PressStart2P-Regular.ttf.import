@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d0hnelj4q3bmq"
-path="res://.godot/imported/04B_30__.TTF-47f458f69a5cf07e819a005a699ef357.fontdata"
+uid="uid://bgr3qlu3gi55f"
+path="res://.godot/imported/PressStart2P-Regular.ttf-9682c818e3606a24ff889918189582c2.fontdata"
 
 [deps]
 
-source_file="res://Scenes/04B_30__.TTF"
-dest_files=["res://.godot/imported/04B_30__.TTF-47f458f69a5cf07e819a005a699ef357.fontdata"]
+source_file="res://Art/Pixelify_Sans,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf"
+dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-9682c818e3606a24ff889918189582c2.fontdata"]
 
 [params]
 
@@ -27,7 +27,7 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=true
+compress=false
 preload=[{
 "chars": [],
 "glyphs": [],

@@ -30,6 +30,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "transitionFadeOut":
 		get_tree().change_scene_to_file(next_scene)
+		print("next scene")
 
 # New method for handling the "skip" input action
 func _on_skip_pressed() -> void:

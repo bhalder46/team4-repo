@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://br2ueewoylpk5"]
+[gd_scene load_steps=35 format=4 uid="uid://br2ueewoylpk5"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ropvf"]
 [ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="2_4imjc"]
@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="9_0ber1"]
 [ext_resource type="Script" path="res://Scripts/flicker.gd" id="10_l148m"]
 [ext_resource type="AudioStream" uid="uid://bhctx40d7ui6f" path="res://Audio/Music/Undertale Yellow OST_ 046 - Oasis Valley (Indoors)(1).mp3" id="11_nlg0v"]
-[ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/7_36_7_622_0-1.png(1).png" id="12_oopyl"]
+[ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/sickByte.png" id="12_oopyl"]
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="13_7k0ph"]
+[ext_resource type="Texture2D" uid="uid://duh1os5iturmt" path="res://Art/f23308e5b5dac4a.png" id="14_dbcys"]
+[ext_resource type="Texture2D" uid="uid://cnxrtr2bf4che" path="res://Art/pixel-art-wrech-icon-png.png" id="15_uyfne"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4gy0"]
 modulate_color = Color(0.347656, 0.347656, 0.347656, 1)
@@ -1833,28 +1835,12 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4imjc")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxEmpty_c87ec")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kaso7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_n0uc4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n0uc4")
 text = "Start Game"
-
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4imjc")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c87ec")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kaso7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_n0uc4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_n0uc4")
-text = "Options
-"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -1864,7 +1850,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4imjc")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxEmpty_c87ec")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kaso7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_n0uc4")
@@ -1936,12 +1922,12 @@ autoplay = true
 parameters/looping = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(319, 985)
+position = Vector2(323, 985)
 rotation = -0.785397
 scale = Vector2(7.37241, 5.95464)
 texture = ExtResource("12_oopyl")
 script = ExtResource("13_7k0ph")
-bobbing_distance = 5.0
+bobbing_distance = 3.0
 
 [node name="transitionScreen" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -1959,7 +1945,19 @@ libraries = {
 }
 autoplay = "intromenu"
 
+[node name="Toolbox2" type="Sprite2D" parent="."]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(450, 978)
+scale = Vector2(0.0678467, 0.0636408)
+texture = ExtResource("14_dbcys")
+
+[node name="Pixel-art-wrech-icon-png" type="Sprite2D" parent="."]
+position = Vector2(213, 972)
+rotation = -0.736809
+scale = Vector2(0.480566, 0.346211)
+skew = 0.202394
+texture = ExtResource("15_uyfne")
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

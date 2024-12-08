@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckhce0ik5pj4y"
-path="res://.godot/imported/7_36_7_622_0-1.png(1).png-9d65bb59c198e346f3d29fcb5c799068.ctex"
+uid="uid://bdsmdhonbdqp6"
+path="res://.godot/imported/sicker.png-cabf43ca6d9cb6b1e229c221dc043eab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/7_36_7_622_0-1.png(1).png"
-dest_files=["res://.godot/imported/7_36_7_622_0-1.png(1).png-9d65bb59c198e346f3d29fcb5c799068.ctex"]
+source_file="res://NPC/sicker.png"
+dest_files=["res://.godot/imported/sicker.png-cabf43ca6d9cb6b1e229c221dc043eab.ctex"]
 
 [params]
 

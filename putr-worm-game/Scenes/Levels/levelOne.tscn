@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=94 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_dwgih"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_f26wi"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="13_yh75m"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="14_i2oao"]
 [ext_resource type="AudioStream" uid="uid://di8baxh3jfhlh" path="res://Audio/Music/puzzle.mp3" id="16_sms56"]
-[ext_resource type="PackedScene" uid="uid://bivfc3jopmkmx" path="res://Scenes/NPCTest.tscn" id="16_td70x"]
 [ext_resource type="Script" path="res://Scripts/TrapPlatform.gd" id="17_8d8r8"]
 [ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="18_l0w32"]
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="19_s7e31"]
@@ -44,6 +43,9 @@
 [ext_resource type="Texture2D" uid="uid://dwnfm7qq26wbu" path="res://Art/The Numbers.png" id="39_biwpr"]
 [ext_resource type="Script" path="res://Scripts/levelIntro.gd" id="41_vcego"]
 [ext_resource type="FontFile" uid="uid://casflj7ibgo1i" path="res://Art/public-pixel-font/PublicPixel-rv0pA.ttf" id="42_kdac0"]
+[ext_resource type="Texture2D" uid="uid://duh1os5iturmt" path="res://Art/f23308e5b5dac4a.png" id="44_6gtxg"]
+[ext_resource type="Texture2D" uid="uid://cnxrtr2bf4che" path="res://Art/pixel-art-wrech-icon-png.png" id="44_njf04"]
+[ext_resource type="Texture2D" uid="uid://c2qmxlskviio1" path="res://Art/Food.png" id="46_l1tkp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 shader = ExtResource("4_x14qd")
@@ -1909,9 +1911,6 @@ shader_parameter/roll_speed = 1.0
 shader_parameter/scan_line_strength = -8.0
 shader_parameter/pixel_strength = -2.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wiyal"]
-radius = 10.5285
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bmki4"]
 particles_animation = true
 particles_anim_h_frames = 10
@@ -2005,6 +2004,27 @@ _data = {
 "RESET": SubResource("Animation_isf72"),
 "levelIntro": SubResource("Animation_608k4")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wiyal"]
+radius = 7.77588
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kuam5"]
+radius = 1.89313
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jacos"]
+atlas = ExtResource("46_l1tkp")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcq0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jacos")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_dwgih")
@@ -2161,7 +2181,7 @@ position = Vector2(677, 100.5)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("21_nmdjt")]
 y_sort_enabled = true
-position = Vector2(1, -752)
+position = Vector2(1852, 245)
 JUMP_VELOCITY = -321.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
@@ -2226,9 +2246,6 @@ scale = Vector2(1.03134, 1.03134)
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-
-[node name="NpcTest" parent="." instance=ExtResource("16_td70x")]
-position = Vector2(-1426, -1003)
 
 [node name="Node" type="Node" parent="."]
 
@@ -3359,7 +3376,9 @@ patrol_distance = 50.0
 position = Vector2(1552, 272)
 
 [node name="Ranged_mob_proto2" parent="." instance=ExtResource("31_hgmr4")]
-position = Vector2(2084, 101)
+position = Vector2(2092, 101)
+speed = 50.0
+amplitude = 40.0
 patrol_distance = 20.0
 
 [node name="TransitionFadeInLayer" type="CanvasLayer" parent="."]
@@ -3411,29 +3430,6 @@ position = Vector2(481, -862)
 scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("8_ynmch")
 script = ExtResource("9_gpbps")
-
-[node name="NPC" type="Sprite2D" parent="."]
-position = Vector2(-214, -41)
-scale = Vector2(1.625, 1.3125)
-texture = ExtResource("32_crika")
-script = ExtResource("12_d8e3n")
-bobbing_distance = 5.0
-
-[node name="Area2D" type="Area2D" parent="NPC"]
-position = Vector2(-0.615385, 24.381)
-scale = Vector2(1.59, 1.59)
-script = ExtResource("33_sb45t")
-dialog_name = "BitByteLevel1"
-
-[node name="EKey" type="Sprite2D" parent="NPC/Area2D"]
-position = Vector2(11.224, -23.9593)
-scale = Vector2(0.412745, 0.412745)
-texture = ExtResource("34_2oncc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
-position = Vector2(0.387034, -15.8131)
-scale = Vector2(2.57485, 2.57485)
-shape = SubResource("CircleShape2D_wiyal")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 z_index = 1585
@@ -3515,6 +3511,84 @@ position = Vector2(680, -79)
 scale = Vector2(0.5, 0.5)
 patrol_distance = 50.0
 
+[node name="NPC" type="Sprite2D" parent="."]
+position = Vector2(-196, -44)
+scale = Vector2(1.625, 1.3125)
+texture = ExtResource("32_crika")
+script = ExtResource("12_d8e3n")
+bobbing_distance = 5.0
+
+[node name="Area2D" type="Area2D" parent="NPC"]
+position = Vector2(-0.615385, 24.381)
+scale = Vector2(1.59, 1.59)
+script = ExtResource("33_sb45t")
+dialog_name = "BitByteLevel1"
+
+[node name="EKey" type="Sprite2D" parent="NPC/Area2D"]
+position = Vector2(11.224, -23.9593)
+scale = Vector2(0.412745, 0.412745)
+texture = ExtResource("34_2oncc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
+position = Vector2(0.387034, -15.8131)
+scale = Vector2(2.57485, 2.57485)
+shape = SubResource("CircleShape2D_wiyal")
+
+[node name="Pixel-art-wrech-icon-png" type="Sprite2D" parent="NPC"]
+position = Vector2(-10.4615, 2.28571)
+rotation = -0.736809
+scale = Vector2(0.0623728, 0.0595091)
+skew = 0.202394
+texture = ExtResource("44_njf04")
+
+[node name="Toolbox" type="Sprite2D" parent="."]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(-226, -25)
+scale = Vector2(0.0209052, 0.0196093)
+texture = ExtResource("44_6gtxg")
+
+[node name="NPC2" type="Sprite2D" parent="."]
+position = Vector2(1763.54, 114.5)
+scale = Vector2(1.625, 1.3125)
+texture = ExtResource("32_crika")
+script = ExtResource("12_d8e3n")
+bobbing_distance = 5.0
+
+[node name="Area2D" type="Area2D" parent="NPC2"]
+position = Vector2(-0.615385, 24.381)
+scale = Vector2(1.59, 1.59)
+script = ExtResource("33_sb45t")
+dialog_name = "BitByteLevel1"
+
+[node name="EKey" type="Sprite2D" parent="NPC2/Area2D"]
+position = Vector2(11.224, -23.9593)
+scale = Vector2(0.412745, 0.412745)
+texture = ExtResource("34_2oncc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2/Area2D"]
+position = Vector2(0.387034, -15.8131)
+scale = Vector2(2.57485, 2.57485)
+shape = SubResource("CircleShape2D_kuam5")
+
+[node name="Pixel-art-wrech-icon-png" type="Sprite2D" parent="NPC2"]
+position = Vector2(-10.4615, 2.28571)
+rotation = -0.736809
+scale = Vector2(0.0623728, 0.0595091)
+skew = 0.202394
+texture = ExtResource("44_njf04")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC2"]
+position = Vector2(8.2811, 4.19048)
+rotation = 0.47822
+scale = Vector2(0.680211, 0.679142)
+sprite_frames = SubResource("SpriteFrames_kcq0k")
+
+[node name="Toolbox2" type="Sprite2D" parent="."]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(1733.54, 133.5)
+scale = Vector2(0.0209052, 0.0196093)
+texture = ExtResource("44_6gtxg")
+
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Node/Trap Platform14/Area2D" to="Node/Trap Platform14" method="_on_area_2d_body_entered"]
@@ -3569,7 +3643,9 @@ patrol_distance = 50.0
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
 [connection signal="body_entered" from="Computer (Network Access)/Area2D" to="Computer (Network Access)" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Computer (Network Access)/AnimationPlayerFadeOut" to="Computer (Network Access)" method="start_fade_and_change_scene"]
-[connection signal="body_entered" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="animation_finished" from="Area2D2/AnimationPlayer" to="Area2D2" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC/Area2D" to="NPC/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC2/Area2D" to="NPC2/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC2/Area2D" to="NPC2/Area2D" method="_on_body_exited"]

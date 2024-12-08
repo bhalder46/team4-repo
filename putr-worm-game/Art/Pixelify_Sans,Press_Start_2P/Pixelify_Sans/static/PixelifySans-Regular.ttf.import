@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d0hnelj4q3bmq"
-path="res://.godot/imported/04B_30__.TTF-47f458f69a5cf07e819a005a699ef357.fontdata"
+uid="uid://dwpimkpqp3rg3"
+path="res://.godot/imported/PixelifySans-Regular.ttf-802013097e40c1dabbb3610b0a1ef700.fontdata"
 
 [deps]
 
-source_file="res://Scenes/04B_30__.TTF"
-dest_files=["res://.godot/imported/04B_30__.TTF-47f458f69a5cf07e819a005a699ef357.fontdata"]
+source_file="res://Art/Pixelify_Sans,Press_Start_2P/Pixelify_Sans/static/PixelifySans-Regular.ttf"
+dest_files=["res://.godot/imported/PixelifySans-Regular.ttf-802013097e40c1dabbb3610b0a1ef700.fontdata"]
 
 [params]
 
@@ -22,18 +22,13 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=0
+subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

@@ -33,6 +33,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "BitByteDialogue": "res://NPC/BitByteDialogue.dtl",
 "BitByteLevel1": "res://NPC/BitByteLevel1.dtl",
+"BitByteLevel2": "res://NPC/BitByteLevel2.dtl",
+"BitByteLevel3": "res://NPC/BitByteLevel3.dtl",
+"BitByteLevel3Sick": "res://NPC/BitByteLevel3Sick.dtl",
 "TutorialEnd": "res://NPC/TutorialEnd.dtl",
 "TutorialGeneral": "res://NPC/TutorialGeneral.dtl",
 "TutorialGeneralTarget1": "res://NPC/TutorialGeneralTarget1.dtl",
