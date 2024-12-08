@@ -65,6 +65,7 @@ func handle_collisions():
 		flip_direction()
 
 func flip_direction():
+	print("flipping")
 	facing_left = !facing_left
 	animated_sprite.flip_h = !animated_sprite.flip_h
 	velocity.x *= -1

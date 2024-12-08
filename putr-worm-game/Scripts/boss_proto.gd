@@ -258,7 +258,7 @@ func heal():
 	if is_dying:
 		return  # Prevent healing if the boss is already dying
 	
-	current_health += 80  # Heal the boss by 50
+	current_health += 90  # Heal the boss by 50
 	if current_health > max_health:
 		current_health = max_health  # Ensure health doesn't exceed the maximum value
 	
@@ -317,6 +317,14 @@ func redAttack():
 		var red_trap2 = red_boss_trap_scene.instantiate()
 		red_trap2.global_position = $redTrap2.global_position  # Assuming $redTrap2 is the node reference
 		get_parent().add_child(red_trap2)
+		
+		var red_trap3 = red_boss_trap_scene.instantiate()
+		red_trap3.global_position = $redTrap3.global_position  # Assuming $redTrap2 is the node reference
+		get_parent().add_child(red_trap3)
+		
+		var red_trap4 = red_boss_trap_scene.instantiate()
+		red_trap4.global_position = $redTrap4.global_position  # Assuming $redTrap2 is the node reference
+		get_parent().add_child(red_trap4)
 
 
 	# Stop idle behavior during red attack

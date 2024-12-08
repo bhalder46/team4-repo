@@ -695,7 +695,7 @@ shader_parameter/shake_block_size = 30.5
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(160, 1, 1)
-gravity = Vector3(0, -200, 0)
+gravity = Vector3(0, -100, 0)
 scale_min = 2.0
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_fwn6b")
@@ -842,6 +842,12 @@ position = Vector2(-178.347, 286.023)
 [node name="redTrap2" type="Marker2D" parent="."]
 position = Vector2(174.996, 286.023)
 
+[node name="redTrap3" type="Marker2D" parent="."]
+position = Vector2(-399.849, 296.023)
+
+[node name="redTrap4" type="Marker2D" parent="."]
+position = Vector2(399.845, 296.023)
+
 [node name="flySpawn1" type="Marker2D" parent="."]
 position = Vector2(-251.932, 138.216)
 
@@ -974,7 +980,7 @@ emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_y665k")
 texture = ExtResource("33_raeno")
-lifetime = 1.5
+lifetime = 1.9
 one_shot = true
 explosiveness = 1.0
 

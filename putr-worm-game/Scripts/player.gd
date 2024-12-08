@@ -192,7 +192,7 @@ func _physics_process(delta: float) -> void:
 			jump_count = 1  # Reset jump count on ground
 		elif double_jump_enabled and jump_count == 1:  # Second jump mid-air
 			dubJump.play("doubleJump")
-			velocity.y = JUMP_VELOCITY  + 55
+			velocity.y = JUMP_VELOCITY  + 50
 			jump_count = 2  # Increment jump count after double jump
 
 	

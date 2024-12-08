@@ -2753,7 +2753,7 @@ frequency = 0.0
 patrol_distance = 50.0
 
 [node name="Ranged_mob_proto4" parent="." instance=ExtResource("24_3icf0")]
-position = Vector2(492, -233)
+position = Vector2(499, -233)
 speed = 3.0
 amplitude = 10.0
 frequency = 0.0
