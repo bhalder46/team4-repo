@@ -30,4 +30,5 @@ func _on_resume_pressed():
 	
 
 func _on_exit_pressed():
-	get_tree().quit() 
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
