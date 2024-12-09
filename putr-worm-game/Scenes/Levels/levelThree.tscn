@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=4 uid="uid://mwwnos8eoalx"]
+[gd_scene load_steps=128 format=4 uid="uid://mwwnos8eoalx"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_cykx7"]
 [ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="2_ncxdb"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://bf6ux38f3dtg2" path="res://NPC/sickest.png" id="56_x8f6e"]
 [ext_resource type="Texture2D" uid="uid://c2qmxlskviio1" path="res://Art/Food.png" id="57_n7vrn"]
 [ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/sickByte.png" id="58_wh6qf"]
+[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="59_pwh1g"]
 
 [sub_resource type="Shader" id="Shader_wagqb"]
 code = "shader_type canvas_item;
@@ -6555,6 +6556,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Checkpoint13" parent="." groups=["Checkpoints"] instance=ExtResource("24_bejwo")]
 visible = false
 position = Vector2(255.196, -111.881)
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("59_pwh1g")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="AllPortals/Portal2/PortalEntrance/Area2D" to="AllPortals/Portal2" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal2/PortalExit/Area2D" to="AllPortals/Portal2" method="_on_exit_area_entered"]

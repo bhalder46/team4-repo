@@ -5,6 +5,8 @@ extends Sprite2D
 # Reference to the AnimationPlayer node
 @onready var animation_player: AnimationPlayer = $AnimationPlayerFadeOut
 
+@onready var pause_menu = get_parent().get_node("PauseLayer/Pause_Menu")
+
 # Input action to trigger the skip method
 @export var skip_input_action: String = "skip"  # You can customize this in the editor
 
@@ -16,6 +18,7 @@ func _process(delta: float) -> void:
 # Called when the player enters the Area2D
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":  # Check if it is the player
+		pause_menu.can_pause = false
 		print("Player entered the Area2D")  # Debug print
 		if next_scene != "":
 			# Play the transition animation
@@ -31,6 +34,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "transitionFadeOut":
 		get_tree().change_scene_to_file(next_scene)
 		print("next scene")
+		pause_menu.can_pause = true
 
 # New method for handling the "skip" input action
 func _on_skip_pressed() -> void:

@@ -4,11 +4,14 @@ extends Area2D
 var is_active = false
 var has_been_activated = false
 
+@onready var pause_menu = get_node("/root/Game/PauseLayer/Pause_Menu")
+
 func _ready():
 	Dialogic.signal_event.connect(timelineEnd5)  # Connect the signal to the function
 
 func _on_body_entered(body):
 	if body.name == "Player" and not has_been_activated:
+		pause_menu.can_pause = false
 		print("Player entered the area.")
 		has_been_activated = true
 		is_active = true  # This Area2D is now active
@@ -27,6 +30,7 @@ func timelineEnd5(argument: String):
 	# Check if this Area2D is active before changing the player's state
 	if is_active:
 		if argument == "end5":
+			pause_menu.can_pause = true
 			print("End")
 			# Control player's movement and shooting based on the timeline ending
 			var player = get_node("/root/Game/Player")  # Adjust this if the path is different

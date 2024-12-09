@@ -1,5 +1,7 @@
 extends Control
 
+@export var can_pause: bool = true 
+
 @onready var checkpoint_button = $HBoxContainer/Respawn
 @onready var resume_button = $HBoxContainer/Resume
 @onready var exit_button = $HBoxContainer/Quit
@@ -7,10 +9,9 @@ extends Control
 func _ready():
 	hide()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-   
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if can_pause and event.is_action_pressed("pause"):
 		toggle_pause()
 
 func toggle_pause():
@@ -27,7 +28,6 @@ func _on_respawn_pressed():
 func _on_resume_pressed():
 	print("Resume pressed")
 	toggle_pause()
-	
 
 func _on_exit_pressed():
 	get_tree().paused = false

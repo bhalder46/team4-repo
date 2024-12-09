@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=4 uid="uid://bu2xtjcad7awo"]
+[gd_scene load_steps=142 format=4 uid="uid://bu2xtjcad7awo"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_6st4o"]
 [ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="2_6ux8e"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://brdx7hogd0onp" path="res://Art/New Piskel-1.png(4)-1.png.png" id="53_5iri1"]
 [ext_resource type="Texture2D" uid="uid://duh1os5iturmt" path="res://Art/f23308e5b5dac4a.png" id="54_wl0a5"]
 [ext_resource type="Texture2D" uid="uid://cnxrtr2bf4che" path="res://Art/pixel-art-wrech-icon-png.png" id="55_aru8q"]
+[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="56_bfakb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_va72d"]
 texture = ExtResource("4_ox47h")
@@ -3927,6 +3928,12 @@ rotation = 0.0230912
 scale = Vector2(0.0563649, 0.0546126)
 skew = 0.202394
 texture = ExtResource("55_aru8q")
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("56_bfakb")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform4/Area2D" to="Node/Trap Platform4" method="_on_area_2d_body_exited"]

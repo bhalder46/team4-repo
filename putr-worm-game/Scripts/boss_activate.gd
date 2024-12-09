@@ -3,10 +3,13 @@ extends Area2D
 @onready var glitchRect = $glitchRect
 @onready var NetworkMusic = get_node("/root/Game/NetworkMusic")
 
+@onready var pause_menu = get_parent().get_node("PauseLayer/Pause_Menu")
+
 var boss_scene = preload("res://Scenes/bossVirus.tscn")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player": # Ensure it's the player entering
+		pause_menu.can_pause = false
 		await get_tree().create_timer(5.0).timeout # Wait 8 seconds
 		glitchRect.visible = true # Make glitchRect visible
 		$static1.play()

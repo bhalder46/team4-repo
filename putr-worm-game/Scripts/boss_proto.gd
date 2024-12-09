@@ -17,6 +17,7 @@ extends RigidBody2D
 	$bugShield4
 ]  
 
+@onready var pause_menu = get_parent().get_node("PauseLayer/Pause_Menu")
 @onready var hitBox_regular = $hitBox
 @onready var heal_VFX = $healVFX
 
@@ -32,7 +33,7 @@ extends RigidBody2D
 @onready var tv_area = animated_sprite_tv.get_node("tvCrit")
 
 @onready var health_bar = $BossBarCanvas/BossHealthBar
-@onready var point_light = $PointLight2D  # The PointLight2D node
+@onready var point_light = $PointLight2D  
 
 @onready var glitch_rect = $glitchRect 
 
@@ -64,6 +65,8 @@ var is_dying: bool = false
 
 
 func _ready():
+	shield_area.monitoring = true  
+	shield_area.monitorable = true
 	if not player:
 		print("Player not found")
 	
@@ -74,9 +77,19 @@ func _ready():
 	intro()
 	
 func setup_health_bar():
+	health_bar.value = 0
 	health_bar.max_value = max_health
-	health_bar.value = current_health
 	health_bar.show()
+	fill_health_bar()
+	$healthRise.play()
+
+func fill_health_bar():
+	var duration = 4.0  # Duration of the fill animation in seconds
+	var increment = max_health / (duration * 200)  # Increment per frame (assuming 60 FPS)
+	while health_bar.value < current_health:
+		health_bar.value += increment
+		health_bar.value = min(health_bar.value, current_health)  # Avoid overshooting
+		await get_tree().process_frame  # Wait for the next frame
 
 @onready var bird_bullet = $BirdBullet
 @onready var bird = $Bird
@@ -126,10 +139,23 @@ func intro():
 	await get_tree().create_timer(1.0).timeout
 	animated_sprite_vine.play("idleVines")
 	$bossMusic.play()
+	shield_area.monitoring = false  
+	shield_area.monitorable = false 
+	animated_sprite_head.play("headIdle")
+	await get_tree().create_timer(1.1).timeout
+	rapid_color_switch()
+	await get_tree().create_timer(1.0).timeout
 	player.disable_movement = false
 	player.disable_shooting = false
 	idle()
-	
+
+
+var switching = false
+var elapsed_time = 0.0
+var switch_interval = 0.1
+var total_duration = 1.0
+var color_index = 0
+
 func _process(delta: float):
 	if is_moving:
 		# Calculate the direction to move in
@@ -147,6 +173,7 @@ func _process(delta: float):
 			bird_death.play("birdDeath")
 			$birdDeathSound.play()
 	
+	
 	if is_pulsing:
 		pulse_timer += delta
 
@@ -162,7 +189,25 @@ func _process(delta: float):
 			# End the pulse
 			point_light.energy = pulse_energy_start
 			is_pulsing = false
+			
+	if switching:
+		elapsed_time += delta
+		if elapsed_time >= total_duration:
+			switching = false
+			return
+		
+		# Switch color at intervals
+		if int(elapsed_time / switch_interval) > int((elapsed_time - delta) / switch_interval):
+			point_light.color = colors[color_index]
+			color_index = (color_index + 1) % colors.size()
 
+func rapid_color_switch():
+	if switching:
+		return # Prevent multiple triggers
+	switching = true
+	elapsed_time = 0.0
+	color_index = 0
+	
 func _physics_process(_delta):
 	if is_dying:
 		return
@@ -236,6 +281,9 @@ func shoot_at_player_red():
 		can_attack = true
 
 func take_damage():
+	if shield_area.monitoring:
+		return
+		
 	if is_dying:
 		return
 		
@@ -278,7 +326,8 @@ func die():
 	
 	var bossEnd = bossEnding.instantiate()
 	get_parent().add_child(bossEnd)
-
+	
+	
 	player.disable_movement = true
 	player.disable_shooting = true
 	

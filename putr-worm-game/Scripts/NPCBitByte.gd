@@ -7,6 +7,8 @@ var is_active = false
 var has_been_activated = false
 @onready var e_key = $EKey  # Correct path for EKey
 
+@onready var pause_menu = get_node("/root/Game/PauseLayer/Pause_Menu")
+
 func _ready():
 	# Debug print to check if e_key is initialized correctly
 	print("Debug: e_key =", e_key)
@@ -44,6 +46,7 @@ func _on_body_exited(body):
 			print("Debug: e_key is null in _on_body_exited.")
 
 func start_dialog():
+	pause_menu.can_pause = false
 	has_been_activated = true
 	is_active = true
 	
@@ -65,6 +68,7 @@ func timelineEnd5(argument: String):
 		print("End of dialogue reached, restoring control.")
 		
 		var player = get_node("/root/Game/Player")
+		pause_menu.can_pause = true
 		if player:
 			player.disable_movement = false
 			player.disable_shooting = false

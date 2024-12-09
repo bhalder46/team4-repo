@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=4 uid="uid://c3famfwu2clwq"]
+[gd_scene load_steps=147 format=4 uid="uid://c3famfwu2clwq"]
 
 [ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hyh5m"]
 [ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_to3lc"]
@@ -79,6 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="77_45nd4"]
 [ext_resource type="AudioStream" uid="uid://b0ppjqb14vh70" path="res://Audio/Music/Slave (Mr. Peeks' Mix).mp3" id="78_3h8qc"]
 [ext_resource type="Texture2D" uid="uid://2tt4jso8qeur" path="res://Art/pixel-art-red-party-cup-icon-png.png" id="78_736kl"]
+[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="80_s7cta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
 shader = ExtResource("11_divkn")
@@ -1805,6 +1806,9 @@ sources/2 = SubResource("TileSetAtlasSource_8s1op")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u8mg8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltlui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ux1v4"]
+radius = 8.47907
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8liy6"]
 radius = 119.567
@@ -3678,8 +3682,8 @@ script = ExtResource("32_hnquk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler2/Area2D"]
 position = Vector2(28.9043, 375.779)
-scale = Vector2(109.911, 81.7655)
-shape = SubResource("CircleShape2D_ltlui")
+scale = Vector2(17.6225, 1228.81)
+shape = SubResource("CircleShape2D_ux1v4")
 
 [node name="DialogicGameHandler3" type="Node" parent="."]
 script = ExtResource("30_sapb3")
@@ -4098,6 +4102,24 @@ rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
 texture = ExtResource("78_736kl")
 flip_v = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("80_s7cta")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+visible = false
+position = Vector2(139, -33)
+
+[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+visible = false
+position = Vector2(630, -36.0902)
+
+[node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+visible = false
+position = Vector2(985, -134)
 
 [connection signal="body_entered" from="DialogicGameHandler/Area2D" to="DialogicGameHandler/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogicGameHandler2/Area2D" to="DialogicGameHandler2/Area2D" method="_on_body_entered"]

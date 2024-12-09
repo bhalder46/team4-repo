@@ -485,6 +485,7 @@ offset_top = 702.214
 offset_right = -2183.35
 offset_bottom = 742.214
 scale = Vector2(29.6146, 19.7451)
+mouse_filter = 2
 
 [node name="Text 1" type="Label" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 0)

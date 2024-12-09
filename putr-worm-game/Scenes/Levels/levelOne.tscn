@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://dudvd7myrov5n"]
+[gd_scene load_steps=92 format=4 uid="uid://dudvd7myrov5n"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_dwgih"]
 [ext_resource type="Texture2D" uid="uid://cmx3egrqmgx3a" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/CaveTileset.png" id="4_f26wi"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://duh1os5iturmt" path="res://Art/f23308e5b5dac4a.png" id="44_6gtxg"]
 [ext_resource type="Texture2D" uid="uid://cnxrtr2bf4che" path="res://Art/pixel-art-wrech-icon-png.png" id="44_njf04"]
 [ext_resource type="Texture2D" uid="uid://c2qmxlskviio1" path="res://Art/Food.png" id="46_l1tkp"]
+[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="46_pcqa0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
 shader = ExtResource("4_x14qd")
@@ -3550,6 +3551,12 @@ texture = ExtResource("44_6gtxg")
 position = Vector2(2079, 195)
 scale = Vector2(0.5, 0.5)
 patrol_distance = 50.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("46_pcqa0")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]

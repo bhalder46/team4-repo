@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var pause_menu = get_node("/root/Game/PauseLayer/Pause_Menu")
 
 var BirdScene: PackedScene  # Declare a variable to hold the Bird scene
 var is_active = false        # Track if this Area2D is active
@@ -14,6 +15,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player" and not has_been_activated:  # Check if it has been activated before
+		pause_menu.can_pause = false
 		print("Player entered the area.")
 		has_been_activated = true  # Set the flag to indicate the area has been activated
 		is_active = true  # Mark this Area2D as active
@@ -33,6 +35,7 @@ func _on_body_exited(body):
 func timelineEnd2(argument: String):
 	# Only modify the player state if this Area2D is the active one
 	if is_active and argument == "end2":
+		pause_menu.can_pause = true
 		print("End")
 		var player = get_node("/root/Game/Player")  # Adjust the path to your player node as needed
 		if player:

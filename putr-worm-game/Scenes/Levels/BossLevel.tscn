@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://bfqotab2td11r"]
+[gd_scene load_steps=89 format=4 uid="uid://bfqotab2td11r"]
 
 [ext_resource type="Script" path="res://Scripts/GameNetwork1.gd" id="1_mb6l0"]
 [ext_resource type="Script" path="res://Scripts/ScrollAttempt.gd" id="2_tulq0"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://ckhce0ik5pj4y" path="res://NPC/sickByte.png" id="42_fseti"]
 [ext_resource type="Texture2D" uid="uid://duh1os5iturmt" path="res://Art/f23308e5b5dac4a.png" id="43_btaag"]
 [ext_resource type="Texture2D" uid="uid://cnxrtr2bf4che" path="res://Art/pixel-art-wrech-icon-png.png" id="44_bnesr"]
+[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="45_n6tl8"]
 [ext_resource type="Shader" path="res://Scripts/GlitchBOSS.gdshader" id="62_2e8y7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u67rk"]
@@ -2397,7 +2398,7 @@ position = Vector2(32.976, -669.096)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("21_v65my")]
 y_sort_enabled = true
-position = Vector2(2.24097, -608.952)
+position = Vector2(-1, -691)
 SPEED = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
@@ -2668,6 +2669,12 @@ rotation = 0.261799
 scale = Vector2(0.0803868, 0.0865723)
 skew = 0.202394
 texture = ExtResource("44_bnesr")
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("45_n6tl8")]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Node/Trap Platform13/Area2D" to="Node/Trap Platform13" method="_on_area_2d_body_exited"]
