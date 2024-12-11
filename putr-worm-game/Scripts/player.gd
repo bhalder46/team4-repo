@@ -67,6 +67,7 @@ var is_dead: bool = false
 func _ready() -> void:
 	animated_sprite.flip_h = true
 	flip_collision_shape()
+	$doubleUI.visible = false 
 	
 func _process(delta: float) -> void:
 	# Handle the initial red flash
@@ -75,6 +76,7 @@ func _process(delta: float) -> void:
 		if flash_timer <= 0:
 			animated_sprite.modulate = Color(1, 1, 1)  # Reset to normal color
 			flashing = false
+			
 
 	# Handle invincibility frames
 	if is_invincible:
@@ -90,6 +92,12 @@ func _process(delta: float) -> void:
 		if invincibility_timer <= 0:
 			is_invincible = false
 			animated_sprite.visible = true  # Ensure the sprite is visible after i-frames end
+
+	if double_jump_enabled:
+		$doubleUI.visible = true
+		
+	if not double_jump_enabled:
+		$doubleUI.visible = false
 
 func take_damage(amount: int) -> void:
 	if is_invincible or is_dead:

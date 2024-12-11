@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=119 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://xbdvxbl2v6e0" path="res://Art/FX046_01.png" id="20_5bu5q"]
 [ext_resource type="Texture2D" uid="uid://dk4woppfwcsea" path="res://Art/FX046_02.png" id="21_gmhlc"]
 [ext_resource type="Texture2D" uid="uid://bgopp842qrrwp" path="res://Art/FX046_03.png" id="22_2me86"]
+[ext_resource type="Texture2D" uid="uid://b5gi7rfhjmbdq" path="res://Art/DoubleJump.png" id="24_gwc4q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jikkb"]
 atlas = ExtResource("3_0tcss")
@@ -881,6 +882,13 @@ position = Vector2(29.5213, -40.1472)
 scale = Vector2(0.723996, 0.723996)
 sprite_frames = SubResource("SpriteFrames_4m1kx")
 animation = &"1"
+
+[node name="doubleUI" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+position = Vector2(17.3794, -33.8371)
+scale = Vector2(0.433136, 0.439059)
+texture = ExtResource("24_gwc4q")
 
 [connection signal="animation_finished" from="Shield" to="Shield" method="_on_AnimatedSprite2D_animation_finished"]
 [connection signal="body_entered" from="Shield/Area2D" to="Shield" method="_on_Area2D_body_entered"]

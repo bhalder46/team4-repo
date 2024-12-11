@@ -56,53 +56,31 @@ func _physics_process(delta):
 		patrol()
 	
 	move_and_slide()
-
-func should_change_direction() -> bool:
-	if $RayCast_left.is_colliding():
-		var collider = $RayCast_left.get_collider()
-		if collider and not collider.is_in_group("players"):
-			return true
-			
-	if $RayCast_right.is_colliding():
-		var collider = $RayCast_right.get_collider()
-		if collider and not collider.is_in_group("players"):
-			return true
 	
-	if facing_left and not $RayCast_down_left.is_colliding():
+func should_change_direction() -> bool:
+	# Turn around if the mob hits a wall
+	if $RayCast_left.is_colliding() and facing_left:
 		return true
-	elif not facing_left and not $RayCast_down_right.is_colliding():
+	elif $RayCast_right.is_colliding() and not facing_left:
 		return true
-		
-	if $RayCast_down_left.is_colliding():
-		var collider = $RayCast_down_left.get_collider()
-		if collider and collider.is_in_group("players"):
-			return false
-			
-	if $RayCast_down_right.is_colliding():
-		var collider = $RayCast_down_right.get_collider()
-		if collider and collider.is_in_group("players"):
-			return false
+	
+	# Turn around at edges only if not chasing
+	if not is_chasing:
+		if facing_left and not $RayCast_down_left.is_colliding():
+			return true
+		elif not facing_left and not $RayCast_down_right.is_colliding():
+			return true
 	
 	return false
 
 func change_direction():
 	facing_left = !facing_left
-	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
-	velocity.x = speed * (-1 if facing_left else 1)
+	$AnimatedSprite2D.flip_h = not facing_left
 
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
 func patrol():
-	if abs(global_position.x - initial_position.x) >= patrol_distance:
-		change_direction()
-	
-	if facing_left:
-		velocity.x = speed * -1
-	else:
-		velocity.x = speed * 1
-		
+	# Set movement direction based on facing direction
+	velocity.x = -speed if facing_left else speed
 	animated_sprite.play("walk")
 
 func chase_player():
@@ -118,6 +96,13 @@ func chase_player():
 		change_direction()
 	elif velocity.x > 0 and facing_left:
 		change_direction()
+
+func apply_gravity(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+
+
 
 func start_retreat():
 	is_retreating = true
@@ -161,14 +146,17 @@ func perform_attack():
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
 
-# Area2D detection functions
+var is_chasing = false 
+
 func _on_chase_area_body_entered(body):
 	if body.is_in_group("players"):
 		player_in_chase_range = true
+		is_chasing = true 
 
 func _on_chase_area_body_exited(body):
 	if body.is_in_group("players"):
 		player_in_chase_range = false
+		is_chasing = false 
 
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("players"):

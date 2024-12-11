@@ -14,6 +14,8 @@ config/name="Putr Worm Game"
 run/main_scene="res://Scenes/Levels/main_menu_first.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Worm Icon.png"
+boot_splash/fullsize=false
 config/icon="res://Worm Icon.png"
 
 [autoload]
@@ -166,3 +168,4 @@ pause={
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

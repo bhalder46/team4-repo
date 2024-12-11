@@ -48,7 +48,9 @@ func _physics_process(delta):
 		return
 		
 	time_elapsed += delta
-	handle_collisions()
+	
+	if should_change_direction():
+		flip_direction()
 	
 	if player_in_range and can_attack and is_instance_valid(player):
 		shoot_at_player()
@@ -57,12 +59,14 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func handle_collisions():
-	if $RayCast_left.is_colliding() and $RayCast_left.get_collider() and not $RayCast_left.get_collider().is_in_group("players"):
-		flip_direction()
-	
-	if $RayCast_right.is_colliding() and $RayCast_right.get_collider() and not $RayCast_right.get_collider().is_in_group("players"):
-		flip_direction()
+func should_change_direction() -> bool:
+	# Turn around if the mob hits a wall
+	if $RayCast_left.is_colliding() and facing_left:
+		return true
+	elif $RayCast_right.is_colliding() and not facing_left:
+		return true
+		
+	return false 
 
 func flip_direction():
 	if is_stationary:
@@ -76,8 +80,6 @@ func patrol(delta):
 	if is_stationary:
 		return  # Do nothing if stationary
 
-	if abs(global_position.x - initial_position.x) >= patrol_distance:
-		flip_direction()
 	
 	if facing_left:
 		velocity.x = speed * -1

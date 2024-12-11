@@ -48,65 +48,48 @@ func _physics_process(delta):
 	if is_hurt or is_attacking:
 		move_and_slide()
 		return
-   	 
+	
 	apply_gravity(delta)
 	
+	# Check for direction changes based on raycasts
 	if should_change_direction():
 		change_direction()
 	
+	# Patrol or chase logic
 	if is_chasing:
 		chase_player()
-   	 
-	if not is_chasing:
+	else:
 		patrol()
 	
 	move_and_slide()
 
 func should_change_direction() -> bool:
-	if $RayCast_left.is_colliding():
-		var collider = $RayCast_left.get_collider()
-		if collider and not collider.is_in_group("players"):
+	# Turn around if the mob hits a wall
+	if $RayCast_left.is_colliding() and facing_left:
+		return true
+	elif $RayCast_right.is_colliding() and not facing_left:
+		return true
+	
+	# Turn around at edges only if not chasing
+	if not is_chasing:
+		if facing_left and not $RayCast_down_left.is_colliding():
 			return true
-	   	 
-	if $RayCast_right.is_colliding():
-		var collider = $RayCast_right.get_collider()
-		if collider and not collider.is_in_group("players"):
+		elif not facing_left and not $RayCast_down_right.is_colliding():
 			return true
 	
-	if facing_left and not $RayCast_down_left.is_colliding():
-		return true
-	elif not facing_left and not $RayCast_down_right.is_colliding():
-		return true
-   	 
-	if $RayCast_down_left.is_colliding():
-		var collider = $RayCast_down_left.get_collider()
-		if collider and collider.is_in_group("players"):
-			return false
-	   	 
-	if $RayCast_down_right.is_colliding():
-		var collider = $RayCast_down_right.get_collider()
-		if collider and collider.is_in_group("players"):
-			return false
 	
 	return false
 
-
 func patrol():
-	
-	if abs(global_position.x - initial_position.x) >= patrol_distance:
-		change_direction()
-	
-	if facing_left:
-		velocity.x = speed * -1
-	else:
-		velocity.x = speed * 1
-   	 
+	# Set movement direction based on facing direction
+	velocity.x = -speed if facing_left else speed
 	animated_sprite.play("walk")
 
 func change_direction():
+	# Flip the direction
 	facing_left = !facing_left
-	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
-	velocity.x = speed * (-1 if facing_left else 1)
+	$AnimatedSprite2D.flip_h = facing_left
+
 
 
 func apply_gravity(delta):
