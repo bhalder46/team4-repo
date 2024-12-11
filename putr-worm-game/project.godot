@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Putr Worm Game"
-run/main_scene="res://Scenes/Levels/main_menu.tscn"
+run/main_scene="res://Scenes/Levels/main_menu_first.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Worm Icon.png"

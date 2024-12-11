@@ -18,7 +18,7 @@ var buffswitch_cooldown: float = 0.0
 var buffswitch_delay: float = 0.7  # 1 second delay
 
 # Speed, jump, and shoot buffs
-var speed_boost: float = 1.6  
+var speed_boost: float = 1.4
 var jump_boost: float = 1.0
 var shoot_cooldown_boost: float = 1.50
 

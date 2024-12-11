@@ -48,7 +48,7 @@ func _physics_process(delta):
 	if is_hurt or is_attacking:
 		move_and_slide()
 		return
-		
+   	 
 	apply_gravity(delta)
 	
 	if should_change_direction():
@@ -56,7 +56,8 @@ func _physics_process(delta):
 	
 	if is_chasing:
 		chase_player()
-	else:
+   	 
+	if not is_chasing:
 		patrol()
 	
 	move_and_slide()
@@ -66,7 +67,7 @@ func should_change_direction() -> bool:
 		var collider = $RayCast_left.get_collider()
 		if collider and not collider.is_in_group("players"):
 			return true
-			
+	   	 
 	if $RayCast_right.is_colliding():
 		var collider = $RayCast_right.get_collider()
 		if collider and not collider.is_in_group("players"):
@@ -76,12 +77,12 @@ func should_change_direction() -> bool:
 		return true
 	elif not facing_left and not $RayCast_down_right.is_colliding():
 		return true
-		
+   	 
 	if $RayCast_down_left.is_colliding():
 		var collider = $RayCast_down_left.get_collider()
 		if collider and collider.is_in_group("players"):
 			return false
-			
+	   	 
 	if $RayCast_down_right.is_colliding():
 		var collider = $RayCast_down_right.get_collider()
 		if collider and collider.is_in_group("players"):
@@ -89,16 +90,9 @@ func should_change_direction() -> bool:
 	
 	return false
 
-func change_direction():
-	facing_left = !facing_left
-	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
-	velocity.x = speed * (-1 if facing_left else 1)
-
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
 func patrol():
+	
 	if abs(global_position.x - initial_position.x) >= patrol_distance:
 		change_direction()
 	
@@ -106,8 +100,20 @@ func patrol():
 		velocity.x = speed * -1
 	else:
 		velocity.x = speed * 1
-		
+   	 
 	animated_sprite.play("walk")
+
+func change_direction():
+	facing_left = !facing_left
+	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+	velocity.x = speed * (-1 if facing_left else 1)
+
+
+func apply_gravity(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+
 
 func chase_player():
 	var direction = (player.global_position - global_position).normalized()
@@ -122,15 +128,15 @@ func chase_player():
 func attack_player():
 	if is_dying:
 		return
-		
+   	 
 	if not is_attacking and can_attack and player_in_attack_area:
 		is_attacking = true
 		velocity.x = 0
 		animated_sprite.play("attack")
-		
+   	 
 		if player and player.has_method("take_damage"):
 			player.take_damage(1)  # Call the player's take_damage method
-			
+	   	 
 		can_attack = false
 	
 		await animated_sprite.animation_finished
@@ -138,7 +144,7 @@ func attack_player():
 	
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true
-		
+   	 
 		# If the player is still in the area, trigger another attack
 		if player_in_attack_area:
 			attack_player()
@@ -151,6 +157,8 @@ func _on_chase_area_body_entered(body):
 func _on_chase_area_body_exited(body):
 	if body.is_in_group("players"):
 		is_chasing = false
+   	 
+	
 
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("players"):
@@ -165,7 +173,7 @@ func _on_attack_area_body_exited(body):
 
 func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
 
-		
+   	 
 	current_health -= amount
 	health_bar.value = current_health
 	
@@ -182,6 +190,7 @@ func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
 	is_hurt = false
 	
 	if current_health <= 0:
+		is_dying = true
 		die()
 
 func _on_area_entered(area):
@@ -192,7 +201,7 @@ func _on_area_entered(area):
 		print("area entered")
 
 func die():
-	is_dying = true
+   	 
 	if bug_death:
 		bug_death.play()
 	is_attacking = false

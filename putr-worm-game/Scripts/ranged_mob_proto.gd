@@ -8,8 +8,8 @@ extends CharacterBody2D
 @export var frequency: float = 2.0
 @export var attack_cooldown: float = 1.0
 @export var patrol_distance: float = 300.0
+@export var is_stationary: bool = false  # New variable to control enemy movement
 @onready var bug_death: AudioStreamPlayer = $"../BugDeath"
-
 
 var base_y: float
 var time_elapsed: float = 0.0
@@ -52,25 +52,30 @@ func _physics_process(delta):
 	
 	if player_in_range and can_attack and is_instance_valid(player):
 		shoot_at_player()
-	else:
+	elif not is_stationary:  # Enemy won't patrol or move if stationary
 		patrol(delta)
 	
 	move_and_slide()
 
 func handle_collisions():
-	if $RayCast_left.is_colliding() and not $RayCast_left.get_collider().is_in_group("players"):
+	if $RayCast_left.is_colliding() and $RayCast_left.get_collider() and not $RayCast_left.get_collider().is_in_group("players"):
 		flip_direction()
 	
-	if $RayCast_right.is_colliding() and not $RayCast_right.get_collider().is_in_group("players"):
+	if $RayCast_right.is_colliding() and $RayCast_right.get_collider() and not $RayCast_right.get_collider().is_in_group("players"):
 		flip_direction()
 
 func flip_direction():
-	print("flipping")
+	if is_stationary:
+		return  # Do nothing if stationary
+	
 	facing_left = !facing_left
 	animated_sprite.flip_h = !animated_sprite.flip_h
 	velocity.x *= -1
 
 func patrol(delta):
+	if is_stationary:
+		return  # Do nothing if stationary
+
 	if abs(global_position.x - initial_position.x) >= patrol_distance:
 		flip_direction()
 	
@@ -130,6 +135,7 @@ func _on_area_entered(area):
 
 func die():
 	is_dying = true
+		
 	animated_sprite.play("death")
 	
 	if bug_death:

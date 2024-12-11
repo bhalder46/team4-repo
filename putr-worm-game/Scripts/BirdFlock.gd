@@ -3,7 +3,7 @@ extends Node2D
 # Speed in pixels per second
 @export var speed: float = 100.0
 # Duration to move before deleting the node (in seconds)
-@export var move_duration: float = 10.0
+@export var move_duration: float = 20.0
 
 # Time elapsed since movement started
 var elapsed_time: float = 0.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3ex4mau6qpkb"
+path="res://.godot/imported/Getting Started.mp3-7e21d4b8e746c36efab416cfb02b8a3e.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Getting Started.mp3"
+dest_files=["res://.godot/imported/Getting Started.mp3-7e21d4b8e746c36efab416cfb02b8a3e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

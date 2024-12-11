@@ -19,7 +19,7 @@ var player_in_attack_range: bool = false
 
 # New variables for retreat control
 var retreat_start_position: Vector2
-var retreat_distance: float = 100.0  # How far to retreat in pixels
+var retreat_distance: float = 70.0  # How far to retreat in pixels
 var health: int = 2  # Number of hits required to trigger die
 
 func _ready():
@@ -182,6 +182,8 @@ func _on_area_entered(area):
 	if area.is_in_group("bullets"):
 		take_damage()
 
+var is_dying = false 
+
 func take_damage():
 	
 	animated_sprite.modulate = Color(1, 0.3, 0.3)
@@ -189,9 +191,12 @@ func take_damage():
 	animated_sprite.modulate = Color(1, 1, 1)
 	health -= 1
 	if health <= 0:
+		var is_dying = true
 		die()
 
 func die():
+	if is_dying:
+		return
 	is_attacking = false
 	is_retreating = false
 	if bug_death:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=118 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://18ai5t0s2lh4" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206_192.png" id="14_746xo"]
 [ext_resource type="Script" path="res://Scripts/shield.gd" id="16_osfvu"]
 [ext_resource type="Texture2D" uid="uid://d24vfqvghntcp" path="res://Art/left_arrow_sticker_by_s_a_r_c_ddmch16-fullview.png" id="17_qr2rg"]
+[ext_resource type="Texture2D" uid="uid://dadcb13xnpafj" path="res://Art/ShieldUI/ShieldAnimation.png" id="18_p5qvs"]
 [ext_resource type="Texture2D" uid="uid://c5jl0vq8alxoj" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Desappearing (96x96).png" id="19_66sip"]
 [ext_resource type="Texture2D" uid="uid://xbdvxbl2v6e0" path="res://Art/FX046_01.png" id="20_5bu5q"]
 [ext_resource type="Texture2D" uid="uid://dk4woppfwcsea" path="res://Art/FX046_02.png" id="21_gmhlc"]
@@ -214,6 +215,59 @@ animations = [{
 "name": &"shoot",
 "speed": 10.0
 }]
+
+[sub_resource type="Animation" id="Animation_ye0de"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1n0b3"]
+resource_name = "deathUI"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eaqto"]
+resource_name = "spawnUI"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbbo0"]
+_data = {
+"RESET": SubResource("Animation_ye0de"),
+"deathUI": SubResource("Animation_1n0b3"),
+"spawnUI": SubResource("Animation_eaqto")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frtjj"]
 atlas = ExtResource("14_746xo")
@@ -652,6 +706,69 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_db0p2"]
+atlas = ExtResource("18_p5qvs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m13n7"]
+atlas = ExtResource("18_p5qvs")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nm4b"]
+atlas = ExtResource("18_p5qvs")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id6mk"]
+atlas = ExtResource("18_p5qvs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2cma"]
+atlas = ExtResource("18_p5qvs")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4m1kx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db0p2")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m13n7")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nm4b")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id6mk")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2cma")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 z_index = 200
 script = ExtResource("1_bjqqb")
@@ -693,8 +810,14 @@ scale = Vector2(1.48725, 1.70009)
 stream = ExtResource("9_12wdq")
 volume_db = 3.0
 
+[node name="shieldAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../shieldUI")
+libraries = {
+"": SubResource("AnimationLibrary_dbbo0")
+}
+
 [node name="Shield" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.286275)
+modulate = Color(1, 1, 1, 0.243137)
 z_index = 1300
 position = Vector2(1, -19)
 scale = Vector2(0.373206, 0.373206)
@@ -750,6 +873,14 @@ sprite_frames = SubResource("SpriteFrames_d4snw")
 animation = &"doubleJump"
 frame = 3
 frame_progress = 1.0
+
+[node name="shieldUI" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+position = Vector2(29.5213, -40.1472)
+scale = Vector2(0.723996, 0.723996)
+sprite_frames = SubResource("SpriteFrames_4m1kx")
+animation = &"1"
 
 [connection signal="animation_finished" from="Shield" to="Shield" method="_on_AnimatedSprite2D_animation_finished"]
 [connection signal="body_entered" from="Shield/Area2D" to="Shield" method="_on_Area2D_body_entered"]

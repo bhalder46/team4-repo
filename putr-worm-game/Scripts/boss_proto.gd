@@ -58,7 +58,7 @@ var is_red_method_active: bool = false  # New flag for red method activation
 # Health system
 var max_health: float = 1500.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 15.0
+var damage_taken_per_hit: float = 17.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 var is_dying: bool = false
