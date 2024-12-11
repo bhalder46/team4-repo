@@ -55,7 +55,7 @@ var player_in_range: bool = false
 var is_idle_active: bool = false  # New variable to check if idle is active
 var is_red_method_active: bool = false  # New flag for red method activation
 
-# Health system
+
 var max_health: float = 1500.0
 var current_health: float = max_health
 var damage_taken_per_hit: float = 17.0
@@ -303,15 +303,32 @@ func take_damage():
 func heal():
 	$heal.play()
 	heal_VFX.emitting = true
+
 	if is_dying:
 		return  # Prevent healing if the boss is already dying
-	
-	current_health += 90  # Heal the boss by 50
+
+	current_health += 90  # Heal the boss by 90
 	if current_health > max_health:
 		current_health = max_health  # Ensure health doesn't exceed the maximum value
-	
-	health_bar.value = current_health  # Update the health bardddd
+
+	health_bar.value = current_health  # Update the health bar
 	print("Boss healed! Current health: ", current_health)
+
+	# Create a new StyleBoxFlat and set it as an override for the fill
+	var style_box = StyleBoxFlat.new()
+	style_box.bg_color = Color(0, 1, 0)  # Green for healing
+
+	# Apply the new style to the fill using theme_override_styles
+	health_bar.set("theme_override_styles/fill", style_box)
+
+	# Wait for 0.5 seconds before resetting
+	await get_tree().create_timer(0.2).timeout
+
+	# Reset the fill color to white
+	style_box.bg_color = Color(1, 1, 1)  # White for default
+	health_bar.set("theme_override_styles/fill", style_box)
+	print("Fill color reset to white.")
+
 
 
 func die():
