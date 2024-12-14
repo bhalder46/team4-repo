@@ -4659,206 +4659,6 @@ shape = SubResource("CircleShape2D_6owm2")
 
 [node name="FadingPlatforms" type="Node" parent="."]
 
-[node name="Trap Platform4" type="StaticBody2D" parent="FadingPlatforms"]
-modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(197, 619)
-scale = Vector2(0.366, 0.366)
-script = ExtResource("16_w08im")
-
-[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform4"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(969.616, 38.7847)
-scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_wn17l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform4"]
-position = Vector2(970.101, 39.2695)
-shape = SubResource("RectangleShape2D_m6ctg")
-
-[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform4/Area2D"]
-position = Vector2(969.945, 35.5191)
-scale = Vector2(2.5, 2.668)
-shape = SubResource("RectangleShape2D_chmsf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform4"]
-libraries = {
-"": SubResource("AnimationLibrary_iytt4")
-}
-
-[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform4"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("26_ng1v4")
-volume_db = 5.0
-
-[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform4"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("27_rbtbk")
-max_distance = 1e+12
-
-[node name="Trap Platform5" type="StaticBody2D" parent="FadingPlatforms"]
-modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(245, 586)
-scale = Vector2(0.366, 0.366)
-script = ExtResource("16_w08im")
-
-[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform5"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(969.616, 38.7847)
-scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_wn17l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform5"]
-position = Vector2(970.101, 39.2695)
-shape = SubResource("RectangleShape2D_m6ctg")
-
-[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform5/Area2D"]
-position = Vector2(969.945, 35.5191)
-scale = Vector2(2.5, 2.668)
-shape = SubResource("RectangleShape2D_chmsf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform5"]
-libraries = {
-"": SubResource("AnimationLibrary_iytt4")
-}
-
-[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform5"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("26_ng1v4")
-volume_db = 5.0
-
-[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform5"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("27_rbtbk")
-max_distance = 1e+12
-
-[node name="Trap Platform6" type="StaticBody2D" parent="FadingPlatforms"]
-modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(197, 555)
-scale = Vector2(0.366, 0.366)
-script = ExtResource("16_w08im")
-
-[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform6"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(969.616, 38.7847)
-scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_wn17l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform6"]
-position = Vector2(970.101, 39.2695)
-shape = SubResource("RectangleShape2D_m6ctg")
-
-[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform6/Area2D"]
-position = Vector2(969.945, 35.5191)
-scale = Vector2(2.5, 2.668)
-shape = SubResource("RectangleShape2D_chmsf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform6"]
-libraries = {
-"": SubResource("AnimationLibrary_iytt4")
-}
-
-[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform6"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("26_ng1v4")
-volume_db = 5.0
-
-[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform6"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("27_rbtbk")
-max_distance = 1e+12
-
-[node name="Trap Platform7" type="StaticBody2D" parent="FadingPlatforms"]
-modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(245, 521)
-scale = Vector2(0.366, 0.366)
-script = ExtResource("16_w08im")
-
-[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform7"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(969.616, 38.7847)
-scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_wn17l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform7"]
-position = Vector2(970.101, 39.2695)
-shape = SubResource("RectangleShape2D_m6ctg")
-
-[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform7/Area2D"]
-position = Vector2(969.945, 35.5191)
-scale = Vector2(2.5, 2.668)
-shape = SubResource("RectangleShape2D_chmsf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform7"]
-libraries = {
-"": SubResource("AnimationLibrary_iytt4")
-}
-
-[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform7"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("26_ng1v4")
-volume_db = 5.0
-
-[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform7"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("27_rbtbk")
-max_distance = 1e+12
-
-[node name="Trap Platform8" type="StaticBody2D" parent="FadingPlatforms"]
-modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(197, 489)
-scale = Vector2(0.366, 0.366)
-script = ExtResource("16_w08im")
-
-[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform8"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(969.616, 38.7847)
-scale = Vector2(0.952, 0.937)
-texture = ExtResource("17_wn17l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform8"]
-position = Vector2(970.101, 39.2695)
-shape = SubResource("RectangleShape2D_m6ctg")
-
-[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform8/Area2D"]
-position = Vector2(969.945, 35.5191)
-scale = Vector2(2.5, 2.668)
-shape = SubResource("RectangleShape2D_chmsf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform8"]
-libraries = {
-"": SubResource("AnimationLibrary_iytt4")
-}
-
-[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform8"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("26_ng1v4")
-volume_db = 5.0
-
-[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform8"]
-position = Vector2(546.653, 61.5947)
-scale = Vector2(0.962418, 0.962418)
-stream = ExtResource("27_rbtbk")
-max_distance = 1e+12
-
 [node name="Trap Platform9" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
 position = Vector2(197, 682)
@@ -5021,7 +4821,7 @@ max_distance = 1e+12
 
 [node name="Trap Platform13" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(245, 650)
+position = Vector2(245, 644.241)
 scale = Vector2(0.366, 0.366)
 script = ExtResource("16_w08im")
 
@@ -5061,7 +4861,7 @@ max_distance = 1e+12
 
 [node name="Trap Platform14" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(2581, -1206)
+position = Vector2(197.599, 608.767)
 scale = Vector2(0.366, 0.366)
 script = ExtResource("16_w08im")
 
@@ -5101,7 +4901,7 @@ max_distance = 1e+12
 
 [node name="Trap Platform15" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(2661, -1206)
+position = Vector2(244.218, 568.118)
 scale = Vector2(0.366, 0.366)
 script = ExtResource("16_w08im")
 
@@ -5141,7 +4941,7 @@ max_distance = 1e+12
 
 [node name="Trap Platform16" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(245, 457)
+position = Vector2(197.599, 524.132)
 scale = Vector2(0.366, 0.366)
 script = ExtResource("16_w08im")
 
@@ -5181,7 +4981,7 @@ max_distance = 1e+12
 
 [node name="Trap Platform17" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(197, 426)
+position = Vector2(244.218, 477.597)
 scale = Vector2(0.366, 0.366)
 script = ExtResource("16_w08im")
 
@@ -5221,7 +5021,7 @@ max_distance = 1e+12
 
 [node name="Trap Platform18" type="StaticBody2D" parent="FadingPlatforms"]
 modulate = Color(0.453008, 0.387145, 0.79506, 1)
-position = Vector2(245, 394)
+position = Vector2(198.434, 427.754)
 scale = Vector2(0.366, 0.366)
 script = ExtResource("16_w08im")
 
@@ -5254,6 +5054,86 @@ stream = ExtResource("26_ng1v4")
 volume_db = 5.0
 
 [node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform18"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("27_rbtbk")
+max_distance = 1e+12
+
+[node name="Trap Platform19" type="StaticBody2D" parent="FadingPlatforms"]
+modulate = Color(0.453008, 0.387145, 0.79506, 1)
+position = Vector2(2465.41, -1223.12)
+scale = Vector2(0.499428, 0.499428)
+script = ExtResource("16_w08im")
+
+[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform19"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(969.616, 38.7847)
+scale = Vector2(0.952, 0.937)
+texture = ExtResource("17_wn17l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform19"]
+position = Vector2(970.101, 39.2695)
+shape = SubResource("RectangleShape2D_m6ctg")
+
+[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform19"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform19/Area2D"]
+position = Vector2(969.945, 35.5191)
+scale = Vector2(2.5, 2.668)
+shape = SubResource("RectangleShape2D_chmsf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform19"]
+libraries = {
+"": SubResource("AnimationLibrary_iytt4")
+}
+
+[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform19"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("26_ng1v4")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform19"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("27_rbtbk")
+max_distance = 1e+12
+
+[node name="Trap Platform20" type="StaticBody2D" parent="FadingPlatforms"]
+modulate = Color(0.453008, 0.387145, 0.79506, 1)
+position = Vector2(2517.84, -1223.22)
+scale = Vector2(0.499428, 0.499428)
+script = ExtResource("16_w08im")
+
+[node name="Sprite2D" type="Sprite2D" parent="FadingPlatforms/Trap Platform20"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(969.616, 38.7847)
+scale = Vector2(0.952, 0.937)
+texture = ExtResource("17_wn17l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform20"]
+position = Vector2(970.101, 39.2695)
+shape = SubResource("RectangleShape2D_m6ctg")
+
+[node name="Area2D" type="Area2D" parent="FadingPlatforms/Trap Platform20"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingPlatforms/Trap Platform20/Area2D"]
+position = Vector2(969.945, 35.5191)
+scale = Vector2(2.5, 2.668)
+shape = SubResource("RectangleShape2D_chmsf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingPlatforms/Trap Platform20"]
+libraries = {
+"": SubResource("AnimationLibrary_iytt4")
+}
+
+[node name="fade" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform20"]
+position = Vector2(546.653, 61.5947)
+scale = Vector2(0.962418, 0.962418)
+stream = ExtResource("26_ng1v4")
+volume_db = 5.0
+
+[node name="appear" type="AudioStreamPlayer2D" parent="FadingPlatforms/Trap Platform20"]
 position = Vector2(546.653, 61.5947)
 scale = Vector2(0.962418, 0.962418)
 stream = ExtResource("27_rbtbk")
@@ -6102,7 +5982,7 @@ scale = Vector2(0.488643, 0.488643)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("20_57shk")]
 y_sort_enabled = true
-position = Vector2(252.763, -119.767)
+position = Vector2(257.757, -117.589)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)
@@ -6677,16 +6557,6 @@ patrol_distance = 1500.0
 [connection signal="body_entered" from="AllPortals/Portal13/PortalExit/Area2D" to="AllPortals/Portal13" method="_on_exit_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal8/PortalEntrance/Area2D" to="AllPortals/Portal8" method="_on_entrance_area_entered"]
 [connection signal="body_entered" from="AllPortals/Portal8/PortalExit/Area2D" to="AllPortals/Portal8" method="_on_exit_area_entered"]
-[connection signal="body_entered" from="FadingPlatforms/Trap Platform4/Area2D" to="FadingPlatforms/Trap Platform4" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FadingPlatforms/Trap Platform4/Area2D" to="FadingPlatforms/Trap Platform4" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="FadingPlatforms/Trap Platform5/Area2D" to="FadingPlatforms/Trap Platform5" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FadingPlatforms/Trap Platform5/Area2D" to="FadingPlatforms/Trap Platform5" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="FadingPlatforms/Trap Platform6/Area2D" to="FadingPlatforms/Trap Platform6" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FadingPlatforms/Trap Platform6/Area2D" to="FadingPlatforms/Trap Platform6" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="FadingPlatforms/Trap Platform7/Area2D" to="FadingPlatforms/Trap Platform7" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FadingPlatforms/Trap Platform7/Area2D" to="FadingPlatforms/Trap Platform7" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="FadingPlatforms/Trap Platform8/Area2D" to="FadingPlatforms/Trap Platform8" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FadingPlatforms/Trap Platform8/Area2D" to="FadingPlatforms/Trap Platform8" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="FadingPlatforms/Trap Platform9/Area2D" to="FadingPlatforms/Trap Platform9" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="FadingPlatforms/Trap Platform9/Area2D" to="FadingPlatforms/Trap Platform9" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="FadingPlatforms/Trap Platform10/Area2D" to="FadingPlatforms/Trap Platform10" method="_on_area_2d_body_entered"]
@@ -6707,6 +6577,10 @@ patrol_distance = 1500.0
 [connection signal="body_exited" from="FadingPlatforms/Trap Platform17/Area2D" to="FadingPlatforms/Trap Platform17" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="FadingPlatforms/Trap Platform18/Area2D" to="FadingPlatforms/Trap Platform18" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="FadingPlatforms/Trap Platform18/Area2D" to="FadingPlatforms/Trap Platform18" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="FadingPlatforms/Trap Platform19/Area2D" to="FadingPlatforms/Trap Platform19" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FadingPlatforms/Trap Platform19/Area2D" to="FadingPlatforms/Trap Platform19" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="FadingPlatforms/Trap Platform20/Area2D" to="FadingPlatforms/Trap Platform20" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FadingPlatforms/Trap Platform20/Area2D" to="FadingPlatforms/Trap Platform20" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="AllSaws/Saw/Sprite2D/Area2D" to="AllSaws/Saw" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AllSaws/Saw2/Sprite2D/Area2D" to="AllSaws/Saw2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AllSaws/Saw3/Sprite2D/Area2D" to="AllSaws/Saw3" method="_on_area_2d_body_entered"]

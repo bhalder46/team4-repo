@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 			target_position += shake_offset
 	
 	# Smoothly move the camera towards the target position
-	global_position = lerp(global_position, target_position, 0.1)
+	global_position = lerp(global_position, target_position, 1.2)
 
 # Call this method to trigger a short screenshake effect
 func screenshake() -> void:

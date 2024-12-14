@@ -58,7 +58,7 @@ var is_red_method_active: bool = false  # New flag for red method activation
 
 var max_health: float = 1500.0
 var current_health: float = max_health
-var damage_taken_per_hit: float = 17.0
+var damage_taken_per_hit: float = 16.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 var is_dying: bool = false
@@ -84,12 +84,16 @@ func setup_health_bar():
 	$healthRise.play()
 
 func fill_health_bar():
-	var duration = 4.0  # Duration of the fill animation in seconds
-	var increment = max_health / (duration * 200)  # Increment per frame (assuming 60 FPS)
+	var duration = 0.5  # Duration of the fill animation in seconds
+	var steps = 50  # Number of increments to fill the bar
+	var increment = max_health / steps
+	var wait_time = duration / steps  # Time between each increment
+	
 	while health_bar.value < current_health:
 		health_bar.value += increment
 		health_bar.value = min(health_bar.value, current_health)  # Avoid overshooting
-		await get_tree().process_frame  # Wait for the next frame
+		await get_tree().create_timer(wait_time).timeout
+
 
 @onready var bird_bullet = $BirdBullet
 @onready var bird = $Bird

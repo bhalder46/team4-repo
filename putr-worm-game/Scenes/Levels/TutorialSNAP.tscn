@@ -1,94 +1,94 @@
-[gd_scene load_steps=151 format=4 uid="uid://c3famfwu2clwq"]
+[gd_scene load_steps=151 format=4 uid="uid://bdf1nwytybior"]
 
-[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_hyh5m"]
-[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_to3lc"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_7yjpr"]
-[ext_resource type="Shader" path="res://Scripts/Tutorial2.gdshader" id="3_aoc27"]
-[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="4_xwaxg"]
-[ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="5_1xaan"]
-[ext_resource type="Script" path="res://Scripts/Clouds.gd" id="6_hd57x"]
-[ext_resource type="Texture2D" uid="uid://b1julc3aa105g" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/cloud.png" id="7_a7eqr"]
-[ext_resource type="Texture2D" uid="uid://dm332ry216lfi" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/mountain.png" id="8_uqavg"]
-[ext_resource type="Texture2D" uid="uid://fn8gog2l8ph1" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine1.png" id="9_vfl34"]
-[ext_resource type="Texture2D" uid="uid://v17y2ql72hfy" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine2.png" id="10_8qnvm"]
-[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="11_divkn"]
-[ext_resource type="Texture2D" uid="uid://dm3j61rjv1em4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_2.png" id="12_cwd3u"]
-[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="12_po582"]
-[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="13_p8gfh"]
-[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="14_sg7vl"]
-[ext_resource type="Texture2D" uid="uid://hg1hi3y1bjv1" path="res://Art/2D Metroidvania Bio Sci-fi Tileset 16x16 by mtk/2D Metroidvania Bio Sci-fi Tileset 16x16 by mtk/2D Metroidvania Sci-fi Tileset 16x16 by mtk.png" id="15_bkfwr"]
-[ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="15_l04kn"]
-[ext_resource type="Texture2D" uid="uid://cjo3dnbyltfac" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_3.png" id="15_rofvq"]
-[ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="16_iv2sf"]
-[ext_resource type="Texture2D" uid="uid://dubdl35wvyg1u" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_2.png" id="16_klfco"]
-[ext_resource type="Texture2D" uid="uid://dbet2dbbmn6vd" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_2.png" id="17_2yhom"]
-[ext_resource type="Texture2D" uid="uid://co4btihy8kd7i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_3.png" id="17_673va"]
-[ext_resource type="Texture2D" uid="uid://c4ffhcurgfa0m" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_1.png" id="18_c57o3"]
-[ext_resource type="Texture2D" uid="uid://cdmiyjc3he3o5" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_1.png" id="19_1dvcm"]
-[ext_resource type="Texture2D" uid="uid://ckvf14cja8cvl" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_2.png" id="20_su1qk"]
-[ext_resource type="Texture2D" uid="uid://bolou401t785i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_7.png" id="21_5sgbi"]
-[ext_resource type="Texture2D" uid="uid://bmtvqux14k2ih" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_1.png" id="22_boabj"]
-[ext_resource type="Texture2D" uid="uid://di78jua68asd7" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine_dead/pine_dead_1.png" id="23_pyxnr"]
-[ext_resource type="Texture2D" uid="uid://ddvymhsusbme3" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_1.png" id="24_0yw45"]
-[ext_resource type="Texture2D" uid="uid://qy1td4qlrdts" path="res://Art/Sepated Camp Sprites/Little Gen 1.png" id="25_lp7ex"]
-[ext_resource type="Texture2D" uid="uid://bvjaxeiidj8qf" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_1.png" id="25_wgks4"]
-[ext_resource type="Texture2D" uid="uid://c2nostb20qgh0" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_8.png" id="26_6v08c"]
-[ext_resource type="Texture2D" uid="uid://cou2gaue6xd36" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_7.png" id="27_6kquu"]
-[ext_resource type="Texture2D" uid="uid://dupujbq72jsrq" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_4.png" id="28_4aomp"]
-[ext_resource type="Texture2D" uid="uid://187u2hh8twpt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine_dead/pine_dead_3.png" id="29_hh8oe"]
-[ext_resource type="Texture2D" uid="uid://disitwtc0je5p" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_3.png" id="29_pmvn5"]
-[ext_resource type="Texture2D" uid="uid://b2d6bebn2ifvg" path="res://Art/Sepated Camp Sprites/Sci Fi Tower 2.png" id="30_7ov0b"]
-[ext_resource type="Script" path="res://addons/dialogic/Core/DialogicGameHandler.gd" id="30_sapb3"]
-[ext_resource type="Script" path="res://Scripts/TutorialScript.gd" id="31_booxf"]
-[ext_resource type="Texture2D" uid="uid://denbsrk7k1823" path="res://Art/Sepated Camp Sprites/tent 5.png" id="31_h6yov"]
-[ext_resource type="Texture2D" uid="uid://dspc7aar2rapa" path="res://Art/Sepated Camp Sprites/Pod.png" id="32_g6x3p"]
-[ext_resource type="Script" path="res://Scripts/tutorialBird.gd" id="32_hnquk"]
-[ext_resource type="Script" path="res://Scripts/tutorialTarget1.gd" id="33_oe7ew"]
-[ext_resource type="Texture2D" uid="uid://d05xopbsxulpl" path="res://Art/Sepated Camp Sprites/Medium Crate 2.png" id="33_yjjf8"]
-[ext_resource type="Script" path="res://Scripts/tutorialTarget2.gd" id="34_8ifb8"]
-[ext_resource type="Texture2D" uid="uid://ci7hic4oolq8" path="res://Art/Sepated Camp Sprites/Medium Crate 1.png" id="34_j0dt0"]
-[ext_resource type="Texture2D" uid="uid://cu4v6ew3gw284" path="res://Art/Random Assets/636039264184061330.png" id="35_ko2t4"]
-[ext_resource type="Texture2D" uid="uid://b208548ob1cdr" path="res://Art/Sepated Camp Sprites/Little Crate 1.png" id="35_owayx"]
-[ext_resource type="Texture2D" uid="uid://cyut1b5iqj5dd" path="res://Art/Sepated Camp Sprites/Big Gen 1.png" id="36_fix4r"]
-[ext_resource type="Script" path="res://Scripts/EndTutorial.gd" id="36_sip40"]
-[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="37_11j3n"]
-[ext_resource type="Texture2D" uid="uid://d1qrrgnt3okp1" path="res://Art/Sepated Camp Sprites/Tent 4.png" id="37_5237o"]
-[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="38_6gacl"]
-[ext_resource type="Script" path="res://Scripts/shooter.gd" id="38_dba0u"]
-[ext_resource type="PackedScene" uid="uid://cbyxko8knvo8d" path="res://Scenes/mob_projectile.tscn" id="39_4u8ki"]
-[ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="39_8ei5j"]
-[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="40_tc0xr"]
-[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="41_magh3"]
-[ext_resource type="Script" path="res://Scripts/target.gd" id="42_ns4f0"]
-[ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="43_1xk0u"]
-[ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="44_76f1l"]
-[ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="45_ypq22"]
-[ext_resource type="Texture2D" uid="uid://bktnja6sx4mt6" path="res://Art/Sepated Camp Sprites/Sci Fi Tower 1.png" id="47_khl5y"]
-[ext_resource type="Texture2D" uid="uid://be2seyw1mprp5" path="res://Art/Sepated Camp Sprites/Tent 1.png" id="48_40aan"]
-[ext_resource type="Texture2D" uid="uid://brjh1u767o8bk" path="res://Art/Sepated Camp Sprites/Stove.png" id="49_2l2ay"]
-[ext_resource type="Shader" path="res://Scripts/Computer.gdshader" id="50_thrud"]
-[ext_resource type="Script" path="res://Scripts/darkness.gd" id="54_fec78"]
-[ext_resource type="Shader" path="res://Scripts/shadow.gdshader" id="62_1qht6"]
-[ext_resource type="PackedScene" uid="uid://b7vqgdn2dw0tn" path="res://Scenes/redBug.tscn" id="65_avvtj"]
-[ext_resource type="Script" path="res://Scripts/newTutorial.gd" id="65_srt4m"]
-[ext_resource type="Shader" path="res://Scripts/godrays.gdshader" id="72_wx6p7"]
-[ext_resource type="Texture2D" uid="uid://byq364u5oj51f" path="res://Art/Spider Sprite Sheet.png" id="73_wchyv"]
-[ext_resource type="Texture2D" uid="uid://dobhrnyyyumdt" path="res://Art/Wall_Mounted_Disco_Ball-ezgif.com-gif-to-sprite-converter.png" id="74_qecg2"]
-[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="75_y36vl"]
-[ext_resource type="Script" path="res://Scripts/disco.gd" id="76_mh1l2"]
-[ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="77_45nd4"]
-[ext_resource type="AudioStream" uid="uid://b0ppjqb14vh70" path="res://Audio/Music/Slave (Mr. Peeks' Mix).mp3" id="78_3h8qc"]
-[ext_resource type="Texture2D" uid="uid://2tt4jso8qeur" path="res://Art/pixel-art-red-party-cup-icon-png.png" id="78_736kl"]
-[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="80_s7cta"]
-[ext_resource type="Texture2D" uid="uid://c68xlh7daqafl" path="res://Art/32x32_Steampunk_Lamps-1.png.png" id="81_l7tdo"]
-[ext_resource type="Script" path="res://Scripts/pulse.gd" id="82_spbkv"]
+[ext_resource type="Script" path="res://Scripts/GameForest.gd" id="1_s2gvh"]
+[ext_resource type="PackedScene" uid="uid://baaw2e6cnt2ve" path="res://Scenes/player.tscn" id="2_5mhrj"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_afjxo"]
+[ext_resource type="PackedScene" uid="uid://b40hs61qb8he6" path="res://Scenes/Checkpoint.tscn" id="4_op60c"]
+[ext_resource type="Texture2D" uid="uid://cwvdkbqpm36pt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/sky.png" id="5_mxft0"]
+[ext_resource type="Script" path="res://Scripts/Clouds.gd" id="6_a313j"]
+[ext_resource type="Texture2D" uid="uid://b1julc3aa105g" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/cloud.png" id="7_gne0e"]
+[ext_resource type="Texture2D" uid="uid://dm332ry216lfi" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/mountain.png" id="8_rtl0m"]
+[ext_resource type="Texture2D" uid="uid://fn8gog2l8ph1" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine1.png" id="9_4vp0c"]
+[ext_resource type="Texture2D" uid="uid://v17y2ql72hfy" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Background/pine2.png" id="10_mpotm"]
+[ext_resource type="Texture2D" uid="uid://cin7nycyu4ay4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_1.png" id="11_cijft"]
+[ext_resource type="Texture2D" uid="uid://bmtvqux14k2ih" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_1.png" id="12_h7ak1"]
+[ext_resource type="Texture2D" uid="uid://cjo3dnbyltfac" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_3.png" id="13_x2wxl"]
+[ext_resource type="Texture2D" uid="uid://dubdl35wvyg1u" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_2.png" id="14_im0v1"]
+[ext_resource type="Texture2D" uid="uid://dbet2dbbmn6vd" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_2.png" id="15_j1l13"]
+[ext_resource type="Texture2D" uid="uid://disitwtc0je5p" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_3.png" id="16_l6ik4"]
+[ext_resource type="Texture2D" uid="uid://dm3j61rjv1em4" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_2.png" id="17_8rw4t"]
+[ext_resource type="Texture2D" uid="uid://di78jua68asd7" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine_dead/pine_dead_1.png" id="18_h0ojm"]
+[ext_resource type="Texture2D" uid="uid://c4ffhcurgfa0m" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_1.png" id="19_aih8e"]
+[ext_resource type="Shader" path="res://Scripts/game.gdshader" id="20_r7r3g"]
+[ext_resource type="Texture2D" uid="uid://co4btihy8kd7i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine/pine_3.png" id="21_cd1qh"]
+[ext_resource type="Texture2D" uid="uid://cdmiyjc3he3o5" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_1.png" id="22_ylnum"]
+[ext_resource type="Texture2D" uid="uid://ckvf14cja8cvl" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Upper_grass/upper_grass_2.png" id="23_54n28"]
+[ext_resource type="Texture2D" uid="uid://bolou401t785i" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/bush_7.png" id="24_si6e0"]
+[ext_resource type="Texture2D" uid="uid://ddvymhsusbme3" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_1.png" id="25_v62md"]
+[ext_resource type="Texture2D" uid="uid://bvjaxeiidj8qf" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_1.png" id="26_xxvsv"]
+[ext_resource type="Texture2D" uid="uid://c2nostb20qgh0" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/white/flower_white_8.png" id="27_qq2iu"]
+[ext_resource type="Texture2D" uid="uid://cou2gaue6xd36" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Flower/orange/flower_orange_7.png" id="28_u5ajl"]
+[ext_resource type="Texture2D" uid="uid://dupujbq72jsrq" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Rock/rock_4.png" id="29_8i6bc"]
+[ext_resource type="Shader" path="res://Scripts/godrays.gdshader" id="30_xwwoo"]
+[ext_resource type="Texture2D" uid="uid://187u2hh8twpt" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Pine_dead/pine_dead_3.png" id="31_thgd0"]
+[ext_resource type="Texture2D" uid="uid://bktnja6sx4mt6" path="res://Art/Sepated Camp Sprites/Sci Fi Tower 1.png" id="32_14hyv"]
+[ext_resource type="Texture2D" uid="uid://be2seyw1mprp5" path="res://Art/Sepated Camp Sprites/Tent 1.png" id="33_4k5u5"]
+[ext_resource type="Texture2D" uid="uid://b2d6bebn2ifvg" path="res://Art/Sepated Camp Sprites/Sci Fi Tower 2.png" id="34_5hh64"]
+[ext_resource type="Texture2D" uid="uid://denbsrk7k1823" path="res://Art/Sepated Camp Sprites/tent 5.png" id="35_odk1i"]
+[ext_resource type="Texture2D" uid="uid://dspc7aar2rapa" path="res://Art/Sepated Camp Sprites/Pod.png" id="36_qupcf"]
+[ext_resource type="Texture2D" uid="uid://qy1td4qlrdts" path="res://Art/Sepated Camp Sprites/Little Gen 1.png" id="37_isccx"]
+[ext_resource type="Texture2D" uid="uid://brjh1u767o8bk" path="res://Art/Sepated Camp Sprites/Stove.png" id="38_17omr"]
+[ext_resource type="Texture2D" uid="uid://d05xopbsxulpl" path="res://Art/Sepated Camp Sprites/Medium Crate 2.png" id="39_hsjy2"]
+[ext_resource type="Texture2D" uid="uid://ci7hic4oolq8" path="res://Art/Sepated Camp Sprites/Medium Crate 1.png" id="40_tqe0a"]
+[ext_resource type="Texture2D" uid="uid://b208548ob1cdr" path="res://Art/Sepated Camp Sprites/Little Crate 1.png" id="41_0u6pe"]
+[ext_resource type="Texture2D" uid="uid://cyut1b5iqj5dd" path="res://Art/Sepated Camp Sprites/Big Gen 1.png" id="42_fexa4"]
+[ext_resource type="Texture2D" uid="uid://d1qrrgnt3okp1" path="res://Art/Sepated Camp Sprites/Tent 4.png" id="43_6eypb"]
+[ext_resource type="Texture2D" uid="uid://dfu2s750x1ymh" path="res://Art/Tilemaps And Decor Sprites/Power-Station-Free-Tileset-Pixel-Art/1 Tiles/Tileset.png" id="44_1xdvl"]
+[ext_resource type="Texture2D" uid="uid://c7v21ntonddru" path="res://Art/Tilemaps And Decor Sprites/karsiori/TileMap/Tiles/Tilesheet - WOODS.png" id="45_y0ds2"]
+[ext_resource type="Texture2D" uid="uid://hg1hi3y1bjv1" path="res://Art/2D Metroidvania Bio Sci-fi Tileset 16x16 by mtk/2D Metroidvania Bio Sci-fi Tileset 16x16 by mtk/2D Metroidvania Sci-fi Tileset 16x16 by mtk.png" id="46_p6rlg"]
+[ext_resource type="AudioStream" uid="uid://dwl34gmmbfi21" path="res://Audio/Sounds/5 Min Forest ambience Meditation with relaxing Forest Sounds.mp3" id="47_v5cas"]
+[ext_resource type="AudioStream" uid="uid://chn16wc02sfrg" path="res://Audio/Music/Fez - Original Game Soundtrack - Beacon [HD].mp3" id="48_w5ber"]
+[ext_resource type="Script" path="res://addons/dialogic/Core/DialogicGameHandler.gd" id="49_fqlsa"]
+[ext_resource type="Script" path="res://Scripts/TutorialScript.gd" id="50_gk6qf"]
+[ext_resource type="Script" path="res://Scripts/tutorialBird.gd" id="51_xx8rh"]
+[ext_resource type="Script" path="res://Scripts/tutorialTarget1.gd" id="52_ahq1v"]
+[ext_resource type="Script" path="res://Scripts/tutorialTarget2.gd" id="53_7x1vj"]
+[ext_resource type="Texture2D" uid="uid://cu4v6ew3gw284" path="res://Art/Random Assets/636039264184061330.png" id="54_8nni4"]
+[ext_resource type="Script" path="res://Scripts/EndTutorial.gd" id="55_aww3c"]
+[ext_resource type="Script" path="res://Scripts/newTutorial.gd" id="56_dp7nm"]
+[ext_resource type="Shader" path="res://Scripts/Computer.gdshader" id="57_4mon3"]
+[ext_resource type="Texture2D" uid="uid://bsb6hpwkpbaam" path="res://Art/Random Assets/ibm5150.png" id="58_rhdsp"]
+[ext_resource type="Script" path="res://Scripts/NextLevel.gd" id="59_ttiqv"]
+[ext_resource type="Shader" path="res://Scripts/transition.gdshader" id="60_tw5qy"]
+[ext_resource type="PackedScene" uid="uid://bwq0s7fd4b8pi" path="res://Scenes/health_ui.tscn" id="61_u8jla"]
+[ext_resource type="Texture2D" uid="uid://bmyw4w5gtb85" path="res://Art/V1.00/9fe1fcbc3216026.png" id="62_8llqy"]
+[ext_resource type="Script" path="res://Scripts/target.gd" id="63_45kp6"]
+[ext_resource type="AudioStream" uid="uid://dh5d4dibjxuw1" path="res://Audio/Sounds/BugDeath.wav" id="64_yd4gf"]
+[ext_resource type="AudioStream" uid="uid://d34km2q53aw25" path="res://Audio/Sounds/PlayerDeath.wav" id="65_gveaw"]
+[ext_resource type="AudioStream" uid="uid://bhk8endao7btx" path="res://Audio/Sounds/PlayerHit.wav" id="66_pwler"]
+[ext_resource type="PackedScene" uid="uid://q3eaxaytmb4a" path="res://Scenes/Levels/pause_menu.tscn" id="67_hdyb5"]
+[ext_resource type="Script" path="res://Scripts/darkness.gd" id="68_pyum6"]
+[ext_resource type="Shader" path="res://Scripts/Tutorial2.gdshader" id="69_1fhbr"]
+[ext_resource type="Shader" path="res://Scripts/shadow.gdshader" id="70_177w1"]
+[ext_resource type="Script" path="res://Scripts/shooter.gd" id="71_fvo1q"]
+[ext_resource type="PackedScene" uid="uid://cbyxko8knvo8d" path="res://Scenes/mob_projectile.tscn" id="72_kkoj2"]
+[ext_resource type="PackedScene" uid="uid://b7vqgdn2dw0tn" path="res://Scenes/redBug.tscn" id="73_gy4ji"]
+[ext_resource type="Texture2D" uid="uid://byq364u5oj51f" path="res://Art/Spider Sprite Sheet.png" id="74_4aqta"]
+[ext_resource type="Texture2D" uid="uid://dobhrnyyyumdt" path="res://Art/Wall_Mounted_Disco_Ball-ezgif.com-gif-to-sprite-converter.png" id="75_5mtf6"]
+[ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="76_nof7n"]
+[ext_resource type="Script" path="res://Scripts/disco.gd" id="77_o2g5v"]
+[ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="78_1x4i8"]
+[ext_resource type="AudioStream" uid="uid://b0ppjqb14vh70" path="res://Audio/Music/Slave (Mr. Peeks' Mix).mp3" id="79_3r5di"]
+[ext_resource type="Texture2D" uid="uid://2tt4jso8qeur" path="res://Art/pixel-art-red-party-cup-icon-png.png" id="80_sb2kr"]
+[ext_resource type="Texture2D" uid="uid://c68xlh7daqafl" path="res://Art/32x32_Steampunk_Lamps-1.png.png" id="81_vhle7"]
+[ext_resource type="Script" path="res://Scripts/pulse.gd" id="82_wbxvt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cve3"]
-shader = ExtResource("11_divkn")
+shader = ExtResource("20_r7r3g")
 shader_parameter/lod = 0.684
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13dxb"]
-shader = ExtResource("72_wx6p7")
+shader = ExtResource("30_xwwoo")
 shader_parameter/angle = -0.3
 shader_parameter/position = -0.2
 shader_parameter/spread = 0.5
@@ -108,7 +108,7 @@ shader_parameter/seed = 5.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2cu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvakw"]
-texture = ExtResource("13_p8gfh")
+texture = ExtResource("44_1xdvl")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -363,7 +363,7 @@ texture = ExtResource("13_p8gfh")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10i33"]
-texture = ExtResource("14_sg7vl")
+texture = ExtResource("45_y0ds2")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1046,7 +1046,7 @@ texture = ExtResource("14_sg7vl")
 31:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s1op"]
-texture = ExtResource("15_bkfwr")
+texture = ExtResource("46_p6rlg")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1822,7 +1822,7 @@ radius = 9.73728
 radius = 9.73728
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6scka"]
-shader = ExtResource("50_thrud")
+shader = ExtResource("57_4mon3")
 shader_parameter/size_effect = 1.0
 shader_parameter/speed = 0.8
 shader_parameter/highlight_strength = 0.5
@@ -1835,7 +1835,7 @@ shader_parameter/texture_size = Vector2(16, 16)
 size = Vector2(49, 59)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4sjjg"]
-shader = ExtResource("39_8ei5j")
+shader = ExtResource("60_tw5qy")
 shader_parameter/shake_power = 0.03
 shader_parameter/shake_block_size = 30.5
 shader_parameter/fade = 0.0
@@ -1921,12 +1921,12 @@ _data = {
 size = Vector2(634.745, 491)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vdt36"]
-shader = ExtResource("3_aoc27")
+shader = ExtResource("69_1fhbr")
 shader_parameter/outerRadius = 5.0
 shader_parameter/MainAlpha = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m6hsa"]
-shader = ExtResource("62_1qht6")
+shader = ExtResource("70_177w1")
 shader_parameter/power = 1.1
 shader_parameter/up = 0.1
 shader_parameter/down = 0.1
@@ -1939,131 +1939,131 @@ shader_parameter/right_clip = 0.0
 shader_parameter/fade_factor = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnal1"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(96, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcicr"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(128, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxymr"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(160, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_noa66"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(192, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wx6d"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(224, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptd3m"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(256, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkr3j"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y85u6"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2x00f"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cq77c"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kkgh"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(0, 352, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_to35o"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(0, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ph3a"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(32, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dakpy"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(64, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4chp"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(96, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i02um"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(128, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw7wi"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(160, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v7g2"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(192, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_foi1t"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(224, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lxjk"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(256, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avdly"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(0, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2cf2"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(32, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbe46"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(64, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu5n8"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(96, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vsqy"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(128, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbkar"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(0, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2a5k"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(32, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44ufh"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(96, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfqi1"]
-atlas = ExtResource("74_qecg2")
+atlas = ExtResource("75_5mtf6")
 region = Rect2(0, 0, 36, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_my6c0"]
-atlas = ExtResource("74_qecg2")
+atlas = ExtResource("75_5mtf6")
 region = Rect2(36, 0, 36, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12luj"]
-atlas = ExtResource("74_qecg2")
+atlas = ExtResource("75_5mtf6")
 region = Rect2(72, 0, 36, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ae3kd"]
-atlas = ExtResource("74_qecg2")
+atlas = ExtResource("75_5mtf6")
 region = Rect2(108, 0, 36, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_llbmx"]
@@ -2478,7 +2478,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xykla"]
-atlas = ExtResource("73_wchyv")
+atlas = ExtResource("74_4aqta")
 region = Rect2(160, 224, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cc8rr"]
@@ -2904,7 +2904,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdkyr"]
-atlas = ExtResource("81_l7tdo")
+atlas = ExtResource("81_vhle7")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nqwyl"]
@@ -2919,9 +2919,9 @@ animations = [{
 }]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_hyh5m")
+script = ExtResource("1_s2gvh")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_to3lc")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_5mhrj")]
 y_sort_enabled = true
 position = Vector2(-297.976, -32.3633)
 
@@ -2929,10 +2929,10 @@ position = Vector2(-297.976, -32.3633)
 offset = Vector2(0, -50)
 zoom = Vector2(4.5, 4.5)
 drag_vertical_offset = 0.01
-script = ExtResource("3_7yjpr")
+script = ExtResource("3_afjxo")
 player = NodePath("..")
 
-[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+[node name="Checkpoint" parent="." groups=["Checkpoints"] instance=ExtResource("4_op60c")]
 visible = false
 position = Vector2(-291, -45)
 
@@ -2945,28 +2945,28 @@ motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
-position = Vector2(0, -75.935)
+position = Vector2(0, -75)
 scale = Vector2(2.21, 2.21)
-texture = ExtResource("5_1xaan")
+texture = ExtResource("5_mxft0")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/5"]
-position = Vector2(-341, -867.36)
-texture = ExtResource("5_1xaan")
+position = Vector2(-341, -867)
+texture = ExtResource("5_mxft0")
 
 [node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -194)
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1376, 0)
-script = ExtResource("6_hd57x")
+script = ExtResource("6_a313j")
 cloud_texture_width = 660
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
-position = Vector2(0, -36.255)
-texture = ExtResource("7_a7eqr")
+position = Vector2(0, -36)
+texture = ExtResource("7_gne0e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/4"]
-position = Vector2(688, -36.255)
-texture = ExtResource("7_a7eqr")
+position = Vector2(688, -36)
+texture = ExtResource("7_gne0e")
 
 [node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -150.64)
@@ -2974,11 +2974,11 @@ motion_scale = Vector2(0.12, 1)
 motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
-texture = ExtResource("8_uqavg")
+texture = ExtResource("8_rtl0m")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/3"]
 position = Vector2(688, 0)
-texture = ExtResource("8_uqavg")
+texture = ExtResource("8_rtl0m")
 
 [node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-22, -101.64)
@@ -2986,12 +2986,12 @@ motion_scale = Vector2(0.11, 1)
 motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
-position = Vector2(-7, 22.64)
-texture = ExtResource("9_vfl34")
+position = Vector2(-7, 22)
+texture = ExtResource("9_4vp0c")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/2"]
 position = Vector2(679.605, 17)
-texture = ExtResource("9_vfl34")
+texture = ExtResource("9_4vp0c")
 
 [node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-27, -150.64)
@@ -2999,12 +2999,12 @@ motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1376, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
-position = Vector2(-11, 100.5)
-texture = ExtResource("10_8qnvm")
+position = Vector2(-11, 100)
+texture = ExtResource("10_mpotm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/1"]
-position = Vector2(677, 100.5)
-texture = ExtResource("10_8qnvm")
+position = Vector2(677, 100)
+texture = ExtResource("10_mpotm")
 
 [node name="Node" type="Node" parent="ParallaxBackground"]
 
@@ -3019,174 +3019,174 @@ motion_scale = Vector2(0.7, 1)
 motion_offset = Vector2(129.01, 0)
 
 [node name="Pine1" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(-126, -241)
+position = Vector2(-127, -183)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine2" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(-286, -218.883)
+position = Vector2(-285, -222)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine3" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(45, -125.883)
+position = Vector2(48, -126)
 scale = Vector2(2.44, 2.44)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine4" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(323, -205)
+position = Vector2(325, -205)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine5" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(-413, -247.883)
+position = Vector2(-413, -247)
 scale = Vector2(4.52887, 4.73423)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Bush1" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-256.26, -53.5067)
+position = Vector2(-258, -53)
 scale = Vector2(1.80561, 1.80561)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 flip_h = true
 
 [node name="Bush3" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-208.26, -52.5067)
+position = Vector2(-202, -53)
 scale = Vector2(1.69314, 1.69314)
-texture = ExtResource("15_rofvq")
+texture = ExtResource("13_x2wxl")
 flip_h = true
 
 [node name="Bush2" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-322.26, -54.5067)
+position = Vector2(-321, -55)
 scale = Vector2(2.01064, 2.01064)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 flip_h = true
 
 [node name="Rock2" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-176.26, -71.5067)
+position = Vector2(-166, -72)
 scale = Vector2(2.84238, 2.84238)
-texture = ExtResource("17_2yhom")
+texture = ExtResource("15_j1l13")
 flip_h = true
 
 [node name="Bush4" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-120.26, -59.5067)
+position = Vector2(-125, -58)
 scale = Vector2(2.45561, 2.45561)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 flip_h = true
 
 [node name="Rock4" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-375.26, -76.5067)
+position = Vector2(-369, -77)
 scale = Vector2(3.53083, 3.53083)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 flip_h = true
 
 [node name="Bush5" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-52.2601, -45.5067)
+position = Vector2(-52, -45)
 scale = Vector2(1.81767, 1.53767)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 flip_h = true
 
 [node name="Bush6" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(117.74, -29.5067)
+position = Vector2(122, -31)
 scale = Vector2(1.80561, 1.80561)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Bush7" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(165.74, -28.5067)
+position = Vector2(172, -28)
 scale = Vector2(1.69314, 1.69314)
-texture = ExtResource("15_rofvq")
+texture = ExtResource("13_x2wxl")
 
 [node name="Bush8" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(51.7399, -30.5067)
+position = Vector2(52, -31)
 scale = Vector2(2.01064, 2.01064)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock3" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(197.74, -47.5067)
+position = Vector2(200, -46)
 scale = Vector2(2.84238, 2.84238)
-texture = ExtResource("17_2yhom")
+texture = ExtResource("15_j1l13")
 
 [node name="Bush9" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(253.74, -35.5067)
+position = Vector2(255, -38)
 scale = Vector2(2.45561, 2.45561)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock5" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(-1.26007, -52.5067)
+position = Vector2(8.34465e-07, -48)
 scale = Vector2(3.53083, 3.53083)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 
 [node name="Bush10" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(321.74, -21.5067)
+position = Vector2(323, -22)
 scale = Vector2(1.81767, 1.53767)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Bush11" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(590.74, -37.5067)
+position = Vector2(591, -35)
 scale = Vector2(1.80561, 1.80561)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Bush12" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(638.74, -36.5067)
+position = Vector2(634, -37)
 scale = Vector2(1.69314, 1.69314)
-texture = ExtResource("15_rofvq")
+texture = ExtResource("13_x2wxl")
 
 [node name="Bush13" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(524.74, -38.5067)
+position = Vector2(525, -38)
 scale = Vector2(2.01064, 2.01064)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock6" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(670.74, -55.5067)
+position = Vector2(669, -54)
 scale = Vector2(2.84238, 2.84238)
-texture = ExtResource("17_2yhom")
+texture = ExtResource("15_j1l13")
 
 [node name="Bush14" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(726.74, -43.5067)
+position = Vector2(729, -44)
 scale = Vector2(2.45561, 2.45561)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock7" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(471.74, -60.5067)
+position = Vector2(470, -58)
 scale = Vector2(3.53083, 3.53083)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 
 [node name="Bush15" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(794.74, -29.5067)
+position = Vector2(794, -31)
 scale = Vector2(1.81767, 1.53767)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Bush16" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(603, -40)
+position = Vector2(601, -40)
 scale = Vector2(2.01064, 2.01064)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Pine6" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(161, -212)
+position = Vector2(156, -212)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine7" type="Sprite2D" parent="Background Decor/-3"]
-position = Vector2(528, -205)
+position = Vector2(532, -205)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine8" type="Sprite2D" parent="Background Decor/-3"]
 position = Vector2(436, -205)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Bush17" type="Sprite2D" parent="Background Decor/-3"]
 z_index = -5
-position = Vector2(-422.929, -26.1987)
+position = Vector2(-423, -23)
 scale = Vector2(5.23238, 5.23238)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 flip_h = true
 
 [node name="-2" type="ParallaxLayer" parent="Background Decor"]
@@ -3199,47 +3199,47 @@ motion_offset = Vector2(87.345, 0)
 [node name="Pine1" type="Sprite2D" parent="Background Decor/-2"]
 position = Vector2(-257, -185)
 scale = Vector2(2.85473, 2.85473)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine2" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(-282, 232)
+position = Vector2(-283, 239)
 scale = Vector2(1.92553, 1.92553)
-texture = ExtResource("12_cwd3u")
+texture = ExtResource("17_8rw4t")
 
 [node name="PineDead1" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(-87, -86)
-texture = ExtResource("23_pyxnr")
+position = Vector2(-87, -83)
+texture = ExtResource("18_h0ojm")
 
 [node name="Pine3" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(-52, -175)
+position = Vector2(-56, -176)
 scale = Vector2(2.85473, 2.85473)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine4" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(101, -232)
+position = Vector2(105, -232)
 scale = Vector2(3.04363, 3.04363)
-texture = ExtResource("12_cwd3u")
+texture = ExtResource("17_8rw4t")
 
 [node name="Pine5" type="Sprite2D" parent="Background Decor/-2"]
 position = Vector2(248, -165)
 scale = Vector2(2.85473, 2.85473)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="PineDead2" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(472.745, -141)
+position = Vector2(472, -141)
 scale = Vector2(2.42324, 2.42324)
-texture = ExtResource("23_pyxnr")
+texture = ExtResource("18_h0ojm")
 
 [node name="Pine6" type="Sprite2D" parent="Background Decor/-2"]
-position = Vector2(412.745, -165)
+position = Vector2(417, -165)
 scale = Vector2(3.04363, 3.04363)
-texture = ExtResource("12_cwd3u")
+texture = ExtResource("17_8rw4t")
 
 [node name="Pine7" type="Sprite2D" parent="Background Decor/-2"]
 visible = false
 position = Vector2(167, -159)
 scale = Vector2(2.85473, 2.85473)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="-1" type="ParallaxLayer" parent="Background Decor"]
 modulate = Color(0.43134, 0.43134, 0.43134, 1)
@@ -3251,82 +3251,82 @@ motion_offset = Vector2(42.415, 0)
 [node name="Bush1" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-865, -84)
 scale = Vector2(1.80561, 1.80561)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Bush3" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-822, -83)
 scale = Vector2(1.69314, 1.69314)
-texture = ExtResource("15_rofvq")
+texture = ExtResource("13_x2wxl")
 
 [node name="Bush2" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-931, -85)
 scale = Vector2(2.01064, 2.01064)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock2" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-785, -102)
 scale = Vector2(2.84238, 2.84238)
-texture = ExtResource("17_2yhom")
+texture = ExtResource("15_j1l13")
 
 [node name="Bush4" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-729, -90)
 scale = Vector2(2.45561, 2.45561)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock4" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-984, -107)
 scale = Vector2(3.53083, 3.53083)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 
 [node name="Bush5" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-661, -76)
 scale = Vector2(1.81767, 1.53767)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock1" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-691, -85)
 scale = Vector2(2.04792, 2.04792)
-texture = ExtResource("18_c57o3")
+texture = ExtResource("19_aih8e")
 
 [node name="Bush6" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-251, -47)
 scale = Vector2(1.80561, 1.80561)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Bush7" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-172, -51)
 scale = Vector2(1.69314, 1.69314)
-texture = ExtResource("15_rofvq")
+texture = ExtResource("13_x2wxl")
 
 [node name="Bush8" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-291.26, -49)
 scale = Vector2(2.01064, 2.01064)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock3" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-145.26, -66)
 scale = Vector2(2.84238, 2.84238)
-texture = ExtResource("17_2yhom")
+texture = ExtResource("15_j1l13")
 
 [node name="Bush9" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-89.2601, -54)
 scale = Vector2(2.45561, 2.45561)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock5" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-344.26, -71)
 scale = Vector2(3.53083, 3.53083)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 
 [node name="Bush10" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-21.2601, -40)
 scale = Vector2(1.81767, 1.53767)
-texture = ExtResource("16_klfco")
+texture = ExtResource("14_im0v1")
 
 [node name="Rock6" type="Sprite2D" parent="Background Decor/-1"]
 position = Vector2(-51.2602, -49)
 scale = Vector2(2.04792, 2.04792)
-texture = ExtResource("18_c57o3")
+texture = ExtResource("19_aih8e")
 
 [node name="World blur" type="Sprite2D" parent="Background Decor/-1"]
 z_index = -5
@@ -3334,16 +3334,17 @@ material = SubResource("ShaderMaterial_0cve3")
 position = Vector2(-18, -229)
 rotation = -3.14159
 scale = Vector2(27.1745, -4.36114)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine2" type="Sprite2D" parent="Background Decor/-1"]
 z_index = -5
 position = Vector2(-705, -274)
 scale = Vector2(3.82897, 3.82897)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Foreground Decor" type="ParallaxBackground" parent="."]
 layer = 5
+visible = false
 
 [node name="0" type="ParallaxLayer" parent="Foreground Decor"]
 z_index = -2365
@@ -3351,82 +3352,82 @@ z_index = -2365
 [node name="Pine1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-433, -238)
 scale = Vector2(1.3875, 1.39286)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine3" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-387, -232)
-texture = ExtResource("17_673va")
+texture = ExtResource("21_cd1qh")
 
 [node name="Rock1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-367, -184)
 scale = Vector2(0.520833, 0.53125)
-texture = ExtResource("18_c57o3")
+texture = ExtResource("19_aih8e")
 
 [node name="UpperGrass1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-226.665, -30.9655)
-texture = ExtResource("19_1dvcm")
+texture = ExtResource("22_ylnum")
 
 [node name="UpperGrass2" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-163.21, -31.088)
-texture = ExtResource("20_su1qk")
+texture = ExtResource("23_54n28")
 
 [node name="Bush7" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(-345, -175)
-texture = ExtResource("21_5sgbi")
+texture = ExtResource("24_si6e0")
 
 [node name="Bush2" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(238, -192)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Pine2" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(31, -232)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Pine4" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(149, -297)
 scale = Vector2(2.4498, 2.4498)
-texture = ExtResource("17_673va")
+texture = ExtResource("21_cd1qh")
 
 [node name="PineDead1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(342, -216)
-texture = ExtResource("23_pyxnr")
+texture = ExtResource("18_h0ojm")
 
 [node name="FlowerOrange1" type="Sprite2D" parent="Foreground Decor/0"]
 z_index = -190
 position = Vector2(294, -192)
-texture = ExtResource("24_0yw45")
+texture = ExtResource("25_v62md")
 
 [node name="FlowerWhite1" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(67, -190)
-texture = ExtResource("25_wgks4")
+texture = ExtResource("26_xxvsv")
 
 [node name="FlowerWhite8" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(177, -176)
-texture = ExtResource("26_6v08c")
+texture = ExtResource("27_qq2iu")
 
 [node name="FlowerOrange7" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(119, -157)
-texture = ExtResource("27_6kquu")
+texture = ExtResource("28_u5ajl")
 
 [node name="Rock4" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(194, -31)
-texture = ExtResource("28_4aomp")
+texture = ExtResource("29_8i6bc")
 
 [node name="Rock3" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(6, -31)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 
 [node name="Rock5" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(272, -31)
-texture = ExtResource("28_4aomp")
+texture = ExtResource("29_8i6bc")
 
 [node name="UpperGrass3" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(357.8, 49.36)
-texture = ExtResource("20_su1qk")
+texture = ExtResource("23_54n28")
 
 [node name="UpperGrass4" type="Sprite2D" parent="Foreground Decor/0"]
 position = Vector2(447, 49.36)
-texture = ExtResource("19_1dvcm")
+texture = ExtResource("22_ylnum")
 
 [node name="ColorRect5" type="ColorRect" parent="Foreground Decor/0"]
 z_index = 26
@@ -3446,13 +3447,13 @@ motion_offset = Vector2(-42.78, 0)
 [node name="Pine3" type="Sprite2D" parent="Foreground Decor/1"]
 position = Vector2(-516, -286)
 scale = Vector2(5.59026, 5.59026)
-texture = ExtResource("17_673va")
+texture = ExtResource("21_cd1qh")
 
 [node name="PineDead3" type="Sprite2D" parent="Foreground Decor/1"]
 visible = false
 position = Vector2(-48, -174)
 scale = Vector2(4.94951, 4.94951)
-texture = ExtResource("29_hh8oe")
+texture = ExtResource("31_thgd0")
 
 [node name="2" type="ParallaxLayer" parent="Foreground Decor"]
 modulate = Color(0.281187, 0.281187, 0.281187, 1)
@@ -3464,29 +3465,29 @@ motion_offset = Vector2(-86.485, 0)
 material = SubResource("ShaderMaterial_8sm4i")
 position = Vector2(-460, 16)
 scale = Vector2(3.54464, 3.68888)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Rock1" type="Sprite2D" parent="Foreground Decor/2"]
 position = Vector2(-552, 17)
 scale = Vector2(3.68363, 3.68363)
-texture = ExtResource("18_c57o3")
+texture = ExtResource("19_aih8e")
 
 [node name="Rock3" type="Sprite2D" parent="Foreground Decor/2"]
 material = SubResource("ShaderMaterial_f2cu6")
 position = Vector2(-477, 6.99999)
 scale = Vector2(5.26549, 5.80092)
-texture = ExtResource("29_pmvn5")
+texture = ExtResource("16_l6ik4")
 
 [node name="Bush2" type="Sprite2D" parent="Foreground Decor/2"]
 position = Vector2(-436, 77)
 scale = Vector2(3.54464, 3.68888)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="Bush3" type="Sprite2D" parent="Foreground Decor/2"]
 material = SubResource("ShaderMaterial_8sm4i")
 position = Vector2(-460, 16)
 scale = Vector2(3.54464, 3.68888)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="3" type="ParallaxLayer" parent="Foreground Decor"]
 modulate = Color(0.154876, 0.154876, 0.154876, 1)
@@ -3498,7 +3499,7 @@ motion_offset = Vector2(-130.51, 0)
 [node name="Bush3" type="Sprite2D" parent="Foreground Decor/3"]
 position = Vector2(-568, 109)
 scale = Vector2(3.54464, 3.68888)
-texture = ExtResource("22_boabj")
+texture = ExtResource("12_h7ak1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -5
@@ -3507,105 +3508,122 @@ follow_viewport_enabled = true
 [node name="World blur" type="Sprite2D" parent="CanvasLayer"]
 z_index = -5
 material = SubResource("ShaderMaterial_0cve3")
-position = Vector2(180, -185.714)
+position = Vector2(180, -185)
 scale = Vector2(27.5232, 2.4426)
-texture = ExtResource("12_po582")
+texture = ExtResource("11_cijft")
 
 [node name="Camp Decort" type="Node" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-364, -193)
 scale = Vector2(0.916393, 0.916393)
-texture = ExtResource("47_khl5y")
+texture = ExtResource("32_14hyv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-271, -42)
 scale = Vector2(2.15712, 2.15712)
-texture = ExtResource("48_40aan")
+texture = ExtResource("33_4k5u5")
 flip_h = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(738, -165)
 rotation = -1.5708
 scale = Vector2(1.49498, 1.49498)
-texture = ExtResource("47_khl5y")
+texture = ExtResource("32_14hyv")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(784, -220)
 scale = Vector2(1.459, 1.459)
-texture = ExtResource("47_khl5y")
+texture = ExtResource("32_14hyv")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(745, -222)
 scale = Vector2(2.6214, 2.6214)
-texture = ExtResource("30_7ov0b")
+texture = ExtResource("34_5hh64")
 flip_h = true
 
 [node name="Sprite2D7" type="Sprite2D" parent="Camp Decort"]
+visible = false
 z_index = -1165
 position = Vector2(682, -64)
 scale = Vector2(2.6214, 2.6214)
-texture = ExtResource("31_h6yov")
+texture = ExtResource("35_odk1i")
 flip_h = true
 
 [node name="Sprite2D8" type="Sprite2D" parent="Camp Decort"]
+visible = false
 modulate = Color(0.581033, 0.581033, 0.581033, 1)
 z_index = -1165
 position = Vector2(1212, -199)
 scale = Vector2(1.44301, 1.44301)
-texture = ExtResource("32_g6x3p")
+texture = ExtResource("36_qupcf")
 flip_h = true
 
 [node name="Sprite2D9" type="Sprite2D" parent="Camp Decort"]
+visible = false
 modulate = Color(0.581033, 0.581033, 0.581033, 1)
 z_index = -1165
 position = Vector2(617, -27)
 scale = Vector2(2.10769, 2.10769)
-texture = ExtResource("25_lp7ex")
+texture = ExtResource("37_isccx")
 flip_h = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-169, -22)
 scale = Vector2(1.59327, 1.59327)
-texture = ExtResource("49_2l2ay")
+texture = ExtResource("38_17omr")
 
 [node name="MediumCrate2" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-318, -21)
-texture = ExtResource("33_yjjf8")
+texture = ExtResource("39_hsjy2")
 
 [node name="MediumCrate1" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-320, -34)
-texture = ExtResource("34_j0dt0")
+texture = ExtResource("40_tqe0a")
 
 [node name="LittleCrate1" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-319, -47)
-texture = ExtResource("35_owayx")
+texture = ExtResource("41_0u6pe")
 
 [node name="BigGen1" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-268, -23)
-texture = ExtResource("36_fix4r")
+texture = ExtResource("42_fexa4")
 
 [node name="Tent4" type="Sprite2D" parent="Camp Decort"]
+visible = false
 z_index = 45
 position = Vector2(-156, -54)
 scale = Vector2(1.61602, 1.61602)
-texture = ExtResource("37_5237o")
+texture = ExtResource("43_6eypb")
 
 [node name="Pod" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(-138, -19)
-texture = ExtResource("32_g6x3p")
+texture = ExtResource("36_qupcf")
 
 [node name="Sprite2D10" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(714, -165)
 rotation = -1.5708
 scale = Vector2(1.49498, 1.49498)
-texture = ExtResource("47_khl5y")
+texture = ExtResource("32_14hyv")
 
 [node name="Sprite2D11" type="Sprite2D" parent="Camp Decort"]
+visible = false
 position = Vector2(838, -142)
 rotation = -1.5708
 scale = Vector2(2.6214, 2.6214)
-texture = ExtResource("30_7ov0b")
+texture = ExtResource("34_5hh64")
 flip_h = true
 
 [node name="Decor" type="Node2D" parent="."]
@@ -3657,12 +3675,12 @@ shape = SubResource("WorldBoundaryShape2D_u8mg8")
 disabled = true
 
 [node name="ForestAmbience" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_l04kn")
+stream = ExtResource("47_v5cas")
 volume_db = -1.0
 parameters/looping = true
 
 [node name="ForestMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_iv2sf")
+stream = ExtResource("48_w5ber")
 volume_db = -2.211
 max_distance = 49465.0
 parameters/looping = true
@@ -3671,16 +3689,16 @@ parameters/looping = true
 z_index = -4096
 position = Vector2(516, 226)
 scale = Vector2(3.4, 1.8)
-texture = ExtResource("10_8qnvm")
+texture = ExtResource("10_mpotm")
 flip_v = true
 
 [node name="DialogicGameHandler" type="Node" parent="."]
-script = ExtResource("30_sapb3")
+script = ExtResource("49_fqlsa")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler"]
 position = Vector2(-293, -58)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("31_booxf")
+script = ExtResource("50_gk6qf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler/Area2D"]
 position = Vector2(28.9043, 375.779)
@@ -3688,12 +3706,12 @@ scale = Vector2(109.911, 81.7655)
 shape = SubResource("CircleShape2D_ltlui")
 
 [node name="DialogicGameHandler2" type="Node" parent="."]
-script = ExtResource("30_sapb3")
+script = ExtResource("49_fqlsa")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler2"]
 position = Vector2(629, -56)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("32_hnquk")
+script = ExtResource("51_xx8rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler2/Area2D"]
 position = Vector2(28.9043, 375.779)
@@ -3701,12 +3719,12 @@ scale = Vector2(17.6225, 1228.81)
 shape = SubResource("CircleShape2D_ux1v4")
 
 [node name="DialogicGameHandler3" type="Node" parent="."]
-script = ExtResource("30_sapb3")
+script = ExtResource("49_fqlsa")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler3"]
 position = Vector2(-44, -711)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("33_oe7ew")
+script = ExtResource("52_ahq1v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler3/Area2D"]
 position = Vector2(5289.81, 18442.1)
@@ -3715,12 +3733,12 @@ shape = SubResource("CircleShape2D_ltlui")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(12, 11)
-script = ExtResource("34_8ifb8")
+script = ExtResource("53_7x1vj")
 
 [node name="Target" type="Sprite2D" parent="Node2D"]
 position = Vector2(255, -145)
 scale = Vector2(0.0935071, 0.0935071)
-texture = ExtResource("35_ko2t4")
+texture = ExtResource("54_8nni4")
 
 [node name="Area2D" type="Area2D" parent="Node2D/Target"]
 
@@ -3728,12 +3746,12 @@ texture = ExtResource("35_ko2t4")
 shape = SubResource("CircleShape2D_8liy6")
 
 [node name="DialogicGameHandler4" type="Node" parent="."]
-script = ExtResource("30_sapb3")
+script = ExtResource("49_fqlsa")
 
 [node name="Area2D" type="Area2D" parent="DialogicGameHandler4"]
 position = Vector2(1013, -279)
 scale = Vector2(-0.0054052, 0.194595)
-script = ExtResource("36_sip40")
+script = ExtResource("55_aww3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicGameHandler4/Area2D"]
 position = Vector2(5180.19, 693.749)
@@ -3744,7 +3762,7 @@ shape = SubResource("CircleShape2D_ltlui")
 z_index = 525
 position = Vector2(879, -15)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("65_srt4m")
+script = ExtResource("56_dp7nm")
 dialog_name_new = "TutorialShield"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
@@ -3756,7 +3774,7 @@ shape = SubResource("CircleShape2D_0q2h2")
 z_index = 525
 position = Vector2(1183, 11)
 scale = Vector2(0.0345948, 0.0345948)
-script = ExtResource("65_srt4m")
+script = ExtResource("56_dp7nm")
 dialog_name_new = "TutorialJump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
@@ -3770,8 +3788,8 @@ z_index = -1664
 material = SubResource("ShaderMaterial_6scka")
 position = Vector2(934, -137)
 scale = Vector2(1.53125, 1.78125)
-texture = ExtResource("37_11j3n")
-script = ExtResource("38_6gacl")
+texture = ExtResource("58_rhdsp")
+script = ExtResource("59_ttiqv")
 next_scene = "res://Scenes/Levels/levelOne.tscn"
 
 [node name="Area2D" type="Area2D" parent="Computer (Network Access)"]
@@ -3809,7 +3827,7 @@ scale = Vector2(48.7626, 27.5383)
 [node name="Heart" type="CanvasLayer" parent="."]
 layer = 127
 
-[node name="HealthUI" parent="Heart" instance=ExtResource("40_tc0xr")]
+[node name="HealthUI" parent="Heart" instance=ExtResource("61_u8jla")]
 z_index = 10
 offset_left = 50.0
 offset_top = 34.0
@@ -3826,17 +3844,17 @@ follow_viewport_enabled = true
 z_index = 100
 position = Vector2(481, -862)
 scale = Vector2(0.022236, 0.0211349)
-texture = ExtResource("41_magh3")
-script = ExtResource("42_ns4f0")
+texture = ExtResource("62_8llqy")
+script = ExtResource("63_45kp6")
 
 [node name="BugDeath" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("43_1xk0u")
+stream = ExtResource("64_yd4gf")
 
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("44_76f1l")
+stream = ExtResource("65_gveaw")
 
 [node name="PlayerHit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("45_ypq22")
+stream = ExtResource("66_pwler")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasLayer3/ColorRect")
@@ -3847,6 +3865,7 @@ autoplay = "tutorialIntro"
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = 128
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
 z_index = 4096
@@ -3897,12 +3916,14 @@ color = Color(0.0431373, 0.054902, 0.0666667, 1)
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 128
+visible = false
 
-[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("80_s7cta")]
+[node name="Pause_Menu" parent="PauseLayer" instance=ExtResource("67_hdyb5")]
 metadata/_edit_use_anchors_ = true
 
 [node name="darknessActive" type="Area2D" parent="."]
-script = ExtResource("54_fec78")
+visible = false
+script = ExtResource("68_pyum6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="darknessActive"]
 visible = false
@@ -3935,39 +3956,42 @@ color = Color(0, 0, 0, 1)
 
 [node name="Shooter" type="Marker2D" parent="."]
 position = Vector2(904, -78)
-script = ExtResource("38_dba0u")
-projectile_scene = ExtResource("39_4u8ki")
+script = ExtResource("71_fvo1q")
+projectile_scene = ExtResource("72_kkoj2")
 spawn_rate = 0.4
 
 [node name="Shooter2" type="Marker2D" parent="."]
 position = Vector2(1000, -78)
-script = ExtResource("38_dba0u")
-projectile_scene = ExtResource("39_4u8ki")
+script = ExtResource("71_fvo1q")
+projectile_scene = ExtResource("72_kkoj2")
 spawn_rate = 0.4
 
-[node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+[node name="Checkpoint3" parent="." groups=["Checkpoints"] instance=ExtResource("4_op60c")]
 position = Vector2(861, -28)
 
 [node name="Node2D2" type="Node2D" parent="."]
 
-[node name="redBug" parent="Node2D2" instance=ExtResource("65_avvtj")]
+[node name="redBug" parent="Node2D2" instance=ExtResource("73_gy4ji")]
 position = Vector2(169, -34)
 
-[node name="redBug2" parent="Node2D2" instance=ExtResource("65_avvtj")]
+[node name="redBug2" parent="Node2D2" instance=ExtResource("73_gy4ji")]
 position = Vector2(168, -62)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(985, -255)
 sprite_frames = SubResource("SpriteFrames_llbmx")
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1168, -224)
 sprite_frames = SubResource("SpriteFrames_5cfss")
 animation = &"new_animation"
 autoplay = "new_animation"
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1008.59, -219)
 rotation = -1.57079
 scale = Vector2(1.02321, 1.01328)
@@ -3976,12 +4000,14 @@ animation = &"new_animation_3"
 frame_progress = 0.0769477
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1248, -277)
 scale = Vector2(1.79992, 1.78244)
 sprite_frames = SubResource("SpriteFrames_cc8rr")
 autoplay = "default"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1247, -281)
 scale = Vector2(1.14223, 1.14223)
 sprite_frames = SubResource("SpriteFrames_lskjc")
@@ -3989,6 +4015,7 @@ animation = &"new_animation_1"
 autoplay = "new_animation_1"
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 1096
 position = Vector2(1056.12, -250.412)
 sprite_frames = SubResource("SpriteFrames_8b8y6")
@@ -3996,6 +4023,7 @@ animation = &"new_animation_4"
 autoplay = "new_animation_4"
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 4096
 position = Vector2(1056.27, -299.276)
 scale = Vector2(1.14983, 1.14983)
@@ -4017,122 +4045,133 @@ z_index = 4096
 position = Vector2(1056.2, -248.481)
 scale = Vector2(0.104581, 0.0645814)
 energy = 16.0
-texture = ExtResource("75_y36vl")
-script = ExtResource("76_mh1l2")
+texture = ExtResource("76_nof7n")
+script = ExtResource("77_o2g5v")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(1057, -291.774)
 rotation = -1.57079
 scale = Vector2(0.305137, 0.302174)
-texture = ExtResource("77_45nd4")
-script = ExtResource("76_mh1l2")
+texture = ExtResource("78_1x4i8")
+script = ExtResource("77_o2g5v")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1056.65, -256.819)
 rotation = -1.57079
 scale = Vector2(0.0253326, 0.0253326)
-stream = ExtResource("78_3h8qc")
+stream = ExtResource("79_3r5di")
 volume_db = 2.0
 autoplay = true
 max_distance = 100.0
 parameters/looping = true
 
 [node name="Pixel-art-red-party-cup-icon-png" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1116.17, -192.5)
 rotation = -1.309
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 
 [node name="Pixel-art-red-party-cup-icon-png2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1032.29, -241.272)
 rotation = -1.83259
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1067, -237.09)
 rotation = -3.14159
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png4" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1043.62, -204.33)
 rotation = -3.66519
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png5" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1018.51, -194)
 rotation = -4.45058
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png6" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1010.61, -194.526)
 rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png8" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1104.86, -199.566)
 rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png9" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1098.72, -199.566)
 rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png10" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1096.04, -194.526)
 rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png11" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1101.79, -194.526)
 rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
 [node name="Pixel-art-red-party-cup-icon-png12" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 position = Vector2(1108.01, -194.526)
 rotation = -6.28318
 scale = Vector2(0.0253326, 0.0253326)
-texture = ExtResource("78_736kl")
+texture = ExtResource("80_sb2kr")
 flip_v = true
 
-[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+[node name="Checkpoint2" parent="." groups=["Checkpoints"] instance=ExtResource("4_op60c")]
 visible = false
 position = Vector2(139, -33)
 
-[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+[node name="Checkpoint4" parent="." groups=["Checkpoints"] instance=ExtResource("4_op60c")]
 visible = false
 position = Vector2(630, -36.0902)
 
-[node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("4_xwaxg")]
+[node name="Checkpoint5" parent="." groups=["Checkpoints"] instance=ExtResource("4_op60c")]
 visible = false
 position = Vector2(985, -134)
 
@@ -4141,7 +4180,7 @@ z_index = -75
 position = Vector2(1163.18, 6.57999)
 rotation = -0.523598
 scale = Vector2(1.14639, 1.14639)
-texture = ExtResource("47_khl5y")
+texture = ExtResource("32_14hyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SciFiTower1"]
 modulate = Color(0.501407, 0.501406, 0.501406, 1)
@@ -4156,8 +4195,8 @@ position = Vector2(-1.66742, -24.3337)
 scale = Vector2(0.0310275, 0.102977)
 color = Color(0.414734, 0.404975, 0, 1)
 energy = 5.0
-texture = ExtResource("77_45nd4")
-script = ExtResource("82_spbkv")
+texture = ExtResource("78_1x4i8")
+script = ExtResource("82_wbxvt")
 min_energy = 10.0
 max_energy = 20.0
 pulse_duration = 0.5
