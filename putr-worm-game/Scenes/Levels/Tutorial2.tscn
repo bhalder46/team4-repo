@@ -3824,7 +3824,7 @@ follow_viewport_enabled = true
 
 [node name="Target" type="Sprite2D" parent="CanvasLayer2"]
 z_index = 100
-position = Vector2(481, -862)
+position = Vector2(-189.713, -111.09)
 scale = Vector2(0.022236, 0.0211349)
 texture = ExtResource("41_magh3")
 script = ExtResource("42_ns4f0")

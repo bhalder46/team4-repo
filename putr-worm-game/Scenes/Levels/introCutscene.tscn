@@ -104,7 +104,7 @@ offset_left = -628.991
 offset_right = -276.991
 offset_bottom = 23.0
 scale = Vector2(3.5, 3.5)
-text = "Today, you are a hero."
+text = "Today, a hero."
 label_settings = SubResource("LabelSettings_a81a5")
 horizontal_alignment = 1
 

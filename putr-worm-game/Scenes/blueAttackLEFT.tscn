@@ -388,6 +388,8 @@ animations = [{
 }]
 
 [node name="blueAttack" type="RigidBody2D" groups=["bossAttack", "bug", "shieldBug"]]
+collision_layer = 2
+collision_mask = 2
 mass = 0.137
 physics_material_override = SubResource("PhysicsMaterial_foy04")
 gravity_scale = 0.856
