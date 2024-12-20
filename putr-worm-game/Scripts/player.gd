@@ -23,7 +23,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var health_ui: Control = $"../Heart/HealthUI"
 
 @export var double_jump_enabled: bool = false  # Toggle double jump
-var jump_count: int = 0  # Track the number of jumps
 
 @export var is_triple_shot: bool = false
 
@@ -68,7 +67,7 @@ func _ready() -> void:
 	animated_sprite.flip_h = true
 	flip_collision_shape()
 	$doubleUI.visible = false 
-	
+
 func _process(delta: float) -> void:
 	# Handle the initial red flash
 	if flashing:
@@ -169,7 +168,9 @@ func respawn() -> void:
 func update_checkpoint(new_checkpoint_position: Vector2) -> void:
 	checkpoint_position = new_checkpoint_position
 	print("Checkpoint updated to:", checkpoint_position)
-	
+
+var jump_count: int = 0  # Track the number of jumps
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_gun_rotation()
@@ -185,24 +186,25 @@ func _physics_process(delta: float) -> void:
 	if not is_on_ground:
 		coyote_timer -= delta  # Decrease coyote timer if in the air
 	else:
-		coyote_timer = coyote_time  # Reset coyote timer when touching the ground
+		coyote_timer = coyote_time  
+		jump_count = 0
 
 	# Handle jumping, considering the disable_movement variable
 	if Input.is_action_just_pressed("jump") and not disable_movement:
 		if is_on_ground:
 		# On ground, start the jump and reset the jump count
 			velocity.y = JUMP_VELOCITY
-			jump_count = 1  
-		elif coyote_timer > 0:
+			jump_count += 1
+		elif coyote_timer > 0 and not is_on_ground and jump_count == 0:
 		# If in the air but within the coyote time window, perform coyote jump
 			velocity.y = JUMP_VELOCITY
 			coyote_timer = 0  # Reset coyote timer after using it for the jump
-			jump_count = 1
+			jump_count += 1
 		elif double_jump_enabled and jump_count < 2:  # Second jump mid-air (after coyote jump or first jump)
 		# Double jump after the first jump or coyote jump
 			dubJump.play("doubleJump")
 			velocity.y = JUMP_VELOCITY + 50  # Adjust for double jump height
-			jump_count = 2  # Increment jump count after double jump
+			jump_count += 1  # Increment jump count after double jump
 
 
 	
