@@ -170,7 +170,7 @@ func update_checkpoint(new_checkpoint_position: Vector2) -> void:
 	print("Checkpoint updated to:", checkpoint_position)
 
 var jump_count: int = 0  # Track the number of jumps
-
+var dub_jump_amt = 50
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_gun_rotation()
@@ -205,7 +205,7 @@ func _physics_process(delta: float) -> void:
 		elif double_jump_enabled and jump_count == 1:  # Second jump mid-air (after coyote jump or first jump)
 		# Double jump after the first jump or coyote jump
 			dubJump.play("doubleJump")
-			velocity.y = JUMP_VELOCITY + 50  # Adjust for double jump height
+			velocity.y = JUMP_VELOCITY + dub_jump_amt  # Adjust for double jump height
 			jump_count += 1  # Increment jump count after double jump
 
 		elif coyote_timer > 0 and not is_on_ground and jump_count == 0 and double_jump_enabled:
@@ -217,7 +217,7 @@ func _physics_process(delta: float) -> void:
 		elif double_jump_enabled and jump_count < 1 and not is_on_ground:  # Second jump mid-air (after coyote jump or first jump)
 		# Double jump after the first jump or coyote jump
 			dubJump.play("doubleJump")
-			velocity.y = JUMP_VELOCITY + 50  # Adjust for double jump height
+			velocity.y = JUMP_VELOCITY + dub_jump_amt  # Adjust for double jump height
 			jump_count += 2  # Increment jump count after double jump
 
 

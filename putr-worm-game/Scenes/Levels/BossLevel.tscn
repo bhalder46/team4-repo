@@ -2246,7 +2246,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4n0pt"]
-size = Vector2(20.9396, 81.401)
+size = Vector2(22.4239, 81.2955)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_03p6b"]
 particle_flag_disable_z = true
@@ -2891,7 +2891,7 @@ gravity = 0.0
 script = ExtResource("25_c853q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2585.9, -23741.1)
+position = Vector2(-1841.55, -23794)
 scale = Vector2(1002.98, 1002.98)
 shape = SubResource("RectangleShape2D_4n0pt")
 
