@@ -195,16 +195,30 @@ func _physics_process(delta: float) -> void:
 		# On ground, start the jump and reset the jump count
 			velocity.y = JUMP_VELOCITY
 			jump_count += 1
-		elif coyote_timer > 0 and not is_on_ground and jump_count == 0:
+			
+		elif coyote_timer > 0 and not is_on_ground and jump_count == 0 and not double_jump_enabled:
 		# If in the air but within the coyote time window, perform coyote jump
 			velocity.y = JUMP_VELOCITY
 			coyote_timer = 0  # Reset coyote timer after using it for the jump
 			jump_count += 1
-		elif double_jump_enabled and jump_count < 2:  # Second jump mid-air (after coyote jump or first jump)
+			
+		elif double_jump_enabled and jump_count == 1:  # Second jump mid-air (after coyote jump or first jump)
 		# Double jump after the first jump or coyote jump
 			dubJump.play("doubleJump")
 			velocity.y = JUMP_VELOCITY + 50  # Adjust for double jump height
 			jump_count += 1  # Increment jump count after double jump
+
+		elif coyote_timer > 0 and not is_on_ground and jump_count == 0 and double_jump_enabled:
+		# If in the air but within the coyote time window, perform coyote jump
+			velocity.y = JUMP_VELOCITY
+			coyote_timer = 0  # Reset coyote timer after using it for the jump
+			jump_count += 1
+
+		elif double_jump_enabled and jump_count < 1 and not is_on_ground:  # Second jump mid-air (after coyote jump or first jump)
+		# Double jump after the first jump or coyote jump
+			dubJump.play("doubleJump")
+			velocity.y = JUMP_VELOCITY + 50  # Adjust for double jump height
+			jump_count += 2  # Increment jump count after double jump
 
 
 	
