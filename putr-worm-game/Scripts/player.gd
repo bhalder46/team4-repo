@@ -180,7 +180,7 @@ func _physics_process(delta: float) -> void:
 
 	# Apply gravity if the player is not on the floor
 	if not is_on_ground:
-		velocity.y += gravity * delta
+		velocity.y += (gravity - 20) * delta
 
 	# Update coyote timer
 	if not is_on_ground:
