@@ -5534,7 +5534,7 @@ gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 gravity = 0.0
 script = ExtResource("34_y2iur")
-slow_gravity = 35.0
+slow_gravity = 55.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2585.9, -5772.46)
@@ -5982,7 +5982,7 @@ scale = Vector2(0.488643, 0.488643)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("20_57shk")]
 y_sort_enabled = true
-position = Vector2(257.757, -117.589)
+position = Vector2(254.938, -133.713)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 offset = Vector2(0, -50)

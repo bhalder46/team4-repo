@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kjopk3xx0xbb"
+path="res://.godot/imported/The Natitan Academy (From Exographer).mp3-1702496a1f72fe76aa2ede006aa05630.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/The Natitan Academy (From Exographer).mp3"
+dest_files=["res://.godot/imported/The Natitan Academy (From Exographer).mp3-1702496a1f72fe76aa2ede006aa05630.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

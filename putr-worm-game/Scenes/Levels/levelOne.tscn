@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/triangle_light.gd" id="12_d8e3n"]
 [ext_resource type="Texture2D" uid="uid://ca7ed3npyb86h" path="res://Art/Tilemaps And Decor Sprites/forest_envi_package/Sprites/Decor/Bush/Texturelabs_LensFX_213thumbnail.jpg" id="13_yh75m"]
 [ext_resource type="Script" path="res://Scripts/point_light_2d.gd" id="14_i2oao"]
-[ext_resource type="AudioStream" uid="uid://di8baxh3jfhlh" path="res://Audio/Music/puzzle.mp3" id="16_sms56"]
+[ext_resource type="AudioStream" uid="uid://kjopk3xx0xbb" path="res://Audio/Music/The Natitan Academy (From Exographer).mp3" id="16_ohydy"]
 [ext_resource type="Script" path="res://Scripts/TrapPlatform.gd" id="17_8d8r8"]
 [ext_resource type="Texture2D" uid="uid://b27gpygigh7uj" path="res://Art/Tilemaps And Decor Sprites/Cave-Tileset/Inverted Tile.png" id="18_l0w32"]
 [ext_resource type="PackedScene" uid="uid://dav28w3y1otv3" path="res://Scenes/Bird.tscn" id="19_s7e31"]
@@ -2253,7 +2253,7 @@ position = Vector2(-6.78294, 102)
 scale = Vector2(0.193798, 1)
 
 [node name="NetworkMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_sms56")
+stream = ExtResource("16_ohydy")
 volume_db = 0.6
 max_distance = 14275.0
 parameters/looping = true
@@ -3258,6 +3258,7 @@ gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 gravity = 0.0
 script = ExtResource("27_fqcxj")
+slow_gravity = 60.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2585.9, -26987.1)
