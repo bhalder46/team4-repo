@@ -185,6 +185,7 @@ func take_damage():
 func die():
 	if is_dying:
 		return
+	is_dying = true
 	is_attacking = false
 	is_retreating = false
 	if bug_death:
