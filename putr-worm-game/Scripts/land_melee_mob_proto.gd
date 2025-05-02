@@ -119,11 +119,21 @@ func perform_retreat():
 	velocity.x = retreat_speed * retreat_direction
 	animated_sprite.play("walk")
 	
+	# If retreating right and hit a wall, stop retreating
+	if retreat_direction == 1 and $RayCast_right.is_colliding():
+		print("Retreat interrupted by wall on the right")
+		is_retreating = false
+		velocity.x = 0
+		animated_sprite.play("idle")
+		can_attack = true
+		return
+	
 	# Check if we've retreated far enough
 	var distance_retreated = abs(global_position.x - retreat_start_position.x)
 	if distance_retreated >= retreat_distance or should_change_direction():
 		is_retreating = false
 		can_attack = true  # Allow attacking again after retreat
+
 	
 func perform_attack():
 	if not is_attacking and not is_retreating:
