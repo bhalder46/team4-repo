@@ -19,7 +19,7 @@ var player_in_attack_range: bool = false
 
 # New variables for retreat control
 var retreat_start_position: Vector2
-var retreat_distance: float = 70.0  # How far to retreat in pixels
+var retreat_distance: float = 80.0  # How far to retreat in pixels
 var health: int = 2  # Number of hits required to trigger die
 
 func _ready():
@@ -128,11 +128,21 @@ func perform_retreat():
 		can_attack = true
 		return
 	
+	# If retreating left and hit a wall, stop retreating
+	if retreat_direction == -1 and $RayCast_left.is_colliding():
+		print("Retreat interrupted by wall on the left")
+		is_retreating = false
+		velocity.x = 0
+		animated_sprite.play("idle")
+		can_attack = true
+		return
+	
 	# Check if we've retreated far enough
 	var distance_retreated = abs(global_position.x - retreat_start_position.x)
 	if distance_retreated >= retreat_distance or should_change_direction():
 		is_retreating = false
 		can_attack = true  # Allow attacking again after retreat
+
 
 	
 func perform_attack():

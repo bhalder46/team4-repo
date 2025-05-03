@@ -13,6 +13,12 @@ var current_color: LightColors = LightColors.BLUE
 @onready var point_light: PointLight2D = $PointLight2D
 @onready var color_sprite: Sprite2D = $Sprite2D  # Reference to the Sprite2D node
 
+@onready var chirp = $switch_chirp
+@onready var shield_on = $shield_on
+@onready var shield_off = $shield_off
+@onready var gun_pulse = $pulse
+@onready var boost = $boost_on
+
 # Cooldown timer for buffswitch
 var buffswitch_cooldown: float = 0.0
 var buffswitch_delay: float = 0.7  # 1 second delay
@@ -38,6 +44,8 @@ func _ready():
 		var gun = player.get_node("Gun")  # Adjust path as needed
 		if gun and gun.material and gun.material is ShaderMaterial:
 			gun.material.set_shader_parameter("mode", 0)
+			
+	
 
 func _process(delta: float):
 	# Flip the sprite based on the player's movement direction
@@ -59,6 +67,7 @@ func _process(delta: float):
 
 	# Check for buffswitch input and ensure cooldown has passed
 	if Input.is_action_just_pressed("buffswitch") and buffswitch_cooldown <= 0:
+		$switch_chirp.play()
 		_change_light_color()
 		buffswitch_cooldown = buffswitch_delay
 
@@ -77,6 +86,7 @@ func _change_light_color():
 			# Turn on shield and set gun shader mode to 0
 			if player:
 				var shield = player.get_node("Shield")  # Adjust the path if needed
+				$shield_on.play()
 				if shield and shield.has_method("toggle_shield"):
 					shield.toggle_shield()
 					
@@ -102,6 +112,7 @@ func _change_light_color():
 			if player:
 				var shield = player.get_node("Shield")  # Adjust the path if needed
 				if shield and shield.has_method("toggle_off"):
+					$shield_off.play()
 					shield.toggle_off()
 					
 				var speed_boost_vfx = player.get_node("SpeedBoostVFX")  # Adjust the path if needed
@@ -112,6 +123,7 @@ func _change_light_color():
 				var gun = player.get_node("Gun")  # Adjust path as needed
 				if gun and gun.material and gun.material is ShaderMaterial:
 					gun.material.set_shader_parameter("mode", 1)
+					start_pulse_loop()
 
 		LightColors.YELLOW:
 			no_color_active = false
@@ -127,11 +139,36 @@ func _change_light_color():
 				var speed_boost_vfx = player.get_node("SpeedBoostVFX")  # Adjust the path if needed
 				if speed_boost_vfx:
 					speed_boost_vfx.emitting = true
-
+					$boost_on.play()
+					
+					
 				# Set gun shader mode to 0
 				var gun = player.get_node("Gun")  # Adjust path as needed
 				if gun and gun.material and gun.material is ShaderMaterial:
 					gun.material.set_shader_parameter("mode", 0)
+					stop_pulse_loop()
+
+					
+
+
+var pulse_loop_running := false
+
+func start_pulse_loop():
+	if pulse_loop_running:
+		return  # Prevent multiple loops
+	pulse_loop_running = true
+	_play_pulse_loop()
+	
+func _play_pulse_loop() -> void:
+	await get_tree().create_timer(0.1).timeout  # Optional startup delay
+	while pulse_loop_running:
+		$pulse.play()
+		await get_tree().create_timer(1.7).timeout
+
+func stop_pulse_loop():
+	pulse_loop_running = false
+
+
 
 			
 

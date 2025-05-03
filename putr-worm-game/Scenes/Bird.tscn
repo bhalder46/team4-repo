@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dav28w3y1otv3"]
+[gd_scene load_steps=14 format=3 uid="uid://dav28w3y1otv3"]
 
 [ext_resource type="Texture2D" uid="uid://bvirkapx04hph" path="res://Art/MiniBird_by_LapizWCG/MiniBird/MiniBird [Metal]/MiniBird [Metal].png" id="1_mgrmo"]
 [ext_resource type="Script" path="res://Scripts/bird_drone.gd" id="2_4a7yg"]
 [ext_resource type="Texture2D" uid="uid://dbnvfl2rxadb7" path="res://Art/Random Assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_wlys5"]
 [ext_resource type="Texture2D" uid="uid://c5yvxg8v7ilqs" path="res://Art/New Piskel-1.png(4).png" id="4_hcw7j"]
+[ext_resource type="AudioStream" uid="uid://cpkkw670isiqi" path="res://Audio/Sounds/bird_chirp.mp3" id="5_lcuj2"]
+[ext_resource type="AudioStream" uid="uid://drw36uofeiqco" path="res://Audio/Sounds/mus_sfx_rainbowbeam_1.wav" id="6_4l0cs"]
+[ext_resource type="AudioStream" uid="uid://dpm2iwlk8taaf" path="res://Audio/Sounds/gear_pulsefr.mp3" id="7_c1usa"]
+[ext_resource type="AudioStream" uid="uid://dxwgtsgeakwid" path="res://Audio/Sounds/speedboostup.mp3" id="8_w684u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtct7"]
 atlas = ExtResource("1_mgrmo")
@@ -62,3 +66,24 @@ texture = ExtResource("3_wlys5")
 position = Vector2(19.134, -46.2406)
 scale = Vector2(0.682589, 0.682589)
 texture = ExtResource("4_hcw7j")
+
+[node name="switch_chirp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lcuj2")
+volume_db = -7.0
+
+[node name="shield_on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4l0cs")
+volume_db = -11.0
+
+[node name="shield_off" type="AudioStreamPlayer2D" parent="."]
+volume_db = -11.0
+pitch_scale = 0.6
+
+[node name="pulse" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_c1usa")
+volume_db = -1.0
+
+[node name="boost_on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_w684u")
+volume_db = -10.0
+pitch_scale = 0.75
