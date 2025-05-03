@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://baaw2e6cnt2ve"]
+[gd_scene load_steps=121 format=3 uid="uid://baaw2e6cnt2ve"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bjqqb"]
 [ext_resource type="PackedScene" uid="uid://pk23w756ofr7" path="res://Scenes/bullet.tscn" id="2_uoog2"]
@@ -19,7 +19,9 @@
 [ext_resource type="Script" path="res://Scripts/shield.gd" id="16_osfvu"]
 [ext_resource type="Texture2D" uid="uid://d24vfqvghntcp" path="res://Art/left_arrow_sticker_by_s_a_r_c_ddmch16-fullview.png" id="17_qr2rg"]
 [ext_resource type="Texture2D" uid="uid://dadcb13xnpafj" path="res://Art/ShieldUI/ShieldAnimation.png" id="18_p5qvs"]
+[ext_resource type="AudioStream" uid="uid://cdi1ydvu0kc18" path="res://Audio/Sounds/shield_hit.mp3" id="18_ymoav"]
 [ext_resource type="Texture2D" uid="uid://c5jl0vq8alxoj" path="res://Art/Tilemaps And Decor Sprites/Pixel Adventure 1/Free/Main Characters/Desappearing (96x96).png" id="19_66sip"]
+[ext_resource type="AudioStream" uid="uid://drw36uofeiqco" path="res://Audio/Sounds/mus_sfx_rainbowbeam_1.wav" id="19_bisco"]
 [ext_resource type="Texture2D" uid="uid://xbdvxbl2v6e0" path="res://Art/FX046_01.png" id="20_5bu5q"]
 [ext_resource type="Texture2D" uid="uid://dk4woppfwcsea" path="res://Art/FX046_02.png" id="21_gmhlc"]
 [ext_resource type="Texture2D" uid="uid://bgopp842qrrwp" path="res://Art/FX046_03.png" id="22_2me86"]
@@ -842,6 +844,18 @@ one_shot = true
 [node name="ShieldTimer" type="Timer" parent="Shield"]
 wait_time = 2.5
 one_shot = true
+
+[node name="shield_hit" type="AudioStreamPlayer2D" parent="Shield"]
+stream = ExtResource("18_ymoav")
+
+[node name="shield_on" type="AudioStreamPlayer2D" parent="Shield"]
+stream = ExtResource("19_bisco")
+volume_db = -11.0
+
+[node name="shield_off" type="AudioStreamPlayer2D" parent="Shield"]
+stream = ExtResource("19_bisco")
+volume_db = -11.0
+pitch_scale = 0.6
 
 [node name="Area2D" type="Area2D" parent="." groups=["Player", "players"]]
 

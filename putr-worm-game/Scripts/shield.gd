@@ -7,6 +7,10 @@ extends AnimatedSprite2D  # Ensure this script extends AnimatedSprite2D
 @onready var shieldUI = get_parent().get_node("shieldUI")
 @onready var shield_anim: AnimationPlayer = get_parent().get_node("shieldAnim")
 
+@onready var shield_hit = $shield_hit
+@onready var shield_on = $shield_on
+@onready var shield_off = $shield_off
+
 var hit_count: int = 0
 # Duration of the spawn animation
 var spawn_animation_duration: float = 0.5 # Adjust this based on your animation length
@@ -50,6 +54,12 @@ func _on_spawn_animation_finished() -> void:
 var time_since_last_bullet: float = 0.0
 var bullet_check_active: bool = false
 
+func play_shield_hit():
+	var random_pitch = randf_range(0.5, 1.5)
+	$shield_hit.pitch_scale = random_pitch
+	$shield_hit.play()
+
+
 func _on_Area2D_entered(area: Area2D) -> void:
 	if is_disabled or shield_active:  # Skip if disabled or shield is active
 		return
@@ -58,6 +68,7 @@ func _on_Area2D_entered(area: Area2D) -> void:
 		print_debug("Enemy bullet detected: ", area.name)
 		area.queue_free()  # Remove the bullet
 		hit_count += 1  # Increment hit counter
+		play_shield_hit()
 		print_debug("Hit count: ", hit_count)
 
 		# Reset the timer since a new bullet was detected
@@ -72,6 +83,7 @@ func _on_Area2D_entered(area: Area2D) -> void:
 
 			# Play die animation and disable monitoring
 			play("die")
+			$shield_off.play()
 			shieldUI.play("empty")
 			shield_anim.play("deathUI")
 			area.monitoring = false
@@ -126,6 +138,7 @@ func _on_shield_timer_timeout() -> void:
 
 	# Play spawn animation
 	play("spawn")
+	$shield_on.play()
 	print_debug("Shield reactivated after timeout.")
 	
 	# Start a timer to switch to idle animation after the spawn animation duration

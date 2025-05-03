@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://72dsdqdxfpn0"]
+[gd_scene load_steps=146 format=3 uid="uid://72dsdqdxfpn0"]
 
 [ext_resource type="Script" path="res://Scripts/boss_proto.gd" id="1_t15y1"]
 [ext_resource type="PackedScene" uid="uid://bxhylhjyua04d" path="res://Scenes/blueAttackRIGHT.tscn" id="2_e8ilq"]
@@ -49,6 +49,8 @@
 [ext_resource type="AudioStream" uid="uid://drw36uofeiqco" path="res://Audio/Sounds/mus_sfx_rainbowbeam_1.wav" id="46_ufoaj"]
 [ext_resource type="AudioStream" uid="uid://ciptpfaoa60a8" path="res://Audio/Sounds/mus_sfx_ahh.wav" id="47_hn08m"]
 [ext_resource type="AudioStream" uid="uid://br06jl2mk0si0" path="res://Audio/Sounds/snd_generator_start.wav" id="49_s1mgt"]
+[ext_resource type="AudioStream" uid="uid://bvx0k05053ygj" path="res://Audio/Sounds/snd_ceroba_last_hit.wav" id="50_dil1v"]
+[ext_resource type="AudioStream" uid="uid://b0wj4ghbby1pb" path="res://Audio/Sounds/snd_ceroba_staff_break.wav" id="51_vwb6h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmfef"]
 radius = 95.5702
@@ -1095,6 +1097,14 @@ max_distance = 1e+12
 stream = ExtResource("49_s1mgt")
 volume_db = -2.0
 max_distance = 1e+12
+
+[node name="bug_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("50_dil1v")
+volume_db = 1.0
+
+[node name="big_shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("51_vwb6h")
+volume_db = -7.0
 
 [connection signal="area_entered" from="hitBox" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="hitBox" to="." method="_on_area_2d_body_entered"]

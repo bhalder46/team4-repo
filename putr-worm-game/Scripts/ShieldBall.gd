@@ -10,6 +10,9 @@ const Player = preload("res://Scripts/player.gd")
 @onready var bounce1: AudioStreamPlayer2D = $bounce1
 @onready var bounce2: AudioStreamPlayer2D = $bounce2
 
+@onready var fall: AudioStreamPlayer2D = $fall
+@onready var spawn: AudioStreamPlayer2D = $spawn
+
 # Function to handle the ball's collision and bounces
 func _on_body_entered(body: Node2D) -> void:
 	bounce_count += 1
@@ -42,9 +45,15 @@ func _ready():
 	tween.tween_property(bug_sprite, "modulate", Color(1, 1, 1, 1), 1.0)  # Fade to fully opaque over 1 second
 	
 	shield_sprite.play("spawn")
+	$spawn.play()
 
 	# Await for 1.5 seconds before modifying gravity scale
-	await get_tree().create_timer(1.2).timeout  # Use create_timer to await the timeout
+	await get_tree().create_timer(1.2).timeout
+	
+	time_death()
+  # Use create_timer to await the timeout
+	
+	$fall.play()
 
 	gravity_scale = 0.856  # Set the gravity scale to the desired value after the delay
 
@@ -55,6 +64,13 @@ func _ready():
 		linear_velocity = Vector2(150, 0)  # Move right
 
 	shield_sprite.play("idle")
+
+func time_death() -> void:
+	await get_tree().create_timer(8.0).timeout
+	shield_sprite.play("die")
+	await get_tree().create_timer(1.0).timeout
+	queue_free()
+
 
 # Make the Bug spin as it bounces
 func _physics_process(delta: float) -> void:

@@ -25,6 +25,8 @@ extends RigidBody2D
 @onready var birdDeathSound = $birdDeathSound
 @onready var bossMusic = $bossMusic
 @onready var birdLight = $birdLight
+@onready var hit = $bug_hit
+@onready var red_shoot = $big_shot
 
 @onready var player = get_parent().get_node("Player")
 @onready var animated_sprite_head = $Head
@@ -33,6 +35,8 @@ extends RigidBody2D
 @onready var tv_area = animated_sprite_tv.get_node("tvCrit")
 
 @onready var health_bar = $BossBarCanvas/BossHealthBar
+@onready var anger = $BossBarCanvas/Sprite2D
+
 @onready var point_light = $PointLight2D  
 
 @onready var glitch_rect = $glitchRect 
@@ -42,6 +46,8 @@ extends RigidBody2D
 
 @onready var shield_sprite = $Shield  # Reference to the Shield AnimatedSprite2D
 @onready var shield_area = shield_sprite.get_node("AreaShield")
+
+
 
 # Variables for pulse logic
 var pulse_duration: float = 0.4  # Total pulse time (seconds)
@@ -65,6 +71,8 @@ var is_dying: bool = false
 
 
 func _ready():
+	health_bar.hide()
+	anger.hide()
 	shield_area.monitoring = true  
 	shield_area.monitorable = true
 	if not player:
@@ -77,6 +85,7 @@ func _ready():
 	intro()
 	
 func setup_health_bar():
+	anger.show()
 	health_bar.value = 0
 	health_bar.max_value = max_health
 	health_bar.show()
@@ -254,6 +263,7 @@ func shoot_at_player():
 func shoot_at_player_red():
 	if can_attack and player:
 		$shootball.play()
+		$big_shot.play()
 		animated_sprite_head.play("headShoot")
 		can_attack = false
 
@@ -290,7 +300,8 @@ func take_damage():
 		
 	if is_dying:
 		return
-		
+	
+	$bug_hit.play()
 	current_health -= damage_taken_per_hit
 	health_bar.value = current_health
 	

@@ -30,6 +30,8 @@ var knockback_force: float = 150.0
 var is_heavy: bool = true
 var player_in_attack_area: bool = false  # Track if player is in attack area
 
+@onready var hit = $bug_hit
+
 func _ready():
 	if not player:
 		print("Player not found")
@@ -155,7 +157,7 @@ func _on_attack_area_body_exited(body):
 		can_attack = false
 
 func take_damage(amount: float, knockback_direction: Vector2 = Vector2.ZERO):
-
+	$bug_hit.play()
    	 
 	current_health -= amount
 	health_bar.value = current_health
@@ -184,6 +186,7 @@ func _on_area_entered(area):
 		print("area entered")
 
 func die():
+	$Area2D.monitoring = false
    	 
 	if bug_death:
 		bug_death.play()

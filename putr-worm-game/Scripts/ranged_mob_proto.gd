@@ -24,6 +24,8 @@ var gravity: float = 980.0
 var is_hurt: bool = false
 var hurt_animation_time: float = 0.2
 
+@onready var hit = $bug_hit
+
 func _ready():
 	base_y = position.y
 	initial_position = global_position
@@ -115,7 +117,8 @@ func shoot_at_player():
 func take_damage():
 	if is_dying:
 		return
-		
+	
+	$bug_hit.play()
 	# Visual feedback - red flash
 	animated_sprite.modulate = Color(1, 0.3, 0.3)  # Red tint
 	await get_tree().create_timer(hurt_animation_time).timeout

@@ -22,6 +22,8 @@ var retreat_start_position: Vector2
 var retreat_distance: float = 80.0  # How far to retreat in pixels
 var health: int = 2  # Number of hits required to trigger die
 
+@onready var hit = $bug_hit
+
 func _ready():
 	if not player:
 		print("Player not found")
@@ -193,6 +195,7 @@ func _on_area_entered(area):
 var is_dying = false 
 
 func take_damage():
+	$bug_hit.play()
 	
 	animated_sprite.modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(.2).timeout
@@ -203,8 +206,10 @@ func take_damage():
 		die()
 
 func die():
+	$Area2D.monitoring = false
 	if is_dying:
 		return
+		
 	is_dying = true
 	is_attacking = false
 	is_retreating = false

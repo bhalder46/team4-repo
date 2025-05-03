@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://84pg1842asef"]
+[gd_scene load_steps=61 format=3 uid="uid://84pg1842asef"]
 
 [ext_resource type="Script" path="res://Scripts/ShieldBall.gd" id="1_a8f5f"]
 [ext_resource type="Texture2D" uid="uid://m22vx2qp5puy" path="res://Art/Random Assets/spritesheetBugBoss-1.png.png" id="2_3j4go"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ddl5k8we8vjhh" path="res://Art/Pipoya VFX HEXShield/Pipoya VFX HEXShield/192x192/pipo-btleffect206h_192.png" id="4_ceq5p"]
 [ext_resource type="AudioStream" uid="uid://brwq0xfweymfq" path="res://Audio/Sounds/snd_decibatbouncewave1.wav" id="5_ao3y6"]
 [ext_resource type="AudioStream" uid="uid://cloergn06du5l" path="res://Audio/Sounds/snd_decibatbouncewave2.wav" id="6_yj1mh"]
+[ext_resource type="AudioStream" uid="uid://ctoay88h875a5" path="res://Audio/Sounds/snd_decibatfall.wav" id="7_g218i"]
+[ext_resource type="AudioStream" uid="uid://cecija3e3g8og" path="res://Audio/Sounds/snd_newhome_03_clover_radius.wav" id="8_ihlt2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_foy04"]
 friction = 0.0
@@ -431,5 +433,13 @@ volume_db = -10.0
 [node name="bounce2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yj1mh")
 volume_db = -10.0
+
+[node name="fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_g218i")
+volume_db = -10.0
+
+[node name="spawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ihlt2")
+volume_db = 1.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

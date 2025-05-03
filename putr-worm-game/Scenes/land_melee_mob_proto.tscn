@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://1cwobjep8l64"]
+[gd_scene load_steps=27 format=3 uid="uid://1cwobjep8l64"]
 
 [ext_resource type="Script" path="res://Scripts/land_melee_mob_proto.gd" id="1_p2jve"]
 [ext_resource type="Texture2D" uid="uid://cubqb6bfqiulk" path="res://Art/wheateater.png" id="2_ftkl5"]
+[ext_resource type="AudioStream" uid="uid://bvx0k05053ygj" path="res://Audio/Sounds/snd_ceroba_last_hit.wav" id="3_lj8pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50fqk"]
 atlas = ExtResource("2_ftkl5")
@@ -212,6 +213,10 @@ shape = SubResource("RectangleShape2D_ylxib")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_1n4ur")
+
+[node name="bug_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lj8pv")
+volume_db = -3.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
