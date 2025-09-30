@@ -233,8 +233,8 @@ shape = SubResource("RectangleShape2D_oy3ji")
 stream = ExtResource("5_1o7q2")
 volume_db = -3.0
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
 [connection signal="area_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
